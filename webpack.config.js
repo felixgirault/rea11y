@@ -9,9 +9,14 @@
  *
  */
 module.exports = {
+	entry: {
+		app: './index.js'
+	},
 	output: {
 		library: 'Reaccess',
-		libraryTarget: 'umd'
+		libraryTarget: 'umd',
+		path: './dist',
+		filename: 'reaccess.js'
 	},
 	externals: [{
 		'react': {
