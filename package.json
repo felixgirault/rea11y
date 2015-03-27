@@ -1,18 +1,20 @@
 {
   "name": "reaccess",
-  "description": "Accessible React components",
+  "description": "A set of accessible React components.",
   "author": "Félix Girault",
-  "version": "0.13.1",
+  "version": "0.1.0",
   "devDependencies": {
     "babel-core": "^4.7.16",
     "babel-eslint": "^2.0.2",
     "babel-loader": "^4.2.0",
     "babel-runtime": "^4.7.16",
     "classnames": "^1.2.0",
+    "css-loader": "^0.9.1",
     "eslint": "^0.17.1",
     "eslint-friendly-formatter": "^1.0.5",
-    "eslint-loader": "^0.7.0",
+    "extract-text-webpack-plugin": "^0.5.0",
     "react": "^0.13.1",
+    "style-loader": "^0.9.0",
     "webpack": "^1.7.3",
     "webpack-dev-server": "^1.7.0"
   },
