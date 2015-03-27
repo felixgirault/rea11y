@@ -17,7 +17,8 @@ export default class Progress extends React.Component {
 	 */
 	render() {
 		const progress = this.progress();
-		const text = this.props.text.replace(':progress', progress);
+		const text = this.text(progress);
+
 		const style = {
 			width: progress + '%'
 		};
@@ -51,6 +52,25 @@ export default class Progress extends React.Component {
 
 		return ((this.props.value * 100) / this.props.max);
 	}
+
+
+
+	/**
+	 *
+	 */
+	text(progress) {
+		if (!this.props.text) {
+			return '';
+		}
+
+		const text = this.props.text;
+
+		if (typeof text === 'function') {
+			return text(progress);
+		}
+
+		return text.replace(':progress', progress);
+	}
 }
 
 
@@ -61,7 +81,10 @@ export default class Progress extends React.Component {
 Progress.propTypes = {
 	max: React.PropTypes.number,
 	value: React.PropTypes.number,
-	text: React.PropTypes.string
+	text: React.PropTypes.oneOfType([
+		React.PropTypes.string,
+		React.PropTypes.func
+	])
 };
 
 
