@@ -17,3 +17,10 @@ export default {
 	Tab,
 	Tabs
 }
+
+
+
+/**
+ *
+ */
+require('./css/progress.css');

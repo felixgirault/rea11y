@@ -1,0 +1,27 @@
+/**
+ *	Progress bar.
+ */
+
+.reaccess-progress {
+	position: relative;
+	min-height: 1em;
+}
+
+.reaccess-progress-max {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.reaccess-progress-value {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.reaccess-progress-text {
+	text-align: center;
+}
