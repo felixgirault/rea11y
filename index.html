@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<html>
+	<head>
+		<meta charset="utf-8" />
+
+		<title>Reaccess</title>
+
+		<link rel="stylesheet" type="text/css" href="demo/reaccess.css" />
+		<link rel="stylesheet" type="text/css" href="demo/demo.css" />
+	</head>
+
+	<body>
+		<header class="page-header" role="banner">
+			<h1 id="page-title" class="page-title">Reaccess</h1>
+			<p>A set of accessible React components.</p>
+		</header>
+
+		<main class="page">
+			<section aria-labelledby="page-title">
+				<article class="pattern">
+					<header>
+						<h2 class="pattern-name">Progress bar</h2>
+					</header>
+
+					<p>A simple way to display progress information.</p>
+
+					<!-- TODO: connect the range input to the progress bar -->
+					<div id="progress" class="pattern-example"></div>
+				</article>
+
+				<article class="pattern">
+					<header>
+						<h2 class="pattern-name">Tabs</h2>
+					</header>
+
+					<p>You can tab your way to the tabs, and then navigate with :</p>
+
+					<ul>
+						<li>
+							<kbd title="Left arrow">←</kbd>
+							or <kbd title="Up arrow">↑</kbd>
+							to activate the previous tab
+						</li>
+						<li>
+							<kbd title="Right arrow">→</kbd>
+							or <kbd title="Down arrow">↓</kbd>
+							to activate the next tab
+						</li>
+					</ul>
+
+					<div id="tabs" class="pattern-example"></div>
+				</article>
+			</section>
+		</main>
+
+		<footer class="page-footer" role="contentinfo">
+			<p><a href="https://github.com/felixgirault/reaccess">Reaccess on Github</a></p>
+			<!-- TODO: add a link to the NPM package -->
+			<p>Colors from <a href="https://github.com/mrmrs/colors">mrmrs/colors</a></p>
+		</footer>
+
+		<script type="text/javascript" src="node_modules/react/dist/react-with-addons.min.js"></script>
+		<script type="text/javascript" src="node_modules/react/dist/JSXTransformer.js"></script>
+		<script type="text/javascript" src="demo/reaccess.js"></script>
+		<script type="text/jsx" src="demo/demo.js"></script>
+	</body>
+</html>

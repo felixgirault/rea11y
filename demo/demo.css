@@ -1,0 +1,168 @@
+/**
+ *	Reset.
+ */
+
+html {
+	margin: 0;
+	padding: 0;
+	background: #111;
+	color: #ddd;
+	line-height: 1.4em;
+	font-size: 100%;
+	font-family: sans-serif;
+}
+
+body {
+	margin: 1.4em auto;
+	padding: 0;
+	max-width: 35em;
+	background: #111;
+}
+
+ul {
+	margin: 0 0 1.4em 1.4em;
+	padding: 0;
+	list-style: none;
+}
+
+kbd {
+	display: inline-block;
+	margin: 0 0.7em;
+	padding: 0 0.7em;
+	background: #ddd;
+	color: #111;
+	font-weight: bold;
+}
+
+kbd:first-child {
+	margin-left: 0;
+}
+
+p {
+	margin: 0 0 1.4em 0;
+}
+
+a {
+	color: #3D9970;
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: underline;
+}
+
+button {
+	display: inline-block;
+	border: none;
+	padding: 0 0.7;
+	background: #3D9970;
+	color: #111;
+	line-height: inherit;
+	font-size: inherit;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+:focus {
+	outline: 1px dotted #DDDDDD;
+	outline-offset: 1px;
+}
+
+
+
+/**
+ *	Layout.
+ */
+
+.page-header {
+	margin: 5.6em 0 8.4em 0;
+	text-align: center;
+}
+
+.page-title {
+	margin: 0;
+	color: #3D9970;
+	text-align: center;
+	line-height: 1.4em;
+	font-size: 4em;
+}
+
+.pattern {
+	margin: 5.6em 0;
+}
+
+.pattern-name {
+	margin: 1.4em 0;
+	color: #3D9970;
+	line-height: 1.4em;
+	font-size: 2em;
+}
+
+.pattern-example {
+	margin-bottom: 1.4em;
+}
+
+.page-footer {
+	margin: 8.4em 0 5.6em 0;
+	text-align: center;
+}
+
+.page-footer p {
+	margin: 0;
+}
+
+
+
+/**
+ *	Progress bar.
+ */
+
+.reaccess-progress {
+	border: 1px solid #3D9970;
+	width: 100%;
+}
+
+.reaccess-progress-value {
+	background: #3D9970;
+}
+
+.reaccess-progress-text {
+	padding: 0.7em;
+}
+
+
+
+/**
+ *	Tabs.
+ */
+
+.reaccess-tab-link-list {
+	border: 1px solid #3D9970;
+	border-bottom: none;
+	background: #3D9970;
+}
+
+.reaccess-tab-link {
+	padding: 0.7em;
+}
+
+.reaccess-tab-link:hover {
+	background: #aaa;
+	color: #111;
+}
+
+.reaccess-tab-link-active {
+	background: #111;
+	color: #ddd;
+}
+
+.reaccess-tab {
+	display: none;
+	border: 1px solid #3D9970;
+	border-top: none;
+	padding: 0.7em;
+}
+
+.reaccess-tab-active {
+	display: inherit;
+}
