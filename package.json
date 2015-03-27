@@ -1,7 +1,22 @@
 {
   "name": "reaccess",
   "description": "A set of accessible React components.",
-  "author": "Félix Girault",
+  "keywords": [
+    "react",
+    "components",
+    "accessibility",
+    "a11y"
+  ],
+  "author": {
+    "name": "Félix Girault",
+    "email": "felix.girault@gmail.com",
+    "url": "https://github.com/felixgirault"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/felixgirault/reaccess.git"
+  },
+  "main": "dist/reaccess.js",
   "version": "0.1.0",
   "devDependencies": {
     "babel-core": "^4.7.16",
