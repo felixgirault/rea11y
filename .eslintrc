@@ -1,0 +1,14 @@
+{
+	"parser": "babel-eslint",
+	"rules": {
+		"brace-style": "stroustrup",
+		"camelcase": true,
+		"eol-last": true,
+		"eqeqeq": true,
+		"max-depth": 2,
+		"no-mixed-spaces-and-tabs": true,
+		"no-var": true,
+		"quotes": "single",
+		"strict": "global"
+	}
+}
