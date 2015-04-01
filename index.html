@@ -20,13 +20,54 @@
 			<section aria-labelledby="page-title">
 				<article class="pattern">
 					<header>
-						<h2 class="pattern-name">Progress bar</h2>
+						<h2 class="pattern-name">Progress bars</h2>
 					</header>
 
 					<p>A simple way to display progress information.</p>
 
-					<!-- TODO: connect the range input to the progress bar -->
-					<div id="progress" class="pattern-example"></div>
+					<div id="progress-horizontal" class="pattern-example"></div>
+					<div id="progress-vertical" class="pattern-example"></div>
+				</article>
+
+				<article class="pattern">
+					<header>
+						<h2 class="pattern-name">Sliders</h2>
+					</header>
+
+					<ul class="pattern-interactions">
+						<li class="pattern-interaction">
+							<span>Decrement the value</span>
+							<span>
+								<kbd title="Left arrow">←</kbd>
+								<kbd title="Down arrow">↓</kbd>
+							</span>
+						</li>
+						<li class="pattern-interaction">
+							<span>Increment the value</span>
+							<span>
+								<kbd title="Right arrow">→</kbd>
+								<kbd title="Up arrow">↑</kbd>
+							</span>
+						</li>
+						<li class="pattern-interaction">
+							<span>Decrement the value by a larger amount</span>
+							<span><kbd>Page down</kbd></span>
+						</li>
+						<li class="pattern-interaction">
+							<span>Increment the value by a larger amount</span>
+							<span><kbd>Page up</kbd></span>
+						</li>
+						<li class="pattern-interaction">
+							<span>Set the value to the minimum</span>
+							<span><kbd>Home</kbd></span>
+						</li>
+						<li class="pattern-interaction">
+							<span>Set the value to the maximum</span>
+							<span><kbd>End</kbd></span>
+						</li>
+					</ul>
+
+					<div id="slider" class="pattern-example"></div>
 				</article>
 
 				<article class="pattern">
@@ -34,18 +75,20 @@
 						<h2 class="pattern-name">Tabs</h2>
 					</header>
 
-					<p>You can tab your way to the tabs, and then navigate with :</p>
-
-					<ul>
-						<li>
-							<kbd title="Left arrow">←</kbd>
-							or <kbd title="Up arrow">↑</kbd>
-							to activate the previous tab
+					<ul class="pattern-interactions">
+						<li class="pattern-interaction">
+							<span>Activate the previous tab</span>
+							<span>
+								<kbd title="Left arrow">←</kbd>
+								<kbd title="Up arrow">↑</kbd>
+							</span>
 						</li>
-						<li>
-							<kbd title="Right arrow">→</kbd>
-							or <kbd title="Down arrow">↓</kbd>
-							to activate the next tab
+						<li class="pattern-interaction">
+							<span>Activate the next tab</span>
+							<span>
+								<kbd title="Right arrow">→</kbd>
+								<kbd title="Down arrow">↓</kbd>
+							</span>
 						</li>
 					</ul>
 
@@ -60,7 +103,7 @@
 			<p>Colors from <a href="https://github.com/mrmrs/colors">mrmrs/colors</a></p>
 		</footer>
 
-		<script type="text/javascript" src="node_modules/react/dist/react-with-addons.min.js"></script>
+		<script type="text/javascript" src="node_modules/react/dist/react-with-addons.js"></script>
 		<script type="text/javascript" src="node_modules/react/dist/JSXTransformer.js"></script>
 		<script type="text/javascript" src="demo/reaccess.js"></script>
 		<script type="text/jsx" src="demo/demo.js"></script>

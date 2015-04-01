@@ -19,18 +19,13 @@ body {
 	background: #111;
 }
 
-ul {
-	margin: 0 0 1.4em 1.4em;
-	padding: 0;
-	list-style: none;
-}
-
 kbd {
 	display: inline-block;
-	margin: 0 0.7em;
+	margin: 0;
 	padding: 0 0.7em;
 	background: #ddd;
 	color: #111;
+	line-height: 1.4em;
 	font-weight: bold;
 }
 
@@ -98,6 +93,36 @@ button {
 	font-size: 2em;
 }
 
+.pattern-interactions {
+	margin: 0;
+	padding: 0 0 1.4em 0;
+	list-style: none;
+	overflow-x: hidden;
+}
+
+.pattern-interaction:before {
+	float: left;
+    width: 0;
+    white-space: nowrap;
+    color: #aaa;
+    content:
+		'. . . . . . . . . . . . . . . . . . . . '
+		'. . . . . . . . . . . . . . . . . . . . '
+		'. . . . . . . . . . . . . . . . . . . . '
+		'. . . . . . . . . . . . . . . . . . . . '
+}
+
+.pattern-interaction span:first-child {
+	padding-right: 0.7em;
+	background: #111;
+}
+
+.pattern-interaction span + span {
+	float: right;
+	padding-left: 0.7em;
+	background: #111;
+}
+
 .pattern-example {
 	margin-bottom: 1.4em;
 }
@@ -114,12 +139,19 @@ button {
 
 
 /**
- *	Progress bar.
+ *	Progress bars.
  */
 
 .reaccess-progress {
 	border: 1px solid #3D9970;
+}
+
+.reaccess-progress-horizontal {
 	width: 100%;
+}
+
+.reaccess-progress-vertical {
+	height: 5.6em;
 }
 
 .reaccess-progress-value {
@@ -128,6 +160,71 @@ button {
 
 .reaccess-progress-text {
 	padding: 0.7em;
+}
+
+
+
+/**
+ *	Sliders.
+ */
+
+.reaccess-slider {
+	box-sizing: border-box;
+	border: 1px solid #3D9970;
+}
+
+.reaccess-slider-horizontal {
+	padding: 0 0.7em;
+	width: 100%;
+	height: 1.4em;
+}
+
+.reaccess-slider-vertical {
+	padding: 0.7em 0;
+	height: 5.6em;
+}
+
+.reaccess-slider-max {
+	position: relative;
+	height: 1.4em;
+}
+
+.reaccess-slider-handle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: 0;
+}
+
+.reaccess-slider-horizontal .reaccess-slider-handle {
+	bottom: 0;
+}
+
+.reaccess-slider-vertical .reaccess-slider-handle {
+	left: 0;
+}
+
+.reaccess-slider-handle-control {
+	position: relative;
+	left: -0.7em;
+	height: 1.4em;
+	background: #3D9970;
+}
+
+.reaccess-slider-horizontal .reaccess-slider-handle-control {
+	width: 1.4em;
+}
+
+.reaccess-slider-vertical .reaccess-slider-handle-control {
+	height: 1.4em;
+}
+
+.reaccess-slider-handle-text {
+	position: relative;
+	left: -0.7em;
+	width: 1.4em;
+	text-align: center;
+	overflow: visible;
 }
 
 

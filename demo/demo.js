@@ -3,11 +3,111 @@
 	/**
 	 *
 	 */
-	var progress = (
-		<Reaccess.Progress max={100} value={42} text=":progress%" />
+	function SyncedValue(value) {
+		this.value = value;
+		this.listeners = [];
+	}
+
+	SyncedValue.prototype.listen = function(listener) {
+		this.listeners.push(listener);
+	};
+
+	SyncedValue.prototype.update = function(value) {
+		this.value = value;
+		this.listeners.forEach(function(listener) {
+			listener(value);
+		});
+	};
+
+	var syncedValue = new SyncedValue(42);
+
+
+
+	/**
+	 *
+	 */
+	var SyncedProgress = React.createClass({
+
+		getInitialState: function() {
+			return {
+				value: syncedValue.value
+			};
+		},
+
+		componentDidMount: function() {
+			syncedValue.listen(this.updateValue);
+		},
+
+		updateValue: function(value) {
+			this.setState({
+				value: value
+			});
+		},
+
+		render: function() {
+			return (
+				<Reaccess.Progress
+					orientation={this.props.orientation}
+					max={100}
+					value={this.state.value}
+					text={this.text}
+				/>
+			);
+		},
+
+		text: function(props) {
+			return props.percentage + '%';
+		}
+	});
+
+	React.render(
+		<SyncedProgress orientation="horizontal" />,
+		document.getElementById('progress-horizontal')
 	);
 
-	React.render(progress, document.getElementById('progress'));
+	React.render(
+		<SyncedProgress orientation="vertical" />,
+		document.getElementById('progress-vertical')
+	);
+
+
+
+	/**
+	 *
+	 */
+	var SyncedSlider = React.createClass({
+
+		getInitialState: function() {
+			return {
+				value: syncedValue.value
+			};
+		},
+
+		updateValue: function(value) {
+			this.setState({
+				value: value
+			}, function() {
+				syncedValue.update(this.state.value)
+			});
+		},
+
+		render: function() {
+			return (
+				<Reaccess.Slider
+					min={0}
+					max={100}
+					value={this.state.value}
+					text={this.state.value}
+					onChange={this.updateValue}
+				/>
+			);
+		}
+	});
+
+	React.render(
+		<SyncedSlider />,
+		document.getElementById('slider')
+	);
 
 
 
