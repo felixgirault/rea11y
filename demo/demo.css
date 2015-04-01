@@ -136,33 +136,33 @@ button {
  *	Tabs.
  */
 
-.reaccess-tab-link-list {
+.reaccess-tab-list {
 	border: 1px solid #3D9970;
 	border-bottom: none;
 	background: #3D9970;
 }
 
-.reaccess-tab-link {
+.reaccess-tab {
 	padding: 0.7em;
 }
 
-.reaccess-tab-link:hover {
+.reaccess-tab:hover {
 	background: #aaa;
 	color: #111;
 }
 
-.reaccess-tab-link-active {
+.reaccess-tab-active {
 	background: #111;
 	color: #ddd;
 }
 
-.reaccess-tab {
+.reaccess-tab-panel {
 	display: none;
 	border: 1px solid #3D9970;
 	border-top: none;
 	padding: 0.7em;
 }
 
-.reaccess-tab-active {
+.reaccess-tab-panel-active {
 	display: inherit;
 }

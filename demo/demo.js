@@ -16,17 +16,17 @@
 	 */
 	var tabs = (
 		<Reaccess.Tabs>
-			<Reaccess.Tab name="first" title="First">
+			<Reaccess.TabPanel name="first" title="First">
 				<p>First tab's contents.</p>
-			</Reaccess.Tab>
+			</Reaccess.TabPanel>
 
-			<Reaccess.Tab name="second" title="Second">
+			<Reaccess.TabPanel name="second" title="Second">
 				<p>Second tab's contents with a <a href="#">link</a> inside.</p>
-			</Reaccess.Tab>
+			</Reaccess.TabPanel>
 
-			<Reaccess.Tab name="third" title="Third">
+			<Reaccess.TabPanel name="third" title="Third">
 				<p>Third tab's contents with a <button>button</button> inside.</p>
-			</Reaccess.Tab>
+			</Reaccess.TabPanel>
 		</Reaccess.Tabs>
 	);
 

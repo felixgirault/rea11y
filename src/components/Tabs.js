@@ -5,7 +5,7 @@
 
 import React from 'react';
 import bindMethods from '../utils/bindMethods';
-import TabLink from './TabLink';
+import Tab from './Tab';
 
 
 
@@ -32,8 +32,6 @@ export default class Tabs extends React.Component {
 		};
 	}
 
-
-
 	/**
 	 *
 	 */
@@ -46,16 +44,12 @@ export default class Tabs extends React.Component {
 		}
 	}
 
-
-
 	/**
 	 *
 	 */
 	ref(index) {
-		return 'tab-link-' + index;
+		return 'tab-' + index;
 	}
-
-
 
 	/**
 	 *
@@ -67,8 +61,6 @@ export default class Tabs extends React.Component {
 			});
 		}
 	}
-
-
 
 	/**
 	 *
@@ -84,8 +76,6 @@ export default class Tabs extends React.Component {
 		});
 	}
 
-
-
 	/**
 	 *
 	 */
@@ -100,34 +90,30 @@ export default class Tabs extends React.Component {
 		});
 	}
 
-
-
 	/**
 	 *
 	 */
 	render() {
 		return (
 			<div className="reaccess-tabs">
-				<div className="reaccess-tab-link-list" role="tablist">
-					{this.renderTabLinks()}
+				<div className="reaccess-tab-list" role="tablist">
+					{this.renderTabs()}
 				</div>
 
-				<div className="reaccess-tab-list">
-					{this.renderTabs()}
+				<div className="reaccess-tab-panel-list">
+					{this.renderTabPanels()}
 				</div>
 			</div>
 		);
 	}
 
-
-
 	/**
 	 *
 	 */
-	renderTabLinks() {
+	renderTabs() {
 		return React.Children.map(this.props.children, (child, i) => (
-			<TabLink
-				key={'tab-link-' + child.props.name}
+			<Tab
+				key={'tab-' + child.props.name}
 				ref={this.ref(i)}
 				id={this.props.id}
 				name={child.props.name}
@@ -141,15 +127,13 @@ export default class Tabs extends React.Component {
 		));
 	}
 
-
-
 	/**
 	 *
 	 */
-	renderTabs() {
+	renderTabPanels() {
 		return React.Children.map(this.props.children, (child, i) => {
 			return React.addons.cloneWithProps(child, {
-				key: 'tab-' + child.props.name,
+				key: 'tab-panel-' + child.props.name,
 				id: this.props.id,
 				active: (this.state.active === i)
 			});
@@ -165,8 +149,6 @@ export default class Tabs extends React.Component {
 Tabs.propTypes = {
 	id: React.PropTypes.string
 };
-
-
 
 /**
  *

@@ -44,12 +44,12 @@ function progressText(progress) {
 
 ```jsx
 <Tabs>
-	<Tab name="first" title="First">
+	<TabPanel name="first" title="First">
 		<p>Lorem ipsum dolor sit amet.</p>
-	</Tab>
+	</TabPanel>
 
-	<Tab name="second" title="Second">
+	<TabPanel name="second" title="Second">
 		<p>Lorem ipsum dolor sit amet.</p>
-	</Tab>
+	</TabPanel>
 </Tabs>
 ```
