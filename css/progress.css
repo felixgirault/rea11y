@@ -4,7 +4,14 @@
 
 .reaccess-progress {
 	position: relative;
+}
+
+.reaccess-progress-horizontal {
 	min-height: 1em;
+}
+
+.reaccess-progress-vertical {
+	min-width: 1em;
 }
 
 .reaccess-progress-max {
@@ -17,11 +24,19 @@
 
 .reaccess-progress-value {
 	position: absolute;
-	top: 0;
 	bottom: 0;
 	left: 0;
 }
 
+.reaccess-progress-horizontal .reaccess-progress-value {
+	top: 0;
+}
+
+.reaccess-progress-vertical .reaccess-progress-value {
+	right: 0;
+}
+
 .reaccess-progress-text {
+	position: relative;
 	text-align: center;
 }

@@ -24,20 +24,14 @@ Components
 <Progress max={100} value={42} />
 ```
 
-With a string template:
+With a label:
 
 ```jsx
-<Progress max={100} value={42} text=":progress%" />
-```
-
-With a templating function:
-
-```jsx
-function progressText(progress) {
-	return progress + '%';
+function label(state) {
+	return state.progress + '%';
 }
 
-<Progress max={100} value={42} text={progressText} />
+<Progress max={100} value={42} text={label} />
 ```
 
 ### Tabs
