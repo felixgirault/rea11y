@@ -1,5 +1,9 @@
 {
 	"parser": "babel-eslint",
+	"env": {
+		"browser": true,
+		"node": true
+	},
 	"rules": {
 		"brace-style": "stroustrup",
 		"camelcase": true,
