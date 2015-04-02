@@ -7,13 +7,13 @@ html {
 	padding: 0;
 	background: #111;
 	color: #ddd;
-	line-height: 1.4em;
+	line-height: 1.5em;
 	font-size: 100%;
 	font-family: sans-serif;
 }
 
 body {
-	margin: 1.4em auto;
+	margin: 1.5em auto;
 	padding: 0;
 	max-width: 35em;
 	background: #111;
@@ -22,10 +22,10 @@ body {
 kbd {
 	display: inline-block;
 	margin: 0;
-	padding: 0 0.7em;
+	padding: 0 0.75em;
 	background: #ddd;
 	color: #111;
-	line-height: 1.4em;
+	line-height: 1.5em;
 	font-weight: bold;
 }
 
@@ -34,7 +34,7 @@ kbd:first-child {
 }
 
 p {
-	margin: 0 0 1.4em 0;
+	margin: 0 0 1.5em 0;
 }
 
 a {
@@ -49,7 +49,7 @@ a:hover {
 button {
 	display: inline-block;
 	border: none;
-	padding: 0 0.7;
+	padding: 0 0.75;
 	background: #3D9970;
 	color: #111;
 	line-height: inherit;
@@ -70,7 +70,7 @@ button {
  */
 
 .page-header {
-	margin: 5.6em 0 8.4em 0;
+	margin: 6em 0 9em 0;
 	text-align: center;
 }
 
@@ -78,24 +78,24 @@ button {
 	margin: 0;
 	color: #3D9970;
 	text-align: center;
-	line-height: 1.4em;
+	line-height: 1.5em;
 	font-size: 4em;
 }
 
 .pattern {
-	margin: 5.6em 0;
+	margin: 6em 0;
 }
 
 .pattern-name {
-	margin: 1.4em 0;
+	margin: 1.5em 0;
 	color: #3D9970;
-	line-height: 1.4em;
+	line-height: 1.5em;
 	font-size: 2em;
 }
 
 .pattern-interactions {
 	margin: 0;
-	padding: 0 0 1.4em 0;
+	padding: 0 0 1.5em 0;
 	list-style: none;
 	overflow-x: hidden;
 }
@@ -113,22 +113,22 @@ button {
 }
 
 .pattern-interaction span:first-child {
-	padding-right: 0.7em;
+	padding-right: 0.75em;
 	background: #111;
 }
 
 .pattern-interaction span + span {
 	float: right;
-	padding-left: 0.7em;
+	padding-left: 0.75em;
 	background: #111;
 }
 
 .pattern-example {
-	margin-bottom: 1.4em;
+	margin-bottom: 1.5em;
 }
 
 .page-footer {
-	margin: 8.4em 0 5.6em 0;
+	margin: 9em 0 6em 0;
 	text-align: center;
 }
 
@@ -147,11 +147,11 @@ button {
 }
 
 .reaccess-progress-horizontal {
-	width: 100%;
+	height: 3em;
 }
 
 .reaccess-progress-vertical {
-	height: 5.6em;
+	width: 100%;
 }
 
 .reaccess-progress-value {
@@ -159,7 +159,7 @@ button {
 }
 
 .reaccess-progress-text {
-	padding: 0.7em;
+	padding: 0.75em;
 }
 
 
@@ -169,62 +169,11 @@ button {
  */
 
 .reaccess-slider {
-	box-sizing: border-box;
 	border: 1px solid #3D9970;
 }
 
-.reaccess-slider-horizontal {
-	padding: 0 0.7em;
-	width: 100%;
-	height: 1.4em;
-}
-
-.reaccess-slider-vertical {
-	padding: 0.7em 0;
-	height: 5.6em;
-}
-
-.reaccess-slider-max {
-	position: relative;
-	height: 1.4em;
-}
-
-.reaccess-slider-handle {
-	position: absolute;
-	top: 0;
-	right: 0;
-	width: 0;
-}
-
-.reaccess-slider-horizontal .reaccess-slider-handle {
-	bottom: 0;
-}
-
-.reaccess-slider-vertical .reaccess-slider-handle {
-	left: 0;
-}
-
 .reaccess-slider-handle-control {
-	position: relative;
-	left: -0.7em;
-	height: 1.4em;
 	background: #3D9970;
-}
-
-.reaccess-slider-horizontal .reaccess-slider-handle-control {
-	width: 1.4em;
-}
-
-.reaccess-slider-vertical .reaccess-slider-handle-control {
-	height: 1.4em;
-}
-
-.reaccess-slider-handle-text {
-	position: relative;
-	left: -0.7em;
-	width: 1.4em;
-	text-align: center;
-	overflow: visible;
 }
 
 
@@ -240,7 +189,7 @@ button {
 }
 
 .reaccess-tab {
-	padding: 0.7em;
+	padding: 0.75em;
 }
 
 .reaccess-tab:hover {
@@ -257,7 +206,7 @@ button {
 	display: none;
 	border: 1px solid #3D9970;
 	border-top: none;
-	padding: 0.7em;
+	padding: 0.75em;
 }
 
 .reaccess-tab-panel-active {
