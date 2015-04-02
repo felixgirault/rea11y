@@ -147,7 +147,7 @@ export default class Slider extends React.Component {
 						min={this.props.min}
 						max={this.props.max}
 						value={this.props.value}
-						text={this.props.text}
+						text={text}
 						onDecrement={this.handleDecrement}
 						onBigDecrement={this.handleBigDecrement}
 						onMin={this.handleMin}
