@@ -63,6 +63,6 @@ module.exports = {
 		new UglifyJsPlugin(),
 		new ExtractTextPlugin('reaccess.css', {
 			allChunks: true
-        })
+		})
 	]
 }
