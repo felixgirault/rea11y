@@ -100,6 +100,8 @@ button {
 	overflow-x: hidden;
 }
 
+/* http://www.w3.org/Style/Examples/007/leaders */
+
 .pattern-interaction:before {
 	float: left;
     width: 0;
