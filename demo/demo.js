@@ -97,10 +97,14 @@
 					min={0}
 					max={100}
 					value={this.state.value}
-					text={this.state.value}
+					text={this.text}
 					onChange={this.updateValue}
 				/>
 			);
+		},
+
+		text: function(props) {
+			return props.value;
 		}
 	});
 
