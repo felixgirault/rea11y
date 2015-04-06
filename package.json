@@ -34,6 +34,9 @@
     "webpack": "^1.7.3",
     "webpack-dev-server": "^1.7.0"
   },
+  "dependencies": {
+    "dom-helpers": "^1.2.4"
+  },
   "scripts": {
     "start": "webpack-dev-server",
     "build": "webpack"
