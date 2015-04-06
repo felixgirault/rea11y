@@ -4,7 +4,13 @@
 'use strict';
 
 import React from 'react';
+import classNames from 'classnames';
+import offset from 'dom-helpers/query/offset';
+import on from 'dom-helpers/events/on';
+import off from 'dom-helpers/events/off';
 import bindMethods from '../utils/bindMethods';
+import percentage from '../utils/percentage';
+import bound from '../utils/bound';
 
 
 
@@ -21,39 +27,67 @@ export default class SliderHandle extends React.Component {
 
 		bindMethods(
 			this,
-			'handleKeydown'
+			'handleKeyDown',
+			'handleMouseDown',
+			'handleDragStart',
+			'handleDrag',
+			'handleDragEnd'
 		);
+
+		this.state = {
+			dragging: false,
+			percentage: percentage(
+				props.value,
+				props.max,
+				props.min
+			)
+		};
 	}
 
 	/**
 	 *
 	 */
-	handleKeydown(event) {
+	componentWillReceiveProps(props) {
+		this.setState({
+			percentage: percentage(
+				props.value,
+				props.max,
+				props.min
+			)
+		});
+	}
+
+	/**
+	 *
+	 */
+	handleKeyDown(event) {
+		let value;
+
 		switch (event.keyCode) {
 			case 33: // page up
-				this.trigger(this.props.onBigIncrement);
+				value = this.incremented(this.props.bigStep);
 				break;
 
 			case 34: // page down
-				this.trigger(this.props.onBigDecrement);
+				value = this.incremented(-this.props.bigStep);
 				break;
 
 			case 35: // end
-				this.trigger(this.props.onMax);
+				value = this.props.max;
 				break;
 
 			case 36: // home
-				this.trigger(this.props.onMin);
+				value = this.props.min;
 				break;
 
 			case 37: // left
 			case 40: // down
-				this.trigger(this.props.onDecrement);
+				value = this.incremented(-this.props.step);
 				break;
 
 			case 38: // up
 			case 39: // right
-				this.trigger(this.props.onIncrement);
+				value = this.incremented(this.props.step);
 				break;
 
 			default:
@@ -61,14 +95,109 @@ export default class SliderHandle extends React.Component {
 		}
 
 		event.preventDefault();
+		this.emitChange(value);
 	}
 
 	/**
 	 *
 	 */
-	trigger(callback) {
-		if (callback) {
-			callback();
+	handleMouseDown(event) {
+		if (event.button === 0) {
+			this.handleDragStart(event);
+		}
+	}
+
+	/**
+	 *
+	 */
+	handleDragStart(event) {
+		this.setState({
+			dragging: true,
+			dragStartX: event.pageX,
+			dragStartY: event.pageY
+		}, () => {
+			on(document, 'mousemove', this.handleDrag);
+			on(document, 'mouseup', this.handleDragEnd);
+		});
+	}
+
+	/**
+	 *
+	 */
+	handleDrag(event) {
+		const node = React.findDOMNode(this);
+		const rect = offset(node);
+
+		const per = this.isHorizontal()
+			? percentage(event.pageX - rect.left, rect.width)
+			: percentage(event.pageY - rect.top, rect.height);
+console.log(per);
+		const max = this.props.max - this.props.min;
+		const value = this.props.min + ((max / 100) * per);
+		const snapped = this.snapped(value);
+
+		this.emitChange(snapped);
+	}
+
+	/**
+	 *
+	 */
+	handleDragEnd() {
+		this.setState({
+			dragging: false
+		}, () => {
+			off(document, 'mousemove', this.handleDrag);
+			off(document, 'mouseup', this.handleDragEnd);
+		});
+	}
+
+	/**
+	 *
+	 */
+	isHorizontal() {
+		return (this.props.orientation === 'horizontal');
+	}
+
+	/**
+	 *
+	 */
+	incremented(step) {
+		return bound(
+			this.props.value + step,
+			this.props.min,
+			this.props.max
+		);
+	}
+
+	/**
+	 *
+	 */
+	snapped(value) {
+		const steps = value / this.props.step;
+
+		const lowerStep = Math.floor(steps);
+		const fromLowerStep = steps - lowerStep;
+
+		const higherStep = Math.ceil(steps);
+		const toHigherStep = higherStep - steps;
+
+		const step = (fromLowerStep < toHigherStep)
+			? lowerStep
+			: higherStep;
+
+		return bound(
+			this.props.step * step,
+			this.props.min,
+			this.props.max
+		);
+	}
+
+	/**
+	 *
+	 */
+	emitChange(value) {
+		if (this.props.onChange && value !== this.props.value) {
+			this.props.onChange(value);
 		}
 	}
 
@@ -76,26 +205,60 @@ export default class SliderHandle extends React.Component {
 	 *
 	 */
 	render() {
-		return (
-			<div
-				className="reaccess-slider-handle"
-				style={this.props.style}
-			>
-				<div
-					className="reaccess-slider-handle-control"
-					role="slider"
-					aria-valuemin={this.props.min}
-					aria-valuemax={this.props.max}
-					aria-valuenow={this.props.value}
-					onKeyDown={this.handleKeydown}
-					tabIndex="0"
-				></div>
+		const className = classNames({
+			'reaccess-slider-handle': true,
+			'reaccess-slider-handle-dragging': this.state.dragging
+		});
 
-				<div className="reaccess-slider-handle-text">
-					{this.props.text}
+		return (
+			<div className="reaccess-slider-handle-track">
+				<div ref="handle" className={className} style={this.style()}>
+					<div
+						className="reaccess-slider-handle-control"
+						role="slider"
+						aria-valuemin={this.props.min}
+						aria-valuemax={this.props.max}
+						aria-valuenow={this.props.value}
+						onKeyDown={this.handleKeyDown}
+						onMouseDown={this.handleMouseDown}
+						tabIndex="0"
+					></div>
+
+					<div className="reaccess-slider-handle-text">
+						{this.text()}
+					</div>
 				</div>
 			</div>
 		);
+	}
+
+	/**
+	 *
+	 */
+	text() {
+		if (typeof this.props.text !== 'function') {
+			return null;
+		}
+
+		return this.props.text({
+			min: this.props.min,
+			max: this.props.max,
+			value: this.props.value,
+			percentage: this.state.percentage
+		});
+	}
+
+	/**
+	 *
+	 */
+	style() {
+		const property = this.isHorizontal()
+			? 'left'
+			: 'bottom';
+
+		return {
+			[property]: this.state.percentage + '%'
+		};
 	}
 }
 
@@ -105,17 +268,14 @@ export default class SliderHandle extends React.Component {
  *
  */
 SliderHandle.propTypes = {
+	orientation: React.PropTypes.string,
 	min: React.PropTypes.number,
 	max: React.PropTypes.number,
 	value: React.PropTypes.number,
-	percentage: React.PropTypes.number,
-	text: React.PropTypes.string,
-	onDecrement: React.PropTypes.func,
-	onBigDecrement: React.PropTypes.func,
-	onMin: React.PropTypes.func,
-	onIncrement: React.PropTypes.func,
-	onBigIncrement: React.PropTypes.func,
-	onMax: React.PropTypes.func,
+	step: React.PropTypes.number,
+	bigStep: React.PropTypes.number,
+	text: React.PropTypes.func,
+	onChange: React.PropTypes.func,
 	style: React.PropTypes.object
 };
 
@@ -123,16 +283,13 @@ SliderHandle.propTypes = {
  *
  */
 SliderHandle.defaultProps = {
+	orientation: 'horizontal',
 	min: 0,
 	max: 100,
 	value: 0,
-	percentage: 0,
-	text: '',
-	onDecrement: null,
-	onBigDecrement: null,
-	onMin: null,
-	onIncrement: null,
-	onBigIncrement: null,
-	onMax: null,
+	step: 1,
+	bigStep: 10,
+	text: null,
+	onChange: null,
 	style: {}
 };

@@ -160,6 +160,14 @@ button {
 	background: #3D9970;
 }
 
+.reaccess-progress-horizontal .reaccess-progress-value {
+	transition: width 200ms;
+}
+
+.reaccess-progress-vertical .reaccess-progress-value {
+	transition: height 200ms;
+}
+
 .reaccess-progress-text {
 	padding: 0.75em;
 }
