@@ -54,7 +54,7 @@ export default class Progress extends React.Component {
 				aria-valuenow={this.props.value}
 				aria-valuetext={text}
 			>
-				<div className="reaccess-progress-max">
+				<div className="reaccess-progress-track">
 					<div
 						className="reaccess-progress-value"
 						style={style}
