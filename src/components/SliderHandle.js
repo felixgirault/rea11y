@@ -206,15 +206,15 @@ export default class SliderHandle extends React.Component {
 	 */
 	render() {
 		const className = classNames({
-			'reaccess-slider-handle': true,
-			'reaccess-slider-handle-dragging': this.state.dragging
+			'rea11y-slider-handle': true,
+			'rea11y-slider-handle-dragging': this.state.dragging
 		});
 
 		return (
-			<div className="reaccess-slider-handle-track">
+			<div className="rea11y-slider-handle-track">
 				<div ref="handle" className={className} style={this.style()}>
 					<div
-						className="reaccess-slider-handle-control"
+						className="rea11y-slider-handle-control"
 						role="slider"
 						aria-valuemin={this.props.min}
 						aria-valuemax={this.props.max}
@@ -224,7 +224,7 @@ export default class SliderHandle extends React.Component {
 						tabIndex="0"
 					></div>
 
-					<div className="reaccess-slider-handle-text">
+					<div className="rea11y-slider-handle-text">
 						{this.text()}
 					</div>
 				</div>

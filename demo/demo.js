@@ -46,7 +46,7 @@
 
 		render: function() {
 			return (
-				<Reaccess.Progress
+				<Rea11y.Progress
 					orientation={this.props.orientation}
 					max={100}
 					value={this.state.value}
@@ -93,7 +93,7 @@
 
 		render: function() {
 			return (
-				<Reaccess.Slider
+				<Rea11y.Slider
 					min={0}
 					max={100}
 					value={this.state.value}
@@ -119,19 +119,19 @@
 	 *
 	 */
 	var tabs = (
-		<Reaccess.Tabs>
-			<Reaccess.TabPanel name="first" title="First">
+		<Rea11y.Tabs>
+			<Rea11y.TabPanel name="first" title="First">
 				<p>First tab's contents.</p>
-			</Reaccess.TabPanel>
+			</Rea11y.TabPanel>
 
-			<Reaccess.TabPanel name="second" title="Second">
+			<Rea11y.TabPanel name="second" title="Second">
 				<p>Second tab's contents with a <a href="#">link</a> inside.</p>
-			</Reaccess.TabPanel>
+			</Rea11y.TabPanel>
 
-			<Reaccess.TabPanel name="third" title="Third">
+			<Rea11y.TabPanel name="third" title="Third">
 				<p>Third tab's contents with a <button>button</button> inside.</p>
-			</Reaccess.TabPanel>
-		</Reaccess.Tabs>
+			</Rea11y.TabPanel>
+		</Rea11y.Tabs>
 	);
 
 	React.render(tabs, document.getElementById('tabs'));

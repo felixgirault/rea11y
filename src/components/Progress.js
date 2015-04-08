@@ -42,8 +42,8 @@ export default class Progress extends React.Component {
 		const style = this.style();
 
 		const className = classNames([
-			'reaccess-progress',
-			'reaccess-progress-' + this.props.orientation
+			'rea11y-progress',
+			'rea11y-progress-' + this.props.orientation
 		]);
 
 		return (
@@ -54,14 +54,14 @@ export default class Progress extends React.Component {
 				aria-valuenow={this.props.value}
 				aria-valuetext={text}
 			>
-				<div className="reaccess-progress-track">
+				<div className="rea11y-progress-track">
 					<div
-						className="reaccess-progress-value"
+						className="rea11y-progress-value"
 						style={style}
 					></div>
 				</div>
 
-				<div className="reaccess-progress-text">
+				<div className="rea11y-progress-text">
 					{text}
 				</div>
 			</div>

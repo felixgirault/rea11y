@@ -144,31 +144,31 @@ button {
  *	Progress bars.
  */
 
-.reaccess-progress {
+.rea11y-progress {
 	border: 1px solid #3D9970;
 }
 
-.reaccess-progress-horizontal {
+.rea11y-progress-horizontal {
 	height: 3em;
 }
 
-.reaccess-progress-vertical {
+.rea11y-progress-vertical {
 	width: 100%;
 }
 
-.reaccess-progress-value {
+.rea11y-progress-value {
 	background: #3D9970;
 }
 
-.reaccess-progress-horizontal .reaccess-progress-value {
+.rea11y-progress-horizontal .rea11y-progress-value {
 	transition: width 200ms;
 }
 
-.reaccess-progress-vertical .reaccess-progress-value {
+.rea11y-progress-vertical .rea11y-progress-value {
 	transition: height 200ms;
 }
 
-.reaccess-progress-text {
+.rea11y-progress-text {
 	padding: 0.75em;
 }
 
@@ -178,11 +178,11 @@ button {
  *	Sliders.
  */
 
-.reaccess-slider {
+.rea11y-slider {
 	border: 1px solid #3D9970;
 }
 
-.reaccess-slider-handle-control {
+.rea11y-slider-handle-control {
 	background: #3D9970;
 }
 
@@ -192,33 +192,33 @@ button {
  *	Tabs.
  */
 
-.reaccess-tab-list {
+.rea11y-tab-list {
 	border: 1px solid #3D9970;
 	border-bottom: none;
 	background: #3D9970;
 }
 
-.reaccess-tab {
+.rea11y-tab {
 	padding: 0.75em;
 }
 
-.reaccess-tab:hover {
+.rea11y-tab:hover {
 	background: #aaa;
 	color: #111;
 }
 
-.reaccess-tab-active {
+.rea11y-tab-active {
 	background: #111;
 	color: #ddd;
 }
 
-.reaccess-tab-panel {
+.rea11y-tab-panel {
 	display: none;
 	border: 1px solid #3D9970;
 	border-top: none;
 	padding: 0.75em;
 }
 
-.reaccess-tab-panel-active {
+.rea11y-tab-panel-active {
 	display: inherit;
 }

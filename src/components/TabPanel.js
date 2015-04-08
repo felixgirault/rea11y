@@ -23,9 +23,9 @@ export default class Tab extends React.Component {
 		const tabLinkId = `${id}-tab-link-${name}`;
 
 		const className = classNames({
-			'reaccess-tab-panel': true,
-			'reaccess-tab-panel-active': active,
-			['reaccess-tab-panel-' + name]: true
+			'rea11y-tab-panel': true,
+			'rea11y-tab-panel-active': active,
+			['rea11y-tab-panel-' + name]: true
 		});
 
 		return (

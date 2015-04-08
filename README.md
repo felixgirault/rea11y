@@ -1,4 +1,4 @@
-Reaccess
+Rea11y
 ========
 
 A set of accessible React components.

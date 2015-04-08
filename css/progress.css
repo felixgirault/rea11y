@@ -2,22 +2,22 @@
  *	Progress bar.
  */
 
-.reaccess-progress {
+.rea11y-progress {
 	position: relative;
 	border: 1px solid #aaa;
 }
 
-.reaccess-progress-horizontal {
+.rea11y-progress-horizontal {
 	width: 100%;
 	height: 1.5em;
 }
 
-.reaccess-progress-vertical {
+.rea11y-progress-vertical {
 	width: 1.5em;
 	height: 6em;
 }
 
-.reaccess-progress-track {
+.rea11y-progress-track {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -25,22 +25,22 @@
 	left: 0;
 }
 
-.reaccess-progress-value {
+.rea11y-progress-value {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	background: #aaa;
 }
 
-.reaccess-progress-horizontal .reaccess-progress-value {
+.rea11y-progress-horizontal .rea11y-progress-value {
 	top: 0;
 }
 
-.reaccess-progress-vertical .reaccess-progress-value {
+.rea11y-progress-vertical .rea11y-progress-value {
 	right: 0;
 }
 
-.reaccess-progress-text {
+.rea11y-progress-text {
 	position: relative;
 	text-align: center;
 }

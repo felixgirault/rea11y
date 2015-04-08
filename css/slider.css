@@ -2,59 +2,59 @@
  *	Slider.
  */
 
-.reaccess-slider {
+.rea11y-slider {
 	box-sizing: border-box;
 	border: 1px solid #aaa;
 }
 
-.reaccess-slider-horizontal {
+.rea11y-slider-horizontal {
 	padding: 0 0.75em;
 	width: 100%;
 	height: 1.5em;
 }
 
-.reaccess-slider-vertical {
+.rea11y-slider-vertical {
 	padding: 0.75em 0;
 	width: 1.5em;
 	height: 6em;
 }
 
-.reaccess-slider-handle-track {
+.rea11y-slider-handle-track {
 	position: relative;
 	height: 1.5em;
 }
 
-.reaccess-slider-handle {
+.rea11y-slider-handle {
 	position: absolute;
 	top: 0;
 	right: 0;
 	width: 0;
 }
 
-.reaccess-slider-horizontal .reaccess-slider-handle {
+.rea11y-slider-horizontal .rea11y-slider-handle {
 	bottom: 0;
 }
 
-.reaccess-slider-vertical .reaccess-slider-handle {
+.rea11y-slider-vertical .rea11y-slider-handle {
 	left: 0;
 }
 
-.reaccess-slider-handle-control {
+.rea11y-slider-handle-control {
 	position: relative;
 	left: -0.75em;
 	height: 1.5em;
 	background: #aaa;
 }
 
-.reaccess-slider-horizontal .reaccess-slider-handle-control {
+.rea11y-slider-horizontal .rea11y-slider-handle-control {
 	width: 1.5em;
 }
 
-.reaccess-slider-vertical .reaccess-slider-handle-control {
+.rea11y-slider-vertical .rea11y-slider-handle-control {
 	height: 1.5em;
 }
 
-.reaccess-slider-handle-text {
+.rea11y-slider-handle-text {
 	position: relative;
 	left: -0.75em;
 	width: 1.5em;

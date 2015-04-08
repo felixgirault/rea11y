@@ -95,12 +95,12 @@ export default class Tabs extends React.Component {
 	 */
 	render() {
 		return (
-			<div className="reaccess-tabs">
-				<div className="reaccess-tab-list" role="tablist">
+			<div className="rea11y-tabs">
+				<div className="rea11y-tab-list" role="tablist">
 					{this.renderTabs()}
 				</div>
 
-				<div className="reaccess-tab-panel-list">
+				<div className="rea11y-tab-panel-list">
 					{this.renderTabPanels()}
 				</div>
 			</div>
@@ -154,5 +154,5 @@ Tabs.propTypes = {
  *
  */
 Tabs.defaultProps = {
-	id: 'reaccess-tabs'
+	id: 'rea11y-tabs'
 };

@@ -72,9 +72,9 @@ export default class Tab extends React.Component {
 		const tabId = `${id}-tab-${name}`;
 
 		const className = classNames({
-			'reaccess-tab': true,
-			'reaccess-tab-active': active,
-			['reaccess-tab-' + name]: true
+			'rea11y-tab': true,
+			'rea11y-tab-active': active,
+			['rea11y-tab-' + name]: true
 		});
 
 		return (

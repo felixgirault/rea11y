@@ -1,5 +1,5 @@
 {
-  "name": "reaccess",
+  "name": "rea11y",
   "description": "A set of accessible React components.",
   "keywords": [
     "react",
@@ -14,9 +14,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/felixgirault/reaccess.git"
+    "url": "https://github.com/felixgirault/rea11y.git"
   },
-  "main": "dist/reaccess.js",
+  "main": "dist/rea11y.js",
   "version": "0.1.0",
   "devDependencies": {
     "babel-core": "^5.0.0",

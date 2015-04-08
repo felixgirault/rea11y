@@ -26,8 +26,8 @@ export default class Slider extends React.Component {
 	 */
 	render() {
 		const className = classNames([
-			'reaccess-slider',
-			'reaccess-slider-' + this.props.orientation
+			'rea11y-slider',
+			'rea11y-slider-' + this.props.orientation
 		]);
 
 		return (

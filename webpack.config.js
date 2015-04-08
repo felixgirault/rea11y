@@ -17,11 +17,11 @@ module.exports = {
 		app: './index.js'
 	},
 	output: {
-		library: 'Reaccess',
+		library: 'Rea11y',
 		libraryTarget: 'umd',
 		path: './dist',
 		publicPath: '/demo/',
-		filename: 'reaccess.js'
+		filename: 'rea11y.js'
 	},
 	externals: [
 		{
@@ -61,7 +61,7 @@ module.exports = {
 	},
 	plugins: [
 		new UglifyJsPlugin(),
-		new ExtractTextPlugin('reaccess.css', {
+		new ExtractTextPlugin('rea11y.css', {
 			allChunks: true
 		})
 	]
