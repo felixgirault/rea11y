@@ -15,6 +15,19 @@ npm start
 
 Then head to [http://localhost:8080/webpack-dev-server/](http://localhost:8080/webpack-dev-server/).
 
+Usage
+-----
+
+```jsx
+// ES5
+var Rea11y = require('rea11y');
+var Slider = Rea11y.Slider;
+
+// ES6
+import Rea11y from 'rea11y';
+import {Slider} from 'rea11y';
+```
+
 Components
 ----------
 
