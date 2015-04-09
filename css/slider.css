@@ -3,25 +3,36 @@
  */
 
 .rea11y-slider {
-	box-sizing: border-box;
+	position: relative;
 	border: 1px solid #aaa;
 }
 
 .rea11y-slider-horizontal {
-	padding: 0 0.75em;
 	width: 100%;
 	height: 1.5em;
 }
 
 .rea11y-slider-vertical {
-	padding: 0.75em 0;
 	width: 1.5em;
 	height: 6em;
 }
 
 .rea11y-slider-handle-track {
-	position: relative;
-	height: 1.5em;
+	position: absolute;
+}
+
+.rea11y-slider-horizontal .rea11y-slider-handle-track {
+	top: 0;
+	right: 0.75em;
+	bottom: 0;
+	left: 0.75em;
+}
+
+.rea11y-slider-vertical .rea11y-slider-handle-track {
+	top: 0.75em;
+	right: 0;
+	bottom: 0.75em;
+	left: 0;
 }
 
 .rea11y-slider-handle {
@@ -44,6 +55,11 @@
 	left: -0.75em;
 	height: 1.5em;
 	background: #aaa;
+	cursor: grab;
+}
+
+.rea11y-slider-handle-dragging .rea11y-slider-handle-control {
+	cursor: grabbing;
 }
 
 .rea11y-slider-horizontal .rea11y-slider-handle-control {
