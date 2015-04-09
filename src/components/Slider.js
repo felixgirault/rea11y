@@ -17,13 +17,6 @@ export default class Slider extends React.Component {
 	/**
 	 *
 	 */
-	constructor(props) {
-		super(props);
-	}
-
-	/**
-	 *
-	 */
 	render() {
 		const className = classNames([
 			'rea11y-slider',
