@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import React from 'react';
+import {Component, Children, PropTypes, addons, findDOMNode} from 'react';
 import bindMethods from '../utils/bindMethods';
 import Tab from './Tab';
 
@@ -12,7 +12,7 @@ import Tab from './Tab';
 /**
  *
  */
-export default class Tabs extends React.Component {
+export default class Tabs extends Component {
 
 	/**
 	 *
@@ -40,7 +40,7 @@ export default class Tabs extends React.Component {
 			const ref = this.ref(this.state.active);
 			const active = this.refs[ref];
 
-			React.findDOMNode(active).focus();
+			findDOMNode(active).focus();
 		}
 	}
 
@@ -66,7 +66,7 @@ export default class Tabs extends React.Component {
 	 *
 	 */
 	handlePrevious(index) {
-		const max = React.Children.count(this.props.children) - 1;
+		const max = Children.count(this.props.children) - 1;
 		const previous = (index > 0)
 			? index - 1
 			: max;
@@ -80,7 +80,7 @@ export default class Tabs extends React.Component {
 	 *
 	 */
 	handleNext(index) {
-		const max = React.Children.count(this.props.children) - 1;
+		const max = Children.count(this.props.children) - 1;
 		const next = (index < max)
 			? index + 1
 			: 0;
@@ -111,7 +111,7 @@ export default class Tabs extends React.Component {
 	 *
 	 */
 	renderTabs() {
-		return React.Children.map(this.props.children, (child, i) => (
+		return Children.map(this.props.children, (child, i) => (
 			<Tab
 				key={'tab-' + child.props.name}
 				ref={this.ref(i)}
@@ -131,8 +131,8 @@ export default class Tabs extends React.Component {
 	 *
 	 */
 	renderTabPanels() {
-		return React.Children.map(this.props.children, (child, i) => {
-			return React.addons.cloneWithProps(child, {
+		return Children.map(this.props.children, (child, i) => {
+			return addons.cloneWithProps(child, {
 				key: 'tab-panel-' + child.props.name,
 				id: this.props.id,
 				active: (this.state.active === i)
@@ -147,7 +147,7 @@ export default class Tabs extends React.Component {
  *
  */
 Tabs.propTypes = {
-	id: React.PropTypes.string
+	id: PropTypes.string
 };
 
 /**

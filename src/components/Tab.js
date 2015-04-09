@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import React from 'react';
+import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import bindMethods from '../utils/bindMethods';
 
@@ -12,7 +12,7 @@ import bindMethods from '../utils/bindMethods';
 /**
  *
  */
-export default class Tab extends React.Component {
+export default class Tab extends Component {
 
 	/**
 	 *
@@ -100,13 +100,13 @@ export default class Tab extends React.Component {
  *
  */
 Tab.propTypes = {
-	id: React.PropTypes.string,
-	name: React.PropTypes.string,
-	index: React.PropTypes.number,
-	active: React.PropTypes.bool,
-	onActive: React.PropTypes.func,
-	onPrevious: React.PropTypes.func,
-	onNext: React.PropTypes.func
+	id: PropTypes.string,
+	name: PropTypes.string,
+	index: PropTypes.number,
+	active: PropTypes.bool,
+	onActive: PropTypes.func,
+	onPrevious: PropTypes.func,
+	onNext: PropTypes.func
 };
 
 /**

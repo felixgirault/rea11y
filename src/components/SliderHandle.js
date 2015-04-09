@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import React from 'react';
+import {Component, PropTypes, findDOMNode} from 'react';
 import classNames from 'classnames';
 import offset from 'dom-helpers/query/offset';
 import on from 'dom-helpers/events/on';
@@ -17,7 +17,7 @@ import bound from '../utils/bound';
 /**
  *
  */
-export default class SliderHandle extends React.Component {
+export default class SliderHandle extends Component {
 
 	/**
 	 *
@@ -125,7 +125,7 @@ export default class SliderHandle extends React.Component {
 	 *
 	 */
 	handleDrag(event) {
-		const node = React.findDOMNode(this);
+		const node = findDOMNode(this);
 		const rect = offset(node);
 
 		const per = this.isHorizontal()
@@ -268,15 +268,15 @@ export default class SliderHandle extends React.Component {
  *
  */
 SliderHandle.propTypes = {
-	orientation: React.PropTypes.string,
-	min: React.PropTypes.number,
-	max: React.PropTypes.number,
-	value: React.PropTypes.number,
-	step: React.PropTypes.number,
-	bigStep: React.PropTypes.number,
-	text: React.PropTypes.func,
-	onChange: React.PropTypes.func,
-	style: React.PropTypes.object
+	orientation: PropTypes.string,
+	min: PropTypes.number,
+	max: PropTypes.number,
+	value: PropTypes.number,
+	step: PropTypes.number,
+	bigStep: PropTypes.number,
+	text: PropTypes.func,
+	onChange: PropTypes.func,
+	style: PropTypes.object
 };
 
 /**

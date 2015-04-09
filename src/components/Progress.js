@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import React from 'react';
+import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import percentage from '../utils/percentage';
 
@@ -12,7 +12,7 @@ import percentage from '../utils/percentage';
 /**
  *
  */
-export default class Progress extends React.Component {
+export default class Progress extends Component {
 
 	/**
 	 *
@@ -104,10 +104,10 @@ export default class Progress extends React.Component {
  *
  */
 Progress.propTypes = {
-	orientation: React.PropTypes.string,
-	max: React.PropTypes.number,
-	value: React.PropTypes.number,
-	text: React.PropTypes.func
+	orientation: PropTypes.string,
+	max: PropTypes.number,
+	value: PropTypes.number,
+	text: PropTypes.func
 };
 
 /**

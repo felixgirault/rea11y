@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import React from 'react';
+import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 
 
@@ -11,7 +11,7 @@ import classNames from 'classnames';
 /**
  *
  */
-export default class Tab extends React.Component {
+export default class Tab extends Component {
 
 	/**
 	 *
@@ -50,7 +50,7 @@ export default class Tab extends React.Component {
  *
  */
 Tab.propTypes = {
-	id: React.PropTypes.string,
-	name: React.PropTypes.string,
-	active: React.PropTypes.bool
+	id: PropTypes.string,
+	name: PropTypes.string,
+	active: PropTypes.bool
 };

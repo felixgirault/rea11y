@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import React from 'react';
+import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import SliderHandle from './SliderHandle';
 
@@ -12,7 +12,7 @@ import SliderHandle from './SliderHandle';
 /**
  *
  */
-export default class Slider extends React.Component {
+export default class Slider extends Component {
 
 	/**
 	 *
@@ -46,14 +46,14 @@ export default class Slider extends React.Component {
  *
  */
 Slider.propTypes = {
-	orientation: React.PropTypes.string,
-	min: React.PropTypes.number,
-	max: React.PropTypes.number,
-	value: React.PropTypes.number,
-	step: React.PropTypes.number,
-	bigStep: React.PropTypes.number,
-	text: React.PropTypes.func,
-	onChange: React.PropTypes.func
+	orientation: PropTypes.string,
+	min: PropTypes.number,
+	max: PropTypes.number,
+	value: PropTypes.number,
+	step: PropTypes.number,
+	bigStep: PropTypes.number,
+	text: PropTypes.func,
+	onChange: PropTypes.func
 };
 
 /**
