@@ -68,8 +68,8 @@ export default class Tab extends Component {
 	render() {
 		const {id, name, active} = this.props;
 
-		const tabLinkId = `${id}-tab-${name}`;
 		const tabId = `${id}-tab-${name}`;
+		const tabPanelId = `${id}-tab-panel-${name}`;
 
 		const className = classNames({
 			'rea11y-tab': true,
@@ -79,10 +79,10 @@ export default class Tab extends Component {
 
 		return (
 			<button
-				id={tabLinkId}
+				id={tabId}
 				className={className}
 				role="tab"
-				aria-controls={tabId}
+				aria-controls={tabPanelId}
 				aria-selected={active}
 				onClick={this.handleClick}
 				onKeyDown={this.handleKeydown}

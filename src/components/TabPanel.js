@@ -19,8 +19,8 @@ export default class Tab extends Component {
 	render() {
 		const {id, name, active} = this.props;
 
+		const tabPanelId = `${id}-tab-panel-${name}`;
 		const tabId = `${id}-tab-${name}`;
-		const tabLinkId = `${id}-tab-link-${name}`;
 
 		const className = classNames({
 			'rea11y-tab-panel': true,
@@ -30,12 +30,12 @@ export default class Tab extends Component {
 
 		return (
 			<div
-				id={tabId}
+				id={tabPanelId}
 				className={className}
-				href={'#' + tabId}
+				href={'#' + tabPanelId}
 				role="tabpanel"
 				aria-hidden={!active}
-				aria-labelledby={tabLinkId}
+				aria-labelledby={tabId}
 				tabIndex={active ? 0 : -1}
 			>
 				{this.props.children}
