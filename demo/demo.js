@@ -26,7 +26,7 @@
 	/**
 	 *
 	 */
-	var SyncedProgress = React.createClass({
+	var SyncedProgressBar = React.createClass({
 
 		getInitialState: function() {
 			return {
@@ -46,7 +46,7 @@
 
 		render: function() {
 			return (
-				<Rea11y.Progress
+				<Rea11y.ProgressBar
 					orientation={this.props.orientation}
 					max={100}
 					value={this.state.value}
@@ -61,12 +61,12 @@
 	});
 
 	React.render(
-		<SyncedProgress orientation="horizontal" />,
+		<SyncedProgressBar orientation="horizontal" />,
 		document.getElementById('progress-horizontal')
 	);
 
 	React.render(
-		<SyncedProgress orientation="vertical" />,
+		<SyncedProgressBar orientation="vertical" />,
 		document.getElementById('progress-vertical')
 	);
 

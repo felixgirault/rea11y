@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import Progress from './src/components/Progress';
+import ProgressBar from './src/components/ProgressBar';
 import Slider from './src/components/Slider';
 import Tabs from './src/components/Tabs';
 import TabPanel from './src/components/TabPanel';
@@ -14,7 +14,7 @@ import TabPanel from './src/components/TabPanel';
  *
  */
 export default {
-	Progress,
+	ProgressBar,
 	Slider,
 	Tabs,
 	TabPanel
@@ -25,5 +25,5 @@ export default {
 /**
  *
  */
-require('./css/progress.css');
+require('./css/progress-bar.css');
 require('./css/slider.css');

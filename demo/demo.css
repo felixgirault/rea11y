@@ -144,31 +144,31 @@ button {
  *	Progress bars.
  */
 
-.rea11y-progress {
+.rea11y-progress-bar {
 	border: 1px solid #3D9970;
 }
 
-.rea11y-progress-horizontal {
+.rea11y-progress-bar-horizontal {
 	height: 3em;
 }
 
-.rea11y-progress-vertical {
+.rea11y-progress-bar-vertical {
 	width: 100%;
 }
 
-.rea11y-progress-value {
+.rea11y-progress-bar-value {
 	background: #3D9970;
 }
 
-.rea11y-progress-horizontal .rea11y-progress-value {
+.rea11y-progress-bar-horizontal .rea11y-progress-bar-value {
 	transition: width 200ms;
 }
 
-.rea11y-progress-vertical .rea11y-progress-value {
+.rea11y-progress-bar-vertical .rea11y-progress-bar-value {
 	transition: height 200ms;
 }
 
-.rea11y-progress-text {
+.rea11y-progress-bar-text {
 	padding: 0.75em;
 }
 

@@ -34,7 +34,7 @@ Components
 ### Progress bar
 
 ```jsx
-<Progress max={100} value={42} />
+<ProgressBar max={100} value={42} />
 ```
 
 With a label:
@@ -44,7 +44,7 @@ function label(state) {
 	return state.progress + '%';
 }
 
-<Progress max={100} value={42} text={label} />
+<ProgressBar max={100} value={42} text={label} />
 ```
 
 ### Tabs

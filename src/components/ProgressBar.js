@@ -12,7 +12,7 @@ import percentage from '../utils/percentage';
 /**
  *
  */
-export default class Progress extends Component {
+export default class ProgressBar extends Component {
 
 	/**
 	 *
@@ -42,8 +42,8 @@ export default class Progress extends Component {
 		const style = this.style();
 
 		const className = classNames([
-			'rea11y-progress',
-			'rea11y-progress-' + this.props.orientation
+			'rea11y-progress-bar',
+			'rea11y-progress-bar-' + this.props.orientation
 		]);
 
 		return (
@@ -54,14 +54,14 @@ export default class Progress extends Component {
 				aria-valuenow={this.props.value}
 				aria-valuetext={text}
 			>
-				<div className="rea11y-progress-track">
+				<div className="rea11y-progress-bar-track">
 					<div
-						className="rea11y-progress-value"
+						className="rea11y-progress-bar-value"
 						style={style}
 					></div>
 				</div>
 
-				<div className="rea11y-progress-text">
+				<div className="rea11y-progress-bar-text">
 					{text}
 				</div>
 			</div>
@@ -103,7 +103,7 @@ export default class Progress extends Component {
 /**
  *
  */
-Progress.propTypes = {
+ProgressBar.propTypes = {
 	orientation: PropTypes.string,
 	max: PropTypes.number,
 	value: PropTypes.number,
@@ -113,7 +113,7 @@ Progress.propTypes = {
 /**
  *
  */
-Progress.defaultProps = {
+ProgressBar.defaultProps = {
 	orientation: 'horizontal',
 	max: 100,
 	value: 0,
