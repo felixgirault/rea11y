@@ -186,6 +186,11 @@ button {
 	background: #3D9970;
 }
 
+.rea11y-slider-handle-control:hover,
+.rea11y-slider-handle-control:focus {
+	background: #FF851B;
+}
+
 
 
 /**

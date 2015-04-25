@@ -75,6 +75,10 @@
 	/**
 	 *
 	 */
+	function sliderText(props) {
+		return props.value;
+	}
+
 	var SyncedSlider = React.createClass({
 
 		getInitialState: function() {
@@ -87,7 +91,7 @@
 			this.setState({
 				value: value
 			}, function() {
-				syncedValue.update(this.state.value)
+				syncedValue.update(this.state.value);
 			});
 		},
 
@@ -97,20 +101,27 @@
 					min={0}
 					max={100}
 					value={this.state.value}
-					text={this.text}
+					text={sliderText}
 					onChange={this.updateValue}
 				/>
 			);
-		},
-
-		text: function(props) {
-			return props.value;
 		}
 	});
 
 	React.render(
 		<SyncedSlider />,
 		document.getElementById('slider')
+	);
+
+	React.render(
+		<Rea11y.RangeSliderContainer
+			min={0}
+			max={100}
+			defaultLowerValue={24}
+			defaultUpperValue={96}
+			text={sliderText}
+		/>,
+		document.getElementById('range-slider')
 	);
 
 
