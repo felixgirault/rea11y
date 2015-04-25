@@ -58,6 +58,10 @@
 	cursor: grab;
 }
 
+.rea11y-slider-handle-control:focus {
+	z-index: 10;
+}
+
 .rea11y-slider-handle-dragging .rea11y-slider-handle-control {
 	cursor: grabbing;
 }
