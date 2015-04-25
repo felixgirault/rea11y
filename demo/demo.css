@@ -160,14 +160,6 @@ button {
 	background: #3D9970;
 }
 
-.rea11y-progress-bar-horizontal .rea11y-progress-bar-value {
-	transition: width 200ms;
-}
-
-.rea11y-progress-bar-vertical .rea11y-progress-bar-value {
-	transition: height 200ms;
-}
-
 .rea11y-progress-bar-text {
 	padding: 0.75em;
 }
