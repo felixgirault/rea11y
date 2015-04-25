@@ -17,18 +17,18 @@
 	height: 6em;
 }
 
-.rea11y-slider-handle-track {
+.rea11y-slider-track {
 	position: absolute;
 }
 
-.rea11y-slider-horizontal .rea11y-slider-handle-track {
+.rea11y-slider-horizontal .rea11y-slider-track {
 	top: 0;
 	right: 0.75em;
 	bottom: 0;
 	left: 0.75em;
 }
 
-.rea11y-slider-vertical .rea11y-slider-handle-track {
+.rea11y-slider-vertical .rea11y-slider-track {
 	top: 0.75em;
 	right: 0;
 	bottom: 0.75em;

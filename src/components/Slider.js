@@ -5,6 +5,7 @@
 
 import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
+import SliderTrack from './SliderTrack';
 import SliderHandle from './SliderHandle';
 
 
@@ -25,16 +26,9 @@ export default class Slider extends Component {
 
 		return (
 			<div className={className}>
-				<SliderHandle
-					orientation={this.props.orientation}
-					min={this.props.min}
-					max={this.props.max}
-					value={this.props.value}
-					step={this.props.step}
-					bigStep={this.props.bigStep}
-					text={this.props.text}
-					onChange={this.props.onChange}
-				/>
+				<SliderTrack>
+					<SliderHandle {...this.props} />
+				</SliderTrack>
 			</div>
 		);
 	}

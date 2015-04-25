@@ -5,7 +5,6 @@
 
 import {Component, PropTypes, findDOMNode} from 'react';
 import classNames from 'classnames';
-import offset from 'dom-helpers/query/offset';
 import on from 'dom-helpers/events/on';
 import off from 'dom-helpers/events/off';
 import bindMethods from '../utils/bindMethods';
@@ -95,7 +94,7 @@ export default class SliderHandle extends Component {
 		}
 
 		event.preventDefault();
-		this.emitChange(value);
+		this.emitChange(this.bound(value));
 	}
 
 	/**
@@ -125,12 +124,10 @@ export default class SliderHandle extends Component {
 	 *
 	 */
 	handleDrag(event) {
-		const node = findDOMNode(this);
-		const rect = offset(node);
-
+		const offset = this.props.trackOffset();
 		const per = this.isHorizontal()
-			? percentage(event.pageX - rect.left, rect.width)
-			: percentage(event.pageY - rect.top, rect.height);
+			? percentage(event.pageX - offset.left, offset.width)
+			: percentage(event.pageY - offset.top, offset.height);
 
 		const max = this.props.max - this.props.min;
 		const value = this.props.min + ((max / 100) * per);
@@ -185,10 +182,17 @@ export default class SliderHandle extends Component {
 			? lowerStep
 			: higherStep;
 
+		return this.bound(this.props.step * step);
+	}
+
+	/**
+	 *
+	 */
+	bound(value) {
 		return bound(
-			this.props.step * step,
-			this.props.min,
-			this.props.max
+			value,
+			this.props.lowerBound || this.props.min,
+			this.props.upperBound || this.props.max
 		);
 	}
 
@@ -211,22 +215,20 @@ export default class SliderHandle extends Component {
 		});
 
 		return (
-			<div className="rea11y-slider-handle-track">
-				<div ref="handle" className={className} style={this.style()}>
-					<div
-						className="rea11y-slider-handle-control"
-						role="slider"
-						aria-valuemin={this.props.min}
-						aria-valuemax={this.props.max}
-						aria-valuenow={this.props.value}
-						onKeyDown={this.handleKeyDown}
-						onMouseDown={this.handleMouseDown}
-						tabIndex="0"
-					></div>
+			<div className={className} style={this.style()}>
+				<div
+					className="rea11y-slider-handle-control"
+					role="slider"
+					aria-valuemin={this.props.min}
+					aria-valuemax={this.props.max}
+					aria-valuenow={this.props.value}
+					onKeyDown={this.handleKeyDown}
+					onMouseDown={this.handleMouseDown}
+					tabIndex="0"
+				></div>
 
-					<div className="rea11y-slider-handle-text">
-						{this.text()}
-					</div>
+				<div className="rea11y-slider-handle-text">
+					{this.text()}
 				</div>
 			</div>
 		);
@@ -271,10 +273,13 @@ SliderHandle.propTypes = {
 	orientation: PropTypes.string,
 	min: PropTypes.number,
 	max: PropTypes.number,
+	lowerBound: PropTypes.number,
+	upperBound: PropTypes.number,
 	value: PropTypes.number,
 	step: PropTypes.number,
 	bigStep: PropTypes.number,
 	text: PropTypes.func,
+	trackOffset: PropTypes.func,
 	onChange: PropTypes.func,
 	style: PropTypes.object
 };
@@ -286,10 +291,13 @@ SliderHandle.defaultProps = {
 	orientation: 'horizontal',
 	min: 0,
 	max: 100,
+	lowerBound: 0,
+	upperBound: 0,
 	value: 0,
 	step: 1,
 	bigStep: 10,
 	text: null,
+	trackOffset: null,
 	onChange: null,
 	style: {}
 };
