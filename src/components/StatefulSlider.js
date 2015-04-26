@@ -63,13 +63,7 @@ export default class StatefulSlider extends Component {
  *
  */
 StatefulSlider.propTypes = {
-	orientation: PropTypes.string,
-	min: PropTypes.number,
-	max: PropTypes.number,
 	defaultValue: PropTypes.number,
-	step: PropTypes.number,
-	bigStep: PropTypes.number,
-	text: PropTypes.func,
 	onChange: PropTypes.func
 };
 
@@ -77,12 +71,6 @@ StatefulSlider.propTypes = {
  *
  */
 StatefulSlider.defaultProps = {
-	orientation: 'horizontal',
-	min: 0,
-	max: 100,
 	defaultValue: 0,
-	step: 1,
-	bigStep: 10,
-	text: null,
 	onChange: null
 };

@@ -94,13 +94,8 @@ export default class RangeSlider extends Component {
  */
 RangeSlider.propTypes = {
 	orientation: PropTypes.string,
-	min: PropTypes.number,
-	max: PropTypes.number,
 	lowerValue: PropTypes.number,
 	upperValue: PropTypes.number,
-	step: PropTypes.number,
-	bigStep: PropTypes.number,
-	text: PropTypes.func,
 	onChange: PropTypes.func
 };
 
@@ -109,12 +104,7 @@ RangeSlider.propTypes = {
  */
 RangeSlider.defaultProps = {
 	orientation: 'horizontal',
-	min: 0,
-	max: 100,
 	lowerValue: 0,
 	upperValue: 100,
-	step: 1,
-	bigStep: 10,
-	text: null,
 	onChange: null
 };
