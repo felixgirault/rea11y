@@ -79,42 +79,19 @@
 		return props.value;
 	}
 
-	var SyncedSlider = React.createClass({
-
-		getInitialState: function() {
-			return {
-				value: syncedValue.value
-			};
-		},
-
-		updateValue: function(value) {
-			this.setState({
-				value: value
-			}, function() {
-				syncedValue.update(this.state.value);
-			});
-		},
-
-		render: function() {
-			return (
-				<Rea11y.Slider
-					min={0}
-					max={100}
-					value={this.state.value}
-					text={sliderText}
-					onChange={this.updateValue}
-				/>
-			);
-		}
-	});
-
 	React.render(
-		<SyncedSlider />,
+		<Rea11y.StatefulSlider
+			min={0}
+			max={100}
+			defaultValue={syncedValue.value}
+			text={sliderText}
+			onChange={syncedValue.update.bind(syncedValue)}
+		/>,
 		document.getElementById('slider')
 	);
 
 	React.render(
-		<Rea11y.RangeSliderContainer
+		<Rea11y.StatefulRangeSlider
 			min={0}
 			max={100}
 			defaultLowerValue={24}
