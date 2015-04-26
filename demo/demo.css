@@ -227,13 +227,13 @@ button:active {
 	background: #111;
 }
 
-.rea11y-tab-panel {
+.rea11y-panel {
 	display: none;
 	border: 1px solid #3D9970;
 	border-top: none;
 	padding: 0.75em;
 }
 
-.rea11y-tab-panel-active {
+.rea11y-panel-active {
 	display: inherit;
 }

@@ -9,7 +9,7 @@ import StatefulSlider from './src/components/StatefulSlider';
 import RangeSlider from './src/components/RangeSlider';
 import StatefulRangeSlider from './src/components/StatefulRangeSlider';
 import Tabs from './src/components/Tabs';
-import TabPanel from './src/components/TabPanel';
+import Panel from './src/components/Panel';
 
 
 
@@ -23,7 +23,7 @@ export default {
 	RangeSlider,
 	StatefulRangeSlider,
 	Tabs,
-	TabPanel
+	Panel
 }
 
 

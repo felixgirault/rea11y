@@ -100,8 +100,8 @@ export default class Tabs extends Component {
 					{this.renderTabs()}
 				</div>
 
-				<div className="rea11y-tab-panel-list">
-					{this.renderTabPanels()}
+				<div className="rea11y-panel-list">
+					{this.renderPanels()}
 				</div>
 			</div>
 		);
@@ -130,10 +130,10 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
-	renderTabPanels() {
+	renderPanels() {
 		return Children.map(this.props.children, (child, i) => {
 			return addons.cloneWithProps(child, {
-				key: 'tab-panel-' + child.props.name,
+				key: 'panel-' + child.props.name,
 				id: this.props.id,
 				active: (this.state.active === i)
 			});

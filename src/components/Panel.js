@@ -11,7 +11,7 @@ import classNames from 'classnames';
 /**
  *
  */
-export default class Tab extends Component {
+export default class Panel extends Component {
 
 	/**
 	 *
@@ -19,23 +19,22 @@ export default class Tab extends Component {
 	render() {
 		const {id, name, active} = this.props;
 
-		const tabPanelId = `${id}-tab-panel-${name}`;
-		const tabId = `${id}-tab-${name}`;
+		const panelId = `${id}-panel-${name}`;
+		const headerId = `${id}-${name}`;
 
 		const className = classNames({
-			'rea11y-tab-panel': true,
-			'rea11y-tab-panel-active': active,
-			['rea11y-tab-panel-' + name]: true
+			'rea11y-panel': true,
+			'rea11y-panel-active': active,
+			['rea11y-panel-' + name]: true
 		});
 
 		return (
 			<div
-				id={tabPanelId}
+				id={panelId}
 				className={className}
-				href={'#' + tabPanelId}
 				role="tabpanel"
 				aria-hidden={!active}
-				aria-labelledby={tabId}
+				aria-labelledby={headerId}
 				tabIndex={active ? 0 : -1}
 			>
 				{this.props.children}
@@ -49,7 +48,7 @@ export default class Tab extends Component {
 /**
  *
  */
-Tab.propTypes = {
+Panel.propTypes = {
 	id: PropTypes.string,
 	name: PropTypes.string,
 	active: PropTypes.bool
