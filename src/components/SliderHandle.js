@@ -280,8 +280,7 @@ SliderHandle.propTypes = {
 	bigStep: PropTypes.number,
 	text: PropTypes.func,
 	trackOffset: PropTypes.func,
-	onChange: PropTypes.func,
-	style: PropTypes.object
+	onChange: PropTypes.func
 };
 
 /**
@@ -298,6 +297,5 @@ SliderHandle.defaultProps = {
 	bigStep: 10,
 	text: null,
 	trackOffset: null,
-	onChange: null,
-	style: {}
+	onChange: null
 };
