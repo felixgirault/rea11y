@@ -42,8 +42,13 @@ a {
 	text-decoration: none;
 }
 
-a:hover {
-	text-decoration: underline;
+a:hover,
+a:focus {
+	color: #FF851B;
+}
+
+a:active {
+	color: #85144B;
 }
 
 button {
@@ -56,6 +61,15 @@ button {
 	font-size: inherit;
 	font-weight: bold;
 	cursor: pointer;
+}
+
+button:hover,
+button:focus {
+	background: #FF851B;
+}
+
+button:active {
+	background: #85144B;
 }
 
 :focus {
@@ -183,6 +197,10 @@ button {
 	background: #FF851B;
 }
 
+.rea11y-slider-handle-control:active {
+	background: #85144B;
+}
+
 
 
 /**
@@ -199,14 +217,14 @@ button {
 	padding: 0.75em;
 }
 
-.rea11y-tab:hover {
-	background: #aaa;
-	color: #111;
-}
-
 .rea11y-tab-active {
 	background: #111;
 	color: #ddd;
+}
+
+.rea11y-tab-active:hover,
+.rea11y-tab-active:focus {
+	background: #111;
 }
 
 .rea11y-tab-panel {

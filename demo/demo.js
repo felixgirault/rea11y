@@ -113,7 +113,7 @@
 			</Rea11y.TabPanel>
 
 			<Rea11y.TabPanel name="second" title="Second">
-				<p>Second tab's contents with a <a href="#">link</a> inside.</p>
+				<p>Second tab's contents with a <a href="#tabs">link</a> inside.</p>
 			</Rea11y.TabPanel>
 
 			<Rea11y.TabPanel name="third" title="Third">
