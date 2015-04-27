@@ -36,7 +36,8 @@
     "webpack-dev-server": "^1.7.0"
   },
   "dependencies": {
-    "dom-helpers": "^1.2.4"
+    "dom-helpers": "^1.2.4",
+    "uid": "0.0.2"
   },
   "scripts": {
     "start": "webpack-dev-server",

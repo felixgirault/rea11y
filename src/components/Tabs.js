@@ -4,6 +4,7 @@
 'use strict';
 
 import {Component, Children, PropTypes, addons, findDOMNode} from 'react';
+import uid from 'uid';
 import bindMethods from '../utils/bindMethods';
 import Tab from './Tab';
 
@@ -154,5 +155,5 @@ Tabs.propTypes = {
  *
  */
 Tabs.defaultProps = {
-	id: 'rea11y-tabs'
+	id: 'rea11y-' + uid()
 };
