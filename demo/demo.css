@@ -101,7 +101,7 @@ button:active {
 }
 
 .pattern-name {
-	margin: 1.5em 0;
+	margin: 1.5em 0 0.75em 0;
 	color: #3D9970;
 	line-height: 1.5em;
 	font-size: 2em;
@@ -176,6 +176,21 @@ button:active {
 
 .rea11y-progress-bar-text {
 	padding: 0.75em;
+}
+
+.progress-bar-target {
+	border: 1px solid #3D9970;
+	padding: 0.75em;
+	color: #ddd;
+}
+
+.progress-bar-target[aria-busy="false"] {
+	background: #3D9970;
+	color: #111;
+}
+
+.progress-bar-target p {
+	margin: 0;
 }
 
 
