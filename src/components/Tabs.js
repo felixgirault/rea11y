@@ -6,6 +6,7 @@
 import {Component, Children, PropTypes, addons, findDOMNode} from 'react';
 import uid from 'uid';
 import bindMethods from '../utils/bindMethods';
+import bound from '../utils/bound';
 import Tab from './Tab';
 
 
@@ -55,6 +56,20 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
+	activateSibling(direction) {
+		this.setState((state, props) => {
+			const max = Children.count(props.children) - 1;
+			const sibling = state.active + direction;
+
+			return {
+				active: bound(sibling, 0, max, true)
+			};
+		});
+	}
+
+	/**
+	 *
+	 */
 	handleActivation(index) {
 		if (index !== this.state.active) {
 			this.setState({
@@ -66,29 +81,15 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
-	handlePrevious(index) {
-		const max = Children.count(this.props.children) - 1;
-		const previous = (index > 0)
-			? index - 1
-			: max;
-
-		this.setState({
-			active: previous
-		});
+	handlePrevious() {
+		this.activateSibling(-1);
 	}
 
 	/**
 	 *
 	 */
-	handleNext(index) {
-		const max = Children.count(this.props.children) - 1;
-		const next = (index < max)
-			? index + 1
-			: 0;
-
-		this.setState({
-			active: next
-		});
+	handleNext() {
+		this.activateSibling(1);
 	}
 
 	/**
