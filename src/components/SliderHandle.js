@@ -10,6 +10,7 @@ import off from 'dom-helpers/events/off';
 import bindMethods from '../utils/bindMethods';
 import percentage from '../utils/percentage';
 import bound from '../utils/bound';
+import noop from '../utils/noop';
 
 
 
@@ -200,7 +201,7 @@ export default class SliderHandle extends Component {
 	 *
 	 */
 	emitChange(value) {
-		if (this.props.onChange && value !== this.props.value) {
+		if (this.props.value !== value) {
 			this.props.onChange(value);
 		}
 	}
@@ -238,10 +239,6 @@ export default class SliderHandle extends Component {
 	 *
 	 */
 	text() {
-		if (typeof this.props.text !== 'function') {
-			return null;
-		}
-
 		return this.props.text({
 			min: this.props.min,
 			max: this.props.max,
@@ -295,7 +292,6 @@ SliderHandle.defaultProps = {
 	value: 0,
 	step: 1,
 	bigStep: 10,
-	text: null,
-	trackOffset: null,
-	onChange: null
+	text: noop,
+	onChange: noop
 };

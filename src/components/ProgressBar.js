@@ -7,6 +7,7 @@ import {Component, PropTypes} from 'react';
 import uid from 'uid';
 import classNames from 'classnames';
 import percentage from '../utils/percentage';
+import noop from '../utils/noop';
 
 
 
@@ -105,10 +106,6 @@ export default class ProgressBar extends Component {
 	 *
 	 */
 	text() {
-		if (typeof this.props.text !== 'function') {
-			return null;
-		}
-
 		return this.props.text({
 			min: this.props.min,
 			max: this.props.max,
@@ -154,5 +151,5 @@ ProgressBar.defaultProps = {
 	min: 0,
 	max: 100,
 	value: 0,
-	text: ':progress'
+	text: noop
 };

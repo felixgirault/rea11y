@@ -71,7 +71,7 @@ export default class Tabs extends Component {
 	 *
 	 */
 	handleActivation(index) {
-		if (index !== this.state.active) {
+		if (this.state.active !== index) {
 			this.setState({
 				active: index
 			});

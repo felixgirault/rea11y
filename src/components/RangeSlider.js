@@ -6,6 +6,7 @@
 import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import bindMethods from '../utils/bindMethods';
+import noop from '../utils/noop';
 import SliderTrack from './SliderTrack';
 import SliderHandle from './SliderHandle';
 
@@ -33,24 +34,14 @@ export default class RangeSlider extends Component {
 	 *
 	 */
 	handleLowerChange(value) {
-		if (this.props.onChange) {
-			this.props.onChange(
-				value,
-				this.refs.upper.props.value
-			);
-		}
+		this.props.onChange(value, this.props.upperValue);
 	}
 
 	/**
 	 *
 	 */
 	handleUpperChange(value) {
-		if (this.props.onChange) {
-			this.props.onChange(
-				this.refs.lower.props.value,
-				value
-			);
-		}
+		this.props.onChange(this.props.lowerValue, value);
 	}
 
 	/**
@@ -106,5 +97,5 @@ RangeSlider.defaultProps = {
 	orientation: 'horizontal',
 	lowerValue: 0,
 	upperValue: 100,
-	onChange: null
+	onChange: noop
 };

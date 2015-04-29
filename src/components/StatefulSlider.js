@@ -5,6 +5,7 @@
 
 import {Component, PropTypes} from 'react';
 import bindMethods from '../utils/bindMethods';
+import noop from '../utils/noop';
 import Slider from './Slider';
 
 
@@ -37,9 +38,7 @@ export default class StatefulSlider extends Component {
 		this.setState({
 			value: value
 		}, () => {
-			if (this.props.onChange) {
-				this.props.onChange(value);
-			}
+			this.props.onChange(value);
 		});
 	}
 
@@ -72,5 +71,5 @@ StatefulSlider.propTypes = {
  */
 StatefulSlider.defaultProps = {
 	defaultValue: 0,
-	onChange: null
+	onChange: noop
 };

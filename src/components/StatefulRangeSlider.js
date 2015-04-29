@@ -5,6 +5,7 @@
 
 import {Component, PropTypes} from 'react';
 import bindMethods from '../utils/bindMethods';
+import noop from '../utils/noop';
 import RangeSlider from './RangeSlider';
 
 
@@ -39,9 +40,7 @@ export default class StatefulSlider extends Component {
 			lowerValue: lower,
 			upperValue: upper
 		}, () => {
-			if (this.props.onChange) {
-				this.props.onChange(lower, upper);
-			}
+			this.props.onChange(lower, upper);
 		});
 	}
 
@@ -77,5 +76,5 @@ StatefulSlider.propTypes = {
 StatefulSlider.defaultProps = {
 	defaultLowerValue: 0,
 	defaultUpperValue: 0,
-	onChange: null
+	onChange: noop
 };

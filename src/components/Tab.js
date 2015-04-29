@@ -6,6 +6,7 @@
 import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import bindMethods from '../utils/bindMethods';
+import noop from '../utils/noop';
 
 
 
@@ -31,9 +32,7 @@ export default class Tab extends Component {
 	 *
 	 */
 	handleClick() {
-		if (this.props.onActive) {
-			this.props.onActive(this.props.index);
-		}
+		this.props.onActive(this.props.index);
 	}
 
 	/**
@@ -43,16 +42,12 @@ export default class Tab extends Component {
 		switch (event.keyCode) {
 			case 37: // left
 			case 38: // up
-				if (this.props.onPrevious) {
-					this.props.onPrevious(this.props.index);
-				}
+				this.props.onPrevious(this.props.index);
 				break;
 
 			case 39: // right
 			case 40: // down
-				if (this.props.onNext) {
-					this.props.onNext(this.props.index);
-				}
+				this.props.onNext(this.props.index);
 				break;
 
 			default:
@@ -105,6 +100,8 @@ Tab.propTypes = {
 	index: PropTypes.number,
 	active: PropTypes.bool,
 	onActive: PropTypes.func,
+	onFirst: PropTypes.func,
+	onLast: PropTypes.func,
 	onPrevious: PropTypes.func,
 	onNext: PropTypes.func
 };
@@ -113,9 +110,13 @@ Tab.propTypes = {
  *
  */
 Tab.defaultProps = {
+	id: '',
+	name: '',
 	index: 0,
 	active: false,
-	onActive: null,
-	onPrevious: null,
-	onNext: null
+	onActive: noop,
+	onFirst: noop,
+	onLast: noop,
+	onPrevious: noop,
+	onNext: noop
 };
