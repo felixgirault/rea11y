@@ -5,6 +5,7 @@
 
 import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
+import KeyCodes from '../utils/KeyCodes';
 import bindMethods from '../utils/bindMethods';
 import noop from '../utils/noop';
 
@@ -40,13 +41,21 @@ export default class Tab extends Component {
 	 */
 	handleKeydown(event) {
 		switch (event.keyCode) {
-			case 37: // left
-			case 38: // up
+			case KeyCodes.END:
+				this.props.onLast();
+				break;
+
+			case KeyCodes.HOME:
+				this.props.onFirst();
+				break;
+
+			case KeyCodes.LEFT:
+			case KeyCodes.UP:
 				this.props.onPrevious(this.props.index);
 				break;
 
-			case 39: // right
-			case 40: // down
+			case KeyCodes.RIGHT:
+			case KeyCodes.DOWN:
 				this.props.onNext(this.props.index);
 				break;
 

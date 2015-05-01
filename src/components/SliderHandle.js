@@ -7,6 +7,7 @@ import {Component, PropTypes, findDOMNode} from 'react';
 import classNames from 'classnames';
 import on from 'dom-helpers/events/on';
 import off from 'dom-helpers/events/off';
+import KeyCodes from '../utils/KeyCodes';
 import bindMethods from '../utils/bindMethods';
 import percentage from '../utils/percentage';
 import bound from '../utils/bound';
@@ -64,29 +65,29 @@ export default class SliderHandle extends Component {
 		let value;
 
 		switch (event.keyCode) {
-			case 33: // page up
+			case KeyCodes.PAGE_UP:
 				value = this.incremented(this.props.bigStep);
 				break;
 
-			case 34: // page down
+			case KeyCodes.PAGE_DOWN:
 				value = this.incremented(-this.props.bigStep);
 				break;
 
-			case 35: // end
+			case KeyCodes.END:
 				value = this.props.max;
 				break;
 
-			case 36: // home
+			case KeyCodes.HOME:
 				value = this.props.min;
 				break;
 
-			case 37: // left
-			case 40: // down
+			case KeyCodes.LEFT:
+			case KeyCodes.DOWN:
 				value = this.incremented(-this.props.step);
 				break;
 
-			case 38: // up
-			case 39: // right
+			case KeyCodes.UP:
+			case KeyCodes.RIGHT:
 				value = this.incremented(this.props.step);
 				break;
 
