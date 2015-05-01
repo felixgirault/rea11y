@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import {Component, Children, PropTypes, addons, findDOMNode} from 'react';
+import {Component, Children, PropTypes, findDOMNode, cloneElement} from 'react';
 import uid from 'uid';
 import bindMethods from '../utils/bindMethods';
 import bound from '../utils/bound';
@@ -134,7 +134,7 @@ export default class Tabs extends Component {
 	 */
 	renderPanels() {
 		return Children.map(this.props.children, (child, i) => {
-			return addons.cloneWithProps(child, {
+			return cloneElement(child, {
 				key: 'panel-' + child.props.name,
 				id: this.props.id,
 				active: (this.state.active === i)
