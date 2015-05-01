@@ -92,12 +92,12 @@ function handleChange(upperValue, lowerValue) {
 
 ```jsx
 <Tabs>
-	<TabPanel name="first" title="First">
+	<Panel name="first" title="First">
 		<p>Lorem ipsum dolor sit amet.</p>
-	</TabPanel>
+	</Panel>
 
-	<TabPanel name="second" title="Second">
+	<Panel name="second" title="Second">
 		<p>Lorem ipsum dolor sit amet.</p>
-	</TabPanel>
+	</Panel>
 </Tabs>
 ```
