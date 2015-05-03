@@ -4,7 +4,7 @@
 
 .rea11y-slider {
 	position: relative;
-	border: 1px solid #aaa;
+	margin-bottom: 1.5em;
 }
 
 .rea11y-slider-horizontal {
@@ -19,27 +19,31 @@
 
 .rea11y-slider-track {
 	position: absolute;
-}
-
-.rea11y-slider-horizontal .rea11y-slider-track {
-	top: 0;
+	top: 0.375em;
 	right: 0.75em;
-	bottom: 0;
+	bottom: 0.375em;
 	left: 0.75em;
+	border: 1px solid #aaa;
+	border-radius: 0.375em;
+	background: #aaa;
 }
 
-.rea11y-slider-vertical .rea11y-slider-track {
-	top: 0.75em;
-	right: 0;
-	bottom: 0.75em;
-	left: 0;
+.rea11y-slider-range .rea11y-slider-track {
+	background: #fff;
 }
 
 .rea11y-slider-handle {
 	position: absolute;
 	top: 0;
 	right: 0;
-	width: 0;
+	bottom: 0;
+	left: 0;
+	border-radius: 0.75em;
+	background: #fff;
+}
+
+.rea11y-slider-range .rea11y-slider-handle:first-child {
+	background: #aaa;
 }
 
 .rea11y-slider-horizontal .rea11y-slider-handle {
@@ -52,8 +56,10 @@
 
 .rea11y-slider-handle-control {
 	position: relative;
+	top: -0.375em;
 	left: -0.75em;
 	height: 1.5em;
+	border-radius: 0.75em;
 	background: #aaa;
 	cursor: grab;
 }
@@ -76,8 +82,8 @@
 
 .rea11y-slider-handle-text {
 	position: relative;
-	left: -0.75em;
-	width: 1.5em;
+	left: -1.5em;
+	width: 3em;
 	text-align: center;
 	overflow: visible;
 }

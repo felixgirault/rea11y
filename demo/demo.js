@@ -99,8 +99,8 @@
 		<Rea11y.StatefulRangeSlider
 			min={0}
 			max={100}
-			defaultLowerValue={24}
-			defaultUpperValue={96}
+			defaultLowerValue={16}
+			defaultUpperValue={64}
 			text={sliderText}
 		/>,
 		$('range-slider')

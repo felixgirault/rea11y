@@ -5,7 +5,6 @@
 
 import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
-import SliderTrack from './SliderTrack';
 import SliderHandle from './SliderHandle';
 
 
@@ -26,9 +25,9 @@ export default class Slider extends Component {
 
 		return (
 			<div className={className}>
-				<SliderTrack>
+				<div className="rea11y-slider-track">
 					<SliderHandle {...this.props} />
-				</SliderTrack>
+				</div>
 			</div>
 		);
 	}

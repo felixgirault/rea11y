@@ -7,7 +7,6 @@ import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
 import bindMethods from '../utils/bindMethods';
 import noop from '../utils/noop';
-import SliderTrack from './SliderTrack';
 import SliderHandle from './SliderHandle';
 
 
@@ -56,13 +55,14 @@ export default class RangeSlider extends Component {
 
 		return (
 			<div className={className}>
-				<SliderTrack>
+				<div className="rea11y-slider-track">
 					<SliderHandle
 						{...this.props}
 						ref="lower"
 						value={this.props.lowerValue}
 						onChange={this.handleLowerChange}
-						upperBound = {this.props.upperValue}
+						upperBound={this.props.upperValue}
+						offset={this.offset}
 					/>
 
 					<SliderHandle
@@ -70,9 +70,10 @@ export default class RangeSlider extends Component {
 						ref="upper"
 						value={this.props.upperValue}
 						onChange={this.handleUpperChange}
-						lowerBound = {this.props.lowerValue}
+						lowerBound={this.props.lowerValue}
+						offset={this.offset}
 					/>
-				</SliderTrack>
+				</div>
 			</div>
 		);
 	}

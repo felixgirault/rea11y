@@ -199,8 +199,21 @@ button:active {
  *	Sliders.
  */
 
-.rea11y-slider {
+.rea11y-slider-track {
 	border: 1px solid #3D9970;
+	background: #ddd;
+}
+
+.rea11y-slider-range .rea11y-slider-track {
+	background: #111;
+}
+
+.rea11y-slider-handle {
+	background: #111;
+}
+
+.rea11y-slider-range .rea11y-slider-handle:first-child {
+	background: #ddd;
 }
 
 .rea11y-slider-handle-control {

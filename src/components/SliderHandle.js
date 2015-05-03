@@ -4,6 +4,7 @@
 'use strict';
 
 import {Component, PropTypes, findDOMNode} from 'react';
+import offset from 'dom-helpers/query/offset';
 import classNames from 'classnames';
 import on from 'dom-helpers/events/on';
 import off from 'dom-helpers/events/off';
@@ -56,6 +57,14 @@ export default class SliderHandle extends Component {
 				props.min
 			)
 		});
+	}
+
+	/**
+	 *
+	 */
+	parentOffset() {
+		const parent = findDOMNode(this).parentElement;
+		return offset(parent);
 	}
 
 	/**
@@ -126,7 +135,9 @@ export default class SliderHandle extends Component {
 	 *
 	 */
 	handleDrag(event) {
-		const offset = this.props.trackOffset();
+		event.preventDefault();
+
+		const offset = this.parentOffset();
 		const per = this.isHorizontal()
 			? percentage(event.pageX - offset.left, offset.width)
 			: percentage(event.pageY - offset.top, offset.height);
@@ -277,7 +288,6 @@ SliderHandle.propTypes = {
 	step: PropTypes.number,
 	bigStep: PropTypes.number,
 	text: PropTypes.func,
-	trackOffset: PropTypes.func,
 	onChange: PropTypes.func
 };
 
