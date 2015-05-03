@@ -70,6 +70,7 @@ button:focus {
 
 button:active {
 	background: #85144B;
+	color: #ddd;
 }
 
 :focus {
@@ -217,6 +218,7 @@ button:active {
 }
 
 .rea11y-slider-handle-control {
+	border: none;
 	background: #3D9970;
 }
 
@@ -236,13 +238,22 @@ button:active {
  */
 
 .rea11y-tab-list {
-	border: 1px solid #3D9970;
-	border-bottom: none;
+	border-color: #3D9970;
 	background: #3D9970;
 }
 
 .rea11y-tab {
-	padding: 0.75em;
+	background: #3D9970;
+}
+
+.rea11y-tab:hover,
+.rea11y-tab:focus {
+	background: #FF851B;
+}
+
+.rea11y-tab:active {
+	background: #85144B;
+	color: #ddd;
 }
 
 .rea11y-tab-active {
@@ -256,12 +267,5 @@ button:active {
 }
 
 .rea11y-panel {
-	display: none;
-	border: 1px solid #3D9970;
-	border-top: none;
-	padding: 0.75em;
-}
-
-.rea11y-panel-active {
-	display: inherit;
+	border-color: #3D9970;
 }

@@ -33,3 +33,4 @@ export default {
  */
 require('./css/progress-bar.css');
 require('./css/slider.css');
+require('./css/tabs.css');

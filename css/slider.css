@@ -25,7 +25,7 @@
 	left: 0.75em;
 	border: 1px solid #aaa;
 	border-radius: 0.375em;
-	background: #aaa;
+	background: #ddd;
 }
 
 .rea11y-slider-range .rea11y-slider-track {
@@ -43,7 +43,7 @@
 }
 
 .rea11y-slider-range .rea11y-slider-handle:first-child {
-	background: #aaa;
+	background: #ddd;
 }
 
 .rea11y-slider-horizontal .rea11y-slider-handle {
@@ -55,13 +55,21 @@
 }
 
 .rea11y-slider-handle-control {
+	box-sizing: border-box;
 	position: relative;
 	top: -0.375em;
 	left: -0.75em;
 	height: 1.5em;
+	border: 1px solid #aaa;
 	border-radius: 0.75em;
-	background: #aaa;
+	background: #ddd;
 	cursor: grab;
+}
+
+.rea11y-slider-handle-control:hover,
+.rea11y-slider-handle-control:focus {
+	background: #aaa;
+	z-index: 10;
 }
 
 .rea11y-slider-handle-control:focus {

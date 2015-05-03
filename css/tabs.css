@@ -1,0 +1,41 @@
+/**
+ *	Slider.
+ */
+
+.rea11y-tab-list {
+	border: 1px solid #aaa;
+	border-bottom: none;
+	background: #ddd;
+}
+
+.rea11y-tab {
+	margin: 0;
+	border: none;
+	padding: 0.75em;
+	background: #ddd;
+}
+
+.rea11y-tab-active {
+	background: #fff;
+}
+
+.rea11y-tab:hover,
+.rea11y-tab:focus {
+	background: #aaa;
+}
+
+.rea11y-tab-active:hover,
+.rea11y-tab-active:focus {
+	background: #fff;
+}
+
+.rea11y-panel {
+	display: none;
+	border: 1px solid #aaa;
+	border-top: none;
+	padding: 0.75em;
+}
+
+.rea11y-panel-active {
+	display: inherit;
+}
