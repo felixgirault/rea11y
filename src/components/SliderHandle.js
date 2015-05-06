@@ -4,12 +4,12 @@
 'use strict';
 
 import {Component, PropTypes, findDOMNode} from 'react';
+import autobind from 'autobind-decorator';
 import offset from 'dom-helpers/query/offset';
 import classNames from 'classnames';
 import on from 'dom-helpers/events/on';
 import off from 'dom-helpers/events/off';
 import KeyCodes from '../utils/KeyCodes';
-import bindMethods from '../utils/bindMethods';
 import percentage from '../utils/percentage';
 import bound from '../utils/bound';
 import noop from '../utils/noop';
@@ -26,15 +26,6 @@ export default class SliderHandle extends Component {
 	 */
 	constructor(props) {
 		super(props);
-
-		bindMethods(
-			this,
-			'handleKeyDown',
-			'handleMouseDown',
-			'handleDragStart',
-			'handleDrag',
-			'handleDragEnd'
-		);
 
 		this.state = {
 			dragging: false,
@@ -70,6 +61,7 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleKeyDown(event) {
 		let value;
 
@@ -111,6 +103,7 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleMouseDown(event) {
 		if (event.button === 0) {
 			this.handleDragStart(event);
@@ -120,6 +113,7 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleDragStart(event) {
 		this.setState({
 			dragging: true,
@@ -134,6 +128,7 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleDrag(event) {
 		event.preventDefault();
 
@@ -152,6 +147,7 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleDragEnd() {
 		this.setState({
 			dragging: false

@@ -4,8 +4,8 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
+import autobind from 'autobind-decorator';
 import classNames from 'classnames';
-import bindMethods from '../utils/bindMethods';
 import noop from '../utils/noop';
 import SliderHandle from './SliderHandle';
 
@@ -19,19 +19,7 @@ export default class RangeSlider extends Component {
 	/**
 	 *
 	 */
-	constructor(props) {
-		super(props);
-
-		bindMethods(
-			this,
-			'handleLowerChange',
-			'handleUpperChange'
-		);
-	}
-
-	/**
-	 *
-	 */
+	@autobind
 	handleLowerChange(value) {
 		this.props.onChange(value, this.props.upperValue);
 	}
@@ -39,6 +27,7 @@ export default class RangeSlider extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleUpperChange(value) {
 		this.props.onChange(this.props.lowerValue, value);
 	}

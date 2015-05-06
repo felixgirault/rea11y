@@ -4,9 +4,9 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
+import autobind from 'autobind-decorator';
 import classNames from 'classnames';
 import KeyCodes from '../utils/KeyCodes';
-import bindMethods from '../utils/bindMethods';
 import noop from '../utils/noop';
 
 
@@ -19,19 +19,7 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
-	constructor(props) {
-		super(props);
-
-		bindMethods(
-			this,
-			'handleClick',
-			'handleKeydown'
-		);
-	}
-
-	/**
-	 *
-	 */
+	@autobind
 	handleClick() {
 		this.props.onActive(this.props.index);
 	}
@@ -39,6 +27,7 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleKeydown(event) {
 		switch (event.keyCode) {
 			case KeyCodes.END:

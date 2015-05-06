@@ -36,6 +36,7 @@
     "webpack-dev-server": "^1.7.0"
   },
   "dependencies": {
+    "autobind-decorator": "^1.1.0",
     "dom-helpers": "^1.2.4",
     "uid": "0.0.2"
   },

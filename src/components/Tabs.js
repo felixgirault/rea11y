@@ -4,8 +4,8 @@
 'use strict';
 
 import {Component, Children, PropTypes, findDOMNode, cloneElement} from 'react';
+import autobind from 'autobind-decorator';
 import uid from 'uid';
-import bindMethods from '../utils/bindMethods';
 import bound from '../utils/bound';
 import Tab from './Tab';
 
@@ -21,13 +21,6 @@ export default class Tabs extends Component {
 	 */
 	constructor(props) {
 		super(props);
-
-		bindMethods(
-			this,
-			'handleActivation',
-			'handlePrevious',
-			'handleNext'
-		);
 
 		this.state = {
 			active: 0
@@ -70,6 +63,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleActivation(index) {
 		if (this.state.active !== index) {
 			this.setState({
@@ -81,6 +75,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handlePrevious() {
 		this.activateSibling(-1);
 	}
@@ -88,6 +83,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleNext() {
 		this.activateSibling(1);
 	}

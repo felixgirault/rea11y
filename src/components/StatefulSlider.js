@@ -4,7 +4,7 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
-import bindMethods from '../utils/bindMethods';
+import autobind from 'autobind-decorator';
 import noop from '../utils/noop';
 import Slider from './Slider';
 
@@ -21,11 +21,6 @@ export default class StatefulSlider extends Component {
 	constructor(props) {
 		super(props);
 
-		bindMethods(
-			this,
-			'handleChange'
-		);
-
 		this.state = {
 			value: this.props.defaultValue
 		};
@@ -34,6 +29,7 @@ export default class StatefulSlider extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleChange(value) {
 		this.setState({
 			value: value

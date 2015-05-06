@@ -4,8 +4,8 @@
 'use strict';
 
 var webpack = require('webpack');
-var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 var ExtractTextPlugin = require('extract-text-webpack-plugin');
+var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 
 
 
@@ -46,7 +46,7 @@ module.exports = {
 		],
 		loaders: [
 			{
-				loader: 'babel-loader?stage=0&optional=runtime',
+				loader: 'babel-loader?stage=1&optional=runtime',
 				test: /\.js$/,
 				exclude: /node_modules/
 			},
