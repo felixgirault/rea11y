@@ -128,27 +128,4 @@
 	);
 
 	React.render(tabs, $('tabs'));
-
-
-
-	/**
-	 *
-	 */
-	var accordion = (
-		<Rea11y.Accordion>
-			<Rea11y.Panel name="first" title="First">
-				<p>First panel's contents.</p>
-			</Rea11y.Panel>
-
-			<Rea11y.Panel name="second" title="Second">
-				<p>Second panel's contents with a <a href="#accordion">link</a> inside.</p>
-			</Rea11y.Panel>
-
-			<Rea11y.Panel name="third" title="Third">
-				<p>Third panel's contents with a <button>button</button> inside.</p>
-			</Rea11y.Panel>
-		</Rea11y.Accordion>
-	);
-
-	React.render(accordion, $('accordion'));
 })();
