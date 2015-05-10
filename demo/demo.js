@@ -112,7 +112,7 @@
 	 *
 	 */
 	var tabs = (
-		<Rea11y.Tabs>
+		<Rea11y.StatefulTabs defaultActive="first">
 			<Rea11y.Panel name="first" title="First">
 				<p>First panel's contents.</p>
 			</Rea11y.Panel>
@@ -124,7 +124,7 @@
 			<Rea11y.Panel name="third" title="Third">
 				<p>Third panel's contents with a <button>button</button> inside.</p>
 			</Rea11y.Panel>
-		</Rea11y.Tabs>
+		</Rea11y.StatefulTabs>
 	);
 
 	React.render(tabs, $('tabs'));

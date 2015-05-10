@@ -5,6 +5,7 @@
 
 import {Component, PropTypes} from 'react';
 import classNames from 'classnames';
+import uid from 'uid';
 
 
 
@@ -52,4 +53,13 @@ Panel.propTypes = {
 	id: PropTypes.string,
 	name: PropTypes.string,
 	active: PropTypes.bool
+};
+
+
+
+/**
+ *
+ */
+Panel.defaultProps = {
+	active: false
 };

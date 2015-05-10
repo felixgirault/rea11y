@@ -91,7 +91,7 @@ function handleChange(upperValue, lowerValue) {
 ### Tabs
 
 ```jsx
-<Tabs>
+<Tabs active="first">
 	<Panel name="first" title="First">
 		<p>Lorem ipsum dolor sit amet.</p>
 	</Panel>

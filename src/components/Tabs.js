@@ -19,20 +19,9 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			active: 0
-		};
-	}
-
-	/**
-	 *
-	 */
-	componentDidUpdate(previousProps, previousState) {
-		if (previousState.active !== this.state.active) {
-			const ref = this.ref(this.state.active);
+	componentDidUpdate(previousProps) {
+		if (previousProps.active !== this.props.active) {
+			const ref = this.tabRef(this.props.active);
 			const active = this.refs[ref];
 
 			findDOMNode(active).focus();
@@ -42,33 +31,41 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
-	ref(index) {
-		return 'tab-' + index;
+	tabRef(name) {
+		return 'tab-' + name;
 	}
 
 	/**
 	 *
 	 */
-	activateSibling(direction) {
-		this.setState((state, props) => {
-			const max = Children.count(props.children) - 1;
-			const sibling = state.active + direction;
+	tabNames() {
+		let names = [];
 
-			return {
-				active: bound(sibling, 0, max, true)
-			};
+		Children.forEach(this.props.children, (child) => {
+			names.push(child.props.name);
 		});
+
+		return names;
 	}
 
 	/**
 	 *
 	 */
-	@autobind
-	handleActivation(index) {
-		if (this.state.active !== index) {
-			this.setState({
-				active: index
-			});
+	activateSibling(name, direction) {
+		const names = this.tabNames();
+		const index = names.indexOf(name) + direction;
+		const max = names.length - 1;
+		const sibling = bound(index, 0, max, true);
+
+		this.emitActive(names[sibling]);
+	}
+
+	/**
+	 *
+	 */
+	emitActive(name) {
+		if (this.props.active !== name) {
+			this.props.onActive(name);
 		}
 	}
 
@@ -76,16 +73,24 @@ export default class Tabs extends Component {
 	 *
 	 */
 	@autobind
-	handlePrevious() {
-		this.activateSibling(-1);
+	handleActive(name) {
+		this.emitActive(name);
 	}
 
 	/**
 	 *
 	 */
 	@autobind
-	handleNext() {
-		this.activateSibling(1);
+	handlePrevious(name) {
+		this.activateSibling(name, -1);
+	}
+
+	/**
+	 *
+	 */
+	@autobind
+	handleNext(name) {
+		this.activateSibling(name, 1);
 	}
 
 	/**
@@ -109,31 +114,40 @@ export default class Tabs extends Component {
 	 *
 	 */
 	renderTabs() {
-		return Children.map(this.props.children, (child, i) => (
-			<Tab
-				key={'tab-' + child.props.name}
-				ref={this.ref(i)}
-				id={this.props.id}
-				name={child.props.name}
-				title={child.props.title}
-				active={this.state.active === i}
-				onActive={this.handleActivation}
-				onPrevious={this.handlePrevious}
-				onNext={this.handleNext}
-				index={i}
-			/>
-		));
+		return Children.map(this.props.children, (child) => {
+			const name = child.props.name;
+			const ref = this.tabRef(name);
+			const active = (this.props.active === name);
+
+			return (
+				<Tab
+					key={ref}
+					ref={ref}
+					id={this.props.id}
+					name={name}
+					title={child.props.title}
+					active={active}
+					onActive={this.handleActive}
+					onPrevious={this.handlePrevious}
+					onNext={this.handleNext}
+				/>
+			);
+		});
 	}
 
 	/**
 	 *
 	 */
 	renderPanels() {
-		return Children.map(this.props.children, (child, i) => {
+		return Children.map(this.props.children, (child) => {
+			const name = child.props.name;
+			const key = 'panel-' + child.props.name;
+			const active = (this.props.active === name);
+
 			return cloneElement(child, {
-				key: 'panel-' + child.props.name,
+				key: key,
 				id: this.props.id,
-				active: (this.state.active === i)
+				active: active
 			});
 		});
 	}
@@ -145,7 +159,8 @@ export default class Tabs extends Component {
  *
  */
 Tabs.propTypes = {
-	id: PropTypes.string
+	id: PropTypes.string,
+	active: PropTypes.string
 };
 
 /**

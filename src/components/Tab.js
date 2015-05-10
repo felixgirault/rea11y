@@ -21,7 +21,7 @@ export default class Tab extends Component {
 	 */
 	@autobind
 	handleClick() {
-		this.props.onActive(this.props.index);
+		this.props.onActive(this.props.name);
 	}
 
 	/**
@@ -40,12 +40,12 @@ export default class Tab extends Component {
 
 			case KeyCodes.LEFT:
 			case KeyCodes.UP:
-				this.props.onPrevious(this.props.index);
+				this.props.onPrevious(this.props.name);
 				break;
 
 			case KeyCodes.RIGHT:
 			case KeyCodes.DOWN:
-				this.props.onNext(this.props.index);
+				this.props.onNext(this.props.name);
 				break;
 
 			default:
@@ -95,7 +95,6 @@ export default class Tab extends Component {
 Tab.propTypes = {
 	id: PropTypes.string,
 	name: PropTypes.string,
-	index: PropTypes.number,
 	active: PropTypes.bool,
 	onActive: PropTypes.func,
 	onFirst: PropTypes.func,
@@ -108,9 +107,6 @@ Tab.propTypes = {
  *
  */
 Tab.defaultProps = {
-	id: '',
-	name: '',
-	index: 0,
 	active: false,
 	onActive: noop,
 	onFirst: noop,
