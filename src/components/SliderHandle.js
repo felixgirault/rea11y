@@ -6,8 +6,8 @@
 import {Component, PropTypes, findDOMNode} from 'react';
 import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
-import offset from 'dom-helpers/query/offset';
 import classNames from 'classnames';
+import offset from 'dom-helpers/query/offset';
 import on from 'dom-helpers/events/on';
 import off from 'dom-helpers/events/off';
 import KeyCodes from '../utils/KeyCodes';
