@@ -4,6 +4,7 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
+import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
 import noop from '../utils/noop';
 import RangeSlider from './RangeSlider';
@@ -13,6 +14,7 @@ import RangeSlider from './RangeSlider';
 /**
  *
  */
+@pureRender
 export default class StatefulSlider extends Component {
 
 	/**

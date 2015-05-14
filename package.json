@@ -38,6 +38,7 @@
   "dependencies": {
     "autobind-decorator": "^1.1.0",
     "dom-helpers": "^1.2.4",
+    "pure-render-decorator": "^0.1.0",
     "uid": "0.0.2"
   },
   "scripts": {

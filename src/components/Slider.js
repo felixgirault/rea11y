@@ -4,6 +4,7 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
+import pureRender from 'pure-render-decorator';
 import classNames from 'classnames';
 import SliderHandle from './SliderHandle';
 
@@ -12,6 +13,7 @@ import SliderHandle from './SliderHandle';
 /**
  *
  */
+@pureRender
 export default class Slider extends Component {
 
 	/**

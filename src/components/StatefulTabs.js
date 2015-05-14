@@ -4,6 +4,7 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
+import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
 import noop from '../utils/noop';
 import Tabs from './Tabs';
@@ -13,6 +14,7 @@ import Tabs from './Tabs';
 /**
  *
  */
+@pureRender
 export default class StatefulTabs extends Component {
 
 	/**

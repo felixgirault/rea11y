@@ -4,14 +4,15 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
+import pureRender from 'pure-render-decorator';
 import classNames from 'classnames';
-import uid from 'uid';
 
 
 
 /**
  *
  */
+@pureRender
 export default class Panel extends Component {
 
 	/**
@@ -54,8 +55,6 @@ Panel.propTypes = {
 	name: PropTypes.string,
 	active: PropTypes.bool
 };
-
-
 
 /**
  *

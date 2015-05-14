@@ -4,6 +4,7 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
+import pureRender from 'pure-render-decorator';
 import uid from 'uid';
 import classNames from 'classnames';
 import percentage from '../utils/percentage';
@@ -14,6 +15,7 @@ import noop from '../utils/noop';
 /**
  *
  */
+@pureRender
 export default class ProgressBar extends Component {
 
 	/**

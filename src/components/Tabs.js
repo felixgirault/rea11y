@@ -4,6 +4,7 @@
 'use strict';
 
 import {Component, Children, PropTypes, findDOMNode, cloneElement} from 'react';
+import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
 import uid from 'uid';
 import bound from '../utils/bound';
@@ -14,6 +15,7 @@ import Tab from './Tab';
 /**
  *
  */
+@pureRender
 export default class Tabs extends Component {
 
 	/**

@@ -4,6 +4,7 @@
 'use strict';
 
 import {Component, PropTypes} from 'react';
+import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
 import classNames from 'classnames';
 import KeyCodes from '../utils/KeyCodes';
@@ -14,6 +15,7 @@ import noop from '../utils/noop';
 /**
  *
  */
+@pureRender
 export default class Tab extends Component {
 
 	/**
