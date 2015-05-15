@@ -43,6 +43,8 @@
   },
   "scripts": {
     "start": "webpack-dev-server",
-    "build": "webpack"
+    "build": "webpack",
+    "testserver": "npm start > /dev/null 2>&1 &",
+    "test": "protractor conf-saucelab.js"
   }
 }
