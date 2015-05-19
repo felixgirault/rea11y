@@ -301,6 +301,6 @@ SliderHandle.defaultProps = {
 	value: 0,
 	step: 1,
 	bigStep: 10,
-	text: noop,
+	text: (props) => props.value,
 	onChange: noop
 };

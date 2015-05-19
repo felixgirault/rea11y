@@ -8,7 +8,6 @@ import pureRender from 'pure-render-decorator';
 import uid from 'uid';
 import classNames from 'classnames';
 import percentage from '../utils/percentage';
-import noop from '../utils/noop';
 
 
 
@@ -153,5 +152,7 @@ ProgressBar.defaultProps = {
 	min: 0,
 	max: 100,
 	value: 0,
-	text: noop
+	text: (props) => {
+		return props.percentage + '%';
+	}
 };
