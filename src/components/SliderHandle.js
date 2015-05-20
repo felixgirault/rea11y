@@ -134,10 +134,10 @@ export default class SliderHandle extends Component {
 	handleDrag(event) {
 		event.preventDefault();
 
-		const offset = this.parentOffset();
+		const rect = this.parentOffset();
 		const per = this.isHorizontal()
-			? percentage(event.pageX - offset.left, offset.width)
-			: percentage(event.pageY - offset.top, offset.height);
+			? percentage(event.pageX - rect.left, rect.width)
+			: percentage(event.pageY - rect.top, rect.height);
 
 		const max = this.props.max - this.props.min;
 		const value = this.props.min + ((max / 100) * per);
