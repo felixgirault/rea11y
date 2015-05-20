@@ -8,7 +8,7 @@ import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
 import classNames from 'classnames';
 import keys from 'offkey';
-import noop from '../utils/noop';
+import noop from 'no-op';
 
 
 

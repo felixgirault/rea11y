@@ -8,11 +8,11 @@ import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
 import classNames from 'classnames';
 import keys from 'offkey';
+import noop from 'no-op';
 import {on, off} from 'dom-helpers/events';
 import offset from 'dom-helpers/query/offset';
 import percentage from '../utils/percentage';
 import bound from '../utils/bound';
-import noop from '../utils/noop';
 
 
 
