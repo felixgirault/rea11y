@@ -7,7 +7,7 @@ import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
 import classNames from 'classnames';
-import KeyCodes from '../utils/KeyCodes';
+import keys from 'offkey';
 import noop from '../utils/noop';
 
 
@@ -32,21 +32,21 @@ export default class Tab extends Component {
 	@autobind
 	handleKeydown(event) {
 		switch (event.keyCode) {
-			case KeyCodes.END:
+			case keys.END:
 				this.props.onLast();
 				break;
 
-			case KeyCodes.HOME:
+			case keys.HOME:
 				this.props.onFirst();
 				break;
 
-			case KeyCodes.LEFT:
-			case KeyCodes.UP:
+			case keys.ARROW.LEFT:
+			case keys.ARROW.UP:
 				this.props.onPrevious(this.props.name);
 				break;
 
-			case KeyCodes.RIGHT:
-			case KeyCodes.DOWN:
+			case keys.ARROW.RIGHT:
+			case keys.ARROW.DOWN:
 				this.props.onNext(this.props.name);
 				break;
 

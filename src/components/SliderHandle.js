@@ -7,10 +7,9 @@ import {Component, PropTypes, findDOMNode} from 'react';
 import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
 import classNames from 'classnames';
+import keys from 'offkey';
+import {on, off} from 'dom-helpers/events';
 import offset from 'dom-helpers/query/offset';
-import on from 'dom-helpers/events/on';
-import off from 'dom-helpers/events/off';
-import KeyCodes from '../utils/KeyCodes';
 import percentage from '../utils/percentage';
 import bound from '../utils/bound';
 import noop from '../utils/noop';
@@ -68,29 +67,29 @@ export default class SliderHandle extends Component {
 		let value;
 
 		switch (event.keyCode) {
-			case KeyCodes.PAGE_UP:
+			case keys.PAGE_UP:
 				value = this.incremented(this.props.bigStep);
 				break;
 
-			case KeyCodes.PAGE_DOWN:
+			case keys.PAGE_DOWN:
 				value = this.incremented(-this.props.bigStep);
 				break;
 
-			case KeyCodes.END:
+			case keys.END:
 				value = this.props.max;
 				break;
 
-			case KeyCodes.HOME:
+			case keys.HOME:
 				value = this.props.min;
 				break;
 
-			case KeyCodes.LEFT:
-			case KeyCodes.DOWN:
+			case keys.ARROW.LEFT:
+			case keys.ARROW.DOWN:
 				value = this.incremented(-this.props.step);
 				break;
 
-			case KeyCodes.UP:
-			case KeyCodes.RIGHT:
+			case keys.ARROW.UP:
+			case keys.ARROW.RIGHT:
 				value = this.incremented(this.props.step);
 				break;
 
