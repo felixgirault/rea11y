@@ -29,6 +29,8 @@
     "eslint": "^0.21.2",
     "eslint-friendly-formatter": "^1.0.8",
     "eslint-loader": "^0.11.2",
+    "eslint-plugin-decorator": "0.0.2",
+    "eslint-plugin-react": "^2.3.0",
     "extract-text-webpack-plugin": "^0.8.0",
     "react-tools": "^0.13.3",
     "style-loader": "^0.12.2",

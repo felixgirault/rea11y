@@ -1,8 +1,15 @@
 {
 	"parser": "babel-eslint",
+	"plugins": [
+		"decorator",
+		"react"
+	],
 	"env": {
 		"browser": true,
 		"node": true
+	},
+	"ecmaFeatures": {
+		"jsx": true
 	},
 	"rules": {
 		"brace-style": "stroustrup",
@@ -13,6 +20,9 @@
 		"no-mixed-spaces-and-tabs": true,
 		"no-var": true,
 		"quotes": "single",
-		"strict": "global"
+		"strict": "global",
+		"react/jsx-uses-vars": 1,
+		"react/self-closing-comp": 1,
+		"react/wrap-multilines": 1
 	}
 }
