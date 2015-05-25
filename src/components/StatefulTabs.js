@@ -20,6 +20,21 @@ export default class StatefulTabs extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		defaultActive: PropTypes.string,
+		onActive: PropTypes.func
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		onActive: noop
+	}
+
+	/**
+	 *
+	 */
 	constructor(props) {
 		super(props);
 
@@ -55,20 +70,3 @@ export default class StatefulTabs extends Component {
 		);
 	}
 }
-
-
-
-/**
- *
- */
-StatefulTabs.propTypes = {
-	defaultActive: PropTypes.string,
-	onActive: PropTypes.func
-};
-
-/**
- *
- */
-StatefulTabs.defaultProps = {
-	onActive: noop
-};

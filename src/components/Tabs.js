@@ -21,6 +21,21 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		id: PropTypes.string,
+		active: PropTypes.string
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		id: 'rea11y-' + uid()
+	}
+
+	/**
+	 *
+	 */
 	componentDidUpdate(previousProps) {
 		if (previousProps.active !== this.props.active) {
 			const ref = this.tabRef(this.props.active);
@@ -154,20 +169,3 @@ export default class Tabs extends Component {
 		});
 	}
 }
-
-
-
-/**
- *
- */
-Tabs.propTypes = {
-	id: PropTypes.string,
-	active: PropTypes.string
-};
-
-/**
- *
- */
-Tabs.defaultProps = {
-	id: 'rea11y-' + uid()
-};

@@ -21,6 +21,32 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		id: PropTypes.string,
+		name: PropTypes.string,
+		active: PropTypes.bool,
+		onActive: PropTypes.func,
+		onFirst: PropTypes.func,
+		onLast: PropTypes.func,
+		onPrevious: PropTypes.func,
+		onNext: PropTypes.func
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		active: false,
+		onActive: noop,
+		onFirst: noop,
+		onLast: noop,
+		onPrevious: noop,
+		onNext: noop
+	}
+
+	/**
+	 *
+	 */
 	@autobind
 	handleClick() {
 		this.props.onActive(this.props.name);
@@ -88,31 +114,3 @@ export default class Tab extends Component {
 		);
 	}
 }
-
-
-
-/**
- *
- */
-Tab.propTypes = {
-	id: PropTypes.string,
-	name: PropTypes.string,
-	active: PropTypes.bool,
-	onActive: PropTypes.func,
-	onFirst: PropTypes.func,
-	onLast: PropTypes.func,
-	onPrevious: PropTypes.func,
-	onNext: PropTypes.func
-};
-
-/**
- *
- */
-Tab.defaultProps = {
-	active: false,
-	onActive: noop,
-	onFirst: noop,
-	onLast: noop,
-	onPrevious: noop,
-	onNext: noop
-};

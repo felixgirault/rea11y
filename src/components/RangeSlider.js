@@ -21,6 +21,26 @@ export default class RangeSlider extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		orientation: PropTypes.string,
+		lowerValue: PropTypes.number,
+		upperValue: PropTypes.number,
+		onChange: PropTypes.func
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		orientation: 'horizontal',
+		lowerValue: 0,
+		upperValue: 100,
+		onChange: noop
+	}
+
+	/**
+	 *
+	 */
 	@autobind
 	handleLowerChange(value) {
 		this.props.onChange(value, this.props.upperValue);
@@ -69,25 +89,3 @@ export default class RangeSlider extends Component {
 		);
 	}
 }
-
-
-
-/**
- *
- */
-RangeSlider.propTypes = {
-	orientation: PropTypes.string,
-	lowerValue: PropTypes.number,
-	upperValue: PropTypes.number,
-	onChange: PropTypes.func
-};
-
-/**
- *
- */
-RangeSlider.defaultProps = {
-	orientation: 'horizontal',
-	lowerValue: 0,
-	upperValue: 100,
-	onChange: noop
-};

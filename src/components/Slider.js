@@ -19,6 +19,20 @@ export default class Slider extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		orientation: PropTypes.string
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		orientation: 'horizontal'
+	}
+
+	/**
+	 *
+	 */
 	render() {
 		const className = classNames([
 			'rea11y-slider',
@@ -34,19 +48,3 @@ export default class Slider extends Component {
 		);
 	}
 }
-
-
-
-/**
- *
- */
-Slider.propTypes = {
-	orientation: PropTypes.string
-};
-
-/**
- *
- */
-Slider.defaultProps = {
-	orientation: 'horizontal'
-};

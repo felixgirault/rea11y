@@ -25,6 +25,38 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		orientation: PropTypes.string,
+		min: PropTypes.number,
+		max: PropTypes.number,
+		lowerBound: PropTypes.number,
+		upperBound: PropTypes.number,
+		value: PropTypes.number,
+		step: PropTypes.number,
+		bigStep: PropTypes.number,
+		text: PropTypes.func,
+		onChange: PropTypes.func
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		orientation: 'horizontal',
+		min: 0,
+		max: 100,
+		lowerBound: 0,
+		upperBound: 0,
+		value: 0,
+		step: 1,
+		bigStep: 10,
+		text: (props) => props.value,
+		onChange: noop
+	}
+
+	/**
+	 *
+	 */
 	constructor(props) {
 		super(props);
 
@@ -269,37 +301,3 @@ export default class SliderHandle extends Component {
 		};
 	}
 }
-
-
-
-/**
- *
- */
-SliderHandle.propTypes = {
-	orientation: PropTypes.string,
-	min: PropTypes.number,
-	max: PropTypes.number,
-	lowerBound: PropTypes.number,
-	upperBound: PropTypes.number,
-	value: PropTypes.number,
-	step: PropTypes.number,
-	bigStep: PropTypes.number,
-	text: PropTypes.func,
-	onChange: PropTypes.func
-};
-
-/**
- *
- */
-SliderHandle.defaultProps = {
-	orientation: 'horizontal',
-	min: 0,
-	max: 100,
-	lowerBound: 0,
-	upperBound: 0,
-	value: 0,
-	step: 1,
-	bigStep: 10,
-	text: (props) => props.value,
-	onChange: noop
-};

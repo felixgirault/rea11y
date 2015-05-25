@@ -20,6 +20,22 @@ export default class StatefulSlider extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		defaultValue: PropTypes.number,
+		onChange: PropTypes.func
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		defaultValue: 0,
+		onChange: noop
+	}
+
+	/**
+	 *
+	 */
 	constructor(props) {
 		super(props);
 
@@ -53,21 +69,3 @@ export default class StatefulSlider extends Component {
 		);
 	}
 }
-
-
-
-/**
- *
- */
-StatefulSlider.propTypes = {
-	defaultValue: PropTypes.number,
-	onChange: PropTypes.func
-};
-
-/**
- *
- */
-StatefulSlider.defaultProps = {
-	defaultValue: 0,
-	onChange: noop
-};

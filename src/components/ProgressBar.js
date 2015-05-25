@@ -20,6 +20,32 @@ export default class ProgressBar extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		id: PropTypes.string,
+		orientation: PropTypes.string,
+		min: PropTypes.number,
+		max: PropTypes.number,
+		value: PropTypes.number,
+		text: PropTypes.func
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		id: 'rea11y-' + uid(),
+		orientation: 'horizontal',
+		min: 0,
+		max: 100,
+		value: 0,
+		text: (props) => {
+			return props.percentage + '%';
+		}
+	}
+
+	/**
+	 *
+	 */
 	constructor(props) {
 		super(props);
 
@@ -128,31 +154,3 @@ export default class ProgressBar extends Component {
 		};
 	}
 }
-
-
-
-/**
- *
- */
-ProgressBar.propTypes = {
-	id: PropTypes.string,
-	orientation: PropTypes.string,
-	min: PropTypes.number,
-	max: PropTypes.number,
-	value: PropTypes.number,
-	text: PropTypes.func
-};
-
-/**
- *
- */
-ProgressBar.defaultProps = {
-	id: 'rea11y-' + uid(),
-	orientation: 'horizontal',
-	min: 0,
-	max: 100,
-	value: 0,
-	text: (props) => {
-		return props.percentage + '%';
-	}
-};

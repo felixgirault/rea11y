@@ -18,6 +18,22 @@ export default class Panel extends Component {
 	/**
 	 *
 	 */
+	static propTypes = {
+		id: PropTypes.string,
+		name: PropTypes.string,
+		active: PropTypes.bool
+	}
+
+	/**
+	 *
+	 */
+	static defaultProps = {
+		active: false
+	}
+
+	/**
+	 *
+	 */
 	render() {
 		const {id, name, active} = this.props;
 
@@ -44,21 +60,3 @@ export default class Panel extends Component {
 		);
 	}
 }
-
-
-
-/**
- *
- */
-Panel.propTypes = {
-	id: PropTypes.string,
-	name: PropTypes.string,
-	active: PropTypes.bool
-};
-
-/**
- *
- */
-Panel.defaultProps = {
-	active: false
-};
