@@ -63,13 +63,8 @@
 		}
 	});
 
-	function progressBarText(props) {
-		return props.percentage + '%';
-	}
-
 	React.render(
 		<SyncedProgressBar
-			text={progressBarText}
 			target={$('progress-bar-target')}
 		/>,
 		$('progress-bar')
@@ -80,16 +75,11 @@
 	/**
 	 *
 	 */
-	function sliderText(props) {
-		return props.value;
-	}
-
 	React.render(
 		<Rea11y.StatefulSlider
 			min={0}
 			max={100}
 			defaultValue={syncedValue.value}
-			text={sliderText}
 			onChange={syncedValue.update.bind(syncedValue)}
 		/>,
 		$('slider')
@@ -101,7 +91,6 @@
 			max={100}
 			defaultLowerValue={16}
 			defaultUpperValue={64}
-			text={sliderText}
 		/>,
 		$('range-slider')
 	);
