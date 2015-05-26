@@ -14,6 +14,15 @@ import percentage from '../utils/percentage';
 /**
  *
  */
+function makeText(props) {
+	return props.percentage + '%';
+}
+
+
+
+/**
+ *
+ */
 @pureRender
 export default class ProgressBar extends Component {
 
@@ -38,9 +47,7 @@ export default class ProgressBar extends Component {
 		min: 0,
 		max: 100,
 		value: 0,
-		text: (props) => {
-			return props.percentage + '%';
-		}
+		text: makeText
 	}
 
 	/**

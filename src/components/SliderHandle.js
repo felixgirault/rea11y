@@ -19,6 +19,15 @@ import bound from '../utils/bound';
 /**
  *
  */
+function makeText(props) {
+	return props.value;
+}
+
+
+
+/**
+ *
+ */
 @pureRender
 export default class SliderHandle extends Component {
 
@@ -50,7 +59,7 @@ export default class SliderHandle extends Component {
 		value: 0,
 		step: 1,
 		bigStep: 10,
-		text: (props) => props.value,
+		text: makeText,
 		onChange: noop
 	}
 
