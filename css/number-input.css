@@ -1,0 +1,44 @@
+/**
+ *	Number input.
+ */
+
+.rea11y-number-input {
+	position: relative;
+	border: 1px solid #aaa;
+	padding-right: 1.5em;
+	background: #fff;
+}
+
+.rea11y-number-input-value {
+	box-sizing: border-box;
+	margin: 0;
+	border: none;
+	padding: 0.375em;
+	width: 100%;
+	height: 1.5em;
+	line-height: 1.5em;
+	font-size: 1em;
+}
+
+.rea11y-number-input-control {
+	position: absolute;
+	border: none;
+	width: 3em;
+	height: 1.5em;
+	background: #aaa;
+	color: #000;
+	text-align: center;
+	line-height: 1.5em;
+	font-size: 0.5em;
+	font-weight: bold;
+}
+
+.rea11y-number-input-control-up {
+	top: 0;
+	right: 0;
+}
+
+.rea11y-number-input-control-down {
+	bottom: 0;
+	right: 0;
+}

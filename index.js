@@ -3,6 +3,8 @@
  */
 'use strict';
 
+import NumberInput from './src/components/NumberInput';
+import StatefulNumberInput from './src/components/StatefulNumberInput';
 import ProgressBar from './src/components/ProgressBar';
 import Slider from './src/components/Slider';
 import StatefulSlider from './src/components/StatefulSlider';
@@ -18,6 +20,8 @@ import Panel from './src/components/Panel';
  *
  */
 export default {
+	NumberInput,
+	StatefulNumberInput,
 	ProgressBar,
 	Slider,
 	StatefulSlider,
@@ -33,6 +37,7 @@ export default {
 /**
  *
  */
+require('./css/number-input.css');
 require('./css/progress-bar.css');
 require('./css/slider.css');
 require('./css/tabs.css');
