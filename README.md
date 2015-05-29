@@ -31,6 +31,30 @@ import {Slider} from 'rea11y';
 Components
 ----------
 
+Components below are initialized with all possible props,
+though most of the time they require almost no configuration.
+
+### Number input
+
+```jsx
+function handleChange(value) {
+	console.log(value);
+}
+
+<NumberInput
+	min={0}
+	max={100}
+	value={42}
+	step={1}
+	bigStep={10}
+	incrementText="⌃"
+	decrementText="⌃"
+	incrementTitle="Increment"
+	decrementTitle="Decrement"
+	onChange={handleChange}
+/>
+```
+
 ### Progress bar
 
 ```jsx
