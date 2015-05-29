@@ -105,15 +105,15 @@ export default class SliderHandle extends Component {
 	 */
 	@autobind
 	handleKeyDown(event) {
-		let value;
+		let value = this.props.value;
 
 		switch (event.keyCode) {
 			case keys.PAGE_UP:
-				value = this.incremented(this.props.bigStep);
+				value += this.props.bigStep;
 				break;
 
 			case keys.PAGE_DOWN:
-				value = this.incremented(-this.props.bigStep);
+				value -= this.props.bigStep;
 				break;
 
 			case keys.END:
@@ -126,12 +126,12 @@ export default class SliderHandle extends Component {
 
 			case keys.ARROW.LEFT:
 			case keys.ARROW.DOWN:
-				value = this.incremented(-this.props.step);
+				value -= this.props.step;
 				break;
 
 			case keys.ARROW.UP:
 			case keys.ARROW.RIGHT:
-				value = this.incremented(this.props.step);
+				value += this.props.step;
 				break;
 
 			default:
@@ -139,7 +139,7 @@ export default class SliderHandle extends Component {
 		}
 
 		event.preventDefault();
-		this.emitChange(this.bound(value));
+		this.emitChange(value);
 	}
 
 	/**
@@ -233,7 +233,7 @@ export default class SliderHandle extends Component {
 			? lowerStep
 			: higherStep;
 
-		return this.bound(this.props.step * step);
+		return this.props.step * step;
 	}
 
 	/**
@@ -251,6 +251,8 @@ export default class SliderHandle extends Component {
 	 *
 	 */
 	emitChange(value) {
+		value = this.bound(value);
+
 		if (this.props.value !== value) {
 			this.props.onChange(value);
 		}
