@@ -33,12 +33,12 @@
 	font-weight: bold;
 }
 
-.rea11y-number-input-control-up {
+.rea11y-number-input-control-increment {
 	top: 0;
 	right: 0;
 }
 
-.rea11y-number-input-control-down {
+.rea11y-number-input-control-decrement {
 	bottom: 0;
 	right: 0;
 }

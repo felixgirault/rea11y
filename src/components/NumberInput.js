@@ -6,7 +6,9 @@
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
+import classNames from 'classnames';
 import uid from 'uid';
+import keys from 'offkey';
 import noop from 'no-op';
 import bound from '../utils/bound';
 
@@ -30,6 +32,7 @@ export default class NumberInput extends Component {
 		min: PropTypes.number,
 		max: PropTypes.number,
 		step: PropTypes.number,
+		bigStep: PropTypes.number,
 		value: PropTypes.number,
 		onChange: PropTypes.func
 	}
@@ -46,6 +49,7 @@ export default class NumberInput extends Component {
 		min: 0,
 		max: 100,
 		step: 1,
+		bigStep: 10,
 		value: 0,
 		onChange: noop
 	}
@@ -54,10 +58,48 @@ export default class NumberInput extends Component {
 	 *
 	 */
 	@autoBind
+	handleKeyDown(event) {
+		let value = this.props.value;
+
+		switch (event.keyCode) {
+			case keys.PAGE_UP:
+				value += this.props.bigStep;
+				break;
+
+			case keys.PAGE_DOWN:
+				value -= this.props.bigStep;
+				break;
+
+			case keys.END:
+				value = this.props.max;
+				break;
+
+			case keys.HOME:
+				value = this.props.min;
+				break;
+
+			case keys.ARROW.DOWN:
+				value -= this.props.step;
+				break;
+
+			case keys.ARROW.UP:
+				value += this.props.step;
+				break;
+
+			default:
+				return;
+		}
+
+		event.preventDefault();
+		this.emitChange(value);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
 	handleChange(e) {
-		this.props.onChange(
-			this.boundValue(e.target.value)
-		);
+		this.props.onChange(e.target.value);
 	}
 
 	/**
@@ -65,10 +107,8 @@ export default class NumberInput extends Component {
 	 */
 	@autoBind
 	handleIncrement() {
-		this.props.onChange(
-			this.boundValue(
-				this.props.value + this.props.step
-			)
+		this.emitChange(
+			this.props.value + this.props.step
 		);
 	}
 
@@ -77,18 +117,27 @@ export default class NumberInput extends Component {
 	 */
 	@autoBind
 	handleDecrement() {
-		this.props.onChange(
-			this.boundValue(
-				this.props.value - this.props.step
-			)
+		this.emitChange(
+			this.props.value - this.props.step
 		);
 	}
 
 	/**
 	 *
 	 */
-	boundValue(value) {
+	bound(value) {
 		return bound(value, this.props.min, this.props.max);
+	}
+
+	/**
+	 *
+	 */
+	emitChange(value) {
+		value = this.bound(value);
+
+		if (this.props.value !== value) {
+			this.props.onChange(value);
+		}
 	}
 
 	/**
@@ -102,33 +151,54 @@ export default class NumberInput extends Component {
 					type="text"
 					className="rea11y-number-input-value"
 					value={this.props.value}
+					onKeyDown={this.handleKeyDown}
 					onChange={this.handleChange}
 				/>
 
 				<div className="rea11y-number-input-controls">
-					<button
-						className={`
-							rea11y-number-input-control
-							rea11y-number-input-control-up
-						`}
+					<NumberInputControl
+						name="increment"
 						title={this.props.incrementTitle}
 						onClick={this.handleIncrement}
-					>
-						{this.props.incrementText}
-					</button>
+						text={this.props.incrementText}
+					/>
 
-					<button
-						className={`
-							rea11y-number-input-control
-							rea11y-number-input-control-down
-						`}
+					<NumberInputControl
+						name="decrement"
 						title={this.props.decrementTitle}
 						onClick={this.handleDecrement}
-					>
-						{this.props.decrementText}
-					</button>
+						text={this.props.decrementText}
+					/>
 				</div>
 			</div>
+		);
+	}
+}
+
+
+
+/**
+ *
+ */
+class NumberInputControl extends Component {
+
+	/**
+	 *
+	 */
+	render() {
+		const className = classNames([
+			'rea11y-number-input-control',
+			'rea11y-number-input-control-' + this.props.name
+		]);
+
+		return (
+			<button
+				className={className}
+				title={this.props.title}
+				onClick={this.props.onClick}
+			>
+				{this.props.text}
+			</button>
 		);
 	}
 }
