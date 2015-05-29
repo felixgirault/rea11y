@@ -156,7 +156,17 @@ button:active {
 
 
 /**
- *	Progress bars.
+ *	Number input.
+ */
+
+.rea11y-number-input {
+	border: 1px solid #3D9970;
+}
+
+
+
+/**
+ *	Progress bar.
  */
 
 .rea11y-progress-bar {
@@ -197,7 +207,7 @@ button:active {
 
 
 /**
- *	Sliders.
+ *	Slider.
  */
 
 .rea11y-slider-track {

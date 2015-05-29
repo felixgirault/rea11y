@@ -35,6 +35,16 @@
 	/**
 	 *
 	 */
+	React.render(
+		<Rea11y.StatefulNumberInput />,
+		$('number-input')
+	);
+
+
+
+	/**
+	 *
+	 */
 	var SyncedProgressBar = React.createClass({
 
 		getInitialState: function() {
