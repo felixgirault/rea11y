@@ -152,8 +152,12 @@ export default class NumberInput extends Component {
 			<div className="rea11y-number-input">
 				<input
 					id={this.props.id}
-					type="text"
 					className="rea11y-number-input-value"
+					type="text"
+					role="spinbutton"
+					aria-valuemin={this.props.min}
+					aria-valuemax={this.props.max}
+					aria-valuenow={this.props.value}
 					value={this.props.value}
 					onKeyDown={this.handleKeyDown}
 					onChange={this.handleChange}
