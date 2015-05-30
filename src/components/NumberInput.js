@@ -98,8 +98,12 @@ export default class NumberInput extends Component {
 	 *
 	 */
 	@autoBind
-	handleChange(e) {
-		this.props.onChange(e.target.value);
+	handleChange(event) {
+		const value = parseInt(event.target.value, 10);
+
+		this.props.onChange(
+			value || this.props.min
+		);
 	}
 
 	/**
