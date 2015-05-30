@@ -102,7 +102,7 @@ export default class NumberInput extends Component {
 		const value = parseInt(event.target.value, 10);
 
 		this.props.onChange(
-			value || this.props.min
+			isNaN(value) ? this.props.min : value
 		);
 	}
 
