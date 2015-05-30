@@ -161,6 +161,21 @@ button:active {
 
 .rea11y-number-input {
 	border: 1px solid #3D9970;
+	padding-right: 3em;
+}
+
+.rea11y-number-input-value {
+	padding: 0.75em;
+	height: 3em;
+	line-height: 3em;
+}
+
+.rea11y-number-input-control {
+	width: 3em;
+	height: 1.5em;
+	background: #3D9970;
+	line-height: 1.5em;
+	font-size: 1em;
 }
 
 
