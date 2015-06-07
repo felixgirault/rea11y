@@ -262,8 +262,11 @@ button:active {
  *	Tabs.
  */
 
-.rea11y-tab-list {
+.rea11y-tabs {
 	border-color: #3D9970;
+}
+
+.rea11y-tab-list {
 	background: #3D9970;
 }
 
@@ -289,8 +292,4 @@ button:active {
 .rea11y-tab-active:hover,
 .rea11y-tab-active:focus {
 	background: #111;
-}
-
-.rea11y-panel {
-	border-color: #3D9970;
 }

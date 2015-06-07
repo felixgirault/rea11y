@@ -2,10 +2,27 @@
  *	Tabs.
  */
 
-.rea11y-tab-list {
+.rea11y-tabs {
 	border: 1px solid #aaa;
-	border-bottom: none;
+}
+
+.rea11y-tabs-vertical {
+	display: table;
+	width: 100%;
+}
+
+.rea11y-tab-list {
 	background: #ddd;
+}
+
+.rea11y-tabs-vertical .rea11y-tab-list,
+.rea11y-tabs-vertical .rea11y-panel-list {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.rea11y-tabs-vertical .rea11y-panel-list {
+	width: 99%;
 }
 
 .rea11y-tab {
@@ -13,6 +30,11 @@
 	border: none;
 	padding: 0.75em;
 	background: #ddd;
+}
+
+.rea11y-tabs-vertical .rea11y-tab {
+	display: block;
+	width: 100%;
 }
 
 .rea11y-tab-active {
@@ -31,8 +53,6 @@
 
 .rea11y-panel {
 	display: none;
-	border: 1px solid #aaa;
-	border-top: none;
 	padding: 0.75em;
 }
 

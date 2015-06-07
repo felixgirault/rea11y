@@ -6,6 +6,7 @@
 import {Component, Children, PropTypes, findDOMNode, cloneElement} from 'react';
 import pureRender from 'pure-render-decorator';
 import autobind from 'autobind-decorator';
+import classNames from 'classnames';
 import uid from 'uid';
 import bound from '../utils/bound';
 import Tab from './Tab';
@@ -23,6 +24,7 @@ export default class Tabs extends Component {
 	 */
 	static propTypes = {
 		id: PropTypes.string,
+		orientation: PropTypes.string,
 		active: PropTypes.string
 	}
 
@@ -30,7 +32,8 @@ export default class Tabs extends Component {
 	 *
 	 */
 	static defaultProps = {
-		id: 'rea11y-' + uid()
+		id: 'rea11y-' + uid(),
+		orientation: 'horizontal'
 	}
 
 	/**
@@ -114,8 +117,13 @@ export default class Tabs extends Component {
 	 *
 	 */
 	render() {
+		const className = classNames(
+			'rea11y-tabs',
+			'rea11y-tabs-' + this.props.orientation
+		);
+
 		return (
-			<div className="rea11y-tabs">
+			<div className={className}>
 				<div className="rea11y-tab-list" role="tablist">
 					{this.renderTabs()}
 				</div>
