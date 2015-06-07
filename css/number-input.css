@@ -25,12 +25,16 @@
 	border: none;
 	width: 3em;
 	height: 1.5em;
-	background: #aaa;
+	background: #ddd;
 	color: #000;
 	text-align: center;
 	line-height: 1.5em;
 	font-size: 0.5em;
 	font-weight: bold;
+}
+
+.rea11y-number-input-control:hover {
+	background: #aaa;
 }
 
 .rea11y-number-input-control-increment {
