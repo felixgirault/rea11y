@@ -14,14 +14,15 @@ var UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
  */
 module.exports = {
 	entry: {
-		app: './index.js'
+		js: './index.js',
+		css: './styles.js'
 	},
 	output: {
 		library: 'Rea11y',
 		libraryTarget: 'umd',
 		path: './dist',
 		publicPath: '/demo/',
-		filename: 'rea11y.js'
+		filename: 'rea11y.[name]'
 	},
 	externals: [
 		{

@@ -30,14 +30,4 @@ export default {
 	Tabs,
 	StatefulTabs,
 	Panel
-}
-
-
-
-/**
- *
- */
-require('./css/number-input.css');
-require('./css/progress-bar.css');
-require('./css/slider.css');
-require('./css/tabs.css');
+};
