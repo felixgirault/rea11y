@@ -56,7 +56,7 @@ export default class Tab extends Component {
 	 *
 	 */
 	@autobind
-	handleKeydown(event) {
+	handleKeyDown(event) {
 		switch (event.keyCode) {
 			case keys.END:
 				this.props.onLast();
@@ -106,7 +106,7 @@ export default class Tab extends Component {
 				aria-controls={panelId}
 				aria-selected={active}
 				onClick={this.handleClick}
-				onKeyDown={this.handleKeydown}
+				onKeyDown={this.handleKeyDown}
 				tabIndex={active ? 0 : -1}
 			>
 				{this.props.title}
