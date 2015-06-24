@@ -127,4 +127,22 @@
 	);
 
 	React.render(tabs, $('tabs'));
+
+
+
+	/**
+	 *
+	 */
+	React.render(
+		<Rea11y.Button text="Button" />,
+		$('button')
+	);
+
+	React.render(
+		<Rea11y.StatefulToggleButton
+			text="Toggle button"
+			pressedText="Pressed toggle button"
+		/>,
+		$('toggle-button')
+	);
 })();
