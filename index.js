@@ -3,6 +3,9 @@
  */
 'use strict';
 
+import Button from './src/components/Button';
+import ToggleButton from './src/components/ToggleButton';
+import StatefulToggleButton from './src/components/StatefulToggleButton';
 import NumberInput from './src/components/NumberInput';
 import StatefulNumberInput from './src/components/StatefulNumberInput';
 import ProgressBar from './src/components/ProgressBar';
@@ -20,6 +23,9 @@ import Panel from './src/components/Panel';
  *
  */
 export default {
+	Button,
+	ToggleButton,
+	StatefulToggleButton,
 	NumberInput,
 	StatefulNumberInput,
 	ProgressBar,
