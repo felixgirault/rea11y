@@ -3,7 +3,7 @@
  */
 'use strict';
 
-import {Component, PropTypes, findDOMNode} from 'react';
+import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
