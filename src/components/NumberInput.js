@@ -11,6 +11,7 @@ import uid from 'uid';
 import keys from 'offkey';
 import noop from 'no-op';
 import bound from '../utils/bound';
+import NumberInputControl from './NumberInputControl';
 
 
 
@@ -179,34 +180,6 @@ export default class NumberInput extends Component {
 					/>
 				</div>
 			</div>
-		);
-	}
-}
-
-
-
-/**
- *
- */
-class NumberInputControl extends Component {
-
-	/**
-	 *
-	 */
-	render() {
-		const className = classNames([
-			'rea11y-number-input-control',
-			'rea11y-number-input-control-' + this.props.name
-		]);
-
-		return (
-			<button
-				className={className}
-				title={this.props.title}
-				onClick={this.props.onClick}
-			>
-				{this.props.text}
-			</button>
 		);
 	}
 }
