@@ -3,11 +3,12 @@
  */
 'use strict';
 
-import {Component, PropTypes} from 'react';
+import {Component, PropTypes, findDOMNode} from 'react';
 import pureRender from 'pure-render-decorator';
-import autobind from 'autobind-decorator';
+import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import noop from 'no-op';
+import offset from 'dom-helpers/query/offset';
 import SliderHandle from './SliderHandle';
 
 
@@ -41,7 +42,34 @@ export default class RangeSlider extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	distance(rect, event) {
+		return (this.props.orientation === 'horizontal')
+			? Math.abs(rect.left - event.pageX)
+			: Math.abs(rect.top - event.pageY);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleClick(event) {
+		const lowerRect = offset(findDOMNode(this.refs.lower));
+		const upperRect = offset(findDOMNode(this.refs.upper));
+
+		const lowerDistance = this.distance(lowerRect, event);
+		const upperDistance = this.distance(upperRect, event);
+
+		if (lowerDistance < upperDistance) {
+			this.refs.lower.handleDrag(event);
+		} else {
+			this.refs.upper.handleDrag(event);
+		}
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
 	handleLowerChange(value) {
 		this.props.onChange(value, this.props.upperValue);
 	}
@@ -49,7 +77,7 @@ export default class RangeSlider extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	@autoBind
 	handleUpperChange(value) {
 		this.props.onChange(this.props.lowerValue, value);
 	}
@@ -66,7 +94,11 @@ export default class RangeSlider extends Component {
 
 		return (
 			<div className={className}>
-				<div className="rea11y-slider-track">
+				<div
+					ref="track"
+					className="rea11y-slider-track"
+					onClick={this.handleClick}
+				>
 					<SliderHandle
 						{...this.props}
 						ref="lower"

@@ -3,8 +3,9 @@
  */
 'use strict';
 
-import {Component, PropTypes} from 'react';
+import {Component, PropTypes, findDOMNode} from 'react';
 import pureRender from 'pure-render-decorator';
+import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import SliderHandle from './SliderHandle';
 
@@ -33,6 +34,14 @@ export default class Slider extends Component {
 	/**
 	 *
 	 */
+	@autoBind
+	handleClick(event) {
+		this.refs.handle.handleDrag(event);
+	}
+
+	/**
+	 *
+	 */
 	render() {
 		const className = classNames([
 			'rea11y-slider',
@@ -41,8 +50,12 @@ export default class Slider extends Component {
 
 		return (
 			<div className={className}>
-				<div className="rea11y-slider-track">
-					<SliderHandle {...this.props} />
+				<div
+					ref="track"
+					className="rea11y-slider-track"
+					onClick={this.handleClick}
+				>
+					<SliderHandle {...this.props} ref="handle" />
 				</div>
 			</div>
 		);
