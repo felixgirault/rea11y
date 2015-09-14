@@ -21,7 +21,7 @@ module.exports = {
 		library: 'Rea11y',
 		libraryTarget: 'umd',
 		path: './dist',
-		publicPath: '/demo/',
+		publicPath: '/dist/',
 		filename: 'rea11y.[name]'
 	},
 	externals: [
