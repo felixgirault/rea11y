@@ -2,11 +2,12 @@ Rea11y
 ========
 
 A set of accessible React components.
+[See a demo](http://felixgirault.github.io/rea11y/).
 
-Demo
-----
+Development
+-----------
 
-Install the required dependencies and build the project:
+Install the required dependencies and run the dev server:
 
 ```sh
 npm install
