@@ -5,7 +5,7 @@
 
 import {Component, PropTypes, findDOMNode} from 'react';
 import pureRender from 'pure-render-decorator';
-import autobind from 'autobind-decorator';
+import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import keys from 'offkey';
 import noop from 'no-op';
@@ -13,6 +13,7 @@ import {on, off} from 'dom-helpers/events';
 import offset from 'dom-helpers/query/offset';
 import percentage from '../utils/percentage';
 import bound from '../utils/bound';
+import KeyHandler from './KeyHandler';
 
 
 
@@ -103,105 +104,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autobind
-	handleKeyDown(event) {
-		let value = this.props.value;
-
-		switch (event.keyCode) {
-			case keys.PAGE_UP:
-				value += this.props.bigStep;
-				break;
-
-			case keys.PAGE_DOWN:
-				value -= this.props.bigStep;
-				break;
-
-			case keys.END:
-				value = this.props.max;
-				break;
-
-			case keys.HOME:
-				value = this.props.min;
-				break;
-
-			case keys.ARROW.LEFT:
-			case keys.ARROW.DOWN:
-				value -= this.props.step;
-				break;
-
-			case keys.ARROW.UP:
-			case keys.ARROW.RIGHT:
-				value += this.props.step;
-				break;
-
-			default:
-				return;
-		}
-
-		event.preventDefault();
-		this.emitChange(value);
-	}
-
-	/**
-	 *
-	 */
-	@autobind
-	handleMouseDown(event) {
-		if (event.button === 0) {
-			this.handleDragStart(event);
-		}
-	}
-
-	/**
-	 *
-	 */
-	@autobind
-	handleDragStart(event) {
-		this.setState({
-			dragging: true,
-			dragStartX: event.pageX,
-			dragStartY: event.pageY
-		}, () => {
-			on(document, 'mousemove', this.handleDrag);
-			on(document, 'mouseup', this.handleDragEnd);
-		});
-	}
-
-	/**
-	 *
-	 */
-	@autobind
-	handleDrag(event) {
-		event.preventDefault();
-
-		const rect = this.parentOffset();
-		const per = this.isHorizontal()
-			? percentage(event.pageX - rect.left, rect.width)
-			: percentage(event.pageY - rect.top, rect.height);
-
-		const max = this.props.max - this.props.min;
-		const value = this.props.min + ((max / 100) * per);
-		const snapped = this.snapped(value);
-
-		this.emitChange(snapped);
-	}
-
-	/**
-	 *
-	 */
-	@autobind
-	handleDragEnd() {
-		this.setState({
-			dragging: false
-		}, () => {
-			off(document, 'mousemove', this.handleDrag);
-			off(document, 'mouseup', this.handleDragEnd);
-		});
-	}
-
-	/**
-	 *
-	 */
 	isHorizontal() {
 		return (this.props.orientation === 'horizontal');
 	}
@@ -261,6 +163,119 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
+	@autoBind
+	handleMouseDown(event) {
+		if (event.button === 0) {
+			this.handleDragStart(event);
+		}
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleDragStart(event) {
+		this.setState({
+			dragging: true,
+			dragStartX: event.pageX,
+			dragStartY: event.pageY
+		}, () => {
+			on(document, 'mousemove', this.handleDrag);
+			on(document, 'mouseup', this.handleDragEnd);
+		});
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleDrag(event) {
+		event.preventDefault();
+
+		const rect = this.parentOffset();
+		const ratio = this.isHorizontal()
+			? percentage(event.pageX - rect.left, rect.width)
+			: percentage(event.pageY - rect.top, rect.height);
+
+		const max = this.props.max - this.props.min;
+		const value = this.props.min + ((max / 100) * ratio);
+		const snapped = this.snapped(value);
+
+		this.emitChange(snapped);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleDragEnd() {
+		this.setState({
+			dragging: false
+		}, () => {
+			off(document, 'mousemove', this.handleDrag);
+			off(document, 'mouseup', this.handleDragEnd);
+		});
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleMin() {
+		this.emitChange(this.props.min);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleMax() {
+		this.emitChange(this.props.max);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleIncrement() {
+		this.emitChange(
+			this.props.value + this.props.step
+		);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleBigIncrement() {
+		this.emitChange(
+			this.props.value + this.props.bigStep
+		);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleDecrement() {
+		this.emitChange(
+			this.props.value - this.props.step
+		);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleBigDecrement() {
+		this.emitChange(
+			this.props.value - this.props.bigStep
+		);
+	}
+
+	/**
+	 *
+	 */
 	render() {
 		const className = classNames({
 			'rea11y-slider-handle': true,
@@ -269,16 +284,26 @@ export default class SliderHandle extends Component {
 
 		return (
 			<div className={className} style={this.style()}>
-				<div
-					className="rea11y-slider-handle-control"
-					role="slider"
-					aria-valuemin={this.props.min}
-					aria-valuemax={this.props.max}
-					aria-valuenow={this.props.value}
-					onKeyDown={this.handleKeyDown}
-					onMouseDown={this.handleMouseDown}
-					tabIndex="0"
-				></div>
+				<KeyHandler handlers={{
+					[keys.HOME]: this.handleMin,
+					[keys.END]: this.handleMax,
+					[keys.ARROW.UP]: this.handleIncrement,
+					[keys.ARROW.RIGHT]: this.handleIncrement,
+					[keys.PAGE_UP]: this.handleBigIncrement,
+					[keys.ARROW.DOWN]: this.handleDecrement,
+					[keys.ARROW.LEFT]: this.handleDecrement,
+					[keys.PAGE_DOWN]: this.handleBigDecrement
+				}}>
+					<div
+						className="rea11y-slider-handle-control"
+						role="slider"
+						aria-valuemin={this.props.min}
+						aria-valuemax={this.props.max}
+						aria-valuenow={this.props.value}
+						onMouseDown={this.handleMouseDown}
+						tabIndex="0"
+					></div>
+				</KeyHandler>
 
 				<div className="rea11y-slider-handle-text">
 					{this.text()}

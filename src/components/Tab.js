@@ -5,10 +5,11 @@
 
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autobind from 'autobind-decorator';
+import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import keys from 'offkey';
 import noop from 'no-op';
+import KeyHandler from './KeyHandler';
 
 
 
@@ -47,7 +48,7 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	@autoBind
 	handleClick() {
 		this.props.onActive(this.props.name);
 	}
@@ -55,32 +56,33 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
-	@autobind
-	handleKeyDown(event) {
-		switch (event.keyCode) {
-			case keys.END:
-				this.props.onLast();
-				break;
+	@autoBind
+	handleFirst() {
+		this.props.onFirst();
+	}
 
-			case keys.HOME:
-				this.props.onFirst();
-				break;
+	/**
+	 *
+	 */
+	@autoBind
+	handleLast() {
+		this.props.onLast();
+	}
 
-			case keys.ARROW.LEFT:
-			case keys.ARROW.UP:
-				this.props.onPrevious(this.props.name);
-				break;
+	/**
+	 *
+	 */
+	@autoBind
+	handlePrevious() {
+		this.props.onPrevious(this.props.name);
+	}
 
-			case keys.ARROW.RIGHT:
-			case keys.ARROW.DOWN:
-				this.props.onNext(this.props.name);
-				break;
-
-			default:
-				return;
-		}
-
-		event.preventDefault();
+	/**
+	 *
+	 */
+	@autoBind
+	handleNext() {
+		this.props.onNext(this.props.name);
 	}
 
 	/**
@@ -99,18 +101,27 @@ export default class Tab extends Component {
 		});
 
 		return (
-			<button
-				id={tabId}
-				className={className}
-				role="tab"
-				aria-controls={panelId}
-				aria-selected={active}
-				onClick={this.handleClick}
-				onKeyDown={this.handleKeyDown}
-				tabIndex={active ? 0 : -1}
-			>
-				{this.props.title}
-			</button>
+			<KeyHandler handlers={{
+				[keys.HOME]: this.handleFirst,
+				[keys.END]: this.handleLast,
+				[keys.ARROW.UP]: this.handlePrevious,
+				[keys.ARROW.LEFT]: this.handlePrevious,
+				[keys.ARROW.DOWN]: this.handleNext,
+				[keys.ARROW.RIGHT]: this.handleNext
+			}}>
+				<button
+					id={tabId}
+					className={className}
+					role="tab"
+					aria-controls={panelId}
+					aria-selected={active}
+					onClick={this.handleClick}
+					onKeyDown={this.handleKeyDown}
+					tabIndex={active ? 0 : -1}
+				>
+					{this.props.title}
+				</button>
+			</KeyHandler>
 		);
 	}
 }

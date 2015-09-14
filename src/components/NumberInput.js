@@ -6,11 +6,11 @@
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
-import classNames from 'classnames';
 import uid from 'uid';
 import keys from 'offkey';
 import noop from 'no-op';
 import bound from '../utils/bound';
+import KeyHandler from './KeyHandler';
 import NumberInputControl from './NumberInputControl';
 
 
@@ -58,73 +58,29 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
-	handleKeyDown(event) {
-		let value = this.props.value;
+	constructor(props) {
+		super(props);
 
-		switch (event.keyCode) {
-			case keys.PAGE_UP:
-				value += this.props.bigStep;
-				break;
-
-			case keys.PAGE_DOWN:
-				value -= this.props.bigStep;
-				break;
-
-			case keys.END:
-				value = this.props.max;
-				break;
-
-			case keys.HOME:
-				value = this.props.min;
-				break;
-
-			case keys.ARROW.DOWN:
-				value -= this.props.step;
-				break;
-
-			case keys.ARROW.UP:
-				value += this.props.step;
-				break;
-
-			default:
-				return;
-		}
-
-		event.preventDefault();
-		this.emitChange(value);
+		this.state = {
+			value: props.value
+		};
 	}
 
 	/**
 	 *
 	 */
-	@autoBind
-	handleChange(event) {
-		const value = parseInt(event.target.value, 10);
-
-		this.props.onChange(
-			isNaN(value) ? this.props.min : value
-		);
+	componentWillReceiveProps(props) {
+		this.setState({
+			value: props.value
+		});
 	}
 
 	/**
 	 *
 	 */
-	@autoBind
-	handleIncrement() {
-		this.emitChange(
-			this.props.value + this.props.step
-		);
-	}
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleDecrement() {
-		this.emitChange(
-			this.props.value - this.props.step
-		);
+	intVal(value) {
+		const intVal = parseInt(value, 10);
+		return isNaN(intVal) ? this.props.min : intVal;
 	}
 
 	/**
@@ -138,11 +94,93 @@ export default class NumberInput extends Component {
 	 *
 	 */
 	emitChange(value) {
-		value = this.bound(value);
+		const boundValue = this.bound(value);
 
-		if (this.props.value !== value) {
-			this.props.onChange(value);
+		if (this.props.value !== boundValue) {
+			this.props.onChange(boundValue);
 		}
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleChange(event) {
+		const value = parseInt(event.target.value, 10);
+
+		if (isNaN(value)) {
+			this.setState({
+				value: ''
+			});
+		} else {
+			this.emitChange(value);
+		}
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleBlur(event) {
+		this.emitChange(
+			this.intVal(event.target.value)
+		);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleMin() {
+		this.emitChange(this.props.min);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleMax() {
+		this.emitChange(this.props.max);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleIncrement() {
+		this.emitChange(
+			this.intVal(this.state.value) + this.props.step
+		);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleBigIncrement() {
+		this.emitChange(
+			this.intVal(this.state.value) + this.props.bigStep
+		);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleDecrement() {
+		this.emitChange(
+			this.intVal(this.state.value) - this.props.step
+		);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleBigDecrement() {
+		this.emitChange(
+			this.intVal(this.state.value) - this.props.bigStep
+		);
 	}
 
 	/**
@@ -151,18 +189,28 @@ export default class NumberInput extends Component {
 	render() {
 		return (
 			<div className="rea11y-number-input">
-				<input
-					id={this.props.id}
-					className="rea11y-number-input-value"
-					type="text"
-					role="spinbutton"
-					aria-valuemin={this.props.min}
-					aria-valuemax={this.props.max}
-					aria-valuenow={this.props.value}
-					value={this.props.value}
-					onKeyDown={this.handleKeyDown}
-					onChange={this.handleChange}
-				/>
+				<KeyHandler handlers={{
+					[keys.HOME]: this.handleMin,
+					[keys.END]: this.handleMax,
+					[keys.ARROW.UP]: this.handleIncrement,
+					[keys.PAGE_UP]: this.handleBigIncrement,
+					[keys.ARROW.DOWN]: this.handleDecrement,
+					[keys.PAGE_DOWN]: this.handleBigDecrement
+				}}>
+					<input
+						ref="input"
+						id={this.props.id}
+						className="rea11y-number-input-value"
+						type="text"
+						role="spinbutton"
+						aria-valuemin={this.props.min}
+						aria-valuemax={this.props.max}
+						aria-valuenow={this.state.value}
+						value={this.state.value}
+						onChange={this.handleChange}
+						onBlur={this.handleBlur}
+					/>
+				</KeyHandler>
 
 				<div className="rea11y-number-input-controls">
 					<NumberInputControl
