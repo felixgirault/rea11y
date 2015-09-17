@@ -4,6 +4,7 @@
 'use strict';
 
 export {default as Button} from './src/components/Button';
+export {default as Modal} from './src/components/Modal';
 export {default as NumberInput} from './src/components/NumberInput';
 export {default as Panel} from './src/components/Panel';
 export {default as ProgressBar} from './src/components/ProgressBar';
