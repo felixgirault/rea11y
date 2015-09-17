@@ -54,7 +54,7 @@ a:active {
 button {
 	display: inline-block;
 	border: none;
-	padding: 0 0.75;
+	padding: 0.75em;
 	background: #3D9970;
 	color: #111;
 	line-height: inherit;
@@ -173,6 +173,7 @@ button:active {
 .rea11y-number-input-control {
 	width: 3em;
 	height: 1.5em;
+	padding: 0;
 	background: #3D9970;
 	line-height: 1.5em;
 	font-size: 1em;
@@ -202,6 +203,7 @@ button:active {
 
 .rea11y-progress-bar-text {
 	padding: 0.75em;
+	font-weight: bold;
 }
 
 .progress-bar-target {
@@ -254,6 +256,10 @@ button:active {
 
 .rea11y-slider-handle-control:active {
 	background: #85144B;
+}
+
+.rea11y-slider-handle-text {
+	font-weight: bold;
 }
 
 
