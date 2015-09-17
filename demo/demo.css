@@ -293,3 +293,44 @@ button:active {
 .rea11y-tab-active:focus {
 	background: #111;
 }
+
+
+
+/**
+ *
+ */
+
+.rea11y-modal {
+	outline: 0.75em solid #111;
+	color: #111;
+}
+
+.rea11y-modal-backdrop:focus .rea11y-modal {
+	outline-color: #222;
+}
+
+.rea11y-modal-header {
+	padding: 1.5em;
+	background: #3D9970;
+	color: #fff;
+}
+
+.rea11y-modal-title {
+	margin: 0;
+	line-height: 1em;
+	font-size: 1.5em;
+}
+
+.rea11y-modal-body {
+	padding: 1.5em;
+}
+
+.rea11y-modal-footer {
+	padding: 1.5em;
+	background: #ddd;
+	text-align: center;
+}
+
+.rea11y-modal-footer button {
+	margin: 0 1px;
+}
