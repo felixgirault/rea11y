@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes, findDOMNode} from 'react';
 import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import keys from 'offkey';
 import noop from 'no-op';
@@ -159,7 +158,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMouseDown(event) {
 		if (event.button === 0) {
 			this.handleDragStart(event);
@@ -169,22 +167,20 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDragStart(event) {
 		this.setState({
 			dragging: true,
 			dragStartX: event.pageX,
 			dragStartY: event.pageY
 		}, () => {
-			on(document, 'mousemove', this.handleDrag);
-			on(document, 'mouseup', this.handleDragEnd);
+			on(document, 'mousemove', ::this.handleDrag);
+			on(document, 'mouseup', ::this.handleDragEnd);
 		});
 	}
 
 	/**
 	 *
 	 */
-	@autoBind
 	handleDrag(event) {
 		event.preventDefault();
 
@@ -203,20 +199,18 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDragEnd() {
 		this.setState({
 			dragging: false
 		}, () => {
-			off(document, 'mousemove', this.handleDrag);
-			off(document, 'mouseup', this.handleDragEnd);
+			off(document, 'mousemove', ::this.handleDrag);
+			off(document, 'mouseup', ::this.handleDragEnd);
 		});
 	}
 
 	/**
 	 *
 	 */
-	@autoBind
 	handleMin() {
 		this.emitChange(this.props.min);
 	}
@@ -224,7 +218,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMax() {
 		this.emitChange(this.props.max);
 	}
@@ -232,7 +225,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleIncrement() {
 		this.emitChange(
 			this.props.value + this.props.step
@@ -242,7 +234,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBigIncrement() {
 		this.emitChange(
 			this.props.value + this.props.bigStep
@@ -252,7 +243,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDecrement() {
 		this.emitChange(
 			this.props.value - this.props.step
@@ -262,7 +252,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBigDecrement() {
 		this.emitChange(
 			this.props.value - this.props.bigStep
@@ -281,14 +270,14 @@ export default class SliderHandle extends Component {
 		return (
 			<div className={className} style={this.style()}>
 				<KeyHandler handlers={{
-					[keys.HOME]: this.handleMin,
-					[keys.END]: this.handleMax,
-					[keys.ARROW.UP]: this.handleIncrement,
-					[keys.ARROW.RIGHT]: this.handleIncrement,
-					[keys.PAGE_UP]: this.handleBigIncrement,
-					[keys.ARROW.DOWN]: this.handleDecrement,
-					[keys.ARROW.LEFT]: this.handleDecrement,
-					[keys.PAGE_DOWN]: this.handleBigDecrement
+					[keys.HOME]: ::this.handleMin,
+					[keys.END]: ::this.handleMax,
+					[keys.ARROW.UP]: ::this.handleIncrement,
+					[keys.ARROW.RIGHT]: ::this.handleIncrement,
+					[keys.PAGE_UP]: ::this.handleBigIncrement,
+					[keys.ARROW.DOWN]: ::this.handleDecrement,
+					[keys.ARROW.LEFT]: ::this.handleDecrement,
+					[keys.PAGE_DOWN]: ::this.handleBigDecrement
 				}}>
 					<div
 						className="rea11y-slider-handle-control"
@@ -296,7 +285,7 @@ export default class SliderHandle extends Component {
 						aria-valuemin={this.props.min}
 						aria-valuemax={this.props.max}
 						aria-valuenow={this.props.value}
-						onMouseDown={this.handleMouseDown}
+						onMouseDown={::this.handleMouseDown}
 						tabIndex="0"
 					></div>
 				</KeyHandler>

@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes, Children, cloneElement} from 'react';
 import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
 
 
 
@@ -31,7 +30,6 @@ export default class KeyHandler extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleKeyDown(event) {
 		const code = event.keyCode;
 
@@ -48,7 +46,7 @@ export default class KeyHandler extends Component {
 		const child = Children.only(this.props.children);
 
 		return cloneElement(child, {
-			onKeyDown: this.handleKeyDown
+			onKeyDown: ::this.handleKeyDown
 		});
 	}
 }

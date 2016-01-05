@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes, findDOMNode} from 'react';
 import pureRender from 'pure-render-decorator';
-import autobind from 'autobind-decorator';
 import keys from 'offkey';
 import noop from 'no-op';
 import offset from 'dom-helpers/query/offset';
@@ -62,14 +61,14 @@ export default class Modal extends Component {
 	componentDidMount() {
 		this.center();
 
-		on(document, 'keydown', this.handleKeyDown);
+		on(document, 'keydown', ::this.handleKeyDown);
 	}
 
 	/**
 	 *
 	 */
 	componentWillUnmount() {
-		off(document, 'keydown', this.handleKeyDown);
+		off(document, 'keydown', ::this.handleKeyDown);
 	}
 
 	/**
@@ -92,7 +91,6 @@ export default class Modal extends Component {
 	/**
 	 *
 	 */
-	@autobind
 	handleKeyDown(event) {
 		if (event.keyCode === keys.ESCAPE) {
 			this.props.onClose();

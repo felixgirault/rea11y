@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import noop from 'no-op';
 import Button from './Button';
@@ -42,7 +41,6 @@ export default class ToggleButton extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleClick() {
 		this.props.onToggle(!this.props.pressed);
 
@@ -69,7 +67,7 @@ export default class ToggleButton extends Component {
 				{...props}
 				aria-pressed={props.pressed}
 				text={this.text()}
-				onClick={this.handleClick}
+				onClick={::this.handleClick}
 			/>
 		);
 	}

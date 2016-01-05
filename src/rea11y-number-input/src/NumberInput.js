@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
 import uid from 'uid';
 import keys from 'offkey';
 import noop from 'no-op';
@@ -101,7 +100,6 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleChange(event) {
 		const value = parseInt(event.target.value, 10);
 
@@ -117,7 +115,6 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBlur(event) {
 		this.emitChange(
 			this.intVal(event.target.value)
@@ -127,7 +124,6 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMin() {
 		this.emitChange(this.props.min);
 	}
@@ -135,7 +131,6 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMax() {
 		this.emitChange(this.props.max);
 	}
@@ -143,7 +138,6 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleIncrement() {
 		this.emitChange(
 			this.intVal(this.state.value) + this.props.step
@@ -153,7 +147,6 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBigIncrement() {
 		this.emitChange(
 			this.intVal(this.state.value) + this.props.bigStep
@@ -163,7 +156,6 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDecrement() {
 		this.emitChange(
 			this.intVal(this.state.value) - this.props.step
@@ -173,7 +165,6 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBigDecrement() {
 		this.emitChange(
 			this.intVal(this.state.value) - this.props.bigStep
@@ -187,12 +178,12 @@ export default class NumberInput extends Component {
 		return (
 			<div className="rea11y-number-input">
 				<KeyHandler handlers={{
-					[keys.HOME]: this.handleMin,
-					[keys.END]: this.handleMax,
-					[keys.ARROW.UP]: this.handleIncrement,
-					[keys.PAGE_UP]: this.handleBigIncrement,
-					[keys.ARROW.DOWN]: this.handleDecrement,
-					[keys.PAGE_DOWN]: this.handleBigDecrement
+					[keys.HOME]: ::this.handleMin,
+					[keys.END]: ::this.handleMax,
+					[keys.ARROW.UP]: ::this.handleIncrement,
+					[keys.PAGE_UP]: ::this.handleBigIncrement,
+					[keys.ARROW.DOWN]: ::this.handleDecrement,
+					[keys.PAGE_DOWN]: ::this.handleBigDecrement
 				}}>
 					<input
 						ref="input"
@@ -204,8 +195,8 @@ export default class NumberInput extends Component {
 						aria-valuemax={this.props.max}
 						aria-valuenow={this.state.value}
 						value={this.state.value}
-						onChange={this.handleChange}
-						onBlur={this.handleBlur}
+						onChange={::this.handleChange}
+						onBlur={::this.handleBlur}
 					/>
 				</KeyHandler>
 

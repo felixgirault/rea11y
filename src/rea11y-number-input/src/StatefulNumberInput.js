@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
 import noop from 'no-op';
 import NumberInput from './NumberInput';
 
@@ -45,7 +44,6 @@ export default class StatefulNumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleChange(value) {
 		this.setState({ value }, () => {
 			this.props.onChange(value);
@@ -60,7 +58,7 @@ export default class StatefulNumberInput extends Component {
 			<NumberInput
 				{...this.props}
 				value={this.state.value}
-				onChange={this.handleChange}
+				onChange={::this.handleChange}
 			/>
 		);
 	}

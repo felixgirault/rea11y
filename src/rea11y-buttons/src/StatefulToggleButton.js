@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
 import noop from 'no-op';
 import ToggleButton from './ToggleButton';
 
@@ -49,7 +48,6 @@ export default class StatefulToggleButton extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleToggle(pressed) {
 		this.setState({ pressed }, this.afterToggle);
 	}
@@ -75,7 +73,7 @@ export default class StatefulToggleButton extends Component {
 			<ToggleButton
 				{...this.props}
 				pressed={this.state.pressed}
-				onToggle={this.handleToggle}
+				onToggle={::this.handleToggle}
 				onPress={noop}
 				onRelease={noop}
 			/>

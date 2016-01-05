@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import SliderHandle from './SliderHandle';
 
@@ -32,7 +31,6 @@ export default class Slider extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleClick(event) {
 		this.refs.handle.handleDrag(event);
 	}
@@ -51,7 +49,7 @@ export default class Slider extends Component {
 				<div
 					ref="track"
 					className="rea11y-slider-track"
-					onClick={this.handleClick}
+					onClick={::this.handleClick}
 				>
 					<SliderHandle {...this.props} ref="handle" />
 				</div>

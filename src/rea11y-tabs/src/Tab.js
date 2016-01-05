@@ -3,7 +3,6 @@
  */
 import {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import keys from 'offkey';
 import noop from 'no-op';
@@ -46,7 +45,6 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleClick() {
 		this.props.onActive(this.props.name);
 	}
@@ -54,7 +52,6 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleFirst() {
 		this.props.onFirst();
 	}
@@ -62,7 +59,6 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleLast() {
 		this.props.onLast();
 	}
@@ -70,7 +66,6 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handlePrevious() {
 		this.props.onPrevious(this.props.name);
 	}
@@ -78,7 +73,6 @@ export default class Tab extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleNext() {
 		this.props.onNext(this.props.name);
 	}
@@ -100,12 +94,12 @@ export default class Tab extends Component {
 
 		return (
 			<KeyHandler handlers={{
-				[keys.HOME]: this.handleFirst,
-				[keys.END]: this.handleLast,
-				[keys.ARROW.UP]: this.handlePrevious,
-				[keys.ARROW.LEFT]: this.handlePrevious,
-				[keys.ARROW.DOWN]: this.handleNext,
-				[keys.ARROW.RIGHT]: this.handleNext
+				[keys.HOME]: ::this.handleFirst,
+				[keys.END]: ::this.handleLast,
+				[keys.ARROW.UP]: ::this.handlePrevious,
+				[keys.ARROW.LEFT]: ::this.handlePrevious,
+				[keys.ARROW.DOWN]: ::this.handleNext,
+				[keys.ARROW.RIGHT]: ::this.handleNext
 			}}>
 				<button
 					id={tabId}
@@ -113,8 +107,7 @@ export default class Tab extends Component {
 					role="tab"
 					aria-controls={panelId}
 					aria-selected={active}
-					onClick={this.handleClick}
-					onKeyDown={this.handleKeyDown}
+					onClick={::this.handleClick}
 					tabIndex={active ? 0 : -1}
 				>
 					{this.props.title}
