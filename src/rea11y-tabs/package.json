@@ -1,0 +1,13 @@
+{
+  "name": "rea11y-tabs",
+  "version": "0.1.0",
+  "description": "An accessible tab panel",
+  "author": "Félix Girault <felix.girault@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "a11y",
+    "tabs"
+  ],
+  "main": "index.js"
+}

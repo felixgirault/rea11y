@@ -24,9 +24,15 @@ module.exports = {
 		publicPath: '/dist/',
 		filename: 'rea11y.[name]'
 	},
+	resolve: {
+		modulesDirectories: [
+			'node_modules',
+			'src'
+		],
+	},
 	externals: [
 		{
-			'react': {
+			react: {
 				root: 'React',
 				commonjs: 'react',
 				commonjs2: 'react',
@@ -66,4 +72,4 @@ module.exports = {
 			allChunks: true
 		})
 	]
-}
+};

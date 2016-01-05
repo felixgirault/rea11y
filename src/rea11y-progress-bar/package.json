@@ -1,0 +1,13 @@
+{
+  "name": "rea11y-progress-bar",
+  "version": "0.1.0",
+  "description": "An accessible progress bar",
+  "author": "Félix Girault <felix.girault@gmail.com>",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "a11y",
+    "progress bar"
+  ],
+  "main": "index.js"
+}

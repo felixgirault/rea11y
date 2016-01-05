@@ -16,113 +16,12 @@ npm start
 
 Then head to [http://localhost:8080/webpack-dev-server/](http://localhost:8080/webpack-dev-server/).
 
-Usage
------
-
-```jsx
-// ES5
-var Rea11y = require('rea11y');
-var Slider = Rea11y.Slider;
-
-// ES6
-import Rea11y from 'rea11y';
-import {Slider} from 'rea11y';
-```
-
 Components
 ----------
 
-Components below are initialized with all possible props,
-though most of the time they require almost no configuration.
-
-### Number input
-
-```jsx
-function handleChange(value) {
-	console.log(value);
-}
-
-<NumberInput
-	min={0}
-	max={100}
-	value={42}
-	step={1}
-	bigStep={10}
-	incrementText="⌃"
-	decrementText="⌃"
-	incrementTitle="Increment"
-	decrementTitle="Decrement"
-	onChange={handleChange}
-/>
-```
-
-### Progress bar
-
-```jsx
-<ProgressBar max={100} value={42} />
-```
-
-With a label:
-
-```jsx
-function makeText(props) {
-	return props.progress + '%';
-}
-
-<ProgressBar max={100} value={42} text={makeText} />
-```
-
-### Slider
-
-```jsx
-function makeText(props) {
-	return props.value;
-}
-
-function handleChange(value) {
-	console.log(value);
-}
-
-<Slider
-	min={0}
-	max={100}
-	value={42}
-	step={1}
-	bigStep={10}
-	text={makeText}
-	onChange={handleChange}
-/>
-```
-
-### Range slider
-
-```jsx
-function handleChange(upperValue, lowerValue) {
-	console.log(upperValue, lowerValue);
-}
-
-<RangeSlider
-	min={0}
-	max={100}
-	lowerValue={24}
-	upperValue={96}
-	step={1}
-	bigStep={10}
-	text={makeText}
-	onChange={handleChange}
-/>
-```
-
-### Tabs
-
-```jsx
-<Tabs active="first">
-	<Panel name="first" title="First">
-		<p>Lorem ipsum dolor sit amet.</p>
-	</Panel>
-
-	<Panel name="second" title="Second">
-		<p>Lorem ipsum dolor sit amet.</p>
-	</Panel>
-</Tabs>
-```
+* [buttons](./src/rea11y-buttons/README.md)
+* [modal](./src/rea11y-modal/README.md)
+* [number input](./src/rea11y-number-input/README.md)
+* [progress bar](./src/rea11y-progress-bar/README.md)
+* [sliders](./src/rea11y-sliders/README.md)
+* [tabs](./src/rea11y-tabs/README.md)

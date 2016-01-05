@@ -186,9 +186,9 @@
 			}
 
 			return (
-				<Rea11y.Modal title="Modal" labelId="modal-title">
+				<Rea11y.Modal labelId="modal-title">
 					<div className="rea11y-modal-header">
-						<h1 className="rea11y-modal-title">
+						<h1 id="modal-title" className="rea11y-modal-title">
 							This is a modal
 						</h1>
 					</div>
