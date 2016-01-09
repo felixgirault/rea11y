@@ -1,7 +1,8 @@
 /**
  *
  */
-import {Component, PropTypes, findDOMNode} from 'react';
+import React, {Component, PropTypes} from 'react';
+import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import keys from 'offkey';
 import noop from 'no-op';

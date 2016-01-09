@@ -1,7 +1,7 @@
 /**
  *
  */
-import {Component, PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import uid from 'uid';
 import classNames from 'classnames';

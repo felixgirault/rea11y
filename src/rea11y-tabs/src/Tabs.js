@@ -1,7 +1,8 @@
 /**
  *
  */
-import {Component, Children, PropTypes, findDOMNode, cloneElement} from 'react';
+import React, {Component, Children, PropTypes, cloneElement} from 'react';
+import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import classNames from 'classnames';
 import uid from 'uid';

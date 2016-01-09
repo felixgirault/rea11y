@@ -1,7 +1,8 @@
 /**
  *
  */
-import {Component, findDOMNode} from 'react';
+import React, {Component} from 'react';
+import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import {on, off} from 'dom-helpers/events';
 import {tabbable} from 'rea11y-utils';

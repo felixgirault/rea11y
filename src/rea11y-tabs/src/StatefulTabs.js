@@ -1,7 +1,7 @@
 /**
  *
  */
-import {Component, PropTypes} from 'react';
+import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import noop from 'no-op';
 import Tabs from './Tabs';
