@@ -57,13 +57,10 @@ export default class Tabs extends Component {
 	 *
 	 */
 	tabNames() {
-		let names = [];
-
-		Children.forEach(this.props.children, (child) => {
-			names.push(child.props.name);
-		});
-
-		return names;
+		return Children.map(
+			this.props.children,
+			(child) => child.props.name
+		);
 	}
 
 	/**

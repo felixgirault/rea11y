@@ -1,31 +1,26 @@
 /**
+ *
+ */
+const ELEMENTS_QUERY = '*[tabindex], button, input, object, select, textarea';
+
+
+
+/**
  *	Returns all tabbable elements inside the given container.
  *
  *	@param DOMElement container Container.
  *	@return Array Tabbable elements.
  */
 export default function tabbable(container = document) {
-	const links = container.getElementsByTagName('a');
-	const elements = container.querySelectorAll(
-		'*[tabindex], button, input, object, select, textarea'
-	);
+	const links = container
+		.getElementsByTagName('a')
+		.filter(isTabbableLink);
 
-	let tab = [];
-	let i, l;
+	const elements = container
+		.querySelectorAll(ELEMENTS_QUERY)
+		.filter(isTabbableElement);
 
-	for (i = 0, l = links.length; i < l; i++) {
-		if (isTabbableLink(links[i])) {
-			tab.push(links[i]);
-		}
-	}
-
-	for (i = 0, l = elements.length; i < l; i++) {
-		if (isTabbableElement(elements[i])) {
-			tab.push(elements[i]);
-		}
-	}
-
-	return tab;
+	return links.concat(elements);
 }
 
 /**

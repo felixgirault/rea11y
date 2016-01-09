@@ -75,8 +75,8 @@ export default class NumberInput extends Component {
 	 *
 	 */
 	intVal(value) {
-		const intVal = parseInt(value, 10);
-		return isNaN(intVal) ? this.props.min : intVal;
+		const number = parseInt(value, 10);
+		return isNaN(number) ? this.props.min : number;
 	}
 
 	/**
@@ -204,14 +204,14 @@ export default class NumberInput extends Component {
 					<NumberInputControl
 						name="increment"
 						title={this.props.incrementTitle}
-						onClick={this.handleIncrement}
+						onClick={::this.handleIncrement}
 						text={this.props.incrementText}
 					/>
 
 					<NumberInputControl
 						name="decrement"
 						title={this.props.decrementTitle}
-						onClick={this.handleDecrement}
+						onClick={::this.handleDecrement}
 						text={this.props.decrementText}
 					/>
 				</div>
