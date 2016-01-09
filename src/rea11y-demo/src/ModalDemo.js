@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import autoBind from 'autobind-decorator';
 import {Modal} from 'rea11y-modal';
 
 
@@ -27,7 +28,7 @@ export default function ModalDemo() {
 			</ul>
 
 			<div className="pattern-example">
-
+				<StatefulModal />
 			</div>
 		</article>
 	);
@@ -46,12 +47,14 @@ class StatefulModal extends Component {
 		};
 	}
 
+	@autoBind
 	handleOpen() {
 		this.setState({
 			opened: true
 		})
 	}
 
+	@autoBind
 	handleClose() {
 		this.setState({
 			opened: false
@@ -61,7 +64,7 @@ class StatefulModal extends Component {
 	render() {
 		return (
 			<div>
-				<button onClick={::this.handleOpen}>
+				<button onClick={this.handleOpen}>
 					Open
 				</button>
 
@@ -107,7 +110,7 @@ class StatefulModal extends Component {
 
 				<div className="rea11y-modal-footer">
 					<button>Do nothing</button>
-					<button onClick={::this.handleClose}>
+					<button onClick={this.handleClose}>
 						Close
 					</button>
 				</div>
