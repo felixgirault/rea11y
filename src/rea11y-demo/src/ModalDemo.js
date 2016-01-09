@@ -15,7 +15,7 @@ export default function ModalDemo() {
 			</header>
 
 			<p>
-				When a modal is opened, focus is trapped inside it.
+				When a modal is open, focus is trapped inside it.
 				On close, the focus is given back to the element
 				that opened it.
 			</p>
@@ -43,21 +43,21 @@ class StatefulModal extends Component {
 		super(props);
 
 		this.state = {
-			opened: false
+			open: false
 		};
 	}
 
 	@autoBind
 	handleOpen() {
 		this.setState({
-			opened: true
+			open: true
 		})
 	}
 
 	@autoBind
 	handleClose() {
 		this.setState({
-			opened: false
+			open: false
 		})
 	}
 
@@ -74,7 +74,7 @@ class StatefulModal extends Component {
 	}
 
 	renderModal() {
-		if (!this.state.opened) {
+		if (!this.state.open) {
 			return undefined;
 		}
 
