@@ -1,6 +1,13 @@
 /**
  *
  */
+import filter from 'lodash/collection/filter';
+
+
+
+/**
+ *
+ */
 const ELEMENTS_QUERY = '*[tabindex], button, input, object, select, textarea';
 
 
@@ -12,13 +19,15 @@ const ELEMENTS_QUERY = '*[tabindex], button, input, object, select, textarea';
  *	@return Array Tabbable elements.
  */
 export default function tabbable(container = document) {
-	const links = container
-		.getElementsByTagName('a')
-		.filter(isTabbableLink);
+	const links = filter(
+		container.getElementsByTagName('a'),
+		isTabbableLink
+	);
 
-	const elements = container
-		.querySelectorAll(ELEMENTS_QUERY)
-		.filter(isTabbableElement);
+	const elements = filter(
+		container.querySelectorAll(ELEMENTS_QUERY),
+		isTabbableElement
+	);
 
 	return links.concat(elements);
 }
