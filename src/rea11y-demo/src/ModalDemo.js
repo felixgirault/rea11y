@@ -79,7 +79,7 @@ class StatefulModal extends Component {
 		}
 
 		return (
-			<Modal labelId="modal-title">
+			<Modal labelId="modal-title" onClose={this.handleClose}>
 				<div className="rea11y-modal-header">
 					<h1 id="modal-title" className="rea11y-modal-title">
 						This is a modal
