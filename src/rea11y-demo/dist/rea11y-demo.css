@@ -1,0 +1,619 @@
+/**
+ *	Modal.
+ */
+
+.rea11y-modal-backdrop {
+	display: table-cell;
+	vertical-align: middle;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	background: #000;
+	background: rgba(0, 0, 0, 0.8);
+	overflow-y: auto;
+}
+
+.rea11y-modal {
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 35em;
+	background: #fff;
+}
+/**
+ *	Number input.
+ */
+
+.rea11y-number-input {
+	position: relative;
+	border: 1px solid #aaa;
+	padding-right: 1.5em;
+	background: #fff;
+}
+
+.rea11y-number-input-value {
+	box-sizing: border-box;
+	margin: 0;
+	border: none;
+	padding: 0.375em;
+	width: 100%;
+	height: 1.5em;
+	line-height: 1.5em;
+	font-size: 1em;
+}
+
+.rea11y-number-input-control {
+	position: absolute;
+	border: none;
+	width: 3em;
+	height: 1.5em;
+	background: #ddd;
+	color: #000;
+	text-align: center;
+	line-height: 1.5em;
+	font-size: 0.5em;
+	font-weight: bold;
+}
+
+.rea11y-number-input-control:hover {
+	background: #aaa;
+}
+
+.rea11y-number-input-control-increment {
+	top: 0;
+	right: 0;
+}
+
+.rea11y-number-input-control-decrement {
+	bottom: 0;
+	right: 0;
+}
+/**
+ *	Progress bar.
+ */
+
+.rea11y-progress-bar {
+	position: relative;
+	border: 1px solid #aaa;
+}
+
+.rea11y-progress-bar-horizontal {
+	width: 100%;
+	height: 1.5em;
+}
+
+.rea11y-progress-bar-vertical {
+	width: 1.5em;
+	height: 6em;
+}
+
+.rea11y-progress-bar-track {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+}
+
+.rea11y-progress-bar-value {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background: #ddd;
+}
+
+.rea11y-progress-bar-horizontal .rea11y-progress-bar-value {
+	top: 0;
+}
+
+.rea11y-progress-bar-vertical .rea11y-progress-bar-value {
+	right: 0;
+}
+
+.rea11y-progress-bar-text {
+	position: relative;
+	text-align: center;
+}
+/**
+ *	Slider.
+ */
+
+.rea11y-slider {
+	position: relative;
+	margin-bottom: 1.5em;
+}
+
+.rea11y-slider-horizontal {
+	width: 100%;
+	height: 1.5em;
+}
+
+.rea11y-slider-vertical {
+	width: 1.5em;
+	height: 6em;
+}
+
+.rea11y-slider-track {
+	position: absolute;
+	top: 0.375em;
+	right: 0.75em;
+	bottom: 0.375em;
+	left: 0.75em;
+	border: 1px solid #aaa;
+	border-radius: 0.375em;
+	background: #ddd;
+}
+
+.rea11y-slider-range .rea11y-slider-track {
+	background: #fff;
+}
+
+.rea11y-slider-handle {
+	position: absolute;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	border-radius: 0.75em;
+	background: #fff;
+}
+
+.rea11y-slider-range .rea11y-slider-handle:first-child {
+	background: #ddd;
+}
+
+.rea11y-slider-horizontal .rea11y-slider-handle {
+	bottom: 0;
+}
+
+.rea11y-slider-vertical .rea11y-slider-handle {
+	left: 0;
+}
+
+.rea11y-slider-handle-control {
+	box-sizing: border-box;
+	position: relative;
+	top: -0.375em;
+	left: -0.75em;
+	height: 1.5em;
+	border: 1px solid #aaa;
+	border-radius: 0.75em;
+	background: #ddd;
+	cursor: -webkit-grab;
+	cursor: grab;
+}
+
+.rea11y-slider-handle-control:hover,
+.rea11y-slider-handle-control:focus {
+	background: #aaa;
+	z-index: 10;
+}
+
+.rea11y-slider-handle-control:focus {
+	z-index: 10;
+}
+
+.rea11y-slider-handle-dragging .rea11y-slider-handle-control {
+	cursor: -webkit-grabbing;
+	cursor: grabbing;
+}
+
+.rea11y-slider-horizontal .rea11y-slider-handle-control {
+	width: 1.5em;
+}
+
+.rea11y-slider-vertical .rea11y-slider-handle-control {
+	height: 1.5em;
+}
+
+.rea11y-slider-handle-text {
+	position: relative;
+	left: -1.5em;
+	width: 3em;
+	text-align: center;
+	overflow: visible;
+}
+/**
+ *	Tabs.
+ */
+
+.rea11y-tabs {
+	border: 1px solid #aaa;
+}
+
+.rea11y-tabs-vertical {
+	display: table;
+	width: 100%;
+}
+
+.rea11y-tab-list {
+	background: #ddd;
+}
+
+.rea11y-tabs-vertical .rea11y-tab-list,
+.rea11y-tabs-vertical .rea11y-panel-list {
+	display: table-cell;
+	vertical-align: top;
+}
+
+.rea11y-tabs-vertical .rea11y-panel-list {
+	width: 99%;
+}
+
+.rea11y-tab {
+	margin: 0;
+	border: none;
+	padding: 0.75em;
+	background: #ddd;
+}
+
+.rea11y-tabs-vertical .rea11y-tab {
+	display: block;
+	width: 100%;
+}
+
+.rea11y-tab-active {
+	background: #fff;
+}
+
+.rea11y-tab:hover,
+.rea11y-tab:focus {
+	background: #aaa;
+}
+
+.rea11y-tab-active:hover,
+.rea11y-tab-active:focus {
+	background: #fff;
+}
+
+.rea11y-panel {
+	display: none;
+	padding: 0.75em;
+}
+
+.rea11y-panel-active {
+	display: inherit;
+}
+/**
+ *	Reset.
+ */
+
+html {
+	margin: 0;
+	padding: 0;
+	background: #111;
+	color: #ddd;
+	line-height: 1.5em;
+	font-size: 100%;
+	font-family: sans-serif;
+}
+
+body {
+	margin: 1.5em auto;
+	padding: 0;
+	max-width: 35em;
+	background: #111;
+}
+
+kbd {
+	display: inline-block;
+	margin: 0;
+	padding: 0 0.75em;
+	background: #ddd;
+	color: #111;
+	line-height: 1.5em;
+	font-weight: bold;
+}
+
+kbd:first-child {
+	margin-left: 0;
+}
+
+p {
+	margin: 0 0 1.5em 0;
+}
+
+a {
+	color: #3D9970;
+	text-decoration: none;
+}
+
+a:hover,
+a:focus {
+	color: #FF851B;
+}
+
+a:active {
+	color: #85144B;
+}
+
+button {
+	display: inline-block;
+	border: none;
+	padding: 0.75em;
+	background: #3D9970;
+	color: #111;
+	line-height: inherit;
+	font-size: inherit;
+	font-weight: bold;
+	cursor: pointer;
+}
+
+button:hover,
+button:focus {
+	background: #FF851B;
+}
+
+button:active {
+	background: #85144B;
+	color: #ddd;
+}
+
+:focus {
+	outline: 1px dotted #DDDDDD;
+	outline-offset: 1px;
+}
+
+
+
+/**
+ *	Layout.
+ */
+
+.page-header {
+	margin: 6em 0 9em 0;
+	text-align: center;
+}
+
+.page-title {
+	margin: 0;
+	color: #3D9970;
+	text-align: center;
+	line-height: 1.5em;
+	font-size: 4em;
+}
+
+.pattern {
+	margin: 6em 0;
+}
+
+.pattern-name {
+	margin: 1.5em 0 0.75em 0;
+	color: #3D9970;
+	line-height: 1.5em;
+	font-size: 2em;
+}
+
+.pattern-interactions {
+	margin: 0;
+	padding: 0 0 1.5em 0;
+	list-style: none;
+	overflow-x: hidden;
+}
+
+/* http://www.w3.org/Style/Examples/007/leaders */
+
+.pattern-interaction:before {
+	float: left;
+    width: 0;
+    white-space: nowrap;
+    color: #aaa;
+    content:
+		'. . . . . . . . . . . . . . . . . . . . '
+		'. . . . . . . . . . . . . . . . . . . . '
+		'. . . . . . . . . . . . . . . . . . . . '
+		'. . . . . . . . . . . . . . . . . . . . '
+}
+
+.pattern-interaction span:first-child {
+	padding-right: 0.75em;
+	background: #111;
+}
+
+.pattern-interaction span + span {
+	float: right;
+	padding-left: 0.75em;
+	background: #111;
+}
+
+.pattern-example {
+	margin-bottom: 1.5em;
+}
+
+.page-footer {
+	margin: 9em 0 6em 0;
+	text-align: center;
+}
+
+.page-footer p {
+	margin: 0;
+}
+
+
+
+/**
+ *	Number input.
+ */
+
+.rea11y-number-input {
+	border: 1px solid #3D9970;
+	padding-right: 3em;
+}
+
+.rea11y-number-input-value {
+	padding: 0.75em;
+	height: 3em;
+	line-height: 3em;
+}
+
+.rea11y-number-input-control {
+	width: 3em;
+	height: 1.5em;
+	padding: 0;
+	background: #3D9970;
+	line-height: 1.5em;
+	font-size: 1em;
+}
+
+
+
+/**
+ *	Progress bar.
+ */
+
+.rea11y-progress-bar {
+	border: 1px solid #3D9970;
+}
+
+.rea11y-progress-bar-horizontal {
+	height: 3em;
+}
+
+.rea11y-progress-bar-vertical {
+	width: 100%;
+}
+
+.rea11y-progress-bar-value {
+	background: #3D9970;
+}
+
+.rea11y-progress-bar-text {
+	padding: 0.75em;
+	font-weight: bold;
+}
+
+.progress-bar-target {
+	border: 1px solid #3D9970;
+	padding: 0.75em;
+	color: #ddd;
+}
+
+.progress-bar-target[aria-busy="false"] {
+	background: #3D9970;
+	color: #111;
+}
+
+.progress-bar-target p {
+	margin: 0;
+}
+
+
+
+/**
+ *	Slider.
+ */
+
+.rea11y-slider-track {
+	border: 1px solid #3D9970;
+	background: #ddd;
+}
+
+.rea11y-slider-range .rea11y-slider-track {
+	background: #111;
+}
+
+.rea11y-slider-handle {
+	background: #111;
+}
+
+.rea11y-slider-range .rea11y-slider-handle:first-child {
+	background: #ddd;
+}
+
+.rea11y-slider-handle-control {
+	border: none;
+	background: #3D9970;
+}
+
+.rea11y-slider-handle-control:hover,
+.rea11y-slider-handle-control:focus {
+	background: #FF851B;
+}
+
+.rea11y-slider-handle-control:active {
+	background: #85144B;
+}
+
+.rea11y-slider-handle-text {
+	font-weight: bold;
+}
+
+
+
+/**
+ *	Tabs.
+ */
+
+.rea11y-tabs {
+	border-color: #3D9970;
+}
+
+.rea11y-tab-list {
+	background: #3D9970;
+}
+
+.rea11y-tab {
+	background: #3D9970;
+}
+
+.rea11y-tab:hover,
+.rea11y-tab:focus {
+	background: #FF851B;
+}
+
+.rea11y-tab:active {
+	background: #85144B;
+	color: #ddd;
+}
+
+.rea11y-tab-active {
+	background: #111;
+	color: #ddd;
+}
+
+.rea11y-tab-active:hover,
+.rea11y-tab-active:focus {
+	background: #111;
+}
+
+
+
+/**
+ *
+ */
+
+.rea11y-modal {
+	outline: 0.75em solid #111;
+	color: #111;
+}
+
+.rea11y-modal-backdrop:focus .rea11y-modal {
+	outline-color: #222;
+}
+
+.rea11y-modal-header {
+	padding: 1.5em;
+	background: #3D9970;
+	color: #fff;
+}
+
+.rea11y-modal-title {
+	margin: 0;
+	line-height: 1em;
+	font-size: 1.5em;
+}
+
+.rea11y-modal-body {
+	padding: 1.5em;
+}
+
+.rea11y-modal-footer {
+	padding: 1.5em;
+	background: #ddd;
+	text-align: center;
+}
+
+.rea11y-modal-footer button {
+	margin: 0 1px;
+}
