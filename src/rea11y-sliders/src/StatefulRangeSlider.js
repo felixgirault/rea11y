@@ -3,7 +3,7 @@
  */
 import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autobind from 'autobind-decorator';
+import autoBind from 'autobind-decorator';
 import noop from 'no-op';
 import RangeSlider from './RangeSlider';
 
@@ -48,7 +48,7 @@ export default class StatefulSlider extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	@autoBind
 	handleChange(lower, upper) {
 		this.setState({
 			lowerValue: lower,

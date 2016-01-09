@@ -3,7 +3,7 @@
  */
 import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import autobind from 'autobind-decorator';
+import autoBind from 'autobind-decorator';
 import noop from 'no-op';
 import Tabs from './Tabs';
 
@@ -44,7 +44,7 @@ export default class StatefulTabs extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	@autoBind
 	handleActive(name) {
 		this.setState({
 			active: name

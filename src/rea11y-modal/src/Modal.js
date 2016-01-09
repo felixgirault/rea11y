@@ -4,7 +4,7 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
-import autobind from 'autobind-decorator';
+import autoBind from 'autobind-decorator';
 import keys from 'offkey';
 import noop from 'no-op';
 import offset from 'dom-helpers/query/offset';
@@ -93,7 +93,7 @@ export default class Modal extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	@autoBind
 	handleKeyDown(event) {
 		if (event.keyCode === keys.ESCAPE) {
 			this.props.onClose();

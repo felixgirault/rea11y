@@ -4,7 +4,7 @@
 import React, {Component, Children, PropTypes, cloneElement} from 'react';
 import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
-import autobind from 'autobind-decorator';
+import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import uid from 'uid';
 import {bound} from 'rea11y-utils';
@@ -88,7 +88,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	@autoBind
 	handleActive(name) {
 		this.emitActive(name);
 	}
@@ -96,7 +96,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	@autoBind
 	handlePrevious(name) {
 		this.activateSibling(name, -1);
 	}
@@ -104,7 +104,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
-	@autobind
+	@autoBind
 	handleNext(name) {
 		this.activateSibling(name, 1);
 	}
