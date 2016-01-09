@@ -55,17 +55,16 @@ export default class ToggleButton extends Component {
 	 *
 	 */
 	render() {
-		let props = this.props;
-
-		props.className = classNames(props.className, {
+		const className = classNames(this.props.className, {
 			'rea11y-toggle-button': true,
-			'rea11y-toggle-button-pressed': props.pressed
+			'rea11y-toggle-button-pressed': this.props.pressed
 		});
 
 		return (
 			<Button
-				{...props}
-				aria-pressed={props.pressed}
+				{...this.props}
+				className={className}
+				aria-pressed={this.props.pressed}
 				text={this.text()}
 				onClick={::this.handleClick}
 			/>

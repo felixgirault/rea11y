@@ -32,16 +32,14 @@ export default class Button extends Component {
 	 *
 	 */
 	render() {
-		let props = this.props;
-
-		props.className = classNames(
-			props.className,
+		const className = classNames(
+			this.props.className,
 			'rea11y-button'
 		);
 
 		return (
-			<button {...props}>
-				{props.text}
+			<button {...this.props} className={className}>
+				{this.props.text}
 			</button>
 		);
 	}
