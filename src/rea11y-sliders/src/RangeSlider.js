@@ -4,6 +4,7 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
+import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import noop from 'no-op';
 import offset from 'dom-helpers/query/offset';
@@ -49,6 +50,7 @@ export default class RangeSlider extends Component {
 	/**
 	 *
 	 */
+	@autoBind
 	handleClick(event) {
 		const lowerRect = offset(findDOMNode(this.refs.lower));
 		const upperRect = offset(findDOMNode(this.refs.upper));
@@ -66,6 +68,7 @@ export default class RangeSlider extends Component {
 	/**
 	 *
 	 */
+	@autoBind
 	handleLowerChange(value) {
 		this.props.onChange(value, this.props.upperValue);
 	}
@@ -73,6 +76,7 @@ export default class RangeSlider extends Component {
 	/**
 	 *
 	 */
+	@autoBind
 	handleUpperChange(value) {
 		this.props.onChange(this.props.lowerValue, value);
 	}
@@ -92,13 +96,13 @@ export default class RangeSlider extends Component {
 				<div
 					ref="track"
 					className="rea11y-slider-track"
-					onClick={::this.handleClick}
+					onClick={this.handleClick}
 				>
 					<SliderHandle
 						{...this.props}
 						ref="lower"
 						value={this.props.lowerValue}
-						onChange={::this.handleLowerChange}
+						onChange={this.handleLowerChange}
 						upperBound={this.props.upperValue}
 						offset={this.offset}
 					/>
@@ -107,7 +111,7 @@ export default class RangeSlider extends Component {
 						{...this.props}
 						ref="upper"
 						value={this.props.upperValue}
-						onChange={::this.handleUpperChange}
+						onChange={this.handleUpperChange}
 						lowerBound={this.props.lowerValue}
 						offset={this.offset}
 					/>

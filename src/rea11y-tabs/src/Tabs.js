@@ -4,6 +4,7 @@
 import React, {Component, Children, PropTypes, cloneElement} from 'react';
 import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
+import autobind from 'autobind-decorator';
 import classNames from 'classnames';
 import uid from 'uid';
 import {bound} from 'rea11y-utils';
@@ -87,6 +88,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleActive(name) {
 		this.emitActive(name);
 	}
@@ -94,6 +96,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handlePrevious(name) {
 		this.activateSibling(name, -1);
 	}
@@ -101,6 +104,7 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleNext(name) {
 		this.activateSibling(name, 1);
 	}
@@ -144,9 +148,9 @@ export default class Tabs extends Component {
 					name={name}
 					title={child.props.title}
 					active={active}
-					onActive={::this.handleActive}
-					onPrevious={::this.handlePrevious}
-					onNext={::this.handleNext}
+					onActive={this.handleActive}
+					onPrevious={this.handlePrevious}
+					onNext={this.handleNext}
 				/>
 			);
 		});

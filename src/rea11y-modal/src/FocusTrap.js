@@ -4,6 +4,7 @@
 import React, {Component} from 'react';
 import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
+import autoBind from 'autobind-decorator';
 import {on, off} from 'dom-helpers/events';
 import {tabbable} from 'rea11y-utils';
 
@@ -29,8 +30,8 @@ export default class FocusTrap extends Component {
 			this.tabbable[0].focus();
 		}
 
-		on(document, 'keydown', ::this.handleKeyEvent);
-		on(document, 'keyup', ::this.handleKeyEvent);
+		on(document, 'keydown', this.handleKeyEvent);
+		on(document, 'keyup', this.handleKeyEvent);
 	}
 
 	/**
@@ -38,8 +39,8 @@ export default class FocusTrap extends Component {
 	 *	to the element that triggered the modal.
 	 */
 	componentWillUnmount() {
-		off(document, 'keydown', ::this.handleKeyEvent);
-		off(document, 'keyup', ::this.handleKeyEvent);
+		off(document, 'keydown', this.handleKeyEvent);
+		off(document, 'keyup', this.handleKeyEvent);
 
 		if (this.previouslyFocused) {
 			this.previouslyFocused.focus();
@@ -51,6 +52,7 @@ export default class FocusTrap extends Component {
 	 *
 	 *	@param object event Keyboard event.
 	 */
+	@autoBind
 	handleKeyEvent(event) {
 		this.shiftPressed = event.shiftKey;
 	}
@@ -61,6 +63,7 @@ export default class FocusTrap extends Component {
 	 *
 	 *	@param object event Event.
 	 */
+	@autoBind
 	handleFocus() {
 		if (!this.tabbable.length) {
 			return;
@@ -79,13 +82,13 @@ export default class FocusTrap extends Component {
 	render() {
 		return (
 			<div className="rea11y-focus-trap">
-				<div onFocus={::this.handleFocus} tabIndex="0" />
+				<div onFocus={this.handleFocus} tabIndex="0" />
 
 				<div className="rea11y-focus-trap-children" ref="children">
 					{this.props.children}
 				</div>
 
-				<div onFocus={::this.handleFocus} tabIndex="0" />
+				<div onFocus={this.handleFocus} tabIndex="0" />
 			</div>
 		);
 	}

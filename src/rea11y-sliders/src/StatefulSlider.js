@@ -3,6 +3,7 @@
  */
 import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
+import autobind from 'autobind-decorator';
 import noop from 'no-op';
 import Slider from './Slider';
 
@@ -44,6 +45,7 @@ export default class StatefulSlider extends Component {
 	/**
 	 *
 	 */
+	@autobind
 	handleChange(value) {
 		this.setState({
 			value: value
@@ -60,7 +62,7 @@ export default class StatefulSlider extends Component {
 			<Slider
 				{...this.props}
 				value={this.state.value}
-				onChange={::this.handleChange}
+				onChange={this.handleChange}
 			/>
 		);
 	}
