@@ -213,14 +213,14 @@ export default class NumberInput extends Component {
 					<NumberInputControl
 						name="increment"
 						title={this.props.incrementTitle}
-						onClick={::this.handleIncrement}
+						onClick={this.handleIncrement}
 						text={this.props.incrementText}
 					/>
 
 					<NumberInputControl
 						name="decrement"
 						title={this.props.decrementTitle}
-						onClick={::this.handleDecrement}
+						onClick={this.handleDecrement}
 						text={this.props.decrementText}
 					/>
 				</div>

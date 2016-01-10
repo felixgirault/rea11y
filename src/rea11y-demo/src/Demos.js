@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import autoBind from 'autobind-decorator';
 import NumberInputDemo from './NumberInputDemo';
 import ProgressBarDemo from './ProgressBarDemo';
 import SliderDemo from './SliderDemo';
@@ -22,6 +23,7 @@ export default class Demos extends Component {
 		};
 	}
 
+	@autoBind
 	handleValueChange(value) {
 		this.setState({value});
 	}
@@ -40,7 +42,7 @@ export default class Demos extends Component {
 						<ProgressBarDemo value={this.state.value} />
 						<SliderDemo
 							defaultValue={this.state.value}
-							onChange={::this.handleValueChange}
+							onChange={this.handleValueChange}
 						/>
 
 						<RangeSliderDemo />
