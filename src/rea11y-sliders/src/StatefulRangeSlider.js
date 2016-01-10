@@ -4,7 +4,7 @@
 import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
-import noop from 'no-op';
+import noop from 'lodash/utility/noop';
 import RangeSlider from './RangeSlider';
 
 

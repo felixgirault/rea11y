@@ -4,10 +4,9 @@
 import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
-import uid from 'uid';
 import keys from 'offkey';
-import noop from 'no-op';
 import {KeyHandler, bound} from 'rea11y-utils';
+import {noop, uniqueId} from 'lodash/utility';
 import NumberInputControl from './NumberInputControl';
 
 
@@ -22,7 +21,6 @@ export default class NumberInput extends Component {
 	 *
 	 */
 	static propTypes = {
-		id: PropTypes.string,
 		incrementText: PropTypes.string,
 		decrementText: PropTypes.string,
 		incrementTitle: PropTypes.string,
@@ -39,7 +37,6 @@ export default class NumberInput extends Component {
 	 *
 	 */
 	static defaultProps = {
-		id: 'rea11y-' + uid(),
 		incrementText: '⌃',
 		decrementText: '⌄',
 		incrementTitle: 'Increment',
@@ -58,6 +55,7 @@ export default class NumberInput extends Component {
 	constructor(props) {
 		super(props);
 
+		this.id = uniqueId('rea11y-');
 		this.state = {
 			value: props.value
 		};
@@ -196,7 +194,7 @@ export default class NumberInput extends Component {
 				}}>
 					<input
 						ref="input"
-						id={this.props.id}
+						id={this.id}
 						className="rea11y-number-input-value"
 						type="text"
 						role="spinbutton"

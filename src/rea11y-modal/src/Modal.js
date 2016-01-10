@@ -6,7 +6,7 @@ import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import keys from 'offkey';
-import noop from 'no-op';
+import noop from 'lodash/utility/noop';
 import offset from 'dom-helpers/query/offset';
 import {on, off} from 'dom-helpers/events';
 import FocusTrap from './FocusTrap';

@@ -6,7 +6,7 @@ import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import noop from 'no-op';
+import noop from 'lodash/utility/noop';
 import offset from 'dom-helpers/query/offset';
 import SliderHandle from './SliderHandle';
 

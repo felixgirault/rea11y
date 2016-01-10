@@ -50,12 +50,10 @@
     "classnames": "^2.2.3",
     "dom-helpers": "^2.4.0",
     "lodash": "^3.10.1",
-    "no-op": "^1.0.3",
     "offkey": "^0.1.0",
     "pure-render-decorator": "^0.2.0",
     "react": "^0.14.5",
-    "react-dom": "^0.14.5",
-    "uid": "0.0.2"
+    "react-dom": "^0.14.5"
   },
   "scripts": {
     "start": "webpack-dev-server --port 9999",

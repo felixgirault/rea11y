@@ -6,7 +6,7 @@ import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import keys from 'offkey';
-import noop from 'no-op';
+import noop from 'lodash/utility/noop';
 import {KeyHandler} from 'rea11y-utils';
 
 

@@ -3,9 +3,9 @@
  */
 import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
-import uid from 'uid';
 import classNames from 'classnames';
 import {percentage} from 'rea11y-utils';
+import uniqueId from 'lodash/utility/uniqueId';
 
 
 
@@ -28,7 +28,6 @@ export default class ProgressBar extends Component {
 	 *
 	 */
 	static propTypes = {
-		id: PropTypes.string,
 		orientation: PropTypes.string,
 		min: PropTypes.number,
 		max: PropTypes.number,
@@ -40,7 +39,6 @@ export default class ProgressBar extends Component {
 	 *
 	 */
 	static defaultProps = {
-		id: 'rea11y-' + uid(),
 		orientation: 'horizontal',
 		min: 0,
 		max: 100,
@@ -54,6 +52,7 @@ export default class ProgressBar extends Component {
 	constructor(props) {
 		super(props);
 
+		this.id = uniqueId('rea11y-');
 		this.state = {
 			percentage: percentage(props.value, props.max)
 		};
@@ -85,7 +84,7 @@ export default class ProgressBar extends Component {
 		if (this.props.target) {
 			this.props.target.setAttribute(
 				'aria-describedby',
-				this.props.id
+				this.id
 			);
 		}
 	}
@@ -114,7 +113,7 @@ export default class ProgressBar extends Component {
 
 		return (
 			<div
-				id={this.props.id}
+				id={this.id}
 				className={className}
 				role="progressbar"
 				aria-valuemax={this.props.max}

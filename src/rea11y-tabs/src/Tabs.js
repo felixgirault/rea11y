@@ -6,8 +6,8 @@ import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import uid from 'uid';
 import {bound} from 'rea11y-utils';
+import uniqueId from 'lodash/utility/uniqueId';
 import Tab from './Tab';
 
 
@@ -22,7 +22,6 @@ export default class Tabs extends Component {
 	 *
 	 */
 	static propTypes = {
-		id: PropTypes.string,
 		orientation: PropTypes.string,
 		active: PropTypes.string
 	}
@@ -31,8 +30,16 @@ export default class Tabs extends Component {
 	 *
 	 */
 	static defaultProps = {
-		id: 'rea11y-' + uid(),
 		orientation: 'horizontal'
+	}
+
+	/**
+	 *
+	 */
+	constructor(props) {
+		super(props);
+
+		this.id = uniqueId('rea11y-');
 	}
 
 	/**
@@ -144,7 +151,7 @@ export default class Tabs extends Component {
 				<Tab
 					key={ref}
 					ref={ref}
-					id={this.props.id}
+					id={this.id}
 					name={name}
 					title={child.props.title}
 					active={active}
@@ -167,7 +174,7 @@ export default class Tabs extends Component {
 
 			return cloneElement(child, {
 				key: key,
-				id: this.props.id,
+				id: this.id,
 				active: active
 			});
 		});
