@@ -20,14 +20,14 @@ export default class Slider extends Component {
 	 */
 	static propTypes = {
 		orientation: PropTypes.string
-	}
+	};
 
 	/**
 	 *
 	 */
 	static defaultProps = {
 		orientation: 'horizontal'
-	}
+	};
 
 	/**
 	 *

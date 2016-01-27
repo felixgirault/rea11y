@@ -43,7 +43,7 @@ export default class SliderHandle extends Component {
 		bigStep: PropTypes.number,
 		text: PropTypes.func,
 		onChange: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -59,7 +59,7 @@ export default class SliderHandle extends Component {
 		bigStep: 10,
 		text: makeText,
 		onChange: noop
-	}
+	};
 
 	/**
 	 *

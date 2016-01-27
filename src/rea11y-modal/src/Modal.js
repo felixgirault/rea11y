@@ -44,7 +44,7 @@ export default class Modal extends Component {
 		labelId: PropTypes.string,
 		center: PropTypes.func,
 		onClose: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -55,7 +55,7 @@ export default class Modal extends Component {
 		labelId: '',
 		center: center,
 		onClose: noop
-	}
+	};
 
 	/**
 	 *

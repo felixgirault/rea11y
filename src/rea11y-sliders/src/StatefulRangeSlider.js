@@ -22,7 +22,7 @@ export default class StatefulSlider extends Component {
 		defaultLowerValue: PropTypes.number,
 		defaultUpperValue: PropTypes.number,
 		onChange: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -31,7 +31,7 @@ export default class StatefulSlider extends Component {
 		defaultLowerValue: 0,
 		defaultUpperValue: 0,
 		onChange: noop
-	}
+	};
 
 	/**
 	 *

@@ -24,14 +24,14 @@ export default class Tabs extends Component {
 	static propTypes = {
 		orientation: PropTypes.string,
 		active: PropTypes.string
-	}
+	};
 
 	/**
 	 *
 	 */
 	static defaultProps = {
 		orientation: 'horizontal'
-	}
+	};
 
 	/**
 	 *

@@ -33,7 +33,7 @@ export default class ProgressBar extends Component {
 		max: PropTypes.number,
 		value: PropTypes.number,
 		text: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -44,7 +44,7 @@ export default class ProgressBar extends Component {
 		max: 100,
 		value: 0,
 		text: makeText
-	}
+	};
 
 	/**
 	 *

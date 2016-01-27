@@ -29,7 +29,7 @@ export default class Tab extends Component {
 		onLast: PropTypes.func,
 		onPrevious: PropTypes.func,
 		onNext: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -41,7 +41,7 @@ export default class Tab extends Component {
 		onLast: noop,
 		onPrevious: noop,
 		onNext: noop
-	}
+	};
 
 	/**
 	 *

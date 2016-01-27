@@ -21,7 +21,7 @@ export default class NumberInputControl extends Component {
 		title: PropTypes.string,
 		text: PropTypes.string,
 		onClick: PropTypes.func
-	}
+	};
 
 	/**
 	 *

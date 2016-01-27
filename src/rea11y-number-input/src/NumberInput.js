@@ -31,7 +31,7 @@ export default class NumberInput extends Component {
 		bigStep: PropTypes.number,
 		value: PropTypes.number,
 		onChange: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -47,7 +47,7 @@ export default class NumberInput extends Component {
 		bigStep: 10,
 		value: 0,
 		onChange: noop
-	}
+	};
 
 	/**
 	 *

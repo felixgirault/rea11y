@@ -21,7 +21,7 @@ export default class StatefulNumberInput extends Component {
 	static propTypes = {
 		defaultValue: PropTypes.number,
 		onChange: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -29,7 +29,7 @@ export default class StatefulNumberInput extends Component {
 	static defaultProps = {
 		defaultValue: 0,
 		onChange: noop
-	}
+	};
 
 	/**
 	 *

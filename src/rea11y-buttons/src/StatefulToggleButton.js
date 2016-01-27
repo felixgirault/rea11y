@@ -23,7 +23,7 @@ export default class StatefulToggleButton extends Component {
 		onToggle: PropTypes.func,
 		onPress: PropTypes.func,
 		onRelease: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -33,7 +33,7 @@ export default class StatefulToggleButton extends Component {
 		onToggle: noop,
 		onPress: noop,
 		onRelease: noop
-	}
+	};
 
 	/**
 	 *

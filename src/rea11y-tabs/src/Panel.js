@@ -20,14 +20,14 @@ export default class Panel extends Component {
 		id: PropTypes.string,
 		name: PropTypes.string,
 		active: PropTypes.bool
-	}
+	};
 
 	/**
 	 *
 	 */
 	static defaultProps = {
 		active: false
-	}
+	};
 
 	/**
 	 *

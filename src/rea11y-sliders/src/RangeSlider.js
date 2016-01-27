@@ -26,7 +26,7 @@ export default class RangeSlider extends Component {
 		lowerValue: PropTypes.number,
 		upperValue: PropTypes.number,
 		onChange: PropTypes.func
-	}
+	};
 
 	/**
 	 *
@@ -36,7 +36,7 @@ export default class RangeSlider extends Component {
 		lowerValue: 0,
 		upperValue: 100,
 		onChange: noop
-	}
+	};
 
 	/**
 	 *

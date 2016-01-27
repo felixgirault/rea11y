@@ -19,14 +19,14 @@ export default class KeyHandler extends Component {
 	static propTypes = {
 		handlers: PropTypes.objectOf(PropTypes.func),
 		children: PropTypes.element.isRequired
-	}
+	};
 
 	/**
 	 *
 	 */
 	static defaultProps = {
 		handlers: {}
-	}
+	};
 
 	/**
 	 *

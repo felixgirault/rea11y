@@ -19,14 +19,14 @@ export default class Button extends Component {
 	static propTypes = {
 		role: PropTypes.string,
 		text: PropTypes.string
-	}
+	};
 
 	/**
 	 *
 	 */
 	static defaultProps = {
 		role: 'button'
-	}
+	};
 
 	/**
 	 *
