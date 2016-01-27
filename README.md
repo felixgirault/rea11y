@@ -14,7 +14,7 @@ npm install
 npm start
 ```
 
-Then head to [http://localhost:8080/webpack-dev-server/](http://localhost:8080/webpack-dev-server/).
+Then head to [http://localhost:9999/webpack-dev-server/](http://localhost:9999/webpack-dev-server/).
 
 Components
 ----------
