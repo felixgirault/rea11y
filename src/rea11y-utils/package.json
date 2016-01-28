@@ -1,13 +1,13 @@
 {
-  "name": "rea11y-sliders",
-  "description": "A set of accessible sliders.",
+  "name": "rea11y-utils",
+  "description": "Utilities for rea11y components.",
   "version": "0.1.0",
   "repository": "felixgirault/rea11y",
   "license": "MIT",
   "keywords": [
     "react",
     "a11y",
-    "slider"
+    "utils"
   ],
   "author": {
     "name": "Félix Girault",
@@ -16,16 +16,11 @@
   },
   "main": "index.js",
   "devDependencies": {
-    "react": "^0.14.5",
-    "react-dom": "^0.14.5"
+    "react": "^0.14.5"
   },
   "dependencies": {
-    "rea11y-utils": "0.1.0",
     "autobind-decorator": "^1.3.2",
-    "classnames": "^2.2.3",
-    "dom-helpers": "^2.4.0",
     "lodash": "^3.10.1",
-    "offkey": "^0.1.0",
     "pure-render-decorator": "^0.2.0"
   }
 }

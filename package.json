@@ -1,6 +1,9 @@
 {
   "name": "rea11y",
   "description": "A set of accessible React components.",
+  "version": "0.1.0",
+  "repository": "felixgirault/rea11y",
+  "license": "MIT",
   "keywords": [
     "react",
     "components",
@@ -16,14 +19,15 @@
     "email": "felix.girault@gmail.com",
     "url": "https://github.com/felixgirault"
   },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/felixgirault/rea11y.git"
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --port 9999",
+    "build": "node ./scripts/build",
+    "transfer": "node ./scripts/transferDependencies",
+    "prepublish": "npm run transfer && npm run build"
   },
-  "main": "dist/rea11y.js",
-  "version": "0.1.0",
   "devDependencies": {
-    "autoprefixer-loader": "^3.1.0",
+    "autoprefixer": "^6.3.1",
     "babel": "^6.3.26",
     "babel-core": "^6.3.26",
     "babel-eslint": "^5.0.0-beta6",
@@ -40,6 +44,9 @@
     "eslint-plugin-decorator": "0.0.2",
     "eslint-plugin-react": "^3.14.0",
     "extract-text-webpack-plugin": "^1.0.0",
+    "postcss-loader": "^0.8.0",
+    "react": "^0.14.5",
+    "react-dom": "^0.14.5",
     "style-loader": "^0.13.0",
     "webpack": "^1.12.9",
     "webpack-dev-server": "^1.14.0",
@@ -51,12 +58,6 @@
     "dom-helpers": "^2.4.0",
     "lodash": "^3.10.1",
     "offkey": "^0.1.0",
-    "pure-render-decorator": "^0.2.0",
-    "react": "^0.14.5",
-    "react-dom": "^0.14.5"
-  },
-  "scripts": {
-    "start": "webpack-dev-server --port 9999",
-    "build": "webpack"
+    "pure-render-decorator": "^0.2.0"
   }
 }

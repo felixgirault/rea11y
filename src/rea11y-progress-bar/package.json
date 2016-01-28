@@ -1,13 +1,27 @@
 {
   "name": "rea11y-progress-bar",
+  "description": "A set of accessible progress bar.",
   "version": "0.1.0",
-  "description": "An accessible progress bar",
-  "author": "Félix Girault <felix.girault@gmail.com>",
+  "repository": "felixgirault/rea11y",
   "license": "MIT",
   "keywords": [
     "react",
     "a11y",
     "progress bar"
   ],
-  "main": "index.js"
+  "author": {
+    "name": "Félix Girault",
+    "email": "felix.girault@gmail.com",
+    "url": "https://github.com/felixgirault"
+  },
+  "main": "index.js",
+  "devDependencies": {
+    "react": "^0.14.5"
+  },
+  "dependencies": {
+    "rea11y-utils": "0.1.0",
+    "classnames": "^2.2.3",
+    "lodash": "^3.10.1",
+    "pure-render-decorator": "^0.2.0"
+  }
 }
