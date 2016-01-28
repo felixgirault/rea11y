@@ -5,9 +5,11 @@
 
 const path = require('path');
 const webpack = require('webpack');
+const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const reporter = require('eslint-friendly-formatter');
 const partial = require('lodash/function/partial');
+
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const fullPath = partial(path.resolve, __dirname);
 
@@ -50,10 +52,13 @@ module.exports = {
 				test: /\.css$/,
 				loader: ExtractTextPlugin.extract(
 					'style-loader',
-					'css-loader!autoprefixer-loader'
+					'css-loader!postcss-loader'
 				)
 			}
 		]
+	},
+	postcss: function() {
+		return [autoprefixer];
 	},
 	plugins: [
 		new UglifyJsPlugin(),

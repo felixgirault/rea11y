@@ -1,7 +1,6 @@
 {
 	"parser": "babel-eslint",
 	"plugins": [
-		"decorator",
 		"react"
 	],
 	"env": {
