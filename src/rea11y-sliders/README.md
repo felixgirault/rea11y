@@ -9,8 +9,8 @@ Slider
 ------
 
 ```jsx
-function makeText(props) {
-	return props.value;
+function makeText({value}) {
+	return value;
 }
 
 function handleChange(value) {
