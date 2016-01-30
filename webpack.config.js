@@ -28,7 +28,7 @@ module.exports = {
 	resolve: {
 		modulesDirectories: [
 			fullPath('node_modules'),
-			fullPath('src')
+			fullPath('modules')
 		]
 	},
 	eslint: {

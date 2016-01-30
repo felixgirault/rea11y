@@ -12,7 +12,7 @@ const fs = require('fs');
  *
  */
 module.exports = function forEachModule(callback) {
-	const modulesDir = path.resolve(__dirname, '..', 'src');
+	const modulesDir = path.resolve(__dirname, '..', 'modules');
 	const modules = fs.readdirSync(modulesDir);
 
 	modules.forEach(function(module) {

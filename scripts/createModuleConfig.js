@@ -19,19 +19,19 @@ const fullPath = partial(path.resolve, __dirname, '..');
 module.exports = function createModuleConfig(module) {
 	return {
 		entry: {
-			js: fullPath('src', module, 'index.js'),
-			css: fullPath('src', module, 'css', 'styles.css')
+			js: fullPath('modules', module, 'index.js'),
+			css: fullPath('modules', module, 'css', 'styles.css')
 		},
 		output: {
-			path: fullPath('src', module, 'dist'),
-			publicPath: '/src/' + module + '/dist/',
+			path: fullPath('modules', module, 'dist'),
+			publicPath: '/modules/' + module + '/dist/',
 			filename: module + '.js'
 		},
 		externals: /^[a-z\-0-9]+$/,
 		resolve: {
 			modulesDirectories: [
 				fullPath('node_modules'),
-				fullPath('src')
+				fullPath('modules')
 			],
 		},
 		eslint: {
