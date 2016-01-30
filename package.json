@@ -23,6 +23,7 @@
   "scripts": {
     "start": "webpack-dev-server --port 9999",
     "build": "node ./scripts/build",
+    "clean": "rm -Rf ./modules/*/dist",
     "transfer": "node ./scripts/transferDependencies",
     "prepublish": "npm run transfer && npm run build"
   },
