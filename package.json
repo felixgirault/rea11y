@@ -22,10 +22,11 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server --port 9999",
-    "build": "node ./scripts/build",
-    "clean": "rm -Rf ./modules/*/dist",
-    "transfer": "node ./scripts/transferDependencies",
-    "prepublish": "npm run transfer && npm run build"
+    "modules-transfer": "node ./scripts/transfer",
+    "modules-build": "node ./scripts/build",
+    "modules-clean": "rm -Rf ./modules/*/dist",
+    "modules-publish": "node ./scripts/publish",
+    "publish-all": "npm run modules-transfer && npm run modules-build && npm run modules-publish"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
