@@ -17,10 +17,8 @@ console.log('Publishing...\n');
 forEachModule(function(name, dir) {
 	console.log('Module: ' + name + '\n');
 
-	const command = 'npm publish --tag ' + pkg.version;
-	const output = childProcess.execSync(command, {
-		cwd: dir
-	});
+	const command = 'npm publish --folder ' + dir;
+	const output = childProcess.execSync(command);
 
 	console.log(output + '\n');
 });
