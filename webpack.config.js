@@ -25,6 +25,7 @@ module.exports = {
 		publicPath: '/dist/',
 		filename: 'demo.js'
 	},
+	devtool: 'source-map',
 	resolve: {
 		modulesDirectories: [
 			fullPath('node_modules'),

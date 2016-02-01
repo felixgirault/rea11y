@@ -9,6 +9,7 @@ const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const reporter = require('eslint-friendly-formatter');
 const partial = require('lodash/function/partial');
+
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const fullPath = partial(path.resolve, __dirname, '..');
 
@@ -28,13 +29,8 @@ module.exports = function createModuleConfig(module) {
 			publicPath: '/modules/' + module + '/dist/',
 			filename: module + '.js'
 		},
+		devtool: 'source-map',
 		externals: /^[a-z\-0-9\/]+$/,
-		resolve: {
-			modulesDirectories: [
-				fullPath('node_modules'),
-				fullPath('modules')
-			],
-		},
 		eslint: {
 			reporter: reporter
 		},
@@ -65,7 +61,7 @@ module.exports = function createModuleConfig(module) {
 			return [autoprefixer];
 		},
 		plugins: [
-			//new UglifyJsPlugin(),
+			new UglifyJsPlugin(),
 			new ExtractTextPlugin(module + '.css', {
 				allChunks: true
 			})
