@@ -12,17 +12,22 @@ const createModuleConfig = require('./createModuleConfig');
 /**
  *
  */
-console.log('Building...');
+console.log('Building...\n');
 
 forEachModule(function(name, dir) {
 	build(name, function(err, stats) {
+		console.log('Module: ' + name + '\n');
+
 		if (err) {
-			console.error(' × ' + name);
-			console.error(err);
+			console.error('  error:' + err);
 			return;
 		}
 
-		console.log(' - ' + name);
+		console.log(stats.toString({
+			chunks: false
+		}));
+
+		console.log('');
 	});
 });
 

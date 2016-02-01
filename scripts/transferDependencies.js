@@ -15,11 +15,21 @@ const forEachModule = require('./forEachModule');
  *	Transfers dependencies of the main package.json to the
  *	ones in the modules.
  */
-console.log('Transferring dependencies...');
+console.log('Transferring dependencies...\n');
 
 forEachModule(function(name, dir) {
-	console.log(' - ' + name);
-	transferDependencies(dir);
+	console.log('Module: ' + name);
+
+	const sourceDir = path.resolve(dir, 'src');
+	const packagePath = path.resolve(dir, 'package.json');
+	const newPackage = buildNewPackage(sourceDir, packagePath);
+
+	printDependencies('peer dependencies', newPackage.peerDependencies);
+	printDependencies('dependencies', newPackage.dependencies);
+
+	writeNewPackage(packagePath, newPackage);
+
+	console.log('  ok\n');
 });
 
 
@@ -27,19 +37,23 @@ forEachModule(function(name, dir) {
 /**
  *
  */
-function transferDependencies(dir) {
-	const srcDir = path.resolve(dir, 'src');
-	const pkgPath = path.resolve(dir, 'package.json');
-	const modules = parseImports(srcDir);
-	const newPkg = _.assign(
+function buildNewPackage(sourceDir, packagePath) {
+	const modules = parseImports(sourceDir);
+
+	return _.assign(
 		{},
-		require(pkgPath),
+		require(packagePath),
 		pick(modules)
 	);
+}
 
+/**
+ *
+ */
+function writeNewPackage(packagePath, newPackage) {
 	fs.writeFileSync(
-		pkgPath,
-		JSON.stringify(newPkg, null, 2) + '\n',
+		packagePath,
+		JSON.stringify(newPackage, null, 2) + '\n',
 		'utf8'
 	);
 }
@@ -119,4 +133,20 @@ function sort(dependencies) {
 		.keys()
 		.sortByOrder()
 		.reduce(aggregate, {});
+}
+
+/**
+ *
+ */
+function printDependencies(title, dependencies) {
+	if (dependencies) {
+		console.log('  ' + title + ':');
+
+		_.keys(dependencies)
+			.forEach(function(name) {
+				console.log('    - ' + name);
+			});
+
+		console.log('');
+	}
 }
