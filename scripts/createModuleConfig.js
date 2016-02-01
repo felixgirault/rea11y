@@ -27,7 +27,7 @@ module.exports = function createModuleConfig(module) {
 			publicPath: '/modules/' + module + '/dist/',
 			filename: module + '.js'
 		},
-		externals: /^[a-z\-0-9]+$/,
+		externals: /^[a-z\-0-9\/]+$/,
 		resolve: {
 			modulesDirectories: [
 				fullPath('node_modules'),
