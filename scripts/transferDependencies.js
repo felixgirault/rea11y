@@ -95,7 +95,7 @@ function pick(modules) {
 	}
 
 	return {
-		devDependencies: sort(
+		peerDependencies: sort(
 			_.pick(pkg.devDependencies, isExternal)
 		),
 		dependencies: sort(
