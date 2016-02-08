@@ -19,6 +19,12 @@ body {
 	background: #111;
 }
 
+code {
+	padding: 0 0.375em;
+	background: #222;
+	font-family: monospace;
+}
+
 kbd {
 	display: inline-block;
 	margin: 0;
@@ -26,6 +32,7 @@ kbd {
 	background: #ddd;
 	color: #111;
 	line-height: 1.5em;
+	font-family: monospace;
 	font-weight: bold;
 }
 
