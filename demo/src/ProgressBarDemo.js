@@ -22,7 +22,7 @@ export default function ProgressBarDemo({value}) {
 					When a progress bar indicates the loading
 					state of a particular zone in the page,
 					it sets an <code>aria-busy="true"</code>
-					attribute on the zone.
+					{' '} attribute on the zone.
 				</p>
 				<p>
 					For example, this zone will turn green

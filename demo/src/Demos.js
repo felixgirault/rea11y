@@ -62,7 +62,7 @@ export default class Demos extends Component {
 					{/* TODO: add a link to the NPM package */}
 
 					<p>
-						Colors from
+						Colors from {' '}
 						<a href="https://github.com/mrmrs/colors">
 							mrmrs/colors
 						</a>
