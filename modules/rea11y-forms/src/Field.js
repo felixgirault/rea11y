@@ -18,7 +18,7 @@ export const INPUT = 'input';
 /**
  *
  */
-export default function FormField({
+export default function Field({
 	children,
 	name,
 	label,
@@ -104,7 +104,7 @@ export default function FormField({
 /**
  *
  */
-FormField.propTypes = {
+Field.propTypes = {
 	name: PropTypes.string,
 	label: PropTypes.string,
 	hint: PropTypes.string,

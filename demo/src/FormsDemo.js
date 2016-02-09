@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormField, LABEL, HINT, ERROR, INPUT} from 'rea11y-forms';
+import {Field, LABEL, HINT, ERROR, INPUT} from 'rea11y-forms';
 
 
 
@@ -14,7 +14,7 @@ export default function FormsDemo() {
 			</header>
 
 			<p>
-				The <code>FormField</code> component enriches
+				The <code>Field</code> component enriches
 				any type of form input with a label, and
 				optionally a hint and an error message, each
 				of which beeing linked with the input using {' '}
@@ -33,7 +33,7 @@ export default function FormsDemo() {
 			</p>
 
 			<div className="pattern-example">
-				<FormField
+				<Field
 					name="email"
 					label="Email address"
 					hint="For example: john.doe@example.com"
@@ -41,7 +41,7 @@ export default function FormsDemo() {
 					required
 				>
 					<input type="email" />
-				</FormField>
+				</Field>
 			</div>
 
 			<p>
@@ -50,7 +50,7 @@ export default function FormsDemo() {
 			</p>
 
 			<div className="pattern-example">
-				<FormField
+				<Field
 					name="email"
 					label="Email address"
 					hint="This is a stupid example"
@@ -59,7 +59,7 @@ export default function FormsDemo() {
 					required
 				>
 					<input type="email" />
-				</FormField>
+				</Field>
 			</div>
 		</article>
 	);
