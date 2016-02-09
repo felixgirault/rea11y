@@ -6,6 +6,7 @@ import SliderDemo from './SliderDemo';
 import RangeSliderDemo from './RangeSliderDemo';
 import TabsDemo from './TabsDemo';
 import ButtonsDemo from './ButtonsDemo';
+import FormsDemo from './FormsDemo';
 import ModalDemo from './ModalDemo';
 
 
@@ -48,6 +49,7 @@ export default class Demos extends Component {
 						<RangeSliderDemo />
 						<TabsDemo />
 						<ButtonsDemo />
+						<FormsDemo />
 						<ModalDemo />
 					</section>
 				</main>

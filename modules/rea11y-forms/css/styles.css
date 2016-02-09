@@ -1,0 +1,28 @@
+/**
+ *	Forms.
+ */
+
+.rea11y-form-label {
+	display: block;
+}
+
+.rea11y-form-error {
+	margin: 0;
+	color: #f00;
+}
+
+.rea11y-form-hint {
+	margin: 0;
+	color: #aaa;
+}
+
+.rea11y-form-input {
+	box-sizing: border-box;
+	margin: 0;
+	border: 1px solid #aaa;
+	padding: 0.375em;
+	width: 100%;
+	background: #fff;
+	line-height: 1.5em;
+	font-size: 1em;
+}

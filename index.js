@@ -7,6 +7,7 @@ import 'rea11y-number-input/css/styles.css';
 import 'rea11y-progress-bar/css/styles.css';
 import 'rea11y-sliders/css/styles.css';
 import 'rea11y-tabs/css/styles.css';
+import 'rea11y-forms/css/styles.css';
 import './demo/css/demo.css';
 
 

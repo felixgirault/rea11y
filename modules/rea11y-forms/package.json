@@ -1,0 +1,25 @@
+{
+  "name": "rea11y-forms",
+  "description": "A set of accessible form elements.",
+  "version": "0.1.0",
+  "repository": "felixgirault/rea11y",
+  "license": "MIT",
+  "keywords": [
+    "react",
+    "a11y",
+    "form",
+    "input"
+  ],
+  "author": {
+    "name": "Félix Girault",
+    "email": "felix.girault@gmail.com",
+    "url": "https://github.com/felixgirault"
+  },
+  "main": "index.js",
+  "peerDependencies": {
+    "react": "^0.14.0"
+  },
+  "dependencies": {
+    "classnames": "^2.2.3"
+  }
+}
