@@ -6,7 +6,14 @@ import classNames from 'classnames';
 /**
  *
  */
-export default function FormField({name, label, hint, error, children}) {
+export default function FormField({
+	name,
+	label,
+	hint = '',
+	error = '',
+	required = false,
+	children
+}) {
 	const input = Children.only(children);
 	const id = `rea11y-form-${name}`;
 	const inputId = `${id}-input`;
@@ -45,6 +52,11 @@ export default function FormField({name, label, hint, error, children}) {
 		'aria-labelledby': labels.join(' ')
 	};
 
+	if (required) {
+		props['required'] = true;
+		props['aria-required'] = true;
+	}
+
 	if (error) {
 		props['aria-invalid'] = true;
 	}
@@ -79,13 +91,6 @@ FormField.propTypes = {
 	label: PropTypes.string,
 	hint: PropTypes.string,
 	error: PropTypes.string,
+	required: PropTypes.bool,
 	children: PropTypes.element.isRequired
-};
-
-/**
- *
- */
-FormField.defaultProps = {
-	hint: '',
-	error: ''
 };
