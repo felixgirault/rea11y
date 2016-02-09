@@ -1,12 +1,12 @@
 import React from 'react';
-import {StatefulNumberInput} from 'rea11y-forms';
+import {NumberInput} from 'rea11y-forms';
 
 
 
 /**
  *
  */
-export default function NumberInputDemo() {
+export default function NumberInputDemo(props) {
 	return (
 		<article className="pattern">
 			<header>
@@ -47,7 +47,7 @@ export default function NumberInputDemo() {
 			</ul>
 
 			<div className="pattern-example">
-				<StatefulNumberInput />
+				<NumberInput {...props} />
 			</div>
 		</article>
 	);

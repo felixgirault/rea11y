@@ -1,12 +1,12 @@
 import React from 'react';
-import {StatefulSlider} from 'rea11y-sliders';
+import {Slider} from 'rea11y-sliders';
 
 
 
 /**
  *
  */
-export default function SlidersDemo({defaultValue, onChange}) {
+export default function SlidersDemo(props) {
 	return (
 		<article className="pattern">
 			<header>
@@ -47,12 +47,7 @@ export default function SlidersDemo({defaultValue, onChange}) {
 			</ul>
 
 			<div className="pattern-example">
-				<StatefulSlider
-					min={0}
-					max={100}
-					defaultValue={defaultValue}
-					onChange={onChange}
-				/>
+				<Slider {...props} />
 			</div>
 		</article>
 	);

@@ -40,10 +40,14 @@ export default class Demos extends Component {
 				<main className="page">
 					<section aria-labelledby="page-title">
 						<FormsDemo />
-						<NumberInputDemo />
+						<NumberInputDemo
+							value={this.state.value}
+							onChange={this.handleValueChange}
+						/>
+
 						<ProgressBarDemo value={this.state.value} />
 						<SliderDemo
-							defaultValue={this.state.value}
+							value={this.state.value}
 							onChange={this.handleValueChange}
 						/>
 
