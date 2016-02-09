@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
 import autoBind from 'autobind-decorator';
+import FormsDemo from './FormsDemo';
 import NumberInputDemo from './NumberInputDemo';
 import ProgressBarDemo from './ProgressBarDemo';
 import SliderDemo from './SliderDemo';
 import RangeSliderDemo from './RangeSliderDemo';
 import TabsDemo from './TabsDemo';
 import ButtonsDemo from './ButtonsDemo';
-import FormsDemo from './FormsDemo';
 import ModalDemo from './ModalDemo';
 
 
@@ -39,6 +39,7 @@ export default class Demos extends Component {
 
 				<main className="page">
 					<section aria-labelledby="page-title">
+						<FormsDemo />
 						<NumberInputDemo />
 						<ProgressBarDemo value={this.state.value} />
 						<SliderDemo
@@ -49,7 +50,6 @@ export default class Demos extends Component {
 						<RangeSliderDemo />
 						<TabsDemo />
 						<ButtonsDemo />
-						<FormsDemo />
 						<ModalDemo />
 					</section>
 				</main>

@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatefulNumberInput} from 'rea11y-number-input';
+import {StatefulNumberInput} from 'rea11y-forms';
 
 
 

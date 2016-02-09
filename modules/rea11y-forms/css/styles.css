@@ -26,3 +26,52 @@
 	line-height: 1.5em;
 	font-size: 1em;
 }
+
+
+
+/**
+ *	Number input.
+ */
+
+.rea11y-number-input {
+	position: relative;
+	border: 1px solid #aaa;
+	padding-right: 1.5em;
+	background: #fff;
+}
+
+.rea11y-number-input-value {
+	box-sizing: border-box;
+	margin: 0;
+	border: none;
+	padding: 0.375em;
+	width: 100%;
+	line-height: 1.5em;
+	font-size: 1em;
+}
+
+.rea11y-number-input-control {
+	position: absolute;
+	border: none;
+	width: 3em;
+	background: #ddd;
+	color: #000;
+	text-align: center;
+	line-height: 1.5em;
+	font-size: 0.5em;
+	font-weight: bold;
+}
+
+.rea11y-number-input-control:hover {
+	background: #aaa;
+}
+
+.rea11y-number-input-control-increment {
+	top: 0;
+	right: 0;
+}
+
+.rea11y-number-input-control-decrement {
+	bottom: 0;
+	right: 0;
+}

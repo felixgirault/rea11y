@@ -10,7 +10,7 @@ export default function FormsDemo() {
 	return (
 		<article className="pattern">
 			<header>
-				<h2 className="pattern-name">Forms</h2>
+				<h2 className="pattern-name">Form field</h2>
 			</header>
 
 			<p>
