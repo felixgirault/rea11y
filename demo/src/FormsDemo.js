@@ -1,5 +1,5 @@
 import React from 'react';
-import {FormField} from 'rea11y-forms';
+import {FormField, LABEL, HINT, ERROR, INPUT} from 'rea11y-forms';
 
 
 
@@ -38,6 +38,24 @@ export default function FormsDemo() {
 					label="Email address"
 					hint="For example: john.doe@example.com"
 					error="Please enter a valid email address"
+					required
+				>
+					<input type="email" />
+				</FormField>
+			</div>
+
+			<p>
+				Also note that the different field components
+				can be reordered at will.
+			</p>
+
+			<div className="pattern-example">
+				<FormField
+					name="email"
+					label="Email address"
+					hint="This is a stupid example"
+					error="Please enter a valid email address"
+					order={[ERROR, LABEL, INPUT, HINT]}
 					required
 				>
 					<input type="email" />

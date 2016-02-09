@@ -59,6 +59,7 @@
     "dom-helpers": "^2.4.0",
     "lodash": "^3.10.1",
     "offkey": "^0.1.0",
-    "pure-render-decorator": "^0.2.0"
+    "pure-render-decorator": "^0.2.0",
+    "react-addons-create-fragment": "^0.14.7"
   }
 }

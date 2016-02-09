@@ -1,5 +1,17 @@
 import React, {PropTypes, Children, cloneElement} from 'react';
+import createFragment from 'react-addons-create-fragment';
 import classNames from 'classnames';
+import {sortObject} from 'rea11y-utils';
+
+
+
+/**
+ *
+ */
+export const LABEL = 'label';
+export const HINT = 'hint';
+export const ERROR = 'error';
+export const INPUT = 'input';
 
 
 
@@ -7,12 +19,13 @@ import classNames from 'classnames';
  *
  */
 export default function FormField({
+	children,
 	name,
 	label,
 	hint = '',
 	error = '',
 	required = false,
-	children
+	order = [LABEL, HINT, ERROR, INPUT]
 }) {
 	const input = Children.only(children);
 	const id = `rea11y-form-${name}`;
@@ -20,14 +33,23 @@ export default function FormField({
 	const labelId = `${id}-label`;
 	const labels = [labelId];
 
-	let hintMessage;
-	let errorMessage;
+	const components = {
+		[LABEL]: (
+			<label
+				id={labelId}
+				className="rea11y-form-label"
+				htmlFor={inputId}
+			>
+				{label}
+			</label>
+		)
+	};
 
 	if (hint) {
 		const hintId = `${id}-hint`;
-		labels.push(hintId);
 
-		hintMessage = (
+		labels.push(hintId);
+		components[HINT] = (
 			<p id={hintId} className={`rea11y-form-hint`}>
 				{hint}
 			</p>
@@ -36,30 +58,36 @@ export default function FormField({
 
 	if (error) {
 		const errorId = `${id}-error`;
-		labels.push(errorId);
 
-		errorMessage = (
+		labels.push(errorId);
+		components[ERROR] = (
 			<p id={errorId} className={`rea11y-form-error`}>
 				{error}
 			</p>
 		);
 	}
 
-	const props = {
-		id,
-		name: id,
+	const inputProps = {
+		id: inputId,
+		name: inputId,
 		className: 'rea11y-form-input',
 		'aria-labelledby': labels.join(' ')
 	};
 
 	if (required) {
-		props['required'] = true;
-		props['aria-required'] = true;
+		inputProps['required'] = true;
+		inputProps['aria-required'] = true;
 	}
 
 	if (error) {
-		props['aria-invalid'] = true;
+		inputProps['aria-invalid'] = true;
 	}
+
+	components[INPUT] = cloneElement(input, inputProps);
+
+	const fragment = createFragment(
+		sortObject(components, order)
+	);
 
 	const className = classNames(
 		'rea11y-form-field',
@@ -68,17 +96,7 @@ export default function FormField({
 
 	return (
 		<div className={className}>
-			<label
-				id={labelId}
-				className="rea11y-form-label"
-				htmlFor={id}
-			>
-				{label}
-			</label>
-
-			{hintMessage}
-			{errorMessage}
-			{cloneElement(input, props)}
+			{fragment}
 		</div>
 	);
 }
