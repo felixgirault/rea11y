@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, LABEL, HINT, ERROR, INPUT} from 'rea11y-forms';
+import {Field, LABEL, HINT, ERROR, INPUT} from '../../index';
 
 
 
@@ -55,7 +55,7 @@ export default function FormsDemo() {
 					label="Email address"
 					hint="This is a stupid example"
 					error="Please enter a valid email address"
-					order={[ERROR, LABEL, INPUT, HINT]}
+					order={[Field.ERROR, Field.LABEL, Field.INPUT, Field.HINT]}
 					required
 				>
 					<input type="email" />

@@ -1,2 +1,3 @@
-/modules/*/dist
+/dist
+/demo/dist
 /node_modules

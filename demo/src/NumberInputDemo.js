@@ -1,5 +1,5 @@
 import React from 'react';
-import {NumberInput} from 'rea11y-forms';
+import {NumberInput} from '../../index';
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, StatefulToggleButton} from 'rea11y-buttons';
+import {Button, StatefulToggleButton} from '../../index';
 
 
 

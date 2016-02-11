@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import autoBind from 'autobind-decorator';
-import {Modal} from 'rea11y-modal';
+import {Modal} from '../../index';
 
 
 

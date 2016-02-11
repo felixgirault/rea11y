@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatefulTabs, Panel} from 'rea11y-tabs';
+import {StatefulTabs, TabPanel} from '../../index';
 
 
 
@@ -47,23 +47,23 @@ export default function TabsDemo() {
 function DummyTabs(props) {
 	return (
 		<StatefulTabs defaultActive="first" {...props}>
-			<Panel name="first" title="First">
+			<TabPanel name="first" title="First">
 				<p>First panel's contents.</p>
-			</Panel>
+			</TabPanel>
 
-			<Panel name="second" title="Second">
+			<TabPanel name="second" title="Second">
 				<p>
 					Second panel's contents with a
 					<a href="#tabs">link</a> inside.
 				</p>
-			</Panel>
+			</TabPanel>
 
-			<Panel name="third" title="Third">
+			<TabPanel name="third" title="Third">
 				<p>
 					Third panel's contents with a
 					<button>button</button> inside.
 				</p>
-			</Panel>
+			</TabPanel>
 		</StatefulTabs>
 	);
 }

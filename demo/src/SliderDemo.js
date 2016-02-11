@@ -1,5 +1,5 @@
 import React from 'react';
-import {Slider} from 'rea11y-sliders';
+import {Slider} from '../../index';
 
 
 

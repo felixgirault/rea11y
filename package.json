@@ -9,10 +9,12 @@
     "components",
     "accessibility",
     "a11y",
+    "button",
+    "form",
+    "modal",
     "progress bar",
     "slider",
-    "tabs",
-    "modal"
+    "tabs"
   ],
   "author": {
     "name": "Félix Girault",
@@ -21,12 +23,8 @@
   },
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --port 9999",
-    "modules-transfer": "node ./scripts/transfer",
-    "modules-build": "node ./scripts/build",
-    "modules-clean": "rm -Rf ./modules/*/dist",
-    "modules-publish": "node ./scripts/publish",
-    "publish-all": "npm run modules-transfer && npm run modules-build && npm run modules-publish"
+    "start": "webpack-dev-server --config demo/webpack.config.js",
+    "build": "webpack --config demo/webpack.config.js"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",

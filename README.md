@@ -1,5 +1,5 @@
 Rea11y
-========
+======
 
 A set of accessible React components.
 [See a demo](http://felixgirault.github.io/rea11y/).
@@ -14,14 +14,14 @@ npm install
 npm start
 ```
 
-Then head to [http://localhost:9999/webpack-dev-server/](http://localhost:9999/webpack-dev-server/).
+Then head to [http://localhost:8080/webpack-dev-server/](http://localhost:8080/webpack-dev-server/).
 
 Components
 ----------
 
-* [buttons](./src/rea11y-buttons/README.md)
-* [modal](./src/rea11y-modal/README.md)
-* [number input](./src/rea11y-number-input/README.md)
-* [progress bar](./src/rea11y-progress-bar/README.md)
-* [sliders](./src/rea11y-sliders/README.md)
-* [tabs](./src/rea11y-tabs/README.md)
+* [buttons](./docs/buttons.md)
+* [modal](./docs/modal.md)
+* [number input](./docs/number-input.md)
+* [progress bar](./docs/progress-bar.md)
+* [sliders](./docs/sliders.md)
+* [tabs](./docs/tabs.md)
