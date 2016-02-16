@@ -23,7 +23,9 @@ export default class Tabs extends Component {
 	 */
 	static propTypes = {
 		orientation: PropTypes.string,
-		active: PropTypes.string
+		active: PropTypes.string,
+		onActive: PropTypes.func,
+		children: PropTypes.any.isRequired
 	};
 
 	/**
@@ -58,7 +60,7 @@ export default class Tabs extends Component {
 	 *
 	 */
 	tabRef(name) {
-		return 'tab-' + name;
+		return `tab-${name}`;
 	}
 
 	/**
@@ -119,28 +121,6 @@ export default class Tabs extends Component {
 	/**
 	 *
 	 */
-	render() {
-		const className = classNames(
-			'rea11y-tabs',
-			'rea11y-tabs-' + this.props.orientation
-		);
-
-		return (
-			<div className={className}>
-				<div className="rea11y-tab-list" role="tablist">
-					{this.renderTabs()}
-				</div>
-
-				<div className="rea11y-panel-list">
-					{this.renderPanels()}
-				</div>
-			</div>
-		);
-	}
-
-	/**
-	 *
-	 */
 	renderTabs() {
 		return Children.map(this.props.children, (child) => {
 			const name = child.props.name;
@@ -169,14 +149,35 @@ export default class Tabs extends Component {
 	renderPanels() {
 		return Children.map(this.props.children, (child) => {
 			const name = child.props.name;
-			const key = 'panel-' + child.props.name;
 			const active = (this.props.active === name);
 
 			return cloneElement(child, {
-				key: key,
-				id: this.id,
-				active: active
+				active,
+				key: name,
+				id: this.id
 			});
 		});
+	}
+
+	/**
+	 *
+	 */
+	render() {
+		const className = classNames(
+			'rea11y-tabs',
+			`rea11y-tabs-${this.props.orientation}`
+		);
+
+		return (
+			<div className={className}>
+				<div className="rea11y-tab-list" role="tablist">
+					{this.renderTabs()}
+				</div>
+
+				<div className="rea11y-panel-list">
+					{this.renderPanels()}
+				</div>
+			</div>
+		);
 	}
 }

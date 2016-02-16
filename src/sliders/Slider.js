@@ -43,7 +43,7 @@ export default class Slider extends Component {
 	render() {
 		const className = classNames([
 			'rea11y-slider',
-			'rea11y-slider-' + this.props.orientation
+			`rea11y-slider-${this.props.orientation}`
 		]);
 
 		return (

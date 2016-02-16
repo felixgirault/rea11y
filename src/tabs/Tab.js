@@ -23,6 +23,7 @@ export default class Tab extends Component {
 	static propTypes = {
 		id: PropTypes.string,
 		name: PropTypes.string,
+		title: PropTypes.string,
 		active: PropTypes.bool,
 		onActive: PropTypes.func,
 		onFirst: PropTypes.func,
@@ -95,18 +96,20 @@ export default class Tab extends Component {
 		const className = classNames({
 			'rea11y-tab': true,
 			'rea11y-tab-active': active,
-			['rea11y-tab-' + name]: true
+			[`rea11y-tab-${name}`]: true
 		});
 
 		return (
-			<KeyHandler handlers={{
-				[keys.HOME]: this.handleFirst,
-				[keys.END]: this.handleLast,
-				[keys.ARROW.UP]: this.handlePrevious,
-				[keys.ARROW.LEFT]: this.handlePrevious,
-				[keys.ARROW.DOWN]: this.handleNext,
-				[keys.ARROW.RIGHT]: this.handleNext
-			}}>
+			<KeyHandler
+				handlers={{
+					[keys.HOME]: this.handleFirst,
+					[keys.END]: this.handleLast,
+					[keys.ARROW.UP]: this.handlePrevious,
+					[keys.ARROW.LEFT]: this.handlePrevious,
+					[keys.ARROW.DOWN]: this.handleNext,
+					[keys.ARROW.RIGHT]: this.handleNext
+				}}
+			>
 				<button
 					id={tabId}
 					className={className}

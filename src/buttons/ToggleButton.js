@@ -56,6 +56,17 @@ export default class ToggleButton extends Component {
 	/**
 	 *
 	 */
+	text() {
+		if (this.props.pressed) {
+			return this.props.pressedText || this.props.text;
+		}
+
+		return this.props.text;
+	}
+
+	/**
+	 *
+	 */
 	render() {
 		const className = classNames(this.props.className, {
 			'rea11y-toggle-button': true,
@@ -71,16 +82,5 @@ export default class ToggleButton extends Component {
 				onClick={this.handleClick}
 			/>
 		);
-	}
-
-	/**
-	 *
-	 */
-	text() {
-		if (this.props.pressed) {
-			return this.props.pressedText || this.props.text;
-		}
-
-		return this.props.text;
 	}
 }

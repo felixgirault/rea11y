@@ -88,7 +88,7 @@ export default class RangeSlider extends Component {
 		const className = classNames([
 			'rea11y-slider',
 			'rea11y-slider-range',
-			'rea11y-slider-' + this.props.orientation
+			`rea11y-slider-${this.props.orientation}`
 		]);
 
 		return (

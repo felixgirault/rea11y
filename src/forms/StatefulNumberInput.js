@@ -47,7 +47,7 @@ export default class StatefulNumberInput extends Component {
 	 */
 	@autoBind
 	handleChange(value) {
-		this.setState({ value }, () => {
+		this.setState({value}, () => {
 			this.props.onChange(value);
 		});
 	}

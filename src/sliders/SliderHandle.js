@@ -19,8 +19,8 @@ import KeyHandler from '../utils/KeyHandler';
 /**
  *
  */
-function makeText(props) {
-	return props.value;
+function makeText({value}) {
+	return value;
 }
 
 
@@ -152,10 +152,10 @@ export default class SliderHandle extends Component {
 	 *
 	 */
 	emitChange(value) {
-		value = this.bound(value);
+		const boundValue = this.bound(value);
 
-		if (this.props.value !== value) {
-			this.props.onChange(value);
+		if (this.props.value !== boundValue) {
+			this.props.onChange(boundValue);
 		}
 	}
 
@@ -275,45 +275,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	render() {
-		const className = classNames({
-			'rea11y-slider-handle': true,
-			'rea11y-slider-handle-dragging': this.state.dragging
-		});
-
-		return (
-			<div className={className} style={this.style()}>
-				<KeyHandler handlers={{
-					[keys.HOME]: this.handleMin,
-					[keys.END]: this.handleMax,
-					[keys.ARROW.UP]: this.handleIncrement,
-					[keys.ARROW.RIGHT]: this.handleIncrement,
-					[keys.PAGE_UP]: this.handleBigIncrement,
-					[keys.ARROW.DOWN]: this.handleDecrement,
-					[keys.ARROW.LEFT]: this.handleDecrement,
-					[keys.PAGE_DOWN]: this.handleBigDecrement
-				}}>
-					<div
-						className="rea11y-slider-handle-control"
-						role="slider"
-						aria-valuemin={this.props.min}
-						aria-valuemax={this.props.max}
-						aria-valuenow={this.props.value}
-						onMouseDown={this.handleMouseDown}
-						tabIndex="0"
-					></div>
-				</KeyHandler>
-
-				<div className="rea11y-slider-handle-text">
-					{this.text()}
-				</div>
-			</div>
-		);
-	}
-
-	/**
-	 *
-	 */
 	text() {
 		return this.props.text({
 			min: this.props.min,
@@ -332,7 +293,48 @@ export default class SliderHandle extends Component {
 			: 'bottom';
 
 		return {
-			[property]: this.state.percentage + '%'
+			[property]: `${this.state.percentage}%`
 		};
+	}
+
+	/**
+	 *
+	 */
+	render() {
+		const className = classNames({
+			'rea11y-slider-handle': true,
+			'rea11y-slider-handle-dragging': this.state.dragging
+		});
+
+		return (
+			<div className={className} style={this.style()}>
+				<KeyHandler
+					handlers={{
+						[keys.HOME]: this.handleMin,
+						[keys.END]: this.handleMax,
+						[keys.ARROW.UP]: this.handleIncrement,
+						[keys.ARROW.RIGHT]: this.handleIncrement,
+						[keys.PAGE_UP]: this.handleBigIncrement,
+						[keys.ARROW.DOWN]: this.handleDecrement,
+						[keys.ARROW.LEFT]: this.handleDecrement,
+						[keys.PAGE_DOWN]: this.handleBigDecrement
+					}}
+				>
+					<div
+						className="rea11y-slider-handle-control"
+						role="slider"
+						aria-valuemin={this.props.min}
+						aria-valuemax={this.props.max}
+						aria-valuenow={this.props.value}
+						onMouseDown={this.handleMouseDown}
+						tabIndex="0"
+					></div>
+				</KeyHandler>
+
+				<div className="rea11y-slider-handle-text">
+					{this.text()}
+				</div>
+			</div>
+		);
 	}
 }

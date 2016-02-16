@@ -70,7 +70,7 @@ export default function Field({
 	};
 
 	if (required) {
-		inputProps['required'] = true;
+		inputProps.required = true;
 		inputProps['aria-required'] = true;
 	}
 

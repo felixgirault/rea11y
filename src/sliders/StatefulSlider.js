@@ -47,9 +47,7 @@ export default class StatefulSlider extends Component {
 	 */
 	@autoBind
 	handleChange(value) {
-		this.setState({
-			value: value
-		}, () => {
+		this.setState({value}, () => {
 			this.props.onChange(value);
 		});
 	}

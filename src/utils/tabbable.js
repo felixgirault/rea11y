@@ -13,26 +13,6 @@ const ELEMENTS_QUERY = '*[tabindex], button, input, object, select, textarea';
 
 
 /**
- *	Returns all tabbable elements inside the given container.
- *
- *	@param DOMElement container Container.
- *	@return Array Tabbable elements.
- */
-export default function tabbable(container = document) {
-	const links = filter(
-		container.getElementsByTagName('a'),
-		isTabbableLink
-	);
-
-	const elements = filter(
-		container.querySelectorAll(ELEMENTS_QUERY),
-		isTabbableElement
-	);
-
-	return links.concat(elements);
-}
-
-/**
  *	Tells if the given link element is tabbable, i.e if it
  *	has an href attribute or a valid tab index.
  *
@@ -68,4 +48,24 @@ function isTabbableElement(element) {
 	}
 
 	return tabIndex >= 0;
+}
+
+/**
+ *	Returns all tabbable elements inside the given container.
+ *
+ *	@param DOMElement container Container.
+ *	@return Array Tabbable elements.
+ */
+export default function tabbable(container = document) {
+	const links = filter(
+		container.getElementsByTagName('a'),
+		isTabbableLink
+	);
+
+	const elements = filter(
+		container.querySelectorAll(ELEMENTS_QUERY),
+		isTabbableElement
+	);
+
+	return links.concat(elements);
 }

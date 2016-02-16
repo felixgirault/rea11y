@@ -21,7 +21,7 @@ function center(modal, backdrop) {
 	const backdropRect = offset(backdrop);
 	const margin = (backdropRect.height - modalRect.height) / 2;
 
-	modal.style.marginTop = margin + 'px';
+	modal.style.marginTop = `${margin}px`;
 }
 
 
@@ -43,7 +43,8 @@ export default class Modal extends Component {
 		label: PropTypes.string,
 		labelId: PropTypes.string,
 		center: PropTypes.func,
-		onClose: PropTypes.func
+		onClose: PropTypes.func,
+		children: PropTypes.any.isRequired
 	};
 
 	/**
@@ -69,15 +70,15 @@ export default class Modal extends Component {
 	/**
 	 *
 	 */
-	componentWillUnmount() {
-		off(document, 'keydown', this.handleKeyDown);
+	componentDidUpdate() {
+		this.center();
 	}
 
 	/**
 	 *
 	 */
-	componentDidUpdate() {
-		this.center();
+	componentWillUnmount() {
+		off(document, 'keydown', this.handleKeyDown);
 	}
 
 	/**
@@ -104,7 +105,7 @@ export default class Modal extends Component {
 	 *
 	 */
 	render() {
-		let props = {
+		const props = {
 			ref: 'backdrop',
 			className: 'rea11y-modal-backdrop',
 			role: this.props.role,

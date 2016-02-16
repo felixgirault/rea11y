@@ -13,7 +13,7 @@ import percentage from '../utils/percentage';
  *
  */
 function makeText(props) {
-	return props.percentage + '%';
+	return `${props.percentage}%`;
 }
 
 
@@ -104,11 +104,36 @@ export default class ProgressBar extends Component {
 	/**
 	 *
 	 */
+	text() {
+		return this.props.text({
+			min: this.props.min,
+			max: this.props.max,
+			value: this.props.value,
+			percentage: this.state.percentage
+		});
+	}
+
+	/**
+	 *
+	 */
+	style() {
+		const property = (this.props.orientation === 'horizontal')
+			? 'width'
+			: 'height';
+
+		return {
+			[property]: `${this.state.percentage}%`
+		};
+	}
+
+	/**
+	 *
+	 */
 	render() {
 		const text = this.text();
 		const className = classNames([
 			'rea11y-progress-bar',
-			'rea11y-progress-bar-' + this.props.orientation
+			`rea11y-progress-bar-${this.props.orientation}`
 		]);
 
 		return (
@@ -132,30 +157,5 @@ export default class ProgressBar extends Component {
 				</div>
 			</div>
 		);
-	}
-
-	/**
-	 *
-	 */
-	text() {
-		return this.props.text({
-			min: this.props.min,
-			max: this.props.max,
-			value: this.props.value,
-			percentage: this.state.percentage
-		});
-	}
-
-	/**
-	 *
-	 */
-	style() {
-		const property = (this.props.orientation === 'horizontal')
-			? 'width'
-			: 'height';
-
-		return {
-			[property]: this.state.percentage + '%'
-		};
 	}
 }

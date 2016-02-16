@@ -1,7 +1,7 @@
 /**
  *
  */
-import React, {Component} from 'react';
+import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
@@ -15,6 +15,13 @@ import tabbable from '../utils/tabbable';
  */
 @pureRender
 export default class FocusTrap extends Component {
+
+	/**
+	 *
+	 */
+	static propTypes = {
+		children: PropTypes.any.isRequired
+	};
 
 	/**
 	 *	Initializes the component.

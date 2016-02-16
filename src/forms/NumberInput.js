@@ -185,14 +185,16 @@ export default class NumberInput extends Component {
 	render() {
 		return (
 			<div className="rea11y-number-input">
-				<KeyHandler handlers={{
-					[keys.HOME]: this.handleMin,
-					[keys.END]: this.handleMax,
-					[keys.ARROW.UP]: this.handleIncrement,
-					[keys.PAGE_UP]: this.handleBigIncrement,
-					[keys.ARROW.DOWN]: this.handleDecrement,
-					[keys.PAGE_DOWN]: this.handleBigDecrement
-				}}>
+				<KeyHandler
+					handlers={{
+						[keys.HOME]: this.handleMin,
+						[keys.END]: this.handleMax,
+						[keys.ARROW.UP]: this.handleIncrement,
+						[keys.PAGE_UP]: this.handleBigIncrement,
+						[keys.ARROW.DOWN]: this.handleDecrement,
+						[keys.PAGE_DOWN]: this.handleBigDecrement
+					}}
+				>
 					<input
 						ref="input"
 						id={this.id}

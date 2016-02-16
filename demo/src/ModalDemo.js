@@ -51,26 +51,14 @@ class StatefulModal extends Component {
 	handleOpen() {
 		this.setState({
 			open: true
-		})
+		});
 	}
 
 	@autoBind
 	handleClose() {
 		this.setState({
 			open: false
-		})
-	}
-
-	render() {
-		return (
-			<div>
-				<button onClick={this.handleOpen}>
-					Open
-				</button>
-
-				{this.renderModal()}
-			</div>
-		);
+		});
 	}
 
 	renderModal() {
@@ -115,6 +103,18 @@ class StatefulModal extends Component {
 					</button>
 				</div>
 			</Modal>
+		);
+	}
+
+	render() {
+		return (
+			<div>
+				<button onClick={this.handleOpen}>
+					Open
+				</button>
+
+				{this.renderModal()}
+			</div>
 		);
 	}
 }

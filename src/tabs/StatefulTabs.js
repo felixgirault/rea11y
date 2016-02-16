@@ -20,7 +20,8 @@ export default class StatefulTabs extends Component {
 	 */
 	static propTypes = {
 		defaultActive: PropTypes.string,
-		onActive: PropTypes.func
+		onActive: PropTypes.func,
+		children: PropTypes.any.isRequired
 	};
 
 	/**

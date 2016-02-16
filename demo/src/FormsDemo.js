@@ -1,5 +1,5 @@
 import React from 'react';
-import {Field, LABEL, HINT, ERROR, INPUT} from '../../index';
+import {Field} from '../../index';
 
 
 

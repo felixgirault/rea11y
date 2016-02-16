@@ -1,7 +1,7 @@
 /**
  *
  */
-import React, {Component, PropTypes, Children, cloneElement} from 'react';
+import {Component, PropTypes, Children, cloneElement} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 
