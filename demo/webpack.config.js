@@ -3,15 +3,15 @@
  */
 'use strict';
 
+const _ = require('lodash');
 const path = require('path');
 const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const reporter = require('eslint-friendly-formatter');
-const partial = require('lodash/function/partial');
 
 const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
-const fullPath = partial(path.resolve, __dirname);
+const fullPath = _.partial(path.resolve, __dirname);
 
 
 

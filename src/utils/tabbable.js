@@ -1,7 +1,7 @@
 /**
  *
  */
-import filter from 'lodash/collection/filter';
+import {filter} from 'lodash';
 
 
 

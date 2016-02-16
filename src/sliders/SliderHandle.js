@@ -7,7 +7,7 @@ import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import keys from 'offkey';
-import noop from 'lodash/utility/noop';
+import {noop} from 'lodash';
 import {on, off} from 'dom-helpers/events';
 import offset from 'dom-helpers/query/offset';
 import bound from '../utils/bound';

@@ -6,7 +6,7 @@ import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import uniqueId from 'lodash/utility/uniqueId';
+import {uniqueId} from 'lodash';
 import bound from '../utils/bound';
 import Tab from './Tab';
 

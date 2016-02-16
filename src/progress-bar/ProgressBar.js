@@ -4,7 +4,7 @@
 import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import classNames from 'classnames';
-import uniqueId from 'lodash/utility/uniqueId';
+import {uniqueId} from 'lodash';
 import percentage from '../utils/percentage';
 
 

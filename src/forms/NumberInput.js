@@ -5,7 +5,7 @@ import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import keys from 'offkey';
-import {noop, uniqueId} from 'lodash/utility';
+import {noop, uniqueId} from 'lodash';
 import bound from '../utils/bound';
 import KeyHandler from '../utils/KeyHandler';
 import NumberInputControl from './NumberInputControl';

@@ -5,7 +5,7 @@ import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import noop from 'lodash/utility/noop';
+import {noop} from 'lodash';
 import Button from './Button';
 
 
