@@ -2,7 +2,6 @@
  *
  */
 import React, {Component, PropTypes} from 'react';
-import pureRender from 'pure-render-decorator';
 import classNames from 'classnames';
 
 
@@ -10,36 +9,29 @@ import classNames from 'classnames';
 /**
  *
  */
-@pureRender
-export default class NumberInputControl extends Component {
+export default function NumberInputControl({name, title, text, onClick}) {
+	const className = classNames([
+		'rea11y-number-input-control',
+		`rea11y-number-input-control-${name}`
+	]);
 
-	/**
-	 *
-	 */
-	static propTypes = {
-		name: PropTypes.string,
-		title: PropTypes.string,
-		text: PropTypes.string,
-		onClick: PropTypes.func
-	};
-
-	/**
-	 *
-	 */
-	render() {
-		const className = classNames([
-			'rea11y-number-input-control',
-			'rea11y-number-input-control-' + this.props.name
-		]);
-
-		return (
-			<button
-				className={className}
-				title={this.props.title}
-				onClick={this.props.onClick}
-			>
-				{this.props.text}
-			</button>
-		);
-	}
+	return (
+		<button
+			className={className}
+			title={title}
+			onClick={onClick}
+		>
+			{text}
+		</button>
+	);
 }
+
+/**
+ *
+ */
+NumberInputControl.propTypes = {
+	name: PropTypes.string,
+	title: PropTypes.string,
+	text: PropTypes.string,
+	onClick: PropTypes.func
+};
