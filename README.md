@@ -4,6 +4,8 @@ Rea11y
 A set of accessible React components.
 [See a demo](http://felixgirault.github.io/rea11y/).
 
+[![Travis](https://img.shields.io/travis/felixgirault/rea11y.svg?style=flat-square)](https://travis-ci.org/felixgirault/rea11y)
+
 Development
 -----------
 
