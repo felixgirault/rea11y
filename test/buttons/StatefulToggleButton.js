@@ -1,7 +1,7 @@
 /**
  *
  */
-import jsdom from 'mocha-jsdom';
+import jsdom from 'jsdom-global';
 import chai from 'chai';
 import spies from 'chai-spies';
 import React from 'react';
@@ -19,7 +19,13 @@ const expect = chai.expect;
  */
 describe('StatefulToggleButton', function() {
 
-	jsdom();
+	before(function() {
+		this.cleanup = jsdom();
+	});
+
+	after(function() {
+		this.cleanup();
+	});
 
 	/**
 	 *

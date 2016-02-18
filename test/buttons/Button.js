@@ -1,7 +1,7 @@
 /**
  *
  */
-import jsdom from 'mocha-jsdom';
+import jsdom from 'jsdom-global';
 import {expect} from 'chai';
 import React from 'react';
 import {findDOMNode} from 'react-dom';
@@ -15,7 +15,13 @@ import Button from '../../src/buttons/Button';
  */
 describe('Button', function() {
 
-	jsdom();
+	before(function() {
+		this.cleanup = jsdom();
+	});
+
+	after(function() {
+		this.cleanup();
+	});
 
 	/**
 	 *
