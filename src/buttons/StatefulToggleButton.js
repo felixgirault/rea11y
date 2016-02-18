@@ -51,20 +51,9 @@ export default class StatefulToggleButton extends Component {
 	 */
 	@autoBind
 	handleToggle(pressed) {
-		this.setState({pressed}, this.afterToggle);
-	}
-
-	/**
-	 *
-	 */
-	afterToggle() {
-		this.props.onToggle(this.state.pressed);
-
-		if (this.state.pressed) {
-			this.props.onPress();
-		} else {
-			this.props.onRelease();
-		}
+		this.setState({pressed}, () => {
+			this.props.onToggle(this.state.pressed);
+		});
 	}
 
 	/**
@@ -76,8 +65,8 @@ export default class StatefulToggleButton extends Component {
 				{...this.props}
 				pressed={this.state.pressed}
 				onToggle={this.handleToggle}
-				onPress={noop}
-				onRelease={noop}
+				onPress={this.props.onPress}
+				onRelease={this.props.onRelease}
 			/>
 		);
 	}

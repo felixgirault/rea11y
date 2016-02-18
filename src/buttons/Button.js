@@ -8,14 +8,14 @@ import React, {PropTypes} from 'react';
 /**
  *
  */
-export default function Button(props) {
+export default function Button({text, ...props}) {
 	return (
 		<button
+			{...props}
 			className="rea11y-button"
 			role="button"
-			{...props}
 		>
-			{props.text}
+			{text}
 		</button>
 	);
 }
@@ -24,6 +24,5 @@ export default function Button(props) {
  *
  */
 Button.propTypes = {
-	role: PropTypes.string,
 	text: PropTypes.string
 };
