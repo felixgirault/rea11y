@@ -1,18 +1,16 @@
 Tabs
 ====
 
-```js
-import {Tabs, Panel} from 'rea11y-tabs';
-```
-
 ```jsx
-<Tabs active="first">
-	<Panel name="first" title="First">
-		<p>Lorem ipsum dolor sit amet.</p>
-	</Panel>
+import {Tabs, TabPanel} from 'rea11y';
 
-	<Panel name="second" title="Second">
+<Tabs active="first">
+	<TabPanel name="first" title="First">
 		<p>Lorem ipsum dolor sit amet.</p>
-	</Panel>
+	</TabPanel>
+
+	<TabPanel name="second" title="Second">
+		<p>Lorem ipsum dolor sit amet.</p>
+	</TabPanel>
 </Tabs>
 ```

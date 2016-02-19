@@ -1,20 +1,15 @@
 Sliders
 =======
 
-```js
-import {Slider, RangeSlider} from 'rea11y-slider';
-```
-
 Slider
 ------
 
 ```jsx
+import {Slider} from 'rea11y';
+
+function handleChange(value) {}
 function makeText({value}) {
 	return value;
-}
-
-function handleChange(value) {
-	console.log(value);
 }
 
 <Slider
@@ -32,9 +27,9 @@ Range slider
 ------------
 
 ```jsx
-function handleChange(upperValue, lowerValue) {
-	console.log(upperValue, lowerValue);
-}
+import {RangeSlider} from 'rea11y';
+
+function handleChange(upperValue, lowerValue) {}
 
 <RangeSlider
 	min={0}

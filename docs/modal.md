@@ -1,11 +1,9 @@
 Modal
 =====
 
-```js
-import {Modal} from 'rea11y-modal';
-```
+```jsx
+import {Modal} from 'rea11y';
 
-```
 <Modal label="Title">
 	<p>Body</p>
 </Modal>
@@ -13,7 +11,7 @@ import {Modal} from 'rea11y-modal';
 
 With an element as label:
 
-```
+```jsx
 <Modal labelId="title">
 	<h1 id="title">Title</h1>
 	<p>Body</p>

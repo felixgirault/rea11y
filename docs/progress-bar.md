@@ -1,11 +1,9 @@
 Progress bar
 ============
 
-```js
-import {ProgressBar} from 'rea11y-progress-bar';
-```
-
 ```jsx
+import {ProgressBar} from 'rea11y';
+
 <ProgressBar max={100} value={42} />
 ```
 
