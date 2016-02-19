@@ -36,8 +36,11 @@
 .rea11y-number-input {
 	position: relative;
 	border: 1px solid #aaa;
-	padding-right: 1.5em;
 	background: #fff;
+}
+
+.rea11y-number-input-has-controls {
+	padding-right: 1.5em;
 }
 
 .rea11y-number-input-value {

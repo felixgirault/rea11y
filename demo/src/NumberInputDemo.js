@@ -1,5 +1,5 @@
 import React from 'react';
-import {NumberInput} from '../../index';
+import {NumberInput, NumberInputControls} from '../../index';
 
 
 
@@ -48,6 +48,12 @@ export default function NumberInputDemo(props) {
 
 			<div className="pattern-example">
 				<NumberInput {...props} />
+			</div>
+
+			<div className="pattern-example">
+				<NumberInput {...props}>
+					<NumberInputControls />
+				</NumberInput>
 			</div>
 		</article>
 	);

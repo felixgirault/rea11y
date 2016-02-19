@@ -1,14 +1,14 @@
 /**
  *
  */
-import React, {Component, PropTypes} from 'react';
+import React, {Component, PropTypes, Children, cloneElement} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
+import classNames from 'classnames';
 import keys from 'offkey';
 import {noop, uniqueId} from 'lodash';
 import bound from '../utils/bound';
 import KeyHandler from '../utils/KeyHandler';
-import NumberInputControl from './NumberInputControl';
 
 
 
@@ -22,26 +22,19 @@ export default class NumberInput extends Component {
 	 *
 	 */
 	static propTypes = {
-		incrementText: PropTypes.string,
-		decrementText: PropTypes.string,
-		incrementTitle: PropTypes.string,
-		decrementTitle: PropTypes.string,
 		min: PropTypes.number,
 		max: PropTypes.number,
 		step: PropTypes.number,
 		bigStep: PropTypes.number,
 		value: PropTypes.number,
-		onChange: PropTypes.func
+		onChange: PropTypes.func,
+		children: PropTypes.element
 	};
 
 	/**
 	 *
 	 */
 	static defaultProps = {
-		incrementText: '⌃',
-		decrementText: '⌄',
-		incrementTitle: 'Increment',
-		decrementTitle: 'Decrement',
 		min: 0,
 		max: 100,
 		step: 1,
@@ -182,9 +175,31 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
+	renderControls() {
+		try {
+			const controls = Children.only(this.props.children);
+
+			return cloneElement(controls, {
+				onIncrement: this.handleIncrement,
+				onDecrement: this.handleDecrement
+			});
+		} catch (e) {
+			return undefined;
+		}
+	}
+
+	/**
+	 *
+	 */
 	render() {
+		const controls = this.renderControls();
+		const className = classNames({
+			'rea11y-number-input': true,
+			'rea11y-number-input-has-controls': !!controls
+		});
+
 		return (
-			<div className="rea11y-number-input">
+			<div className={className}>
 				<KeyHandler
 					handlers={{
 						[keys.HOME]: this.handleMin,
@@ -210,21 +225,7 @@ export default class NumberInput extends Component {
 					/>
 				</KeyHandler>
 
-				<div className="rea11y-number-input-controls">
-					<NumberInputControl
-						name="increment"
-						title={this.props.incrementTitle}
-						onClick={this.handleIncrement}
-						text={this.props.incrementText}
-					/>
-
-					<NumberInputControl
-						name="decrement"
-						title={this.props.decrementTitle}
-						onClick={this.handleDecrement}
-						text={this.props.decrementText}
-					/>
-				</div>
+				{controls}
 			</div>
 		);
 	}

@@ -10,6 +10,7 @@ export {default as StatefulToggleButton} from './src/buttons/StatefulToggleButto
  */
 export {default as Field, LABEL, HINT, ERROR, INPUT} from './src/forms/Field';
 export {default as NumberInput} from './src/forms/NumberInput';
+export {default as NumberInputControls} from './src/forms/NumberInputControls';
 export {default as StatefulNumberInput} from './src/forms/StatefulNumberInput';
 
 /**
