@@ -4,15 +4,29 @@ Progress bar
 ```jsx
 import {ProgressBar} from 'rea11y';
 
-<ProgressBar max={100} value={42} />
+<ProgressBar
+    min={0}
+    max={100}
+    value={42} // required
+/>
 ```
 
-With a label:
+With a custom text:
 
 ```jsx
-function makeText({progress}) {
-	return progress + '%';
+function makeText({value, max}) {
+	return `${value}/${max}`;
 }
 
-<ProgressBar max={100} value={42} text={makeText} />
+<ProgressBar max={100} value={42} makeText={makeText} />
+```
+
+With a target element:
+
+```jsx
+<div id="target" />
+
+<ProgressBar>
+    <ProgressBarTarget targetId="target" />
+</ProgressBar>
 ```

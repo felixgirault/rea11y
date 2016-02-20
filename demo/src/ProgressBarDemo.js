@@ -1,5 +1,5 @@
 import React from 'react';
-import {ProgressBar} from '../../index';
+import {ProgressBar, ProgressBarTarget} from '../../index';
 
 
 
@@ -14,14 +14,17 @@ export default function ProgressBarDemo({value}) {
 			</header>
 
 			<div className="pattern-example">
-				<ProgressBar target={null} value={value} />
+				<ProgressBar target={null} value={value}>
+					<ProgressBarTarget targetId="progress-bar-target" />
+				</ProgressBar>
 			</div>
 
 			<div id="progress-bar-target" className="progress-bar-target">
 				<p>
-					When a progress bar indicates the loading
-					state of a particular zone in the page,
-					it sets an <code>aria-busy="true"</code>
+					A progress bar can optionally indicate
+					the loading state of a particular zone
+					in the page.
+					It does so by setting an <code>aria-busy="true"</code>
 					{' '} attribute on the zone.
 				</p>
 				<p>
