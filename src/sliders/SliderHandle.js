@@ -19,8 +19,22 @@ import KeyHandler from '../utils/KeyHandler';
 /**
  *
  */
-function makeText({value}) {
+function makeDefaultText({value}) {
 	return value;
+}
+
+/**
+ *
+ */
+function makeDefaultStyle({min, max, value, orientation}) {
+	const position = percentage(value, max, min);
+	const property = (orientation === 'horizontal')
+		? 'left'
+		: 'bottom';
+
+	return {
+		[property]: `${position}%`
+	};
 }
 
 
@@ -43,7 +57,8 @@ export default class SliderHandle extends Component {
 		value: PropTypes.number,
 		step: PropTypes.number,
 		bigStep: PropTypes.number,
-		text: PropTypes.func,
+		makeText: PropTypes.func,
+		makeStyle: PropTypes.func,
 		onChange: PropTypes.func
 	};
 
@@ -59,7 +74,8 @@ export default class SliderHandle extends Component {
 		value: 0,
 		step: 1,
 		bigStep: 10,
-		text: makeText,
+		makeText: makeDefaultText,
+		makeStyle: makeDefaultStyle,
 		onChange: noop
 	};
 
@@ -70,26 +86,8 @@ export default class SliderHandle extends Component {
 		super(props);
 
 		this.state = {
-			dragging: false,
-			percentage: percentage(
-				props.value,
-				props.max,
-				props.min
-			)
+			dragging: false
 		};
-	}
-
-	/**
-	 *
-	 */
-	componentWillReceiveProps(props) {
-		this.setState({
-			percentage: percentage(
-				props.value,
-				props.max,
-				props.min
-			)
-		});
 	}
 
 	/**
@@ -103,19 +101,9 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	isHorizontal() {
-		return (this.props.orientation === 'horizontal');
-	}
-
-	/**
-	 *
-	 */
 	incremented(step) {
-		return bound(
-			this.props.value + step,
-			this.props.min,
-			this.props.max
-		);
+		const {min, max, value} = this.props;
+		return bound(value + step, min, max);
 	}
 
 	/**
@@ -151,11 +139,12 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	emitChange(value) {
-		const boundValue = this.bound(value);
+	emitChange(newValue) {
+		const {value, onChange} = this.props;
+		const boundValue = this.bound(newValue);
 
-		if (this.props.value !== boundValue) {
-			this.props.onChange(boundValue);
+		if (value !== boundValue) {
+			onChange(boundValue);
 		}
 	}
 
@@ -191,13 +180,14 @@ export default class SliderHandle extends Component {
 	handleDrag(event) {
 		event.preventDefault();
 
+		const {min, max, orientation} = this.props;
+
 		const rect = this.parentOffset();
-		const ratio = this.isHorizontal()
+		const ratio = (orientation === 'horizontal')
 			? percentage(event.pageX - rect.left, rect.width)
 			: percentage(event.pageY - rect.top, rect.height);
 
-		const max = this.props.max - this.props.min;
-		const value = this.props.min + ((max / 100) * ratio);
+		const value = min + (((max - min) / 100) * ratio);
 		const snapped = this.snapped(value);
 
 		this.emitChange(snapped);
@@ -237,9 +227,8 @@ export default class SliderHandle extends Component {
 	 */
 	@autoBind
 	handleIncrement() {
-		this.emitChange(
-			this.props.value + this.props.step
-		);
+		const {value, step} = this.props;
+		this.emitChange(value + step);
 	}
 
 	/**
@@ -247,9 +236,8 @@ export default class SliderHandle extends Component {
 	 */
 	@autoBind
 	handleBigIncrement() {
-		this.emitChange(
-			this.props.value + this.props.bigStep
-		);
+		const {value, bigStep} = this.props;
+		this.emitChange(value + bigStep);
 	}
 
 	/**
@@ -257,9 +245,8 @@ export default class SliderHandle extends Component {
 	 */
 	@autoBind
 	handleDecrement() {
-		this.emitChange(
-			this.props.value - this.props.step
-		);
+		const {value, step} = this.props;
+		this.emitChange(value - step);
 	}
 
 	/**
@@ -267,47 +254,26 @@ export default class SliderHandle extends Component {
 	 */
 	@autoBind
 	handleBigDecrement() {
-		this.emitChange(
-			this.props.value - this.props.bigStep
-		);
-	}
-
-	/**
-	 *
-	 */
-	text() {
-		return this.props.text({
-			min: this.props.min,
-			max: this.props.max,
-			value: this.props.value,
-			percentage: this.state.percentage
-		});
-	}
-
-	/**
-	 *
-	 */
-	style() {
-		const property = this.isHorizontal()
-			? 'left'
-			: 'bottom';
-
-		return {
-			[property]: `${this.state.percentage}%`
-		};
+		const {value, bigStep} = this.props;
+		this.emitChange(value - bigStep);
 	}
 
 	/**
 	 *
 	 */
 	render() {
+		const {min, max, value, makeText, makeStyle} = this.props;
+
+		const text = makeText(this.props);
+		const style = makeStyle(this.props);
+
 		const className = classNames({
 			'rea11y-slider-handle': true,
 			'rea11y-slider-handle-dragging': this.state.dragging
 		});
 
 		return (
-			<div className={className} style={this.style()}>
+			<div className={className} style={style}>
 				<KeyHandler
 					handlers={{
 						[HOME]: this.handleMin,
@@ -323,16 +289,16 @@ export default class SliderHandle extends Component {
 					<div
 						className="rea11y-slider-handle-control"
 						role="slider"
-						aria-valuemin={this.props.min}
-						aria-valuemax={this.props.max}
-						aria-valuenow={this.props.value}
+						aria-valuemin={min}
+						aria-valuemax={max}
+						aria-valuenow={value}
 						onMouseDown={this.handleMouseDown}
 						tabIndex="0"
 					></div>
 				</KeyHandler>
 
 				<div className="rea11y-slider-handle-text">
-					{this.text()}
+					{text}
 				</div>
 			</div>
 		);

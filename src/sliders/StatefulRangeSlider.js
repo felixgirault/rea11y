@@ -40,8 +40,8 @@ export default class StatefulSlider extends Component {
 		super(props);
 
 		this.state = {
-			lowerValue: this.props.defaultLowerValue,
-			upperValue: this.props.defaultUpperValue
+			lower: props.defaultLowerValue,
+			upper: props.defaultUpperValue
 		};
 	}
 
@@ -50,10 +50,7 @@ export default class StatefulSlider extends Component {
 	 */
 	@autoBind
 	handleChange(lower, upper) {
-		this.setState({
-			lowerValue: lower,
-			upperValue: upper
-		}, () => {
+		this.setState({lower, upper}, () => {
 			this.props.onChange(lower, upper);
 		});
 	}
@@ -65,8 +62,8 @@ export default class StatefulSlider extends Component {
 		return (
 			<RangeSlider
 				{...this.props}
-				lowerValue={this.state.lowerValue}
-				upperValue={this.state.upperValue}
+				lowerValue={this.state.lower}
+				upperValue={this.state.upper}
 				onChange={this.handleChange}
 			/>
 		);

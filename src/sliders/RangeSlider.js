@@ -52,16 +52,18 @@ export default class RangeSlider extends Component {
 	 */
 	@autoBind
 	handleClick(event) {
-		const lowerRect = offset(findDOMNode(this.refs.lower));
-		const upperRect = offset(findDOMNode(this.refs.upper));
+		const {lower, upper} = this.refs;
+
+		const lowerRect = offset(findDOMNode(lower));
+		const upperRect = offset(findDOMNode(upper));
 
 		const lowerDistance = this.distance(lowerRect, event);
 		const upperDistance = this.distance(upperRect, event);
 
 		if (lowerDistance < upperDistance) {
-			this.refs.lower.handleDrag(event);
+			lower.handleDrag(event);
 		} else {
-			this.refs.upper.handleDrag(event);
+			upper.handleDrag(event);
 		}
 	}
 
@@ -70,7 +72,8 @@ export default class RangeSlider extends Component {
 	 */
 	@autoBind
 	handleLowerChange(value) {
-		this.props.onChange(value, this.props.upperValue);
+		const {onChange, upperValue} = this.props;
+		onChange(value, upperValue);
 	}
 
 	/**
@@ -78,7 +81,8 @@ export default class RangeSlider extends Component {
 	 */
 	@autoBind
 	handleUpperChange(value) {
-		this.props.onChange(this.props.lowerValue, value);
+		const {onChange, lowerValue} = this.props;
+		onChange(lowerValue, value);
 	}
 
 	/**
@@ -104,7 +108,6 @@ export default class RangeSlider extends Component {
 						value={this.props.lowerValue}
 						onChange={this.handleLowerChange}
 						upperBound={this.props.upperValue}
-						offset={this.offset}
 					/>
 
 					<SliderHandle
@@ -113,7 +116,6 @@ export default class RangeSlider extends Component {
 						value={this.props.upperValue}
 						onChange={this.handleUpperChange}
 						lowerBound={this.props.lowerValue}
-						offset={this.offset}
 					/>
 				</div>
 			</div>
