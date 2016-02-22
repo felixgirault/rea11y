@@ -21,13 +21,13 @@ function makeDefaultText({min, max, value}) {
  *
  */
 function makeDefaultStyle({min, max, value, orientation}) {
-	const progress = percentage(value, max, min);
+	const dimension = percentage(value, max, min);
 	const property = (orientation === 'horizontal')
 		? 'width'
 		: 'height';
 
 	return {
-		[property]: `${progress}%`
+		[property]: `${dimension}%`
 	};
 }
 
