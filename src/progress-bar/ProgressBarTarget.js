@@ -16,12 +16,12 @@ export default class ProgressBarTarget extends Component {
 	 *
 	 */
 	static propTypes = {
-		min: PropTypes.number.isRequired,
-		max: PropTypes.number.isRequired,
-		value: PropTypes.number.isRequired,
-		progressBarId: PropTypes.string.isRequired,
-		targetId: PropTypes.string.isRequired,
-		children: PropTypes.element.isRequired
+		min: PropTypes.number,
+		max: PropTypes.number,
+		value: PropTypes.number,
+		progressBarId: PropTypes.string,
+		targetId: PropTypes.string,
+		children: PropTypes.element
 	};
 
 	/**
