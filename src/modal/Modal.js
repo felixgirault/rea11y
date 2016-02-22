@@ -5,10 +5,9 @@ import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
-import keys from 'offkey';
+import {ESCAPE} from 'offkey';
 import {noop} from 'lodash';
 import offset from 'dom-helpers/query/offset';
-import {on, off} from 'dom-helpers/events';
 import FocusTrap from './FocusTrap';
 
 
@@ -16,12 +15,14 @@ import FocusTrap from './FocusTrap';
 /**
  *
  */
-function center(modal, backdrop) {
+function makeDefaultStyle(modal, backdrop) {
 	const modalRect = offset(modal);
 	const backdropRect = offset(backdrop);
 	const margin = (backdropRect.height - modalRect.height) / 2;
 
-	modal.style.marginTop = `${margin}px`;
+	return {
+		marginTop: `${margin}px`
+	};
 }
 
 
@@ -42,7 +43,7 @@ export default class Modal extends Component {
 		]),
 		label: PropTypes.string,
 		labelId: PropTypes.string,
-		center: PropTypes.func,
+		makeStyle: PropTypes.func,
 		onClose: PropTypes.func,
 		children: PropTypes.any.isRequired
 	};
@@ -54,7 +55,7 @@ export default class Modal extends Component {
 		role: 'dialog',
 		label: '',
 		labelId: '',
-		center: center,
+		makeStyle: makeDefaultStyle,
 		onClose: noop
 	};
 
@@ -62,32 +63,28 @@ export default class Modal extends Component {
 	 *
 	 */
 	componentDidMount() {
-		this.center();
-
-		on(document, 'keydown', this.handleKeyDown);
+		this.updateStyle();
 	}
 
 	/**
 	 *
 	 */
 	componentDidUpdate() {
-		this.center();
+		this.updateStyle();
 	}
 
 	/**
 	 *
 	 */
-	componentWillUnmount() {
-		off(document, 'keydown', this.handleKeyDown);
-	}
+	updateStyle() {
+		const {modal, backdrop} = this.refs;
 
-	/**
-	 *	Calls a custom function to center the modal on the page.
-	 */
-	center() {
-		this.props.center(
-			findDOMNode(this.refs.modal),
-			findDOMNode(this.refs.backdrop)
+		Object.assign(
+			modal.style,
+			this.props.makeStyle(
+				findDOMNode(modal),
+				findDOMNode(backdrop)
+			)
 		);
 	}
 
@@ -96,7 +93,7 @@ export default class Modal extends Component {
 	 */
 	@autoBind
 	handleKeyDown(event) {
-		if (event.keyCode === keys.ESCAPE) {
+		if (event.keyCode === ESCAPE) {
 			this.props.onClose();
 		}
 	}
@@ -105,24 +102,27 @@ export default class Modal extends Component {
 	 *
 	 */
 	render() {
+		const {role, label, labelId, children} = this.props;
+
 		const props = {
+			role,
+			tabIndex: 0,
 			ref: 'backdrop',
 			className: 'rea11y-modal-backdrop',
-			role: this.props.role,
-			tabIndex: 0
+			onKeyDown: this.handleKeyDown
 		};
 
-		if (this.props.labelId) {
-			props['aria-labelledby'] = this.props.labelId;
-		} else if (this.props.label) {
-			props['aria-label'] = this.props.label;
+		if (labelId) {
+			props['aria-labelledby'] = labelId;
+		} else if (label) {
+			props['aria-label'] = label;
 		}
 
 		return (
 			<FocusTrap>
 				<div {...props}>
 					<div className="rea11y-modal" ref="modal">
-						{this.props.children}
+						{children}
 					</div>
 				</div>
 			</FocusTrap>
