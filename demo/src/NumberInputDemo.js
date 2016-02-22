@@ -17,14 +17,12 @@ export default function NumberInputDemo(props) {
 				<li className="pattern-interaction">
 					<span>Decrement the value</span>
 					<span>
-						<kbd title="Left arrow">←</kbd> {' '}
 						<kbd title="Down arrow">↓</kbd>
 					</span>
 				</li>
 				<li className="pattern-interaction">
 					<span>Increment the value</span>
 					<span>
-						<kbd title="Right arrow">→</kbd> {' '}
 						<kbd title="Up arrow">↑</kbd>
 					</span>
 				</li>
