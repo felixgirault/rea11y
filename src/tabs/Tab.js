@@ -5,7 +5,7 @@ import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import keys from 'offkey';
+import {ARROW, HOME, END} from 'offkey';
 import {noop} from 'lodash';
 import KeyHandler from '../utils/KeyHandler';
 
@@ -102,12 +102,12 @@ export default class Tab extends Component {
 		return (
 			<KeyHandler
 				handlers={{
-					[keys.HOME]: this.handleFirst,
-					[keys.END]: this.handleLast,
-					[keys.ARROW.UP]: this.handlePrevious,
-					[keys.ARROW.LEFT]: this.handlePrevious,
-					[keys.ARROW.DOWN]: this.handleNext,
-					[keys.ARROW.RIGHT]: this.handleNext
+					[HOME]: this.handleFirst,
+					[END]: this.handleLast,
+					[ARROW.UP]: this.handlePrevious,
+					[ARROW.LEFT]: this.handlePrevious,
+					[ARROW.DOWN]: this.handleNext,
+					[ARROW.RIGHT]: this.handleNext
 				}}
 			>
 				<button

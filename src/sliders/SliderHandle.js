@@ -6,7 +6,7 @@ import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import keys from 'offkey';
+import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
 import {noop} from 'lodash';
 import {on, off} from 'dom-helpers/events';
 import offset from 'dom-helpers/query/offset';
@@ -310,14 +310,14 @@ export default class SliderHandle extends Component {
 			<div className={className} style={this.style()}>
 				<KeyHandler
 					handlers={{
-						[keys.HOME]: this.handleMin,
-						[keys.END]: this.handleMax,
-						[keys.ARROW.UP]: this.handleIncrement,
-						[keys.ARROW.RIGHT]: this.handleIncrement,
-						[keys.PAGE_UP]: this.handleBigIncrement,
-						[keys.ARROW.DOWN]: this.handleDecrement,
-						[keys.ARROW.LEFT]: this.handleDecrement,
-						[keys.PAGE_DOWN]: this.handleBigDecrement
+						[HOME]: this.handleMin,
+						[END]: this.handleMax,
+						[ARROW.UP]: this.handleIncrement,
+						[ARROW.RIGHT]: this.handleIncrement,
+						[PAGE_UP]: this.handleBigIncrement,
+						[ARROW.DOWN]: this.handleDecrement,
+						[ARROW.LEFT]: this.handleDecrement,
+						[PAGE_DOWN]: this.handleBigDecrement
 					}}
 				>
 					<div

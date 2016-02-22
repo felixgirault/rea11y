@@ -5,7 +5,7 @@ import React, {Component, PropTypes, Children, cloneElement} from 'react';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import keys from 'offkey';
+import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
 import {noop, uniqueId} from 'lodash';
 import bound from '../utils/bound';
 import KeyHandler from '../utils/KeyHandler';
@@ -202,12 +202,12 @@ export default class NumberInput extends Component {
 			<div className={className}>
 				<KeyHandler
 					handlers={{
-						[keys.HOME]: this.handleMin,
-						[keys.END]: this.handleMax,
-						[keys.ARROW.UP]: this.handleIncrement,
-						[keys.PAGE_UP]: this.handleBigIncrement,
-						[keys.ARROW.DOWN]: this.handleDecrement,
-						[keys.PAGE_DOWN]: this.handleBigDecrement
+						[HOME]: this.handleMin,
+						[END]: this.handleMax,
+						[ARROW.UP]: this.handleIncrement,
+						[PAGE_UP]: this.handleBigIncrement,
+						[ARROW.DOWN]: this.handleDecrement,
+						[PAGE_DOWN]: this.handleBigDecrement
 					}}
 				>
 					<input
