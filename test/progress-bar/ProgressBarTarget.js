@@ -53,8 +53,11 @@ describe('ProgressBarTarget', function() {
 
 		const progressBarNode = findByClass(dom, 'rea11y-progress-bar');
 
-		expect(this.targetNode.getAttribute('aria-describedby')).to.equal(progressBarNode.id);
-		expect(this.targetNode.getAttribute('aria-busy')).to.equal('false');
+		expect(this.targetNode.getAttribute('aria-describedby'))
+			.to.equal(progressBarNode.id);
+
+		expect(this.targetNode.getAttribute('aria-busy'))
+			.to.equal('false');
 	});
 
 	/**
@@ -69,6 +72,7 @@ describe('ProgressBarTarget', function() {
 
 		const progressBarNode = findByClass(dom, 'rea11y-progress-bar');
 
-		expect(this.targetNode.getAttribute('aria-busy')).to.equal('true');
+		expect(this.targetNode.getAttribute('aria-busy'))
+			.to.equal('true');
 	});
 });

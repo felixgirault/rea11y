@@ -8,7 +8,14 @@ import {filter} from 'lodash';
 /**
  *
  */
-const ELEMENTS_QUERY = '*[tabindex], button, input, object, select, textarea';
+const ELEMENTS_QUERY = `
+	*[tabindex],
+	button,
+	input,
+	object,
+	select,
+	textarea
+`;
 
 
 
