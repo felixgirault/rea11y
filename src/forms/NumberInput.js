@@ -75,18 +75,12 @@ export default class NumberInput extends Component {
 	/**
 	 *
 	 */
-	bound(value) {
-		return bound(value, this.props.min, this.props.max);
-	}
+	emitChange(newValue) {
+		const {min, max, value, onChange} = this.props;
+		const boundValue = bound(newValue, min, max);
 
-	/**
-	 *
-	 */
-	emitChange(value) {
-		const boundValue = this.bound(value);
-
-		if (this.props.value !== boundValue) {
-			this.props.onChange(boundValue);
+		if (value !== boundValue) {
+			onChange(boundValue);
 		}
 	}
 

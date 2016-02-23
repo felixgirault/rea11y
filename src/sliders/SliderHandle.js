@@ -101,14 +101,6 @@ export default class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	incremented(step) {
-		const {min, max, value} = this.props;
-		return bound(value + step, min, max);
-	}
-
-	/**
-	 *
-	 */
 	snapped(value) {
 		const steps = value / this.props.step;
 
