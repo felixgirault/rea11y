@@ -35,6 +35,7 @@ describe('Tab', function() {
 		const tab = renderIntoDocument(
 			<Tab
 				id="id"
+				panelId="panel-id"
 				name="name"
 				title="Title"
 			/>
@@ -42,11 +43,14 @@ describe('Tab', function() {
 
 		const node = findDOMNode(tab);
 
-		expect(node.getAttribute('id')).to.equal('id-name');
+		expect(node.getAttribute('id')).to.equal('id');
 		expect(node.getAttribute('role')).to.equal('tab');
-		expect(node.getAttribute('aria-controls')).to.equal('id-panel-name');
+		expect(node.getAttribute('aria-controls')).to.equal('panel-id');
 		expect(node.getAttribute('aria-selected')).to.equal('false');
 		expect(node.getAttribute('tabindex')).to.equal('-1');
+		expect(node.className).to.contain('rea11y-tab');
+		expect(node.className).to.contain('rea11y-tab-name');
+		expect(node.className).to.not.contain('rea11y-tab-active');
 		expect(node.textContent).to.equal('Title');
 	});
 
@@ -57,6 +61,7 @@ describe('Tab', function() {
 		const tab = renderIntoDocument(
 			<Tab 
 				id="id"
+				panelId="panel-id"
 				name="name"
 				title="Title"
 				active
@@ -67,6 +72,7 @@ describe('Tab', function() {
 
 		expect(node.getAttribute('aria-selected')).to.equal('true');
 		expect(node.getAttribute('tabindex')).to.equal('0');
+		expect(node.className).to.contain('rea11y-tab-active');
 	});
 
 	/**
@@ -77,6 +83,7 @@ describe('Tab', function() {
 		const tab = renderIntoDocument(
 			<Tab
 				id="id"
+				panelId="panel-id"
 				name="name"
 				title="Title"
 				onActive={handleActive}
@@ -98,6 +105,7 @@ describe('Tab', function() {
 		const tab = renderIntoDocument(
 			<Tab
 				id="id"
+				panelId="panel-id"
 				name="name"
 				title="Title"
 				onFirst={handleFirst}
@@ -122,6 +130,7 @@ describe('Tab', function() {
 		const tab = renderIntoDocument(
 			<Tab
 				id="id"
+				panelId="panel-id"
 				name="name"
 				title="Title"
 				onLast={handleLast}
@@ -146,6 +155,7 @@ describe('Tab', function() {
 		const tab = renderIntoDocument(
 			<Tab
 				id="id"
+				panelId="panel-id"
 				name="name"
 				title="Title"
 				onPrevious={handlePrevious}
@@ -175,6 +185,7 @@ describe('Tab', function() {
 		const tab = renderIntoDocument(
 			<Tab
 				id="id"
+				panelId="panel-id"
 				name="name"
 				title="Title"
 				onNext={handleNext}

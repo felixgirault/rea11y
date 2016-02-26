@@ -22,6 +22,7 @@ export default class Tab extends Component {
 	 */
 	static propTypes = {
 		id: PropTypes.string,
+		panelId: PropTypes.string,
 		name: PropTypes.string,
 		title: PropTypes.string,
 		active: PropTypes.bool,
@@ -88,10 +89,7 @@ export default class Tab extends Component {
 	 *
 	 */
 	render() {
-		const {id, name, active} = this.props;
-
-		const tabId = `${id}-${name}`;
-		const panelId = `${id}-panel-${name}`;
+		const {id, panelId, name, active} = this.props;
 
 		const className = classNames({
 			'rea11y-tab': true,
@@ -111,7 +109,7 @@ export default class Tab extends Component {
 				}}
 			>
 				<button
-					id={tabId}
+					id={id}
 					className={className}
 					role="tab"
 					aria-controls={panelId}

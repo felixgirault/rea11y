@@ -29,17 +29,24 @@ describe('TabPanel', function() {
 	it('should have appropriate attributes', function() {
 		const panel = renderIntoDocument(
 			<div>
-				<TabPanel id="id" name="name" />
+				<TabPanel
+					id="id"
+					tabId="tab-id"
+					name="name"
+				/>
 			</div>
 		);
 
 		const node = findDOMNode(panel).children[0];
 
-		expect(node.getAttribute('id')).to.equal('id-panel-name');
+		expect(node.getAttribute('id')).to.equal('id');
 		expect(node.getAttribute('role')).to.equal('tabpanel');
 		expect(node.getAttribute('aria-hidden')).to.equal('true');
-		expect(node.getAttribute('aria-labelledby')).to.equal('id-name');
+		expect(node.getAttribute('aria-labelledby')).to.equal('tab-id');
 		expect(node.getAttribute('tabindex')).to.equal('-1');
+		expect(node.className).to.contain('rea11y-panel');
+		expect(node.className).to.contain('rea11y-panel-name');
+		expect(node.className).to.not.contain('rea11y-panel-active');
 	});
 
 	/**
@@ -56,5 +63,6 @@ describe('TabPanel', function() {
 
 		expect(node.getAttribute('aria-hidden')).to.equal('false');
 		expect(node.getAttribute('tabindex')).to.equal('0');
+		expect(node.className).to.contain('rea11y-panel-active');
 	});
 });
