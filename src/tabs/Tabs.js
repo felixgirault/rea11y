@@ -15,6 +15,22 @@ import Tab from './Tab';
 /**
  *
  */
+function makeDefaultTabId(id, name) {
+	return `${id}-tab-${name}`;
+}
+
+/**
+ *
+ */
+function makeDefaultPanelId(id, name) {
+	return `${id}-panel-${name}`;
+}
+
+
+
+/**
+ *
+ */
 @pureRender
 export default class Tabs extends Component {
 
@@ -25,6 +41,8 @@ export default class Tabs extends Component {
 		orientation: PropTypes.string,
 		active: PropTypes.string,
 		onActive: PropTypes.func,
+		makeTabId: PropTypes.func,
+		makePanelId: PropTypes.func,
 		children: PropTypes.any.isRequired
 	};
 
@@ -32,7 +50,9 @@ export default class Tabs extends Component {
 	 *
 	 */
 	static defaultProps = {
-		orientation: 'horizontal'
+		orientation: 'horizontal',
+		makeTabId: makeDefaultTabId,
+		makePanelId: makeDefaultPanelId
 	};
 
 	/**
@@ -49,18 +69,9 @@ export default class Tabs extends Component {
 	 */
 	componentDidUpdate(previousProps) {
 		if (previousProps.active !== this.props.active) {
-			const ref = this.tabRef(this.props.active);
-			const active = this.refs[ref];
-
+			const active = this.refs[this.props.active];
 			findDOMNode(active).focus();
 		}
-	}
-
-	/**
-	 *
-	 */
-	tabRef(name) {
-		return `tab-${name}`;
 	}
 
 	/**
@@ -122,19 +133,20 @@ export default class Tabs extends Component {
 	 *
 	 */
 	renderTabs() {
-		return Children.map(this.props.children, (child) => {
-			const name = child.props.name;
-			const ref = this.tabRef(name);
-			const active = (this.props.active === name);
+		const {active, makeTabId, makePanelId, children} = this.props;
+
+		return Children.map(children, (child) => {
+			const {name, title} = child.props;
 
 			return (
 				<Tab
-					key={ref}
-					ref={ref}
-					id={this.id}
+					key={name}
+					ref={name}
+					id={makeTabId(this.id, name)}
+					panelId={makePanelId(this.id, name)}
 					name={name}
-					title={child.props.title}
-					active={active}
+					title={title}
+					active={active === name}
 					onActive={this.handleActive}
 					onPrevious={this.handlePrevious}
 					onNext={this.handleNext}
@@ -147,14 +159,16 @@ export default class Tabs extends Component {
 	 *
 	 */
 	renderPanels() {
-		return Children.map(this.props.children, (child) => {
-			const name = child.props.name;
-			const active = (this.props.active === name);
+		const {active, makeTabId, makePanelId, children} = this.props;
+
+		return Children.map(children, (child) => {
+			const {name} = child.props;
 
 			return cloneElement(child, {
-				active,
 				key: name,
-				id: this.id
+				active: (active === name),
+				id: makePanelId(this.id, name),
+				tabId: makeTabId(this.id, name)
 			});
 		});
 	}

@@ -9,10 +9,7 @@ import classNames from 'classnames';
 /**
  *
  */
-export default function TabPanel({id, name, active = false, children}) {
-	const panelId = `${id}-panel-${name}`;
-	const headerId = `${id}-${name}`;
-
+export default function TabPanel({id, tabId, name, active = false, children}) {
 	const className = classNames({
 		'rea11y-panel': true,
 		'rea11y-panel-active': active,
@@ -21,11 +18,11 @@ export default function TabPanel({id, name, active = false, children}) {
 
 	return (
 		<div
-			id={panelId}
+			id={id}
 			className={className}
 			role="tabpanel"
 			aria-hidden={!active}
-			aria-labelledby={headerId}
+			aria-labelledby={tabId}
 			tabIndex={active ? 0 : -1}
 		>
 			{children}
@@ -38,6 +35,7 @@ export default function TabPanel({id, name, active = false, children}) {
  */
 TabPanel.propTypes = {
 	id: PropTypes.string,
+	tabId: PropTypes.string,
 	name: PropTypes.string,
 	active: PropTypes.bool
 };
