@@ -8,13 +8,14 @@ import {filter} from 'lodash';
 /**
  *
  */
-const ELEMENTS_QUERY = `
-	*[tabindex],
+const SELECTOR = `
+	a,
 	button,
 	input,
-	object,
 	select,
-	textarea
+	textarea,
+	object,
+	[tabindex]
 `;
 
 
@@ -28,7 +29,7 @@ const ELEMENTS_QUERY = `
  */
 function isTabbableLink(link) {
 	const hasHref = !!link.getAttribute('href');
-	const tabIndex = link.getAttribute('tabindex');
+	const tabIndex = parseInt(link.getAttribute('tabindex'), 10);
 	const hasTabIndex = !isNaN(tabIndex);
 
 	return hasHref
@@ -44,7 +45,7 @@ function isTabbableLink(link) {
  *	@return boolean If the link is tabbable.
  */
 function isTabbableElement(element) {
-	if (element.disabled) {
+	if (element.getAttribute('disabled')) {
 		return false;
 	}
 
@@ -58,21 +59,31 @@ function isTabbableElement(element) {
 }
 
 /**
+ *
+ */
+function isLink(element) {
+	return (
+		element.tagName === 'a'
+		|| element.tagName === 'A'
+	);
+}
+
+/**
+ *
+ */
+function isTabbable(element) {
+	return isLink(element)
+		? isTabbableLink(element)
+		: isTabbableElement(element);
+}
+
+/**
  *	Returns all tabbable elements inside the given container.
  *
  *	@param DOMElement container Container.
  *	@return Array Tabbable elements.
  */
 export default function tabbable(container = document) {
-	const links = filter(
-		container.getElementsByTagName('a'),
-		isTabbableLink
-	);
-
-	const elements = filter(
-		container.querySelectorAll(ELEMENTS_QUERY),
-		isTabbableElement
-	);
-
-	return links.concat(elements);
+	const elements = container.querySelectorAll(SELECTOR);
+	return filter(elements, isTabbable);
 }
