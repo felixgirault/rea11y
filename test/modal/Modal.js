@@ -23,7 +23,12 @@ describe('Modal', function() {
 	 *
 	 */
 	it('should have appropriate attributes', function() {
-		const modal = renderIntoDocument(<Modal/>);
+		const modal = renderIntoDocument(
+			<Modal>
+				<p />
+			</Modal>
+		);
+
 		const node = findByClass(modal, 'rea11y-modal-backdrop');
 
 		expect(node.getAttribute('role')).to.equal('dialog');
@@ -35,7 +40,9 @@ describe('Modal', function() {
 	 */
 	it('should be labelled with a text', function() {
 		const modal = renderIntoDocument(
-			<Modal label="label" />
+			<Modal label="label">
+				<p />
+			</Modal>
 		);
 
 		const node = findByClass(modal, 'rea11y-modal-backdrop');
@@ -66,7 +73,9 @@ describe('Modal', function() {
 		const handleClose = chai.spy(() => {});
 
 		const modal = renderIntoDocument(
-			<Modal onClose={handleClose} />
+			<Modal onClose={handleClose}>
+				<p />
+			</Modal>
 		);
 
 		const node = findByClass(modal, 'rea11y-modal-backdrop');
