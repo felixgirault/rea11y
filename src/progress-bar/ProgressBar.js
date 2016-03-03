@@ -1,7 +1,7 @@
 /**
  *
  */
-import React, {Component, PropTypes, Children, cloneElement} from 'react';
+import React, {Component, PropTypes} from 'react';
 import pureRender from 'pure-render-decorator';
 import classNames from 'classnames';
 import {uniqueId} from 'lodash';
