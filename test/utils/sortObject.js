@@ -1,7 +1,6 @@
 /**
  *
  */
-import {expect} from 'chai';
 import {keys} from 'lodash';
 import sortObject from '../../src/utils/sortObject';
 

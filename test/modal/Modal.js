@@ -1,9 +1,6 @@
 /**
  *
  */
-import jsdom from 'jsdom-global';
-import chai from 'chai';
-import spies from 'chai-spies';
 import React from 'react';
 import {findDOMNode} from 'react-dom';
 import {
@@ -15,23 +12,12 @@ import {
 import {ESCAPE} from 'offkey';
 import Modal from '../../src/modal/Modal';
 
-chai.use(spies);
-const expect = chai.expect;
-
 
 
 /**
  *
  */
 describe('Modal', function() {
-
-	before(function() {
-		this.cleanup = jsdom();
-	});
-
-	after(function() {
-		this.cleanup();
-	});
 
 	/**
 	 *

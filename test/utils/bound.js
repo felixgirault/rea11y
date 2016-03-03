@@ -1,7 +1,6 @@
 /**
  *
  */
-import {expect} from 'chai';
 import bound from '../../src/utils/bound';
 
 

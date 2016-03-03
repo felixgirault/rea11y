@@ -1,8 +1,6 @@
 /**
  *
  */
-import jsdom from 'jsdom-global';
-import {expect} from 'chai';
 import React from 'react';
 import {findDOMNode} from 'react-dom';
 import {renderIntoDocument} from 'react-addons-test-utils';
@@ -14,14 +12,6 @@ import ProgressBar from '../../src/progress-bar/ProgressBar';
  *
  */
 describe('ProgressBar', function() {
-
-	before(function() {
-		this.cleanup = jsdom();
-	});
-
-	after(function() {
-		this.cleanup();
-	});
 
 	/**
 	 *

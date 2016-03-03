@@ -1,16 +1,10 @@
 /**
  *
  */
-import jsdom from 'jsdom-global';
-import chai from 'chai';
-import spies from 'chai-spies';
 import React from 'react';
 import {findDOMNode} from 'react-dom';
 import {Simulate, renderIntoDocument} from 'react-addons-test-utils';
 import StatefulToggleButton from '../../src/buttons/StatefulToggleButton';
-
-chai.use(spies);
-const expect = chai.expect;
 
 
 
@@ -18,14 +12,6 @@ const expect = chai.expect;
  *
  */
 describe('StatefulToggleButton', function() {
-
-	before(function() {
-		this.cleanup = jsdom();
-	});
-
-	after(function() {
-		this.cleanup();
-	});
 
 	/**
 	 *

@@ -1,7 +1,6 @@
 /**
  *
  */
-import {expect} from 'chai';
 import percentage from '../../src/utils/percentage';
 
 
