@@ -214,34 +214,6 @@ button:active {
 	font-weight: bold;
 }
 
-.progress-bar-target {
-	border: 1px solid #3D9970;
-	padding: 0.75em;
-	color: #ddd;
-	transition:
-		color ease-in 100ms,
-		background ease-in 100ms;
-}
-
-.progress-bar-target[aria-busy="false"] {
-	background: #3D9970;
-	color: #111;
-}
-
-.progress-bar-target code {
-	transition:
-		color ease-in 100ms,
-		background ease-in 100ms;
-}
-
-.progress-bar-target[aria-busy="false"] code {
-	background: #238659;
-}
-
-.progress-bar-target p {
-	margin: 0;
-}
-
 
 
 /**

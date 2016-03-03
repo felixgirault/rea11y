@@ -20,13 +20,3 @@ function makeText({value, max}) {
 
 <ProgressBar max={100} value={42} makeText={makeText} />
 ```
-
-With a target element:
-
-```jsx
-<div id="target" />
-
-<ProgressBar>
-    <ProgressBarTarget targetId="target" />
-</ProgressBar>
-```

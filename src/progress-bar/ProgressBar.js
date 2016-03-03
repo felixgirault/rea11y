@@ -48,8 +48,7 @@ export default class ProgressBar extends Component {
 		max: PropTypes.number,
 		value: PropTypes.number,
 		makeText: PropTypes.func,
-		makeStyle: PropTypes.func,
-		children: PropTypes.element
+		makeStyle: PropTypes.func
 	};
 
 	/**
@@ -71,22 +70,6 @@ export default class ProgressBar extends Component {
 		super(props);
 
 		this.id = uniqueId('rea11y-');
-	}
-
-	/**
-	 *
-	 */
-	renderTarget() {
-		try {
-			const target = Children.only(this.props.children);
-
-			return cloneElement(target, {
-				...this.props,
-				progressBarId: this.id
-			});
-		} catch (e) {
-			return undefined;
-		}
 	}
 
 	/**
@@ -123,8 +106,6 @@ export default class ProgressBar extends Component {
 				<div className="rea11y-progress-bar-text">
 					{text}
 				</div>
-
-				{this.renderTarget()}
 			</div>
 		);
 	}

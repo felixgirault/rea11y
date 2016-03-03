@@ -22,7 +22,6 @@ export {default as Modal} from './src/modal/Modal';
  *	Progress bar.
  */
 export {default as ProgressBar} from './src/progress-bar/ProgressBar';
-export {default as ProgressBarTarget} from './src/progress-bar/ProgressBarTarget';
 
 /**
  *	Sliders.
