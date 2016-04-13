@@ -78,14 +78,15 @@ export default class Modal extends Component {
 	 */
 	updateStyle() {
 		const {modal, backdrop} = this.refs;
-
-		Object.assign(
-			modal.style,
-			this.props.makeStyle(
-				findDOMNode(modal),
-				findDOMNode(backdrop)
-			)
+		const style = this.props.makeStyle(
+			findDOMNode(modal),
+			findDOMNode(backdrop)
 		);
+
+		modal.style = {
+			...modal.style,
+			...style
+		};
 	}
 
 	/**
