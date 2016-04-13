@@ -25,7 +25,8 @@
   "scripts": {
     "start": "webpack-dev-server --config demo/webpack.config.js",
     "build": "webpack --config demo/webpack.config.js",
-    "test": "karma start"
+    "test": "karma start",
+    "test-travis": "karma start --single-run --browsers Firefox"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
