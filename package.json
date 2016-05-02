@@ -1,7 +1,7 @@
 {
   "name": "rea11y",
   "description": "A set of accessible React components.",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "repository": "felixgirault/rea11y",
   "license": "MIT",
   "keywords": [
