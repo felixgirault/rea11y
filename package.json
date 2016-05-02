@@ -28,7 +28,8 @@
     "lint": "eslint src/**",
     "test": "karma start",
     "test-travis": "karma start --single-run --browsers Firefox",
-    "prepublish": "npm run lint && npm run build"
+    "preversion": "npm run lint && npm run test -- --single-run",
+    "version": "npm run build"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
