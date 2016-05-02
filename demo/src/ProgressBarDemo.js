@@ -1,5 +1,5 @@
 import React from 'react';
-import {ProgressBar} from '../../index';
+import {ProgressBar} from '../../src';
 
 
 

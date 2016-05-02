@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatefulTabs, TabPanel} from '../../index';
+import {StatefulTabs, TabPanel} from '../../src';
 
 
 

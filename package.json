@@ -21,17 +21,19 @@
     "email": "felix.girault@gmail.com",
     "url": "https://github.com/felixgirault"
   },
-  "main": "index.js",
+  "main": "lib/index.js",
   "scripts": {
     "start": "webpack-dev-server --config demo/webpack.config.js",
-    "build": "webpack --config demo/webpack.config.js",
+    "build": "babel src -d lib",
     "lint": "eslint src/**",
     "test": "karma start",
-    "test-travis": "karma start --single-run --browsers Firefox"
+    "test-travis": "karma start --single-run --browsers Firefox",
+    "prepublish": "npm run lint && npm run build"
   },
   "devDependencies": {
     "autoprefixer": "^6.3.1",
     "babel": "^6.3.26",
+    "babel-cli": "^6.7.7",
     "babel-core": "^6.3.26",
     "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^6.2.1",

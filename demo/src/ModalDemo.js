@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import autoBind from 'autobind-decorator';
-import {Modal} from '../../index';
+import {Modal} from '../../src';
 
 
 

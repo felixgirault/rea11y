@@ -1,5 +1,5 @@
 import React from 'react';
-import {NumberInput, NumberInputControls} from '../../index';
+import {NumberInput, NumberInputControls} from '../../src';
 
 
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import {Button, StatefulToggleButton} from '../../index';
+import {Button, StatefulToggleButton} from '../../src';
 
 
 

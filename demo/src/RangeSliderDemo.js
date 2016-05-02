@@ -1,5 +1,5 @@
 import React from 'react';
-import {StatefulRangeSlider} from '../../index';
+import {StatefulRangeSlider} from '../../src';
 
 
 
