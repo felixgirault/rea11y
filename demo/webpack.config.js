@@ -8,8 +8,6 @@ const webpack = require('webpack');
 const autoprefixer = require('autoprefixer');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const reporter = require('eslint-friendly-formatter');
-
-const UglifyJsPlugin = webpack.optimize.UglifyJsPlugin;
 const fullPath = path.resolve.bind(null, __dirname);
 
 
@@ -58,7 +56,6 @@ module.exports = {
 		return [autoprefixer];
 	},
 	plugins: [
-		new UglifyJsPlugin(),
 		new ExtractTextPlugin('demo.css', {
 			allChunks: true
 		})
