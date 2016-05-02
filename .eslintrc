@@ -1,21 +1,3 @@
 {
-	"parser": "babel-eslint",
-	"plugins": [
-		"babel",
-	],
-	"extends": "airbnb",
-	"env": {
-		"browser": true,
-		"node": true
-	},
-	"ecmaFeatures": {
-		"jsx": true
-	},
-	"rules": {
-		"indent": [2, "tab", {"SwitchCase": 1}],
-		"comma-dangle": [2, "never"],
-		"object-curly-spacing": [2, "never"],
-		"no-multiple-empty-lines": [2, {"max": 3}],
-		"react/jsx-indent-props": [2, "tab"]
-	}
+	"extends": "vtech"
 }
