@@ -83,9 +83,9 @@ export default class Modal extends Component {
 			findDOMNode(backdrop)
 		);
 
-		forEach(style, (value, property) =>
-			modal.style[property] = value
-		);
+		forEach(style, (value, property) => {
+			modal.style[property] = value;
+		});
 	}
 
 	/**

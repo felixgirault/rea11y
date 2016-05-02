@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {PropTypes} from 'react';
 import {ProgressBar} from '../../src';
 
 
@@ -19,3 +19,7 @@ export default function ProgressBarDemo({value}) {
 		</article>
 	);
 }
+
+ProgressBarDemo.propTypes = {
+	value: PropTypes.number.isRequired
+};

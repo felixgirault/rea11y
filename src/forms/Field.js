@@ -45,7 +45,7 @@ export default function Field({
 
 		labels.push(hintId);
 		components[Field.HINT] = (
-			<p id={hintId} className={`rea11y-form-hint`}>
+			<p id={hintId} className="rea11y-form-hint">
 				{hint}
 			</p>
 		);
@@ -56,7 +56,7 @@ export default function Field({
 
 		labels.push(errorId);
 		components[Field.ERROR] = (
-			<p id={errorId} className={`rea11y-form-error`}>
+			<p id={errorId} className="rea11y-form-error">
 				{error}
 			</p>
 		);
@@ -99,19 +99,27 @@ export default function Field({
 /**
  *
  */
+Field.LABEL = 'label';
+Field.HINT = 'hint';
+Field.ERROR = 'error';
+Field.INPUT = 'input';
+
+/**
+ *
+ */
 Field.propTypes = {
 	name: PropTypes.string,
 	label: PropTypes.string,
 	hint: PropTypes.string,
 	error: PropTypes.string,
 	required: PropTypes.bool,
+	order: PropTypes.arrayOf(
+		PropTypes.oneOf([
+			Field.LABEL,
+			Field.HINT,
+			Field.ERROR,
+			Field.INPUT
+		])
+	),
 	children: PropTypes.element.isRequired
 };
-
-/**
- *
- */
-Field.LABEL = 'label';
-Field.HINT = 'hint';
-Field.ERROR = 'error';
-Field.INPUT = 'input';

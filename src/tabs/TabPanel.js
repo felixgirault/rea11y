@@ -37,5 +37,6 @@ TabPanel.propTypes = {
 	id: PropTypes.string,
 	tabId: PropTypes.string,
 	name: PropTypes.string,
-	active: PropTypes.bool
+	active: PropTypes.bool,
+	children: PropTypes.node.isRequired
 };
