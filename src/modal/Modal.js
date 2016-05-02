@@ -6,7 +6,7 @@ import {findDOMNode} from 'react-dom';
 import pureRender from 'pure-render-decorator';
 import autoBind from 'autobind-decorator';
 import {ESCAPE} from 'offkey';
-import {noop} from 'lodash';
+import {noop, forEach} from 'lodash';
 import offset from 'dom-helpers/query/offset';
 import FocusTrap from './FocusTrap';
 
@@ -83,10 +83,9 @@ export default class Modal extends Component {
 			findDOMNode(backdrop)
 		);
 
-		modal.style = {
-			...modal.style,
-			...style
-		};
+		forEach(style, (value, property) =>
+			modal.style[property] = value
+		);
 	}
 
 	/**
