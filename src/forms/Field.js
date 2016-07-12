@@ -23,7 +23,7 @@ export default function Field({
 	]
 }) {
 	const input = Children.only(children);
-	const id = `rea11y-form-${name}`;
+	const id = `r1y-Field-${name}`;
 	const inputId = `${id}-input`;
 	const labelId = `${id}-label`;
 	const labels = [labelId];
@@ -32,7 +32,7 @@ export default function Field({
 		[Field.LABEL]: (
 			<label
 				id={labelId}
-				className="rea11y-form-label"
+				className="r1y-Field-label"
 				htmlFor={inputId}
 			>
 				{label}
@@ -45,7 +45,7 @@ export default function Field({
 
 		labels.push(hintId);
 		components[Field.HINT] = (
-			<p id={hintId} className="rea11y-form-hint">
+			<p id={hintId} className="r1y-Field-hint">
 				{hint}
 			</p>
 		);
@@ -56,7 +56,7 @@ export default function Field({
 
 		labels.push(errorId);
 		components[Field.ERROR] = (
-			<p id={errorId} className="rea11y-form-error">
+			<p id={errorId} className="r1y-Field-error">
 				{error}
 			</p>
 		);
@@ -65,7 +65,7 @@ export default function Field({
 	const inputProps = {
 		id: inputId,
 		name: inputId,
-		className: 'rea11y-form-input',
+		className: 'r1y-Field-input',
 		'aria-labelledby': labels.join(' ')
 	};
 
@@ -85,8 +85,8 @@ export default function Field({
 	);
 
 	const className = classNames(
-		'rea11y-form-field',
-		`rea11y-form-field-${name}`
+		'r1y-Field',
+		`r1y-Field-${name}`
 	);
 
 	return (

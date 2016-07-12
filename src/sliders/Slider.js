@@ -42,15 +42,15 @@ export default class Slider extends Component {
 	 */
 	render() {
 		const className = classNames([
-			'rea11y-slider',
-			`rea11y-slider-${this.props.orientation}`
+			'r1y-Slider',
+			`r1y-Slider--${this.props.orientation}`
 		]);
 
 		return (
 			<div className={className}>
 				<div
 					ref="track"
-					className="rea11y-slider-track"
+					className="r1y-Slider-track"
 					onClick={this.handleClick}
 				>
 					<SliderHandle {...this.props} ref="handle" />

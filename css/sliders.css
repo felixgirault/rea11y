@@ -2,22 +2,22 @@
  *	Slider.
  */
 
-.rea11y-slider {
+.r1y-Slider {
 	position: relative;
 	margin-bottom: 1.5em;
 }
 
-.rea11y-slider-horizontal {
+.r1y-Slider--horizontal {
 	width: 100%;
 	height: 1.5em;
 }
 
-.rea11y-slider-vertical {
+.r1y-Slider--vertical {
 	width: 1.5em;
 	height: 6em;
 }
 
-.rea11y-slider-track {
+.r1y-Slider-track {
 	position: absolute;
 	top: 0.375em;
 	right: 0.75em;
@@ -28,11 +28,11 @@
 	background: #ddd;
 }
 
-.rea11y-slider-range .rea11y-slider-track {
+.r1y-RangeSlider .r1y-Slider-track {
 	background: #fff;
 }
 
-.rea11y-slider-handle {
+.r1y-SliderHandle {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -42,19 +42,19 @@
 	background: #fff;
 }
 
-.rea11y-slider-range .rea11y-slider-handle:first-child {
+.r1y-RangeSlider .r1y-SliderHandle:first-child {
 	background: #ddd;
 }
 
-.rea11y-slider-horizontal .rea11y-slider-handle {
+.r1y-Slider--horizontal .r1y-SliderHandle {
 	bottom: 0;
 }
 
-.rea11y-slider-vertical .rea11y-slider-handle {
+.r1y-Slider--vertical .r1y-SliderHandle {
 	left: 0;
 }
 
-.rea11y-slider-handle-control {
+.r1y-SliderHandle-control {
 	box-sizing: border-box;
 	position: relative;
 	top: -0.375em;
@@ -66,29 +66,29 @@
 	cursor: grab;
 }
 
-.rea11y-slider-handle-control:hover,
-.rea11y-slider-handle-control:focus {
+.r1y-SliderHandle-control:hover,
+.r1y-SliderHandle-control:focus {
 	background: #aaa;
 	z-index: 10;
 }
 
-.rea11y-slider-handle-control:focus {
+.r1y-SliderHandle-control:focus {
 	z-index: 10;
 }
 
-.rea11y-slider-handle-dragging .rea11y-slider-handle-control {
+.r1y-SliderHandle.is-dragging .r1y-SliderHandle-control {
 	cursor: grabbing;
 }
 
-.rea11y-slider-horizontal .rea11y-slider-handle-control {
+.r1y-Slider--horizontal .r1y-SliderHandle-control {
 	width: 1.5em;
 }
 
-.rea11y-slider-vertical .rea11y-slider-handle-control {
+.r1y-Slider--vertical .r1y-SliderHandle-control {
 	height: 1.5em;
 }
 
-.rea11y-slider-handle-text {
+.r1y-SliderHandle-text {
 	position: relative;
 	left: -1.5em;
 	width: 3em;

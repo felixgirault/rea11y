@@ -8,9 +8,9 @@ import {Field} from '../../src';
  */
 export default function FormsDemo() {
 	return (
-		<article className="pattern">
+		<article className="Pattern">
 			<header>
-				<h2 className="pattern-name">Form field</h2>
+				<h2 className="Pattern-name">Form field</h2>
 			</header>
 
 			<p>
@@ -32,7 +32,7 @@ export default function FormsDemo() {
 				<code>required</code>.
 			</p>
 
-			<div className="pattern-example">
+			<div className="Pattern-example">
 				<Field
 					name="email"
 					label="Email address"
@@ -49,7 +49,7 @@ export default function FormsDemo() {
 				can be reordered at will.
 			</p>
 
-			<div className="pattern-example">
+			<div className="Pattern-example">
 				<Field
 					name="email"
 					label="Email address"

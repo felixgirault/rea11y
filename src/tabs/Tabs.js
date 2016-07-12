@@ -178,17 +178,17 @@ export default class Tabs extends Component {
 	 */
 	render() {
 		const className = classNames(
-			'rea11y-tabs',
-			`rea11y-tabs-${this.props.orientation}`
+			'r1y-Tabs',
+			`r1y-Tabs--${this.props.orientation}`
 		);
 
 		return (
 			<div className={className}>
-				<div className="rea11y-tab-list" role="tablist">
+				<div className="r1y-Tabs-tabList" role="tablist">
 					{this.renderTabs()}
 				</div>
 
-				<div className="rea11y-panel-list">
+				<div className="r1y-Tabs-panelList">
 					{this.renderPanels()}
 				</div>
 			</div>

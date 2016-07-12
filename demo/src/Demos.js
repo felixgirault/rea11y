@@ -32,13 +32,13 @@ export default class Demos extends Component {
 	render() {
 		return (
 			<div>
-				<header className="page-header" role="banner">
-					<h1 id="page-title" className="page-title">Rea11y</h1>
+				<header className="Page-header" role="banner">
+					<h1 id="Page-title" className="Page-title">Rea11y</h1>
 					<p>A set of accessible React components.</p>
 				</header>
 
-				<main className="page">
-					<section aria-labelledby="page-title">
+				<main className="Page">
+					<section aria-labelledby="Page-title">
 						<FormsDemo />
 						<NumberInputDemo
 							value={this.state.value}
@@ -58,7 +58,7 @@ export default class Demos extends Component {
 					</section>
 				</main>
 
-				<footer className="page-footer" role="contentinfo">
+				<footer className="Page-footer" role="contentinfo">
 					<p>
 						<a href="https://github.com/felixgirault/rea11y">
 							Rea11y on Github

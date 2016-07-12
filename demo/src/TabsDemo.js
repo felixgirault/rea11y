@@ -8,20 +8,20 @@ import {StatefulTabs, TabPanel} from '../../src';
  */
 export default function TabsDemo() {
 	return (
-		<article className="pattern">
+		<article className="Pattern">
 			<header>
-				<h2 className="pattern-name">Tabs</h2>
+				<h2 className="Pattern-name">Tabs</h2>
 			</header>
 
-			<ul className="pattern-interactions">
-				<li className="pattern-interaction">
+			<ul className="Pattern-interactions">
+				<li className="Pattern-interaction">
 					<span>Activate the previous tab</span>
 					<span>
 						<kbd title="Left arrow">←</kbd>
 						<kbd title="Up arrow">↑</kbd>
 					</span>
 				</li>
-				<li className="pattern-interaction">
+				<li className="Pattern-interaction">
 					<span>Activate the next tab</span>
 					<span>
 						<kbd title="Right arrow">→</kbd>
@@ -30,11 +30,11 @@ export default function TabsDemo() {
 				</li>
 			</ul>
 
-			<div className="pattern-example">
+			<div className="Pattern-example">
 				<DummyTabs orientation="horizontal" />
 			</div>
 
-			<div className="pattern-example">
+			<div className="Pattern-example">
 				<DummyTabs orientation="vertical" />
 			</div>
 		</article>

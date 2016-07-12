@@ -19,7 +19,7 @@ export default function NumberInputControls({
 	onDecrement = noop
 }) {
 	return (
-		<div className="rea11y-number-input-controls">
+		<div className="r1y-NumberInputControls">
 			<NumberInputControl
 				name="increment"
 				text={incrementText}

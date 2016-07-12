@@ -8,9 +8,9 @@ import {StatefulRangeSlider} from '../../src';
  */
 export default function RangeSlidersDemo() {
 	return (
-		<article className="pattern">
+		<article className="Pattern">
 			<header>
-				<h2 className="pattern-name">Range slider</h2>
+				<h2 className="Pattern-name">Range slider</h2>
 			</header>
 
 			<p>
@@ -18,7 +18,7 @@ export default function RangeSlidersDemo() {
 				as a basic slider.
 			</p>
 
-			<div className="pattern-example">
+			<div className="Pattern-example">
 				<StatefulRangeSlider
 					min={0}
 					max={100}

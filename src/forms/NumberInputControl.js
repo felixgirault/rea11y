@@ -11,8 +11,8 @@ import classNames from 'classnames';
  */
 export default function NumberInputControl({name, title, text, onClick}) {
 	const className = classNames([
-		'rea11y-number-input-control',
-		`rea11y-number-input-control-${name}`
+		'r1y-NumberInputControl',
+		`r1y-NumberInputControl-${name}`
 	]);
 
 	return (

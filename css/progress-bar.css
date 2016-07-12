@@ -2,22 +2,22 @@
  *	Progress bar.
  */
 
-.rea11y-progress-bar {
+.r1y-ProgressBar {
 	position: relative;
 	border: 1px solid #aaa;
 }
 
-.rea11y-progress-bar-horizontal {
+.r1y-ProgressBar--horizontal {
 	width: 100%;
 	height: 1.5em;
 }
 
-.rea11y-progress-bar-vertical {
+.r1y-ProgressBar--vertical {
 	width: 1.5em;
 	height: 6em;
 }
 
-.rea11y-progress-bar-track {
+.r1y-ProgressBar-track {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -25,22 +25,22 @@
 	left: 0;
 }
 
-.rea11y-progress-bar-value {
+.r1y-ProgressBar-value {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	background: #ddd;
 }
 
-.rea11y-progress-bar-horizontal .rea11y-progress-bar-value {
+.r1y-ProgressBar--horizontal .r1y-ProgressBar-value {
 	top: 0;
 }
 
-.rea11y-progress-bar-vertical .rea11y-progress-bar-value {
+.r1y-ProgressBar--vertical .r1y-ProgressBar-value {
 	right: 0;
 }
 
-.rea11y-progress-bar-text {
+.r1y-ProgressBar-text {
 	position: relative;
 	text-align: center;
 }

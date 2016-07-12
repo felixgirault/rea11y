@@ -2,21 +2,21 @@
  *	Forms.
  */
 
-.rea11y-form-label {
+.r1y-Field-label {
 	display: block;
 }
 
-.rea11y-form-error {
+.r1y-Field-error {
 	margin: 0;
 	color: #f00;
 }
 
-.rea11y-form-hint {
+.r1y-Field-hint {
 	margin: 0;
 	color: #aaa;
 }
 
-.rea11y-form-input {
+.r1y-Field-input {
 	box-sizing: border-box;
 	margin: 0;
 	border: 1px solid #aaa;
@@ -33,17 +33,17 @@
  *	Number input.
  */
 
-.rea11y-number-input {
+.r1y-NumberInput {
 	position: relative;
 	border: 1px solid #aaa;
 	background: #fff;
 }
 
-.rea11y-number-input-has-controls {
+.r1y-NumberInput--withControls {
 	padding-right: 1.5em;
 }
 
-.rea11y-number-input-value {
+.r1y-NumberInput-value {
 	box-sizing: border-box;
 	margin: 0;
 	border: none;
@@ -53,7 +53,7 @@
 	font-size: 1em;
 }
 
-.rea11y-number-input-control {
+.r1y-NumberInputControl {
 	position: absolute;
 	border: none;
 	width: 3em;
@@ -65,16 +65,16 @@
 	font-weight: bold;
 }
 
-.rea11y-number-input-control:hover {
+.r1y-NumberInputControl:hover {
 	background: #aaa;
 }
 
-.rea11y-number-input-control-increment {
+.r1y-NumberInputControl-increment {
 	top: 0;
 	right: 0;
 }
 
-.rea11y-number-input-control-decrement {
+.r1y-NumberInputControl-decrement {
 	bottom: 0;
 	right: 0;
 }

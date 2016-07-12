@@ -92,9 +92,9 @@ export default class Tab extends Component {
 		const {id, panelId, name, active} = this.props;
 
 		const className = classNames({
-			'rea11y-tab': true,
-			'rea11y-tab-active': active,
-			[`rea11y-tab-${name}`]: true
+			'r1y-Tab': true,
+			'r1y-Tab--active': active,
+			[`r1y-Tab-${name}`]: true
 		});
 
 		return (

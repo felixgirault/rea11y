@@ -82,8 +82,8 @@ export default class ProgressBar extends Component {
 		const style = makeStyle(this.props);
 
 		const className = classNames([
-			'rea11y-progress-bar',
-			`rea11y-progress-bar-${this.props.orientation}`
+			'r1y-ProgressBar',
+			`r1y-ProgressBar--${this.props.orientation}`
 		]);
 
 		return (
@@ -96,14 +96,14 @@ export default class ProgressBar extends Component {
 				aria-valuenow={value}
 				aria-valuetext={text}
 			>
-				<div className="rea11y-progress-bar-track">
+				<div className="r1y-ProgressBar-track">
 					<div
-						className="rea11y-progress-bar-value"
+						className="r1y-ProgressBar-value"
 						style={style}
 					/>
 				</div>
 
-				<div className="rea11y-progress-bar-text">
+				<div className="r1y-ProgressBar-text">
 					{text}
 				</div>
 			</div>

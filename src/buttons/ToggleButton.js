@@ -69,8 +69,8 @@ export default class ToggleButton extends Component {
 	 */
 	render() {
 		const className = classNames({
-			'rea11y-toggle-button': true,
-			'rea11y-toggle-button-pressed': this.props.pressed
+			'r1y-ToggleButton': true,
+			'r1y-ToggleButton--pressed': this.props.pressed
 		});
 
 		return (

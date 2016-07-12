@@ -11,9 +11,9 @@ import classNames from 'classnames';
  */
 export default function TabPanel({id, tabId, name, active = false, children}) {
 	const className = classNames({
-		'rea11y-panel': true,
-		'rea11y-panel-active': active,
-		[`rea11y-panel-${name}`]: true
+		'r1y-Panel': true,
+		'r1y-Panel--active': active,
+		[`r1y-Panel-${name}`]: true
 	});
 
 	return (

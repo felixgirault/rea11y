@@ -9,9 +9,9 @@ import {Modal} from '../../src';
  */
 export default function ModalDemo() {
 	return (
-		<article className="pattern">
+		<article className="Pattern">
 			<header>
-				<h2 className="pattern-name">Modal</h2>
+				<h2 className="Pattern-name">Modal</h2>
 			</header>
 
 			<p>
@@ -20,14 +20,14 @@ export default function ModalDemo() {
 				that opened it.
 			</p>
 
-			<ul className="pattern-interactions">
-				<li className="pattern-interaction">
+			<ul className="Pattern-interactions">
+				<li className="Pattern-interaction">
 					<span>Close</span>
 					<span><kbd>Escape</kbd></span>
 				</li>
 			</ul>
 
-			<div className="pattern-example">
+			<div className="Pattern-example">
 				<StatefulModal />
 			</div>
 		</article>
@@ -67,14 +67,14 @@ class StatefulModal extends Component {
 		}
 
 		return (
-			<Modal labelId="modal-title" onClose={this.handleClose}>
-				<div className="rea11y-modal-header">
-					<h1 id="modal-title" className="rea11y-modal-title">
+			<Modal labelId="Modal-title" onClose={this.handleClose}>
+				<div className="Modal-header">
+					<h1 id="Modal-title" className="Modal-title">
 						This is a modal
 					</h1>
 				</div>
 
-				<div className="rea11y-modal-body">
+				<div className="Modal-body">
 					<p>
 						Lorem ipsum dolor sit amet, consectetur adipiscing
 						elit, sed do eiusmod tempor incididunt ut labore et
@@ -96,7 +96,7 @@ class StatefulModal extends Component {
 					</p>
 				</div>
 
-				<div className="rea11y-modal-footer">
+				<div className="Modal-footer">
 					<button>Do nothing</button>
 					<button onClick={this.handleClose}>
 						Close

@@ -91,12 +91,12 @@ button:active {
  *	Layout.
  */
 
-.page-header {
+.Page-header {
 	margin: 6em 0 9em 0;
 	text-align: center;
 }
 
-.page-title {
+.Page-title {
 	margin: 0;
 	color: #3D9970;
 	text-align: center;
@@ -104,18 +104,18 @@ button:active {
 	font-size: 4em;
 }
 
-.pattern {
+.Pattern {
 	margin: 6em 0;
 }
 
-.pattern-name {
+.Pattern-name {
 	margin: 1.5em 0 0.75em 0;
 	color: #3D9970;
 	line-height: 1.5em;
 	font-size: 2em;
 }
 
-.pattern-interactions {
+.Pattern-interactions {
 	margin: 0;
 	padding: 0 0 1.5em 0;
 	list-style: none;
@@ -124,7 +124,7 @@ button:active {
 
 /* http://www.w3.org/Style/Examples/007/leaders */
 
-.pattern-interaction:before {
+.Pattern-interaction:before {
 	float: left;
     width: 0;
     white-space: nowrap;
@@ -136,27 +136,27 @@ button:active {
 		'. . . . . . . . . . . . . . . . . . . . '
 }
 
-.pattern-interaction span:first-child {
+.Pattern-interaction span:first-child {
 	padding-right: 0.75em;
 	background: #111;
 }
 
-.pattern-interaction span + span {
+.Pattern-interaction span + span {
 	float: right;
 	padding-left: 0.75em;
 	background: #111;
 }
 
-.pattern-example {
+.Pattern-example {
 	margin-bottom: 1.5em;
 }
 
-.page-footer {
+.Page-footer {
 	margin: 9em 0 6em 0;
 	text-align: center;
 }
 
-.page-footer p {
+.Page-footer p {
 	margin: 0;
 }
 
@@ -166,19 +166,19 @@ button:active {
  *	Number input.
  */
 
-.rea11y-number-input {
+.r1y-NumberInput {
 	border: 1px solid #3D9970;
 }
 
-.rea11y-number-input-has-controls {
+.r1y-NumberInput--withControls {
 	padding-right: 3em;
 }
 
-.rea11y-number-input-value {
+.r1y-NumberInput-value {
 	padding: 0.75em;
 }
 
-.rea11y-number-input-control {
+.r1y-NumberInputControl {
 	width: 3em;
 	height: 1.5em;
 	padding: 0;
@@ -193,23 +193,23 @@ button:active {
  *	Progress bar.
  */
 
-.rea11y-progress-bar {
+.r1y-ProgressBar {
 	border: 1px solid #3D9970;
 }
 
-.rea11y-progress-bar-horizontal {
+.r1y-ProgressBar--horizontal {
 	height: 3em;
 }
 
-.rea11y-progress-bar-vertical {
+.r1y-ProgressBar--vertical {
 	width: 100%;
 }
 
-.rea11y-progress-bar-value {
+.r1y-ProgressBar-value {
 	background: #3D9970;
 }
 
-.rea11y-progress-bar-text {
+.r1y-ProgressBar-text {
 	padding: 0.75em;
 	font-weight: bold;
 }
@@ -220,38 +220,38 @@ button:active {
  *	Slider.
  */
 
-.rea11y-slider-track {
+.r1y-Slider-track {
 	border: 1px solid #3D9970;
 	background: #ddd;
 }
 
-.rea11y-slider-range .rea11y-slider-track {
+.r1y-RangeSlider .r1y-Slider-track {
 	background: #111;
 }
 
-.rea11y-slider-handle {
+.r1y-SliderHandle {
 	background: #111;
 }
 
-.rea11y-slider-range .rea11y-slider-handle:first-child {
+.r1y-RangeSlider .r1y-SliderHandle:first-child {
 	background: #ddd;
 }
 
-.rea11y-slider-handle-control {
+.r1y-SliderHandle-control {
 	border: none;
 	background: #3D9970;
 }
 
-.rea11y-slider-handle-control:hover,
-.rea11y-slider-handle-control:focus {
+.r1y-SliderHandle-control:hover,
+.r1y-SliderHandle-control:focus {
 	background: #FF851B;
 }
 
-.rea11y-slider-handle-control:active {
+.r1y-SliderHandle-control:active {
 	background: #85144B;
 }
 
-.rea11y-slider-handle-text {
+.r1y-SliderHandle-text {
 	font-weight: bold;
 }
 
@@ -261,35 +261,35 @@ button:active {
  *	Tabs.
  */
 
-.rea11y-tabs {
+.r1y-Tabs {
 	border-color: #3D9970;
 }
 
-.rea11y-tab-list {
+.r1y-Tab-tabList {
 	background: #3D9970;
 }
 
-.rea11y-tab {
+.r1y-Tab {
 	background: #3D9970;
 }
 
-.rea11y-tab:hover,
-.rea11y-tab:focus {
+.r1y-Tab:hover,
+.r1y-Tab:focus {
 	background: #FF851B;
 }
 
-.rea11y-tab:active {
+.r1y-Tab:active {
 	background: #85144B;
 	color: #ddd;
 }
 
-.rea11y-tab-active {
+.r1y-Tab--active {
 	background: #111;
 	color: #ddd;
 }
 
-.rea11y-tab-active:hover,
-.rea11y-tab-active:focus {
+.r1y-Tab--active:hover,
+.r1y-Tab--active:focus {
 	background: #111;
 }
 
@@ -299,11 +299,11 @@ button:active {
  *	Forms.
  */
 
-.rea11y-form-label {
+.r1y-Field-label {
 	color: #3D9970;
 }
 
-.rea11y-form-input {
+.r1y-Field-input {
 	padding: 0.75em;
 	border: 1px solid #3D9970;
 }
@@ -314,37 +314,37 @@ button:active {
  *
  */
 
-.rea11y-modal {
+.r1y-Modal {
 	outline: 0.75em solid #111;
 	color: #111;
 }
 
-.rea11y-modal-backdrop:focus .rea11y-modal {
+.r1y-Modal-backdrop:focus .r1y-Modal {
 	outline-color: #222;
 }
 
-.rea11y-modal-header {
+.Modal-header {
 	padding: 1.5em;
 	background: #3D9970;
 	color: #fff;
 }
 
-.rea11y-modal-title {
+.Modal-title {
 	margin: 0;
 	line-height: 1em;
 	font-size: 1.5em;
 }
 
-.rea11y-modal-body {
+.Modal-body {
 	padding: 1.5em;
 }
 
-.rea11y-modal-footer {
+.Modal-footer {
 	padding: 1.5em;
 	background: #ddd;
 	text-align: center;
 }
 
-.rea11y-modal-footer button {
+.Modal-footer button {
 	margin: 0 1px;
 }

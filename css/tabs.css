@@ -2,60 +2,60 @@
  *	Tabs.
  */
 
-.rea11y-tabs {
+.r1y-Tabs {
 	border: 1px solid #aaa;
 }
 
-.rea11y-tabs-vertical {
+.r1y-Tabs--vertical {
 	display: table;
 	width: 100%;
 }
 
-.rea11y-tab-list {
+.r1y-Tabs-tablist {
 	background: #ddd;
 }
 
-.rea11y-tabs-vertical .rea11y-tab-list,
-.rea11y-tabs-vertical .rea11y-panel-list {
+.r1y-Tabs--vertical .r1y-Tabs-tablist,
+.r1y-Tabs--vertical .r1y-Tabs-panelList {
 	display: table-cell;
 	vertical-align: top;
 }
 
-.rea11y-tabs-vertical .rea11y-panel-list {
+.r1y-Tabs--vertical .r1y-Tabs-panelList {
 	width: 99%;
 }
 
-.rea11y-tab {
+.r1y-Tab {
 	margin: 0;
 	border: none;
 	padding: 0.75em;
 	background: #ddd;
 }
 
-.rea11y-tabs-vertical .rea11y-tab {
+.r1y-Tabs--vertical .r1y-Tab {
 	display: block;
 	width: 100%;
 }
 
-.rea11y-tab-active {
+.r1y-Tab--active {
 	background: #fff;
 }
 
-.rea11y-tab:hover,
-.rea11y-tab:focus {
+.r1y-Tab:hover,
+.r1y-Tab:focus {
 	background: #aaa;
 }
 
-.rea11y-tab-active:hover,
-.rea11y-tab-active:focus {
+.r1y-Tab--active:hover,
+.r1y-Tab--active:focus {
 	background: #fff;
 }
 
-.rea11y-panel {
+.r1y-Panel {
 	display: none;
 	padding: 0.75em;
 }
 
-.rea11y-panel-active {
+.r1y-Panel--active {
 	display: inherit;
 }

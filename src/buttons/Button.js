@@ -12,7 +12,7 @@ export default function Button({text, ...props}) {
 	return (
 		<button
 			{...props}
-			className="rea11y-button"
+			className="r1y-Button"
 			role="button"
 		>
 			{text}

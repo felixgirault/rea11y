@@ -29,7 +29,7 @@ describe('Modal', function() {
 			</Modal>
 		);
 
-		const node = findByClass(modal, 'rea11y-modal-backdrop');
+		const node = findByClass(modal, 'r1y-Modal-backdrop');
 
 		expect(node.getAttribute('role')).to.equal('dialog');
 		expect(node.getAttribute('tabindex')).to.equal('0');
@@ -45,7 +45,7 @@ describe('Modal', function() {
 			</Modal>
 		);
 
-		const node = findByClass(modal, 'rea11y-modal-backdrop');
+		const node = findByClass(modal, 'r1y-Modal-backdrop');
 
 		expect(node.getAttribute('aria-label')).to.equal('label');
 	});
@@ -60,7 +60,7 @@ describe('Modal', function() {
 			</Modal>
 		);
 
-		const node = findByClass(modal, 'rea11y-modal-backdrop');
+		const node = findByClass(modal, 'r1y-Modal-backdrop');
 
 		expect(node.getAttribute('aria-labelledby')).to.equal('title');
 		expect(node.hasAttribute('aria-label')).to.be.false;
@@ -78,7 +78,7 @@ describe('Modal', function() {
 			</Modal>
 		);
 
-		const node = findByClass(modal, 'rea11y-modal-backdrop');
+		const node = findByClass(modal, 'r1y-Modal-backdrop');
 
 		Simulate.keyDown(node, {
 			key: 'Escape',

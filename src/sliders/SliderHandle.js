@@ -260,8 +260,8 @@ export default class SliderHandle extends Component {
 		const style = makeStyle(this.props);
 
 		const className = classNames({
-			'rea11y-slider-handle': true,
-			'rea11y-slider-handle-dragging': this.state.dragging
+			'r1y-SliderHandle': true,
+			'is-dragging': this.state.dragging
 		});
 
 		return (
@@ -279,7 +279,7 @@ export default class SliderHandle extends Component {
 					}}
 				>
 					<div
-						className="rea11y-slider-handle-control"
+						className="r1y-SliderHandle-control"
 						role="slider"
 						aria-valuemin={min}
 						aria-valuemax={max}
@@ -289,7 +289,7 @@ export default class SliderHandle extends Component {
 					></div>
 				</KeyHandler>
 
-				<div className="rea11y-slider-handle-text">
+				<div className="r1y-SliderHandle-text">
 					{text}
 				</div>
 			</div>

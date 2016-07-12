@@ -88,10 +88,10 @@ export default class FocusTrap extends Component {
 	 */
 	render() {
 		return (
-			<div className="rea11y-focus-trap">
+			<div className="r1y-FocusTrap">
 				<div onFocus={this.handleFocus} tabIndex="0" />
 
-				<div className="rea11y-focus-trap-children" ref="children">
+				<div className="r1y-FocusTrap-children" ref="children">
 					{this.props.children}
 				</div>
 

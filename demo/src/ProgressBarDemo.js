@@ -8,12 +8,12 @@ import {ProgressBar} from '../../src';
  */
 export default function ProgressBarDemo({value}) {
 	return (
-		<article className="pattern">
+		<article className="Pattern">
 			<header>
-				<h2 className="pattern-name">Progress bar</h2>
+				<h2 className="Pattern-name">Progress bar</h2>
 			</header>
 
-			<div className="pattern-example">
+			<div className="Pattern-example">
 				<ProgressBar value={value} />
 			</div>
 		</article>
