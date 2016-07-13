@@ -1,38 +1,8 @@
 import React, {Component} from 'react';
-import autoBind from 'autobind-decorator';
-import {Modal} from '../../src';
+import {storiesOf, action} from '@kadira/storybook';
+import {Modal} from '../src';
 
 
-
-/**
- *
- */
-export default function ModalDemo() {
-	return (
-		<article className="Pattern">
-			<header>
-				<h2 className="Pattern-name">Modal</h2>
-			</header>
-
-			<p>
-				When a modal is open, focus is trapped inside it.
-				On close, the focus is given back to the element
-				that opened it.
-			</p>
-
-			<ul className="Pattern-interactions">
-				<li className="Pattern-interaction">
-					<span>Close</span>
-					<span><kbd>Escape</kbd></span>
-				</li>
-			</ul>
-
-			<div className="Pattern-example">
-				<StatefulModal />
-			</div>
-		</article>
-	);
-}
 
 /**
  *
@@ -42,19 +12,19 @@ class StatefulModal extends Component {
 	constructor(props) {
 		super(props);
 
+		this.handleOpen = this.handleOpen.bind(this);
+		this.handleClose = this.handleClose.bind(this);
 		this.state = {
 			open: false
 		};
 	}
 
-	@autoBind
 	handleOpen() {
 		this.setState({
 			open: true
 		});
 	}
 
-	@autoBind
 	handleClose() {
 		this.setState({
 			open: false
@@ -118,3 +88,28 @@ class StatefulModal extends Component {
 		);
 	}
 }
+
+/**
+ *
+ */
+storiesOf('Modal', module)
+	.addWithInfo(
+		'horizontal',
+		`
+When a modal is open, focus is trapped inside it.
+On close, the focus is given back to the element
+that opened it.
+
+Keyboard interactions when the focus is in the modal:
+
+* \`Esc\` closes the modal
+		`,
+		() => (
+			<StatefulModal />
+		),
+		{
+			inline: true,
+			source: false,
+			propTables: false
+		}
+	);
