@@ -55,6 +55,7 @@ class SliderHandle extends Component {
 		bigStep: PropTypes.number,
 		makeText: PropTypes.func,
 		makeStyle: PropTypes.func,
+		subscribeToTrackEvents: PropTypes.func,
 		onChange: PropTypes.func
 	};
 
@@ -72,6 +73,7 @@ class SliderHandle extends Component {
 		bigStep: 10,
 		makeText: makeDefaultText,
 		makeStyle: makeDefaultStyle,
+		registerTrackEventListener: noop,
 		onChange: noop
 	};
 
@@ -84,6 +86,8 @@ class SliderHandle extends Component {
 		this.state = {
 			dragging: false
 		};
+
+		props.registerTrackEventListener(this.handleTrackEvent);
 	}
 
 	/**
@@ -134,6 +138,14 @@ class SliderHandle extends Component {
 		if (value !== boundValue) {
 			onChange(boundValue);
 		}
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	handleTrackEvent(event) {
+		this.handleDrag(event);
 	}
 
 	/**

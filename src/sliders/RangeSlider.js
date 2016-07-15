@@ -37,10 +37,36 @@ class RangeSlider extends Component {
 	/**
 	 *
 	 */
+	constructor(props) {
+		super(props);
+
+		this.lowerTrackEventListener = noop;
+		this.upperTrackEventListener = noop;
+	}
+
+	/**
+	 *
+	 */
 	distance(rect, event) {
 		return (this.props.orientation === 'horizontal')
 			? Math.abs(rect.left - event.pageX)
 			: Math.abs(rect.top - event.pageY);
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	setLowerTrackEventListener(listener) {
+		this.lowerTrackEventListener = listener;
+	}
+
+	/**
+	 *
+	 */
+	@autoBind
+	setUpperTrackEventListener(listener) {
+		this.upperTrackEventListener = listener;
 	}
 
 	/**
@@ -57,9 +83,9 @@ class RangeSlider extends Component {
 		const upperDistance = this.distance(upperRect, event);
 
 		if (lowerDistance < upperDistance) {
-			lower.handleDrag(event);
+			this.lowerTrackEventListener(event);
 		} else {
-			upper.handleDrag(event);
+			this.upperTrackEventListener(event);
 		}
 	}
 
@@ -104,6 +130,7 @@ class RangeSlider extends Component {
 						value={this.props.lowerValue}
 						onChange={this.handleLowerChange}
 						upperBound={this.props.upperValue}
+						registerTrackEventListener={this.setLowerTrackEventListener}
 					/>
 
 					<SliderHandle
@@ -112,6 +139,7 @@ class RangeSlider extends Component {
 						value={this.props.upperValue}
 						onChange={this.handleUpperChange}
 						lowerBound={this.props.lowerValue}
+						registerTrackEventListener={this.setUpperTrackEventListener}
 					/>
 				</div>
 			</div>
