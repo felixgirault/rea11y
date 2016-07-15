@@ -11,7 +11,7 @@ const enhance = compose(
 	withState(
 		'pressed',
 		'setPressed',
-		({defaultPressed = 0}) =>
+		({defaultPressed = false}) =>
 			defaultPressed
 	),
 	withHandlers({
