@@ -1,9 +1,4 @@
-/**
- *
- */
-import React, {Component, PropTypes} from 'react';
-import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
+import {compose, withState, withHandlers} from 'recompose';
 import {noop} from 'lodash';
 import Slider from './Slider';
 
@@ -12,56 +7,22 @@ import Slider from './Slider';
 /**
  *
  */
-@pureRender
-export default class StatefulSlider extends Component {
+const enhance = compose(
+	withState(
+		'value',
+		'setValue',
+		({defaultValue = 0}) =>
+			defaultValue
+	),
+	withHandlers({
+		onChange: ({setValue, onChange = noop}) =>
+			(value) => {
+				setValue(value);
+				onChange(value);
+			}
+	})
+);
 
-	/**
-	 *
-	 */
-	static propTypes = {
-		defaultValue: PropTypes.number,
-		onChange: PropTypes.func
-	};
 
-	/**
-	 *
-	 */
-	static defaultProps = {
-		defaultValue: 0,
-		onChange: noop
-	};
 
-	/**
-	 *
-	 */
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			value: this.props.defaultValue
-		};
-	}
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleChange(value) {
-		this.setState({value}, () => {
-			this.props.onChange(value);
-		});
-	}
-
-	/**
-	 *
-	 */
-	render() {
-		return (
-			<Slider
-				{...this.props}
-				value={this.state.value}
-				onChange={this.handleChange}
-			/>
-		);
-	}
-}
+export default enhance(Slider);

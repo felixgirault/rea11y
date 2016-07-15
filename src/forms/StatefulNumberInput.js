@@ -1,9 +1,4 @@
-/**
- *
- */
-import React, {Component, PropTypes} from 'react';
-import pureRender from 'pure-render-decorator';
-import autoBind from 'autobind-decorator';
+import {compose, withState, withHandlers} from 'recompose';
 import {noop} from 'lodash';
 import NumberInput from './NumberInput';
 
@@ -12,56 +7,23 @@ import NumberInput from './NumberInput';
 /**
  *
  */
-@pureRender
-export default class StatefulNumberInput extends Component {
+const enhance = compose(
+	withState(
+		'value',
+		'setValue',
+		({defaultValue = 0}) =>
+			defaultValue
+	),
+	withHandlers({
+		onChange: ({setValue, onChange = noop}) =>
+			(value) => {
+				setValue(value);
+				onChange(value);
+			}
+	})
+);
 
-	/**
-	 *
-	 */
-	static propTypes = {
-		defaultValue: PropTypes.number,
-		onChange: PropTypes.func
-	};
 
-	/**
-	 *
-	 */
-	static defaultProps = {
-		defaultValue: 0,
-		onChange: noop
-	};
 
-	/**
-	 *
-	 */
-	constructor(props) {
-		super(props);
+export default enhance(NumberInput);
 
-		this.state = {
-			value: props.defaultValue
-		};
-	}
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleChange(value) {
-		this.setState({value}, () => {
-			this.props.onChange(value);
-		});
-	}
-
-	/**
-	 *
-	 */
-	render() {
-		return (
-			<NumberInput
-				{...this.props}
-				value={this.state.value}
-				onChange={this.handleChange}
-			/>
-		);
-	}
-}
