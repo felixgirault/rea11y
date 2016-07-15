@@ -33,79 +33,54 @@ function makeDefaultStyle({min, max, value, orientation}) {
 /**
  *
  */
-class ProgressBar extends Component {
+const ProgressBar = (props) => {
+	const {min, max, value, orientation, makeText, makeStyle} = props;
 
-	/**
-	 *
-	 */
-	static propTypes = {
-		orientation: PropTypes.string,
-		min: PropTypes.number,
-		max: PropTypes.number,
-		value: PropTypes.number,
-		makeText: PropTypes.func,
-		makeStyle: PropTypes.func
-	};
+	const text = makeText(props);
+	const style = makeStyle(props);
 
-	/**
-	 *
-	 */
-	static defaultProps = {
-		orientation: 'horizontal',
-		min: 0,
-		max: 100,
-		value: 0,
-		makeText: makeDefaultText,
-		makeStyle: makeDefaultStyle
-	};
+	const className = classNames([
+		'r1y-ProgressBar',
+		`r1y-ProgressBar--${orientation}`
+	]);
 
-	/**
-	 *
-	 */
-	constructor(props) {
-		super(props);
-
-		this.id = uniqueId('rea11y-');
-	}
-
-	/**
-	 *
-	 */
-	render() {
-		const {min, max, value, makeText, makeStyle} = this.props;
-
-		const text = makeText(this.props);
-		const style = makeStyle(this.props);
-
-		const className = classNames([
-			'r1y-ProgressBar',
-			`r1y-ProgressBar--${this.props.orientation}`
-		]);
-
-		return (
-			<div
-				id={this.id}
-				className={className}
-				role="progressbar"
-				aria-valuemin={min}
-				aria-valuemax={max}
-				aria-valuenow={value}
-				aria-valuetext={text}
-			>
-				<div className="r1y-ProgressBar-track">
-					<div
-						className="r1y-ProgressBar-value"
-						style={style}
-					/>
-				</div>
-
-				<div className="r1y-ProgressBar-text">
-					{text}
-				</div>
+	return (
+		<div
+			className={className}
+			role="progressbar"
+			aria-valuemin={min}
+			aria-valuemax={max}
+			aria-valuenow={value}
+			aria-valuetext={text}
+		>
+			<div className="r1y-ProgressBar-track">
+				<div className="r1y-ProgressBar-value" style={style} />
 			</div>
-		);
-	}
-}
+
+			<div className="r1y-ProgressBar-text">
+				{text}
+			</div>
+		</div>
+	);
+};
+
+ProgressBar.propTypes = {
+	orientation: PropTypes.string,
+	min: PropTypes.number,
+	max: PropTypes.number,
+	value: PropTypes.number,
+	makeText: PropTypes.func,
+	makeStyle: PropTypes.func
+};
+
+ProgressBar.defaultProps = {
+	orientation: 'horizontal',
+	min: 0,
+	max: 100,
+	value: 0,
+	makeText: makeDefaultText,
+	makeStyle: makeDefaultStyle
+};
 
 
 

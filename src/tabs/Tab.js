@@ -1,6 +1,5 @@
 import React, {Component, PropTypes} from 'react';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {ARROW, HOME, END} from 'offkey';
 import {noop} from 'lodash';
@@ -11,115 +10,75 @@ import KeyHandler from '../utils/KeyHandler';
 /**
  *
  */
-class Tab extends Component {
+const Tab = ({
+	id,
+	panelId,
+	name,
+	title,
+	active,
+	onActive,
+	onFirst,
+	onLast,
+	onPrevious,
+	onNext
+}) => {
+	const handleClick = () => onActive(name);
+	const handlePrevious = () => onPrevious(name);
+	const handleNext = () => onNext(name);
 
-	/**
-	 *
-	 */
-	static propTypes = {
-		id: PropTypes.string,
-		panelId: PropTypes.string,
-		name: PropTypes.string,
-		title: PropTypes.string,
-		active: PropTypes.bool,
-		onActive: PropTypes.func,
-		onFirst: PropTypes.func,
-		onLast: PropTypes.func,
-		onPrevious: PropTypes.func,
-		onNext: PropTypes.func
-	};
+	const className = classNames({
+		'r1y-Tab': true,
+		'r1y-Tab--active': active,
+		[`r1y-Tab-${name}`]: true
+	});
 
-	/**
-	 *
-	 */
-	static defaultProps = {
-		active: false,
-		onActive: noop,
-		onFirst: noop,
-		onLast: noop,
-		onPrevious: noop,
-		onNext: noop
-	};
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleClick() {
-		this.props.onActive(this.props.name);
-	}
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleFirst() {
-		this.props.onFirst();
-	}
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleLast() {
-		this.props.onLast();
-	}
-
-	/**
-	 *
-	 */
-	@autoBind
-	handlePrevious() {
-		this.props.onPrevious(this.props.name);
-	}
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleNext() {
-		this.props.onNext(this.props.name);
-	}
-
-	/**
-	 *
-	 */
-	render() {
-		const {id, panelId, name, active} = this.props;
-
-		const className = classNames({
-			'r1y-Tab': true,
-			'r1y-Tab--active': active,
-			[`r1y-Tab-${name}`]: true
-		});
-
-		return (
-			<KeyHandler
-				handlers={{
-					[HOME]: this.handleFirst,
-					[END]: this.handleLast,
-					[ARROW.UP]: this.handlePrevious,
-					[ARROW.LEFT]: this.handlePrevious,
-					[ARROW.DOWN]: this.handleNext,
-					[ARROW.RIGHT]: this.handleNext
-				}}
+	return (
+		<KeyHandler
+			handlers={{
+				[HOME]: onFirst,
+				[END]: onLast,
+				[ARROW.UP]: handlePrevious,
+				[ARROW.LEFT]: handlePrevious,
+				[ARROW.DOWN]: handleNext,
+				[ARROW.RIGHT]: handleNext
+			}}
+		>
+			<button
+				id={id}
+				className={className}
+				role="tab"
+				aria-controls={panelId}
+				aria-selected={active}
+				onClick={handleClick}
+				tabIndex={active ? 0 : -1}
 			>
-				<button
-					id={id}
-					className={className}
-					role="tab"
-					aria-controls={panelId}
-					aria-selected={active}
-					onClick={this.handleClick}
-					onKeyDown={this.handleKeyDown}
-					tabIndex={active ? 0 : -1}
-				>
-					{this.props.title}
-				</button>
-			</KeyHandler>
-		);
-	}
-}
+				{title}
+			</button>
+		</KeyHandler>
+	);
+};
+
+Tab.propTypes = {
+	id: PropTypes.string,
+	panelId: PropTypes.string,
+	name: PropTypes.string,
+	title: PropTypes.string,
+	active: PropTypes.bool,
+	onActive: PropTypes.func,
+	onFirst: PropTypes.func,
+	onLast: PropTypes.func,
+	onPrevious: PropTypes.func,
+	onNext: PropTypes.func
+};
+
+Tab.defaultProps = {
+	active: false,
+	onActive: noop,
+	onFirst: noop,
+	onLast: noop,
+	onPrevious: noop,
+	onNext: noop
+};
 
 
 
