@@ -47,6 +47,7 @@ but for each handle.
 			<StatefulRangeSlider
 				defaultLowerValue={16}
 				defaultUpperValue={64}
+				onChange={action('onChange')}
 			/>
 		),
 		{

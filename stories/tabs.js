@@ -17,7 +17,7 @@ Keyboard interactions when the focus is a tab:
 * \`↑\` or \`←\` activates the previous tab
 		`,
 		() => (
-			<StatefulTabs defaultActive="first">
+			<StatefulTabs defaultActive="first" onActive={action('onActive')}>
 				<TabPanel name="first" title="First">
 					<p>First panel's contents.</p>
 				</TabPanel>
