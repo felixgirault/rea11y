@@ -1,8 +1,5 @@
-/**
- *
- */
 import React, {Component, PropTypes} from 'react';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import classNames from 'classnames';
 import {uniqueId} from 'lodash';
 import percentage from '../utils/percentage';
@@ -36,8 +33,7 @@ function makeDefaultStyle({min, max, value, orientation}) {
 /**
  *
  */
-@pureRender
-export default class ProgressBar extends Component {
+class ProgressBar extends Component {
 
 	/**
 	 *
@@ -110,3 +106,7 @@ export default class ProgressBar extends Component {
 		);
 	}
 }
+
+
+
+export default pure(ProgressBar);

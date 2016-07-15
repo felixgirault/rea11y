@@ -1,9 +1,6 @@
-/**
- *
- */
 import React, {Component, Children, PropTypes, cloneElement} from 'react';
 import {findDOMNode} from 'react-dom';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {uniqueId} from 'lodash';
@@ -31,8 +28,7 @@ function makeDefaultPanelId(id, name) {
 /**
  *
  */
-@pureRender
-export default class Tabs extends Component {
+class Tabs extends Component {
 
 	/**
 	 *
@@ -195,3 +191,7 @@ export default class Tabs extends Component {
 		);
 	}
 }
+
+
+
+export default pure(Tabs);

@@ -1,9 +1,6 @@
-/**
- *
- */
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import {on, off} from 'dom-helpers/events';
 import tabbable from '../utils/tabbable';
@@ -13,8 +10,7 @@ import tabbable from '../utils/tabbable';
 /**
  *	Traps the focus around the component's children.
  */
-@pureRender
-export default class FocusTrap extends Component {
+class FocusTrap extends Component {
 
 	/**
 	 *
@@ -100,3 +96,7 @@ export default class FocusTrap extends Component {
 		);
 	}
 }
+
+
+
+export default pure(FocusTrap);

@@ -1,7 +1,5 @@
-/**
- *
- */
 import React, {PropTypes} from 'react';
+import {pure} from 'recompose';
 import classNames from 'classnames';
 
 
@@ -9,7 +7,7 @@ import classNames from 'classnames';
 /**
  *
  */
-export default function NumberInputControl({name, title, text, onClick}) {
+const NumberInputControl = ({name, title, text, onClick}) => {
 	const className = classNames([
 		'r1y-NumberInputControl',
 		`r1y-NumberInputControl-${name}`
@@ -26,12 +24,13 @@ export default function NumberInputControl({name, title, text, onClick}) {
 	);
 }
 
-/**
- *
- */
 NumberInputControl.propTypes = {
 	name: PropTypes.string,
 	title: PropTypes.string,
 	text: PropTypes.string,
 	onClick: PropTypes.func
 };
+
+
+
+export default pure(NumberInputControl);

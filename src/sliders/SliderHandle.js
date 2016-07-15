@@ -1,9 +1,6 @@
-/**
- *
- */
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
@@ -42,8 +39,7 @@ function makeDefaultStyle({min, max, value, orientation}) {
 /**
  *
  */
-@pureRender
-export default class SliderHandle extends Component {
+class SliderHandle extends Component {
 
 	/**
 	 *
@@ -296,3 +292,7 @@ export default class SliderHandle extends Component {
 		);
 	}
 }
+
+
+
+export default pure(SliderHandle);

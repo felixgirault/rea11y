@@ -1,8 +1,5 @@
-/**
- *
- */
 import React, {Component, PropTypes} from 'react';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {ARROW, HOME, END} from 'offkey';
@@ -14,8 +11,7 @@ import KeyHandler from '../utils/KeyHandler';
 /**
  *
  */
-@pureRender
-export default class Tab extends Component {
+class Tab extends Component {
 
 	/**
 	 *
@@ -124,3 +120,7 @@ export default class Tab extends Component {
 		);
 	}
 }
+
+
+
+export default pure(Tab);

@@ -1,8 +1,5 @@
-/**
- *
- */
 import {Component, PropTypes, Children, cloneElement} from 'react';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 
 
@@ -10,8 +7,7 @@ import autoBind from 'autobind-decorator';
 /**
  *
  */
-@pureRender
-export default class KeyHandler extends Component {
+class KeyHandler extends Component {
 
 	/**
 	 *
@@ -52,3 +48,7 @@ export default class KeyHandler extends Component {
 		});
 	}
 }
+
+
+
+export default pure(KeyHandler);

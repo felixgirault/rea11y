@@ -1,7 +1,5 @@
-/**
- *
- */
 import React, {PropTypes} from 'react';
+import {pure} from 'recompose';
 import classNames from 'classnames';
 
 
@@ -9,7 +7,7 @@ import classNames from 'classnames';
 /**
  *
  */
-export default function TabPanel({id, tabId, name, active = false, children}) {
+const TabPanel = ({id, tabId, name, active = false, children}) => {
 	const className = classNames({
 		'r1y-Panel': true,
 		'r1y-Panel--active': active,
@@ -30,9 +28,6 @@ export default function TabPanel({id, tabId, name, active = false, children}) {
 	);
 }
 
-/**
- *
- */
 TabPanel.propTypes = {
 	id: PropTypes.string,
 	tabId: PropTypes.string,
@@ -40,3 +35,6 @@ TabPanel.propTypes = {
 	active: PropTypes.bool,
 	children: PropTypes.node.isRequired
 };
+
+
+export default pure(TabPanel);

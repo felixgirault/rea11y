@@ -1,8 +1,5 @@
-/**
- *
- */
 import React, {Component, PropTypes, Children, cloneElement} from 'react';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
@@ -15,8 +12,7 @@ import KeyHandler from '../utils/KeyHandler';
 /**
  *
  */
-@pureRender
-export default class NumberInput extends Component {
+class NumberInput extends Component {
 
 	/**
 	 *
@@ -224,3 +220,7 @@ export default class NumberInput extends Component {
 		);
 	}
 }
+
+
+
+export default pure(NumberInput);

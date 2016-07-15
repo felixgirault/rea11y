@@ -1,8 +1,5 @@
-/**
- *
- */
 import React, {Component, PropTypes} from 'react';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import SliderHandle from './SliderHandle';
@@ -12,8 +9,7 @@ import SliderHandle from './SliderHandle';
 /**
  *
  */
-@pureRender
-export default class Slider extends Component {
+class Slider extends Component {
 
 	/**
 	 *
@@ -59,3 +55,7 @@ export default class Slider extends Component {
 		);
 	}
 }
+
+
+
+export default pure(Slider);

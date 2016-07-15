@@ -1,9 +1,6 @@
-/**
- *
- */
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import {ESCAPE} from 'offkey';
 import {noop, forEach} from 'lodash';
@@ -30,8 +27,7 @@ function makeDefaultStyle(modal, backdrop) {
 /**
  *
  */
-@pureRender
-export default class Modal extends Component {
+class Modal extends Component {
 
 	/**
 	 *
@@ -129,3 +125,7 @@ export default class Modal extends Component {
 		);
 	}
 }
+
+
+
+export default pure(Modal);

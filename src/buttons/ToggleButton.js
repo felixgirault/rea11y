@@ -1,8 +1,5 @@
-/**
- *
- */
 import React, {Component, PropTypes} from 'react';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {noop} from 'lodash';
@@ -13,8 +10,7 @@ import Button from './Button';
 /**
  *
  */
-@pureRender
-export default class ToggleButton extends Component {
+class ToggleButton extends Component {
 
 	/**
 	 *
@@ -84,3 +80,7 @@ export default class ToggleButton extends Component {
 		);
 	}
 }
+
+
+
+export default pure(ToggleButton);

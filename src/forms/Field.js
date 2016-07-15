@@ -1,5 +1,6 @@
 import React, {PropTypes, Children, cloneElement} from 'react';
 import createFragment from 'react-addons-create-fragment';
+import {pure} from 'recompose';
 import classNames from 'classnames';
 import sortObject from '../utils/sortObject';
 
@@ -8,7 +9,7 @@ import sortObject from '../utils/sortObject';
 /**
  *
  */
-export default function Field({
+const Field = ({
 	children,
 	name,
 	label,
@@ -21,7 +22,7 @@ export default function Field({
 		Field.ERROR,
 		Field.INPUT
 	]
-}) {
+}) => {
 	const input = Children.only(children);
 	const id = `r1y-Field-${name}`;
 	const inputId = `${id}-input`;
@@ -96,17 +97,11 @@ export default function Field({
 	);
 }
 
-/**
- *
- */
 Field.LABEL = 'label';
 Field.HINT = 'hint';
 Field.ERROR = 'error';
 Field.INPUT = 'input';
 
-/**
- *
- */
 Field.propTypes = {
 	name: PropTypes.string,
 	label: PropTypes.string,
@@ -123,3 +118,7 @@ Field.propTypes = {
 	),
 	children: PropTypes.element.isRequired
 };
+
+
+
+export default pure(Field);

@@ -1,9 +1,6 @@
-/**
- *
- */
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
-import pureRender from 'pure-render-decorator';
+import {pure} from 'recompose';
 import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {noop} from 'lodash';
@@ -15,8 +12,7 @@ import SliderHandle from './SliderHandle';
 /**
  *
  */
-@pureRender
-export default class RangeSlider extends Component {
+class RangeSlider extends Component {
 
 	/**
 	 *
@@ -122,3 +118,7 @@ export default class RangeSlider extends Component {
 		);
 	}
 }
+
+
+
+export default pure(RangeSlider);
