@@ -1,6 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {noop} from 'lodash';
 import Button from './Button';
@@ -10,76 +9,44 @@ import Button from './Button';
 /**
  *
  */
-class ToggleButton extends Component {
-
-	/**
-	 *
-	 */
-	static propTypes = {
-		pressed: PropTypes.bool,
-		text: PropTypes.string,
-		pressedText: PropTypes.string,
-		onToggle: PropTypes.func,
-		onPress: PropTypes.func,
-		onRelease: PropTypes.func
-	};
-
-	/**
-	 *
-	 */
-	static defaultProps = {
-		pressed: false,
-		pressedText: '',
-		onToggle: noop,
-		onPress: noop,
-		onRelease: noop
-	};
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleClick() {
-		this.props.onToggle(!this.props.pressed);
-
-		if (this.props.pressed) {
-			this.props.onRelease();
-		} else {
-			this.props.onPress();
-		}
+const ToggleButton = ({pressed, text, pressedText, onToggle, onPress, onRelease, ...props}) => {
+	const handleClick = () => {
+		onToggle(!pressed);
+		pressed ? onRelease() : onPress();
 	}
 
-	/**
-	 *
-	 */
-	text() {
-		if (this.props.pressed) {
-			return this.props.pressedText || this.props.text;
-		}
+	const className = classNames({
+		'r1y-ToggleButton': true,
+		'r1y-ToggleButton--pressed': pressed
+	});
 
-		return this.props.text;
-	}
+	return (
+		<Button
+			{...props}
+			className={className}
+			aria-pressed={pressed}
+			onClick={handleClick}
+			text={(pressed && pressedText) ? pressedText : text}
+		/>
+	);
+};
 
-	/**
-	 *
-	 */
-	render() {
-		const className = classNames({
-			'r1y-ToggleButton': true,
-			'r1y-ToggleButton--pressed': this.props.pressed
-		});
+ToggleButton.propTypes = {
+	pressed: PropTypes.bool,
+	text: PropTypes.string.isRequired,
+	pressedText: PropTypes.string,
+	onToggle: PropTypes.func,
+	onPress: PropTypes.func,
+	onRelease: PropTypes.func
+};
 
-		return (
-			<Button
-				{...this.props}
-				className={className}
-				aria-pressed={this.props.pressed}
-				text={this.text()}
-				onClick={this.handleClick}
-			/>
-		);
-	}
-}
+ToggleButton.defaultProps = {
+	pressed: false,
+	pressedText: '',
+	onToggle: noop,
+	onPress: noop,
+	onRelease: noop
+};
 
 
 
