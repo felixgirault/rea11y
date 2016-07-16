@@ -21,9 +21,12 @@ Then head to [http://localhost:9001/](http://localhost:9001/).
 Documentation
 -------------
 
-* [buttons](./docs/buttons.md)
-* [forms](./docs/forms.md)
-* [modal](./docs/modal.md)
-* [progress bar](./docs/progress-bar.md)
-* [sliders](./docs/sliders.md)
-* [tabs](./docs/tabs.md)
+* [Button](./docs/Button.md)
+* [Field](./docs/Field.md)
+* [Modal](./docs/Modal.md)
+* [NumberInput](./docs/NumberInput.md)
+* [ProgressBar](./docs/ProgressBar.md)
+* [RangeSlider](./docs/RangeSlider.md)
+* [Slider](./docs/Slider.md)
+* [Tabs](./docs/Tabs.md)
+* [ToggleButton](./docs/ToggleButton.md)

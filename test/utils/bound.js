@@ -1,6 +1,3 @@
-/**
- *
- */
 import bound from '../../src/utils/bound';
 
 

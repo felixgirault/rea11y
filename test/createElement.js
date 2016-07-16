@@ -1,6 +1,3 @@
-/**
- *
- */
 import {forEach} from 'lodash';
 
 

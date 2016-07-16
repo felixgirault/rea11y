@@ -1,6 +1,3 @@
-/**
- *
- */
 import {forEach} from 'lodash';
 import createElement from '../createElement';
 import tabbable from '../../src/utils/tabbable';

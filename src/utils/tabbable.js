@@ -1,6 +1,3 @@
-/**
- *
- */
 import {filter} from 'lodash';
 
 

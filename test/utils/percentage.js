@@ -1,6 +1,3 @@
-/**
- *
- */
 import percentage from '../../src/utils/percentage';
 
 

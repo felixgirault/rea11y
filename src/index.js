@@ -1,40 +1,40 @@
 /**
  *	Buttons.
  */
-export {default as Button} from './buttons/Button';
-export {default as ToggleButton} from './buttons/ToggleButton';
-export {default as StatefulToggleButton} from './buttons/StatefulToggleButton';
+export {default as Button} from './Button';
+export {default as ToggleButton} from './ToggleButton';
+export {default as StatefulToggleButton} from './StatefulToggleButton';
 
 /**
  *	Forms.
  */
-export {default as Field, LABEL, HINT, ERROR, INPUT} from './forms/Field';
-export {default as NumberInput} from './forms/NumberInput';
-export {default as NumberInputControls} from './forms/NumberInputControls';
-export {default as StatefulNumberInput} from './forms/StatefulNumberInput';
+export {default as Field, LABEL, HINT, ERROR, INPUT} from './Field';
+export {default as NumberInput} from './NumberInput';
+export {default as NumberInputControls} from './NumberInputControls';
+export {default as StatefulNumberInput} from './StatefulNumberInput';
 
 /**
  *	Modal.
  */
-export {default as Modal} from './modal/Modal';
+export {default as Modal} from './Modal';
 
 /**
  *	Progress bar.
  */
-export {default as ProgressBar} from './progress-bar/ProgressBar';
+export {default as ProgressBar} from './ProgressBar';
 
 /**
  *	Sliders.
  */
-export {default as Slider} from './sliders/Slider';
-export {default as StatefulSlider} from './sliders/StatefulSlider';
-export {default as RangeSlider} from './sliders/RangeSlider';
-export {default as StatefulRangeSlider} from './sliders/StatefulRangeSlider';
+export {default as Slider} from './Slider';
+export {default as StatefulSlider} from './StatefulSlider';
+export {default as RangeSlider} from './RangeSlider';
+export {default as StatefulRangeSlider} from './StatefulRangeSlider';
 
 /**
  *	Tabs.
  */
-export {default as TabPanel} from './tabs/TabPanel';
-export {default as Tab} from './tabs/Tab';
-export {default as Tabs} from './tabs/Tabs';
-export {default as StatefulTabs} from './tabs/StatefulTabs';
+export {default as TabPanel} from './TabPanel';
+export {default as Tab} from './Tab';
+export {default as Tabs} from './Tabs';
+export {default as StatefulTabs} from './StatefulTabs';
