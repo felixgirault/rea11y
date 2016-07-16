@@ -1,53 +1,34 @@
-import {Component, PropTypes, Children, cloneElement} from 'react';
+import {PropTypes, Children, cloneElement} from 'react';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
 
 
 
 /**
  *
  */
-class KeyHandler extends Component {
+const KeyHandler = ({handlers, children}) => {
+	const child = Children.only(children);
 
-	/**
-	 *
-	 */
-	static propTypes = {
-		handlers: PropTypes.objectOf(PropTypes.func),
-		children: PropTypes.element.isRequired
-	};
+	return cloneElement(child, {
+		onKeyDown(event) {
+			const code = event.keyCode;
 
-	/**
-	 *
-	 */
-	static defaultProps = {
-		handlers: {}
-	};
-
-	/**
-	 *
-	 */
-	@autoBind
-	handleKeyDown(event) {
-		const code = event.keyCode;
-
-		if (code in this.props.handlers) {
-			event.preventDefault();
-			this.props.handlers[code]();
+			if (code in handlers) {
+				event.preventDefault();
+				handlers[code]();
+			}
 		}
-	}
+	});
+};
 
-	/**
-	 *
-	 */
-	render() {
-		const child = Children.only(this.props.children);
+KeyHandler.propTypes = {
+	handlers: PropTypes.objectOf(PropTypes.func),
+	children: PropTypes.element.isRequired
+};
 
-		return cloneElement(child, {
-			onKeyDown: this.handleKeyDown
-		});
-	}
-}
+KeyHandler.defaultProps = {
+	handlers: {}
+};
 
 
 
