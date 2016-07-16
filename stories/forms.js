@@ -70,7 +70,7 @@ storiesOf('NumberInput', module)
 	.addWithInfo(
 		'default',
 		`
-When the focus is inside the input:
+Keyboard interactions when the focus is inside the input:
 
 * \`↑\` increments the value
 * \`↓\` decrements the value
