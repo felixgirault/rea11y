@@ -1,9 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import {noop} from 'lodash';
+import {bindAll, noop} from 'lodash';
 import offset from 'dom-helpers/query/offset';
 import SliderHandle from './SliderHandle';
 
@@ -39,6 +38,14 @@ class RangeSlider extends Component {
 	 */
 	constructor(props) {
 		super(props);
+		bindAll(
+			this,
+			'setLowerTrackEventListener',
+			'setUpperTrackEventListener',
+			'handleClick',
+			'handleLowerChange',
+			'handleUpperChange'
+		);
 
 		this.lowerTrackEventListener = noop;
 		this.upperTrackEventListener = noop;
@@ -56,7 +63,6 @@ class RangeSlider extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	setLowerTrackEventListener(listener) {
 		this.lowerTrackEventListener = listener;
 	}
@@ -64,7 +70,6 @@ class RangeSlider extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	setUpperTrackEventListener(listener) {
 		this.upperTrackEventListener = listener;
 	}
@@ -72,7 +77,6 @@ class RangeSlider extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleClick(event) {
 		const {lower, upper} = this.refs;
 
@@ -92,7 +96,6 @@ class RangeSlider extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleLowerChange(value) {
 		const {onChange, upperValue} = this.props;
 		onChange(value, upperValue);
@@ -101,7 +104,6 @@ class RangeSlider extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleUpperChange(value) {
 		const {onChange, lowerValue} = this.props;
 		onChange(lowerValue, value);

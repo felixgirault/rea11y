@@ -1,7 +1,7 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
+import {bindAll} from 'lodash';
 import {on, off} from 'dom-helpers/events';
 import tabbable from './utils/tabbable';
 
@@ -18,6 +18,14 @@ class FocusTrap extends Component {
 	static propTypes = {
 		children: PropTypes.any.isRequired
 	};
+
+	/**
+	 *
+	 */
+	constructor(props) {
+		super(props);
+		bindAll(this, 'handleKeyEvent', 'handleFocus');
+	}
 
 	/**
 	 *	Initializes the component.
@@ -55,7 +63,6 @@ class FocusTrap extends Component {
 	 *
 	 *	@param object event Keyboard event.
 	 */
-	@autoBind
 	handleKeyEvent(event) {
 		this.shiftPressed = event.shiftKey;
 	}
@@ -66,7 +73,6 @@ class FocusTrap extends Component {
 	 *
 	 *	@param object event Event.
 	 */
-	@autoBind
 	handleFocus() {
 		if (!this.tabbable.length) {
 			return;

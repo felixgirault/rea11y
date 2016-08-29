@@ -1,9 +1,8 @@
 import React, {Component, PropTypes, Children, cloneElement} from 'react';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
-import {noop, uniqueId} from 'lodash';
+import {bindAll, noop, uniqueId} from 'lodash';
 import bound from './utils/bound';
 import KeyHandler from './KeyHandler';
 
@@ -44,6 +43,17 @@ class NumberInput extends Component {
 	 */
 	constructor(props) {
 		super(props);
+		bindAll(
+			this,
+			'handleChange',
+			'handleBlur',
+			'handleMin',
+			'handleMax',
+			'handleIncrement',
+			'handleBigIncrement',
+			'handleDecrement',
+			'handleBigDecrement'
+		);
 
 		this.id = uniqueId('rea11y-');
 		this.state = {
@@ -83,7 +93,6 @@ class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleChange(event) {
 		const value = parseInt(event.target.value, 10);
 
@@ -99,7 +108,6 @@ class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBlur(event) {
 		this.emitChange(
 			this.intVal(event.target.value)
@@ -109,7 +117,6 @@ class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMin() {
 		this.emitChange(this.props.min);
 	}
@@ -117,7 +124,6 @@ class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMax() {
 		this.emitChange(this.props.max);
 	}
@@ -125,7 +131,6 @@ class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleIncrement() {
 		this.emitChange(
 			this.intVal(this.state.value) + this.props.step
@@ -135,7 +140,6 @@ class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBigIncrement() {
 		this.emitChange(
 			this.intVal(this.state.value) + this.props.bigStep
@@ -145,7 +149,6 @@ class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDecrement() {
 		this.emitChange(
 			this.intVal(this.state.value) - this.props.step
@@ -155,7 +158,6 @@ class NumberInput extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBigDecrement() {
 		this.emitChange(
 			this.intVal(this.state.value) - this.props.bigStep

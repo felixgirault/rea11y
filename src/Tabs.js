@@ -1,9 +1,8 @@
 import React, {Component, Children, PropTypes, cloneElement} from 'react';
 import {findDOMNode} from 'react-dom';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
-import {uniqueId} from 'lodash';
+import {bindAll, uniqueId} from 'lodash';
 import bound from './utils/bound';
 import Tab from './Tab';
 
@@ -56,6 +55,12 @@ class Tabs extends Component {
 	 */
 	constructor(props) {
 		super(props);
+		bindAll(
+			this,
+			'handleActive',
+			'handlePrevious',
+			'handleNext'
+		);
 
 		this.id = uniqueId('rea11y-');
 	}
@@ -104,7 +109,6 @@ class Tabs extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleActive(name) {
 		this.emitActive(name);
 	}
@@ -112,7 +116,6 @@ class Tabs extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handlePrevious(name) {
 		this.activateSibling(name, -1);
 	}
@@ -120,7 +123,6 @@ class Tabs extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleNext(name) {
 		this.activateSibling(name, 1);
 	}

@@ -1,9 +1,8 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
 import {ESCAPE} from 'offkey';
-import {noop, forEach} from 'lodash';
+import {bindAll, noop, forEach} from 'lodash';
 import offset from 'dom-helpers/query/offset';
 import FocusTrap from './FocusTrap';
 
@@ -58,6 +57,14 @@ class Modal extends Component {
 	/**
 	 *
 	 */
+	constructor(props) {
+		super(props);
+		bindAll(this, 'handleKeyDown');
+	}
+
+	/**
+	 *
+	 */
 	componentDidMount() {
 		this.updateStyle();
 	}
@@ -87,7 +94,6 @@ class Modal extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleKeyDown(event) {
 		if (event.keyCode === ESCAPE) {
 			this.props.onClose();

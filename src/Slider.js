@@ -1,6 +1,6 @@
 import React, {Component, PropTypes} from 'react';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
+import {bindAll} from 'lodash';
 import classNames from 'classnames';
 import SliderHandle from './SliderHandle';
 
@@ -28,7 +28,14 @@ class Slider extends Component {
 	/**
 	 *
 	 */
-	@autoBind
+	constructor(props) {
+		super(props);
+		bindAll(this, 'handleClick');
+	}
+
+	/**
+	 *
+	 */
 	handleClick(event) {
 		this.refs.handle.handleDrag(event);
 	}

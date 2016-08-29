@@ -1,10 +1,9 @@
 import React, {Component, PropTypes} from 'react';
 import {findDOMNode} from 'react-dom';
 import {pure} from 'recompose';
-import autoBind from 'autobind-decorator';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
-import {noop} from 'lodash';
+import {bindAll, noop} from 'lodash';
 import {on, off} from 'dom-helpers/events';
 import offset from 'dom-helpers/query/offset';
 import bound from './utils/bound';
@@ -55,7 +54,7 @@ class SliderHandle extends Component {
 		bigStep: PropTypes.number,
 		makeText: PropTypes.func,
 		makeStyle: PropTypes.func,
-		subscribeToTrackEvents: PropTypes.func,
+		registerTrackEventListener: PropTypes.func,
 		onChange: PropTypes.func
 	};
 
@@ -82,6 +81,20 @@ class SliderHandle extends Component {
 	 */
 	constructor(props) {
 		super(props);
+		bindAll(
+			this,
+			'handleTrackEvent',
+			'handleMouseDown',
+			'handleDragStart',
+			'handleDrag',
+			'handleDragEnd',
+			'handleMin',
+			'handleMax',
+			'handleIncrement',
+			'handleBigIncrement',
+			'handleDecrement',
+			'handleBigDecrement'
+		);
 
 		this.state = {
 			dragging: false
@@ -143,7 +156,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleTrackEvent(event) {
 		this.handleDrag(event);
 	}
@@ -151,7 +163,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMouseDown(event) {
 		if (event.button === 0) {
 			this.handleDragStart(event);
@@ -161,7 +172,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDragStart(event) {
 		this.setState({
 			dragging: true,
@@ -176,7 +186,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDrag(event) {
 		event.preventDefault();
 
@@ -196,7 +205,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDragEnd() {
 		this.setState({
 			dragging: false
@@ -209,7 +217,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMin() {
 		this.emitChange(this.props.min);
 	}
@@ -217,7 +224,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleMax() {
 		this.emitChange(this.props.max);
 	}
@@ -225,7 +231,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleIncrement() {
 		const {value, step} = this.props;
 		this.emitChange(value + step);
@@ -234,7 +239,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBigIncrement() {
 		const {value, bigStep} = this.props;
 		this.emitChange(value + bigStep);
@@ -243,7 +247,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleDecrement() {
 		const {value, step} = this.props;
 		this.emitChange(value - step);
@@ -252,7 +255,6 @@ class SliderHandle extends Component {
 	/**
 	 *
 	 */
-	@autoBind
 	handleBigDecrement() {
 		const {value, bigStep} = this.props;
 		this.emitChange(value - bigStep);
