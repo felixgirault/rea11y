@@ -116,18 +116,7 @@ class SliderHandle extends Component {
 	 */
 	snapped(value) {
 		const steps = value / this.props.step;
-
-		const lowerStep = Math.floor(steps);
-		const fromLowerStep = steps - lowerStep;
-
-		const higherStep = Math.ceil(steps);
-		const toHigherStep = higherStep - steps;
-
-		const step = (fromLowerStep < toHigherStep)
-			? lowerStep
-			: higherStep;
-
-		return this.props.step * step;
+		return Math.round(steps) * this.props.step;
 	}
 
 	/**
