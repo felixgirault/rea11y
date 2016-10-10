@@ -1,8 +1,14 @@
 import React from 'react';
 import {storiesOf, action} from '@kadira/storybook';
+import {debounce} from 'lodash';
 import {StatefulRangeSlider} from '../src';
 
 
+
+/**
+ *
+ */
+const handleChange = debounce(action('onChange'), 100);
 
 /**
  *
@@ -18,7 +24,7 @@ but for each handle.
 			<StatefulRangeSlider
 				defaultLowerValue={16}
 				defaultUpperValue={64}
-				onChange={action('onChange')}
+				onChange={handleChange}
 			/>
 		),
 		{

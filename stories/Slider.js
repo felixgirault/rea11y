@@ -1,8 +1,14 @@
 import React from 'react';
 import {storiesOf, action} from '@kadira/storybook';
+import {debounce} from 'lodash';
 import {StatefulSlider} from '../src';
 
 
+
+/**
+ *
+ */
+const handleChange = debounce(action('onChange'), 100);
 
 /**
  *
@@ -23,7 +29,7 @@ Keyboard interactions when the focus is on the handle:
 		() => (
 			<StatefulSlider
 				defaultValue={16}
-				onChange={action('onChange')}
+				onChange={handleChange}
 			/>
 		),
 		{
