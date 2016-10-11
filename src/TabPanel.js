@@ -9,9 +9,9 @@ import classNames from 'classnames';
  */
 const TabPanel = ({id, tabId, name, active = false, children}) => {
 	const className = classNames({
-		'r1y-Panel': true,
-		'r1y-Panel--active': active,
-		[`r1y-Panel-${name}`]: true
+		'r1y-TabPanel': true,
+		'r1y-TabPanel--active': active,
+		[`r1y-TabPanel-${name}`]: true
 	});
 
 	return (

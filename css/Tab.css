@@ -1,0 +1,29 @@
+/**
+ *
+ */
+
+.r1y-Tab {
+	margin: 0;
+	border: none;
+	padding: 0.75em;
+	background: #ddd;
+}
+
+.r1y-Tabs--vertical .r1y-Tab {
+	display: block;
+	width: 100%;
+}
+
+.r1y-Tab--active {
+	background: #fff;
+}
+
+.r1y-Tab:hover,
+.r1y-Tab:focus {
+	background: #aaa;
+}
+
+.r1y-Tab--active:hover,
+.r1y-Tab--active:focus {
+	background: #fff;
+}

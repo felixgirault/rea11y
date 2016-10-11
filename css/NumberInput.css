@@ -1,36 +1,5 @@
 /**
- *	Forms.
- */
-
-.r1y-Field-label {
-	display: block;
-}
-
-.r1y-Field-error {
-	margin: 0;
-	color: #f00;
-}
-
-.r1y-Field-hint {
-	margin: 0;
-	color: #aaa;
-}
-
-.r1y-Field-input {
-	box-sizing: border-box;
-	margin: 0;
-	border: 1px solid #aaa;
-	padding: 0.375em;
-	width: 100%;
-	background: #fff;
-	line-height: 1.5em;
-	font-size: 1em;
-}
-
-
-
-/**
- *	Number input.
+ *
  */
 
 .r1y-NumberInput {

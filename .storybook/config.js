@@ -1,10 +1,14 @@
 import {configure, setAddon} from '@kadira/storybook';
 import infoAddon from '@kadira/react-storybook-addon-info';
-import '../css/forms.css';
-import '../css/modal.css';
-import '../css/progress-bar.css';
-import '../css/sliders.css';
-import '../css/tabs.css';
+
+import '../css/Field.css';
+import '../css/NumberInput.css';
+import '../css/Modal.css';
+import '../css/ProgressBar.css';
+import '../css/Slider.css';
+import '../css/Tab.css';
+import '../css/TabPanel.css';
+import '../css/Tabs.css';
 
 
 
