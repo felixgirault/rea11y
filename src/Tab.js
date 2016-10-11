@@ -27,9 +27,9 @@ const Tab = ({
 	const handleNext = () => onNext(name);
 
 	const className = classNames({
-		'r1y-Tab': true,
-		'r1y-Tab--active': active,
-		[`r1y-Tab-${name}`]: true
+		'rea11y-Tab': true,
+		'rea11y-Tab--active': active,
+		[`rea11y-Tab-${name}`]: true
 	});
 
 	return (

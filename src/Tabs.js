@@ -176,17 +176,17 @@ class Tabs extends Component {
 	 */
 	render() {
 		const className = classNames(
-			'r1y-Tabs',
-			`r1y-Tabs--${this.props.orientation}`
+			'rea11y-Tabs',
+			`rea11y-Tabs--${this.props.orientation}`
 		);
 
 		return (
 			<div className={className}>
-				<div className="r1y-Tabs-tabList" role="tablist">
+				<div className="rea11y-Tabs-tabList" role="tablist">
 					{this.renderTabs()}
 				</div>
 
-				<div className="r1y-Tabs-panelList">
+				<div className="rea11y-Tabs-panelList">
 					{this.renderPanels()}
 				</div>
 			</div>

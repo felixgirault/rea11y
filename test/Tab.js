@@ -45,9 +45,9 @@ describe('Tab', function() {
 		expect(node.getAttribute('aria-controls')).to.equal('panel-id');
 		expect(node.getAttribute('aria-selected')).to.equal('false');
 		expect(node.getAttribute('tabindex')).to.equal('-1');
-		expect(node.className).to.contain('r1y-Tab');
-		expect(node.className).to.contain('r1y-Tab-name');
-		expect(node.className).to.not.contain('r1y-Tab--active');
+		expect(node.className).to.contain('rea11y-Tab');
+		expect(node.className).to.contain('rea11y-Tab-name');
+		expect(node.className).to.not.contain('rea11y-Tab--active');
 		expect(node.textContent).to.equal('Title');
 	});
 
@@ -69,7 +69,7 @@ describe('Tab', function() {
 
 		expect(node.getAttribute('aria-selected')).to.equal('true');
 		expect(node.getAttribute('tabindex')).to.equal('0');
-		expect(node.className).to.contain('r1y-Tab--active');
+		expect(node.className).to.contain('rea11y-Tab--active');
 	});
 
 	/**

@@ -2,17 +2,17 @@
  *
  */
 
-.r1y-NumberInput {
+.rea11y-NumberInput {
 	position: relative;
 	border: 1px solid #aaa;
 	background: #fff;
 }
 
-.r1y-NumberInput--withControls {
+.rea11y-NumberInput--withControls {
 	padding-right: 1.5em;
 }
 
-.r1y-NumberInput-value {
+.rea11y-NumberInput-value {
 	box-sizing: border-box;
 	margin: 0;
 	border: none;
@@ -22,7 +22,7 @@
 	font-size: 1em;
 }
 
-.r1y-NumberInputControl {
+.rea11y-NumberInputControl {
 	position: absolute;
 	border: none;
 	width: 3em;
@@ -34,16 +34,16 @@
 	font-weight: bold;
 }
 
-.r1y-NumberInputControl:hover {
+.rea11y-NumberInputControl:hover {
 	background: #aaa;
 }
 
-.r1y-NumberInputControl-increment {
+.rea11y-NumberInputControl-increment {
 	top: 0;
 	right: 0;
 }
 
-.r1y-NumberInputControl-decrement {
+.rea11y-NumberInputControl-decrement {
 	bottom: 0;
 	right: 0;
 }

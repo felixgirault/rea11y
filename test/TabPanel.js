@@ -41,9 +41,9 @@ describe('TabPanel', function() {
 		expect(node.getAttribute('aria-hidden')).to.equal('true');
 		expect(node.getAttribute('aria-labelledby')).to.equal('tab-id');
 		expect(node.getAttribute('tabindex')).to.equal('-1');
-		expect(node.className).to.contain('r1y-Panel');
-		expect(node.className).to.contain('r1y-Panel-name');
-		expect(node.className).to.not.contain('r1y-Panel--active');
+		expect(node.className).to.contain('rea11y-TabPanel');
+		expect(node.className).to.contain('rea11y-TabPanel-name');
+		expect(node.className).to.not.contain('rea11y-TabPanel--active');
 	});
 
 	/**
@@ -60,6 +60,6 @@ describe('TabPanel', function() {
 
 		expect(node.getAttribute('aria-hidden')).to.equal('false');
 		expect(node.getAttribute('tabindex')).to.equal('0');
-		expect(node.className).to.contain('r1y-Panel--active');
+		expect(node.className).to.contain('rea11y-TabPanel--active');
 	});
 });

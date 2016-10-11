@@ -9,8 +9,8 @@ import classNames from 'classnames';
  */
 const NumberInputControl = ({name, title, text, onClick}) => {
 	const className = classNames([
-		'r1y-NumberInputControl',
-		`r1y-NumberInputControl-${name}`
+		'rea11y-NumberInputControl',
+		`rea11y-NumberInputControl-${name}`
 	]);
 
 	return (

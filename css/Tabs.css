@@ -2,25 +2,25 @@
  *
  */
 
-.r1y-Tabs {
+.rea11y-Tabs {
 	border: 1px solid #aaa;
 }
 
-.r1y-Tabs--vertical {
+.rea11y-Tabs--vertical {
 	display: table;
 	width: 100%;
 }
 
-.r1y-Tabs-tablist {
+.rea11y-Tabs-tablist {
 	background: #ddd;
 }
 
-.r1y-Tabs--vertical .r1y-Tabs-tablist,
-.r1y-Tabs--vertical .r1y-Tabs-panelList {
+.rea11y-Tabs--vertical .rea11y-Tabs-tablist,
+.rea11y-Tabs--vertical .rea11y-Tabs-panelList {
 	display: table-cell;
 	vertical-align: top;
 }
 
-.r1y-Tabs--vertical .r1y-Tabs-panelList {
+.rea11y-Tabs--vertical .rea11y-Tabs-panelList {
 	width: 99%;
 }

@@ -16,8 +16,8 @@ const ToggleButton = ({pressed, text, pressedText, onToggle, onPress, onRelease,
 	}
 
 	const className = classNames({
-		'r1y-ToggleButton': true,
-		'r1y-ToggleButton--pressed': pressed
+		'rea11y-ToggleButton': true,
+		'rea11y-ToggleButton--pressed': pressed
 	});
 
 	return (

@@ -2,22 +2,22 @@
  *
  */
 
-.r1y-ProgressBar {
+.rea11y-ProgressBar {
 	position: relative;
 	border: 1px solid #aaa;
 }
 
-.r1y-ProgressBar--horizontal {
+.rea11y-ProgressBar--horizontal {
 	width: 100%;
 	height: 1.5em;
 }
 
-.r1y-ProgressBar--vertical {
+.rea11y-ProgressBar--vertical {
 	width: 1.5em;
 	height: 6em;
 }
 
-.r1y-ProgressBar-track {
+.rea11y-ProgressBar-track {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -25,22 +25,22 @@
 	left: 0;
 }
 
-.r1y-ProgressBar-value {
+.rea11y-ProgressBar-value {
 	position: absolute;
 	bottom: 0;
 	left: 0;
 	background: #ddd;
 }
 
-.r1y-ProgressBar--horizontal .r1y-ProgressBar-value {
+.rea11y-ProgressBar--horizontal .rea11y-ProgressBar-value {
 	top: 0;
 }
 
-.r1y-ProgressBar--vertical .r1y-ProgressBar-value {
+.rea11y-ProgressBar--vertical .rea11y-ProgressBar-value {
 	right: 0;
 }
 
-.r1y-ProgressBar-text {
+.rea11y-ProgressBar-text {
 	position: relative;
 	text-align: center;
 }

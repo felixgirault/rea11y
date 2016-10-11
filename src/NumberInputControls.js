@@ -16,7 +16,7 @@ const NumberInputControls = ({
 	onIncrement = noop,
 	onDecrement = noop
 }) => (
-	<div className="r1y-NumberInputControls">
+	<div className="rea11y-NumberInputControls">
 		<NumberInputControl
 			name="increment"
 			text={incrementText}

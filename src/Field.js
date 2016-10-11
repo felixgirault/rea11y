@@ -24,7 +24,7 @@ const Field = ({
 	]
 }) => {
 	const input = Children.only(children);
-	const id = `r1y-Field-${name}`;
+	const id = `rea11y-Field-${name}`;
 	const inputId = `${id}-input`;
 	const labelId = `${id}-label`;
 	const labels = [labelId];
@@ -33,7 +33,7 @@ const Field = ({
 		[Field.LABEL]: (
 			<label
 				id={labelId}
-				className="r1y-Field-label"
+				className="rea11y-Field-label"
 				htmlFor={inputId}
 			>
 				{label}
@@ -46,7 +46,7 @@ const Field = ({
 
 		labels.push(hintId);
 		components[Field.HINT] = (
-			<p id={hintId} className="r1y-Field-hint">
+			<p id={hintId} className="rea11y-Field-hint">
 				{hint}
 			</p>
 		);
@@ -57,7 +57,7 @@ const Field = ({
 
 		labels.push(errorId);
 		components[Field.ERROR] = (
-			<p id={errorId} className="r1y-Field-error">
+			<p id={errorId} className="rea11y-Field-error">
 				{error}
 			</p>
 		);
@@ -66,7 +66,7 @@ const Field = ({
 	const inputProps = {
 		id: inputId,
 		name: inputId,
-		className: 'r1y-Field-input',
+		className: 'rea11y-Field-input',
 		'aria-labelledby': labels.join(' ')
 	};
 
@@ -86,8 +86,8 @@ const Field = ({
 	);
 
 	const className = classNames(
-		'r1y-Field',
-		`r1y-Field-${name}`
+		'rea11y-Field',
+		`rea11y-Field-${name}`
 	);
 
 	return (

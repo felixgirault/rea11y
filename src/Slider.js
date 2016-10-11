@@ -210,16 +210,16 @@ class Slider extends Component {
 	render() {
 		const {orientation, values, ...props} = this.props;
 		const className = classNames([
-			'r1y-Slider',
-			`r1y-Slider--${orientation}`,
-			`r1y-Slider--${values.length}`
+			'rea11y-Slider',
+			`rea11y-Slider--${orientation}`,
+			`rea11y-Slider--${values.length}`
 		]);
 
 		return (
 			<div className={className}>
 				<div
 					ref="track"
-					className="r1y-Slider-track"
+					className="rea11y-Slider-track"
 					onClick={this.handleClick}
 				>
 					{values.map((value, index) => (

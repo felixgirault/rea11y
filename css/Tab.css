@@ -2,28 +2,28 @@
  *
  */
 
-.r1y-Tab {
+.rea11y-Tab {
 	margin: 0;
 	border: none;
 	padding: 0.75em;
 	background: #ddd;
 }
 
-.r1y-Tabs--vertical .r1y-Tab {
+.rea11y-Tabs--vertical .rea11y-Tab {
 	display: block;
 	width: 100%;
 }
 
-.r1y-Tab--active {
+.rea11y-Tab--active {
 	background: #fff;
 }
 
-.r1y-Tab:hover,
-.r1y-Tab:focus {
+.rea11y-Tab:hover,
+.rea11y-Tab:focus {
 	background: #aaa;
 }
 
-.r1y-Tab--active:hover,
-.r1y-Tab--active:focus {
+.rea11y-Tab--active:hover,
+.rea11y-Tab--active:focus {
 	background: #fff;
 }

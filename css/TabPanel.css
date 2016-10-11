@@ -2,11 +2,11 @@
  *
  */
 
-.r1y-TabPanel {
+.rea11y-TabPanel {
 	display: none;
 	padding: 0.75em;
 }
 
-.r1y-TabPanel--active {
+.rea11y-TabPanel--active {
 	display: inherit;
 }

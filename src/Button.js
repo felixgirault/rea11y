@@ -7,7 +7,7 @@ import {pure} from 'recompose';
  *
  */
 const Button = ({text, ...props}) => (
-	<button {...props} className="r1y-Button" role="button">
+	<button {...props} className="rea11y-Button" role="button">
 		{text}
 	</button>
 );

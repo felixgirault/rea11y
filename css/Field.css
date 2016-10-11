@@ -2,21 +2,21 @@
  *
  */
 
-.r1y-Field-label {
+.rea11y-Field-label {
 	display: block;
 }
 
-.r1y-Field-error {
+.rea11y-Field-error {
 	margin: 0;
 	color: #f00;
 }
 
-.r1y-Field-hint {
+.rea11y-Field-hint {
 	margin: 0;
 	color: #aaa;
 }
 
-.r1y-Field-input {
+.rea11y-Field-input {
 	box-sizing: border-box;
 	margin: 0;
 	border: 1px solid #aaa;

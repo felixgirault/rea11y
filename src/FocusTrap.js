@@ -90,10 +90,10 @@ class FocusTrap extends Component {
 	 */
 	render() {
 		return (
-			<div className="r1y-FocusTrap">
+			<div className="rea11y-FocusTrap">
 				<div onFocus={this.handleFocus} tabIndex="0" />
 
-				<div className="r1y-FocusTrap-children" ref="children">
+				<div className="rea11y-FocusTrap-children" ref="children">
 					{this.props.children}
 				</div>
 

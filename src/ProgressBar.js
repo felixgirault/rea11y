@@ -40,8 +40,8 @@ const ProgressBar = (props) => {
 	const style = makeStyle(props);
 
 	const className = classNames([
-		'r1y-ProgressBar',
-		`r1y-ProgressBar--${orientation}`
+		'rea11y-ProgressBar',
+		`rea11y-ProgressBar--${orientation}`
 	]);
 
 	return (
@@ -53,11 +53,11 @@ const ProgressBar = (props) => {
 			aria-valuenow={value}
 			aria-valuetext={text}
 		>
-			<div className="r1y-ProgressBar-track">
-				<div className="r1y-ProgressBar-value" style={style} />
+			<div className="rea11y-ProgressBar-track">
+				<div className="rea11y-ProgressBar-value" style={style} />
 			</div>
 
-			<div className="r1y-ProgressBar-text">
+			<div className="rea11y-ProgressBar-text">
 				{text}
 			</div>
 		</div>

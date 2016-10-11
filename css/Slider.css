@@ -2,22 +2,22 @@
  *
  */
 
-.r1y-Slider {
+.rea11y-Slider {
 	position: relative;
 	margin-bottom: 1.5em;
 }
 
-.r1y-Slider--horizontal {
+.rea11y-Slider--horizontal {
 	width: 100%;
 	height: 1.5em;
 }
 
-.r1y-Slider--vertical {
+.rea11y-Slider--vertical {
 	width: 1.5em;
 	height: 6em;
 }
 
-.r1y-Slider-track {
+.rea11y-Slider-track {
 	position: absolute;
 	top: 0.375em;
 	right: 0.75em;
@@ -28,11 +28,11 @@
 	background: #ddd;
 }
 
-.r1y-Slider:not(.r1y-Slider--1) .r1y-Slider-track {
+.rea11y-Slider:not(.rea11y-Slider--1) .rea11y-Slider-track {
 	background: #fff;
 }
 
-.r1y-SliderHandle {
+.rea11y-SliderHandle {
 	position: absolute;
 	top: 0;
 	right: 0;
@@ -42,23 +42,23 @@
 	background: #fff;
 }
 
-.r1y-Slider:not(.r1y-slider--1) .r1y-SliderHandle {
+.rea11y-Slider:not(.rea11y-slider--1) .rea11y-SliderHandle {
 	background: #ddd;
 }
 
-.r1y-Slider:not(.r1y-slider--1) .r1y-SliderHandle:last-child {
+.rea11y-Slider:not(.rea11y-slider--1) .rea11y-SliderHandle:last-child {
 	background: #fff;
 }
 
-.r1y-Slider--horizontal .r1y-SliderHandle {
+.rea11y-Slider--horizontal .rea11y-SliderHandle {
 	bottom: 0;
 }
 
-.r1y-Slider--vertical .r1y-SliderHandle {
+.rea11y-Slider--vertical .rea11y-SliderHandle {
 	left: 0;
 }
 
-.r1y-SliderHandle-control {
+.rea11y-SliderHandle-control {
 	box-sizing: border-box;
 	position: relative;
 	top: -0.375em;
@@ -70,29 +70,29 @@
 	cursor: grab;
 }
 
-.r1y-SliderHandle-control:hover,
-.r1y-SliderHandle-control:focus {
+.rea11y-SliderHandle-control:hover,
+.rea11y-SliderHandle-control:focus {
 	background: #aaa;
 	z-index: 10;
 }
 
-.r1y-SliderHandle-control:focus {
+.rea11y-SliderHandle-control:focus {
 	z-index: 10;
 }
 
-.r1y-SliderHandle.is-dragging .r1y-SliderHandle-control {
+.rea11y-SliderHandle.is-dragging .rea11y-SliderHandle-control {
 	cursor: grabbing;
 }
 
-.r1y-Slider--horizontal .r1y-SliderHandle-control {
+.rea11y-Slider--horizontal .rea11y-SliderHandle-control {
 	width: 1.5em;
 }
 
-.r1y-Slider--vertical .r1y-SliderHandle-control {
+.rea11y-Slider--vertical .rea11y-SliderHandle-control {
 	height: 1.5em;
 }
 
-.r1y-SliderHandle-text {
+.rea11y-SliderHandle-text {
 	position: relative;
 	left: -1.5em;
 	width: 3em;

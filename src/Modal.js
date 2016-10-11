@@ -110,7 +110,7 @@ class Modal extends Component {
 			role,
 			tabIndex: 0,
 			ref: 'backdrop',
-			className: 'r1y-Modal-backdrop',
+			className: 'rea11y-Modal-backdrop',
 			onKeyDown: this.handleKeyDown
 		};
 
@@ -123,7 +123,7 @@ class Modal extends Component {
 		return (
 			<FocusTrap>
 				<div {...props}>
-					<div className="r1y-Modal" ref="modal">
+					<div className="rea11y-Modal" ref="modal">
 						{children}
 					</div>
 				</div>

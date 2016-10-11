@@ -186,8 +186,8 @@ class NumberInput extends Component {
 	render() {
 		const controls = this.renderControls();
 		const className = classNames({
-			'r1y-NumberInput': true,
-			'r1y-NumberInput--withControls': !!controls
+			'rea11y-NumberInput': true,
+			'rea11y-NumberInput--withControls': !!controls
 		});
 
 		return (
@@ -205,7 +205,7 @@ class NumberInput extends Component {
 					<input
 						ref="input"
 						id={this.id}
-						className="r1y-NumberInput-value"
+						className="rea11y-NumberInput-value"
 						type="text"
 						role="spinbutton"
 						aria-valuemin={this.props.min}
