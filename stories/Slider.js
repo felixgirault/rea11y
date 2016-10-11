@@ -15,7 +15,7 @@ const handleChange = debounce(action('onChange'), 100);
  */
 storiesOf('Slider', module)
 	.addWithInfo(
-		'horizontal',
+		'Simple',
 		`
 Keyboard interactions when the focus is on the handle:
 
@@ -28,7 +28,27 @@ Keyboard interactions when the focus is on the handle:
 		`,
 		() => (
 			<StatefulSlider
-				defaultValue={16}
+				defaultValues={[16]}
+				onChange={handleChange}
+			/>
+		),
+		{
+			inline: true,
+			source: false,
+			propTables: false
+		}
+	)
+	.addWithInfo(
+		'Range',
+		`
+A slider can accept any number of handles.
+
+Each handle provides the same interactions as one from a
+simple slider.
+		`,
+		() => (
+			<StatefulSlider
+				defaultValues={[16, 64, 96]}
 				onChange={handleChange}
 			/>
 		),

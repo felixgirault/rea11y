@@ -28,7 +28,7 @@
 	background: #ddd;
 }
 
-.r1y-RangeSlider .r1y-Slider-track {
+.r1y-Slider:not(.r1y-Slider--1) .r1y-Slider-track {
 	background: #fff;
 }
 
@@ -42,8 +42,12 @@
 	background: #fff;
 }
 
-.r1y-RangeSlider .r1y-SliderHandle:first-child {
+.r1y-Slider:not(.r1y-slider--1) .r1y-SliderHandle {
 	background: #ddd;
+}
+
+.r1y-Slider:not(.r1y-slider--1) .r1y-SliderHandle:last-child {
+	background: #fff;
 }
 
 .r1y-Slider--horizontal .r1y-SliderHandle {

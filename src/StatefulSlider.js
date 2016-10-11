@@ -9,16 +9,16 @@ import Slider from './Slider';
  */
 const enhance = compose(
 	withState(
-		'value',
-		'setValue',
-		({defaultValue = 0}) =>
-			defaultValue
+		'values',
+		'setValues',
+		({defaultValues = 0}) =>
+			defaultValues
 	),
 	withHandlers({
-		onChange: ({setValue, onChange = noop}) =>
-			(value) => {
-				setValue(value);
-				onChange(value);
+		onChange: ({setValues, onChange = noop}) =>
+			(values) => {
+				setValues(values);
+				onChange(values);
 			}
 	})
 );

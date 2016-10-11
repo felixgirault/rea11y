@@ -3,7 +3,7 @@
 ```jsx
 import {Slider} from 'rea11y';
 
-function handleChange(value) {}
+function handleChange(values) {}
 function makeText({value}) {
 	return value;
 }
@@ -11,7 +11,7 @@ function makeText({value}) {
 <Slider
 	min={0}
 	max={100}
-	value={42}
+	values={[42]}
 	step={1}
 	bigStep={10}
 	text={makeText}
