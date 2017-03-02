@@ -11,10 +11,10 @@ storiesOf('Button', module)
 	.addWithInfo(
 		'default',
 		`
-ARIA attributes:
+Attributes:
 
-* \`role="button"\` to avoid accidentally submitting a form
-the button sits in.
+* \`type="button"\` to avoid accidentally submitting a form
+the button might sit in.
 		`,
 		() => (
 			<Button text="Hello" onClick={action('onClick')} />

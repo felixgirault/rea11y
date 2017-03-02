@@ -7,13 +7,13 @@ import {pure} from 'recompose';
  *
  */
 const Button = ({text, ...props}) => (
-	<button {...props} className="rea11y-Button" role="button">
+	<button className="rea11y-Button" type="button" {...props}>
 		{text}
 	</button>
 );
 
 Button.propTypes = {
-	text: PropTypes.string
+	text: PropTypes.node.isRequired
 };
 
 

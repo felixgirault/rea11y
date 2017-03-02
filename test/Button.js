@@ -22,7 +22,7 @@ describe('Button', function() {
 
 		const node = findDOMNode(button).children[0];
 
-		expect(node.getAttribute('role')).to.equal('button');
+		expect(node.getAttribute('type')).to.equal('button');
 		expect(node.textContent).to.equal('foo');
 	});
 });
