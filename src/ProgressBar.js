@@ -1,7 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, {PropTypes} from 'react';
 import {pure} from 'recompose';
 import classNames from 'classnames';
-import {uniqueId} from 'lodash';
 import percentage from './utils/percentage';
 
 

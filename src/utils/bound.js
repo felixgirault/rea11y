@@ -2,13 +2,13 @@
  *
  */
 export const atLeast = (value, min) =>
-	(value < min) ? min : value;
+	((value < min) ? min : value);
 
 /**
  *
  */
 export const atMost = (value, max) =>
-	(value > max) ? max : value;
+	((value > max) ? max : value);
 
 /**
  *

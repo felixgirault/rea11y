@@ -95,7 +95,7 @@ const Field = ({
 			{fragment}
 		</div>
 	);
-}
+};
 
 Field.LABEL = 'label';
 Field.HINT = 'hint';

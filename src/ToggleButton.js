@@ -12,8 +12,13 @@ import Button from './Button';
 const ToggleButton = ({pressed, text, pressedText, onToggle, onPress, onRelease, ...props}) => {
 	const handleClick = () => {
 		onToggle(!pressed);
-		pressed ? onRelease() : onPress();
-	}
+
+		if (pressed) {
+			onRelease();
+		} else {
+			onPress();
+		}
+	};
 
 	const className = classNames({
 		'rea11y-ToggleButton': true,

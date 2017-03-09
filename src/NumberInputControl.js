@@ -22,7 +22,7 @@ const NumberInputControl = ({name, title, text, onClick}) => {
 			{text}
 		</button>
 	);
-}
+};
 
 NumberInputControl.propTypes = {
 	name: PropTypes.string,

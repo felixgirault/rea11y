@@ -26,7 +26,7 @@ const TabPanel = ({id, tabId, name, active = false, children}) => {
 			{children}
 		</div>
 	);
-}
+};
 
 TabPanel.propTypes = {
 	id: PropTypes.string,
