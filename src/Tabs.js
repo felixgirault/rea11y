@@ -1,5 +1,6 @@
-import React, {Component, Children, PropTypes, cloneElement} from 'react';
+import React, {Component, Children, cloneElement} from 'react';
 import {findDOMNode} from 'react-dom';
+import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 import classNames from 'classnames';
 import {bindAll, uniqueId} from 'lodash';

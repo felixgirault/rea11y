@@ -1,5 +1,6 @@
-import React, {PropTypes, Children, cloneElement} from 'react';
+import React, {Children, cloneElement} from 'react';
 import createFragment from 'react-addons-create-fragment';
+import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 import classNames from 'classnames';
 import sortObject from './utils/sortObject';

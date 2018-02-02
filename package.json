@@ -86,6 +86,7 @@
     "dom-helpers": "^2.4.0",
     "lodash": "^4.4.0",
     "offkey": "^0.1.0",
+    "prop-types": "^15.6.0",
     "react-addons-create-fragment": "^15.0.2",
     "recompose": "^0.20.2"
   }

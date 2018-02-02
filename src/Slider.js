@@ -1,5 +1,6 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
 import {findDOMNode} from 'react-dom';
+import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 import {bindAll} from 'lodash';
 import classNames from 'classnames';

@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';

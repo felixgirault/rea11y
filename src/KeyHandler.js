@@ -1,4 +1,5 @@
-import {PropTypes, Children, cloneElement} from 'react';
+import {Children, cloneElement} from 'react';
+import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 
 
