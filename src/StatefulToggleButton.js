@@ -1,4 +1,4 @@
-import {compose, withState, withHandlers} from 'recompose';
+import {withStateHandlers} from 'recompose';
 import {noop} from 'lodash';
 import ToggleButton from './ToggleButton';
 
@@ -7,23 +7,15 @@ import ToggleButton from './ToggleButton';
 /**
  *
  */
-const enhance = compose(
-	withState(
-		'pressed',
-		'setPressed',
-		({defaultPressed = false}) =>
-			defaultPressed
-	),
-	withHandlers({
-		onToggle: ({setPressed, onToggle = noop}) =>
+export default withStateHandlers(
+	({defaultPressed = false}) => ({
+		pressed: defaultPressed
+	}),
+	{
+		onToggle: (_, {onToggle = noop}) =>
 			(pressed) => {
-				setPressed(pressed);
 				onToggle(pressed);
+				return {pressed};
 			}
-	})
-);
-
-
-
-export default enhance(ToggleButton);
-
+	}
+)(ToggleButton);

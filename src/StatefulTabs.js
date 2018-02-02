@@ -1,4 +1,4 @@
-import {compose, withState, withHandlers} from 'recompose';
+import {withStateHandlers} from 'recompose';
 import {noop} from 'lodash';
 import Tabs from './Tabs';
 
@@ -7,22 +7,15 @@ import Tabs from './Tabs';
 /**
  *
  */
-const enhance = compose(
-	withState(
-		'active',
-		'setActive',
-		({defaultActive = 0}) =>
-			defaultActive
-	),
-	withHandlers({
-		onActive: ({setActive, onActive = noop}) =>
+export default withStateHandlers(
+	({defaultActive = 0}) => ({
+		active: defaultActive
+	}),
+	{
+		onActive: (_, {onActive = noop}) =>
 			(active) => {
-				setActive(active);
 				onActive(active);
+				return {active};
 			}
-	})
-);
-
-
-
-export default enhance(Tabs);
+	}
+)(Tabs);
