@@ -1,6 +1,7 @@
-import React, {PropTypes, Children, cloneElement} from 'react';
+import React, {Children, cloneElement} from 'react';
 import createFragment from 'react-addons-create-fragment';
-import {pure} from 'recompose';
+import PropTypes from 'prop-types';
+import {compose, pure, hoistStatics} from 'recompose';
 import classNames from 'classnames';
 import sortObject from './utils/sortObject';
 
@@ -121,4 +122,4 @@ Field.propTypes = {
 
 
 
-export default pure(Field);
+export default hoistStatics(pure)(Field);

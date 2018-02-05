@@ -42,11 +42,11 @@
 	background: #fff;
 }
 
-.rea11y-Slider:not(.rea11y-slider--1) .rea11y-SliderHandle {
+.rea11y-Slider:not(.rea11y-Slider--1) .rea11y-SliderHandle {
 	background: #ddd;
 }
 
-.rea11y-Slider:not(.rea11y-slider--1) .rea11y-SliderHandle:last-child {
+.rea11y-Slider:not(.rea11y-Slider--1) .rea11y-SliderHandle:last-child {
 	background: #fff;
 }
 

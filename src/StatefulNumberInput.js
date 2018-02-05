@@ -1,4 +1,4 @@
-import {compose, withState, withHandlers} from 'recompose';
+import {withStateHandlers} from 'recompose';
 import {noop} from 'lodash';
 import NumberInput from './NumberInput';
 
@@ -7,23 +7,15 @@ import NumberInput from './NumberInput';
 /**
  *
  */
-const enhance = compose(
-	withState(
-		'value',
-		'setValue',
-		({defaultValue = 0}) =>
-			defaultValue
-	),
-	withHandlers({
-		onChange: ({setValue, onChange = noop}) =>
+export default withStateHandlers(
+	({defaultValue = 0}) => ({
+		value: defaultValue
+	}),
+	{
+		onChange: (_, {onChange = noop}) =>
 			(value) => {
-				setValue(value);
 				onChange(value);
+				return {value};
 			}
-	})
-);
-
-
-
-export default enhance(NumberInput);
-
+	}
+)(NumberInput);

@@ -1,4 +1,5 @@
-import React, {Component, PropTypes, Children, cloneElement} from 'react';
+import React, {Component, Children, cloneElement} from 'react';
+import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
