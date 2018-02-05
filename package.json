@@ -88,6 +88,6 @@
     "offkey": "^0.1.0",
     "prop-types": "^15.6.0",
     "react-addons-create-fragment": "^15.0.2",
-    "recompose": "^0.20.2"
+    "recompose": "^0.24.0"
   }
 }
