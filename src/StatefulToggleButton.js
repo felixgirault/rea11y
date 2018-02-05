@@ -1,4 +1,4 @@
-import {withStateHandlers} from 'recompose';
+import {compose, withStateHandlers, mapProps} from 'recompose';
 import {noop} from 'lodash';
 import ToggleButton from './ToggleButton';
 
@@ -7,15 +7,18 @@ import ToggleButton from './ToggleButton';
 /**
  *
  */
-export default withStateHandlers(
-	({defaultPressed = false}) => ({
-		pressed: defaultPressed
-	}),
-	{
-		onToggle: (_, {onToggle = noop}) =>
-			(pressed) => {
-				onToggle(pressed);
-				return {pressed};
-			}
-	}
+export default compose(
+	withStateHandlers(
+		({defaultPressed = false}) => ({
+			pressed: defaultPressed
+		}),
+		{
+			onToggle: (_, {onToggle = noop}) =>
+				(pressed) => {
+					onToggle(pressed);
+					return {pressed};
+				}
+		}
+	),
+	mapProps(({defaultPressed, ...props}) => props)
 )(ToggleButton);
