@@ -65,8 +65,8 @@ const Field = ({
 	}
 
 	const inputProps = {
+		name,
 		id: inputId,
-		name: inputId,
 		className: 'rea11y-Field-input',
 		'aria-labelledby': labels.join(' ')
 	};
