@@ -88,7 +88,7 @@ const Field = ({
 
 	const className = classNames(
 		'rea11y-Field',
-		`rea11y-Field-${name}`
+		`rea11y-Field--${name}`
 	);
 
 	return (
