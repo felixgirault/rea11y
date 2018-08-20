@@ -3,7 +3,7 @@ import chai from 'chai';
 import spies from 'chai-spies';
 import React from 'react';
 import {findDOMNode} from 'react-dom';
-import {Simulate, renderIntoDocument} from 'react-addons-test-utils';
+import {Simulate, renderIntoDocument} from 'react-dom/test-utils';
 import {HOME, END, ARROW} from 'offkey';
 import Tab from '../src/Tab';
 

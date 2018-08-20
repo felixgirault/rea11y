@@ -4,7 +4,7 @@ import {
 	Simulate,
 	renderIntoDocument,
 	findRenderedDOMComponentWithClass as findByClass
-} from 'react-addons-test-utils';
+} from 'react-dom/test-utils';
 
 import {ESCAPE} from 'offkey';
 import KeyHandler from '../src/KeyHandler';
