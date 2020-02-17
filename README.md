@@ -23,7 +23,6 @@ Documentation
 
 * [Button](./docs/Button.md)
 * [Field](./docs/Field.md)
-* [Modal](./docs/Modal.md)
 * [NumberInput](./docs/NumberInput.md)
 * [ProgressBar](./docs/ProgressBar.md)
 * [RangeSlider](./docs/RangeSlider.md)

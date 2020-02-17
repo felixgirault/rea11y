@@ -14,11 +14,6 @@ export {default as NumberInputControls} from './NumberInputControls';
 export {default as StatefulNumberInput} from './StatefulNumberInput';
 
 /**
- *	Modal.
- */
-export {default as Modal} from './Modal';
-
-/**
  *	Progress bar.
  */
 export {default as ProgressBar} from './ProgressBar';
