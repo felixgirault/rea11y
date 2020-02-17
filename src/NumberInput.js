@@ -203,7 +203,6 @@ class NumberInput extends Component {
 					}}
 				>
 					<input
-						ref="input"
 						id={this.id}
 						className="rea11y-NumberInput-value"
 						type="text"
