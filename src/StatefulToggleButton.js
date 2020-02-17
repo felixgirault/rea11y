@@ -20,6 +20,7 @@ export default compose(
 				}
 		}
 	),
+	// eslint-disable-next-line no-unused-vars
 	mapProps(({defaultPressed, ...props}) =>
 		props
 	)
