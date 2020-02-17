@@ -80,11 +80,12 @@
   },
   "dependencies": {
     "classnames": "^2.2.3",
+    "debounce": "^1.2.0",
     "dom-helpers": "^2.4.0",
-    "lodash": "^4.4.0",
     "offkey": "^0.1.0",
     "prop-types": "^15.6.0",
     "react-addons-create-fragment": "^15.0.2",
-    "recompose": "^0.24.0"
+    "recompose": "^0.24.0",
+    "uniqueid": "^1.0.0"
   }
 }

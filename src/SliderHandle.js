@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
-import {bindAll, noop} from 'lodash';
+import noop from './utils/noop';
 import {atLeast, atMost} from './utils/bound';
 import percentage from './utils/percentage';
 import KeyHandler from './KeyHandler';
@@ -81,16 +81,14 @@ class SliderHandle extends Component {
 	 */
 	constructor(props) {
 		super(props);
-		bindAll(
-			this,
-			'handleMouseDown',
-			'handleMin',
-			'handleMax',
-			'handleIncrement',
-			'handleBigIncrement',
-			'handleDecrement',
-			'handleBigDecrement'
-		);
+
+		this.handleMouseDown = this.handleMouseDown.bind(this);
+		this.handleMin = this.handleMin.bind(this);
+		this.handleMax = this.handleMax.bind(this);
+		this.handleIncrement = this.handleIncrement.bind(this);
+		this.handleBigIncrement = this.handleBigIncrement.bind(this);
+		this.handleDecrement = this.handleDecrement.bind(this);
+		this.handleBigDecrement = this.handleBigDecrement.bind(this);
 
 		this.state = {
 			dragging: false

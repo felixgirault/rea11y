@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 import classNames from 'classnames';
-import {noop} from 'lodash';
+import noop from './utils/noop';
 import Button from './Button';
 
 

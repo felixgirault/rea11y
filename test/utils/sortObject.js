@@ -1,7 +1,3 @@
-/**
- *
- */
-import {keys} from 'lodash';
 import sortObject from '../../src/utils/sortObject';
 
 
@@ -24,7 +20,7 @@ describe('sortObject', function() {
 
 		const sorted = sortObject(object, order);
 
-		expect(keys(sorted)).to.deep.equal(order);
+		expect(Object.keys(sorted)).to.deep.equal(order);
 		expect(sorted).to.deep.equal({
 			c: 3,
 			a: 1,

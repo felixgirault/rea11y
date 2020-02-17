@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import {pure} from 'recompose';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
-import {bindAll, noop, uniqueId} from 'lodash';
+import noop from './utils/noop';
+import uniqueId from 'uniqueid';
 import bound from './utils/bound';
 import KeyHandler from './KeyHandler';
 
@@ -44,17 +45,15 @@ class NumberInput extends Component {
 	 */
 	constructor(props) {
 		super(props);
-		bindAll(
-			this,
-			'handleChange',
-			'handleBlur',
-			'handleMin',
-			'handleMax',
-			'handleIncrement',
-			'handleBigIncrement',
-			'handleDecrement',
-			'handleBigDecrement'
-		);
+
+		this.handleChange = this.handleChange.bind(this);
+		this.handleBlur = this.handleBlur.bind(this);
+		this.handleMin = this.handleMin.bind(this);
+		this.handleMax = this.handleMax.bind(this);
+		this.handleIncrement = this.handleIncrement.bind(this);
+		this.handleBigIncrement = this.handleBigIncrement.bind(this);
+		this.handleDecrement = this.handleDecrement.bind(this);
+		this.handleBigDecrement = this.handleBigDecrement.bind(this);
 
 		this.id = uniqueId('rea11y-');
 		this.state = {

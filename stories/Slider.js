@@ -1,6 +1,6 @@
 import React from 'react';
 import {storiesOf, action} from '@kadira/storybook';
-import {debounce} from 'lodash';
+import debounce from 'debounce';
 import {StatefulSlider} from '../src';
 
 

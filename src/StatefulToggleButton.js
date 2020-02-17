@@ -1,5 +1,5 @@
 import {compose, withStateHandlers, mapProps} from 'recompose';
-import {noop, omit} from 'lodash';
+import noop from './utils/noop';
 import ToggleButton from './ToggleButton';
 
 
@@ -20,7 +20,7 @@ export default compose(
 				}
 		}
 	),
-	mapProps((props) =>
-		omit(props, 'defaultPressed')
+	mapProps(({defaultPressed, ...props}) =>
+		props
 	)
 )(ToggleButton);

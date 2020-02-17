@@ -1,5 +1,5 @@
 import {withStateHandlers} from 'recompose';
-import {noop} from 'lodash';
+import noop from './utils/noop';
 import Slider from './Slider';
 
 

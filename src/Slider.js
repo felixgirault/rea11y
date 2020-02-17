@@ -2,9 +2,8 @@ import React, {Component} from 'react';
 import {findDOMNode} from 'react-dom';
 import PropTypes from 'prop-types';
 import {pure} from 'recompose';
-import {bindAll} from 'lodash';
 import classNames from 'classnames';
-import {noop} from 'lodash';
+import noop from './utils/noop';
 import {on, off} from 'dom-helpers/events';
 import offset from 'dom-helpers/query/offset';
 import bound from './utils/bound';
@@ -49,16 +48,13 @@ class Slider extends Component {
 	 */
 	constructor(props) {
 		super(props);
-		bindAll(
-			this,
-			'referenceTrack',
-			'referenceHandle',
-			'handleClick',
-			'handleChange',
-			'handleDragStart',
-			'handleDrag',
-			'handleDragEnd'
-		);
+
+		this.referenceTrack = this.referenceTrack.bind(this);
+		this.handleClick = this.handleClick.bind(this);
+		this.handleChange = this.handleChange.bind(this);
+		this.handleDragStart = this.handleDragStart.bind(this);
+		this.handleDrag = this.handleDrag.bind(this);
+		this.handleDragEnd = this.handleDragEnd.bind(this);
 
 		this.track = null;
 		this.handles = [];
