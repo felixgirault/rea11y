@@ -51,19 +51,31 @@ class Slider extends Component {
 		super(props);
 		bindAll(
 			this,
+			'referenceTrack',
+			'referenceHandle',
 			'handleClick',
 			'handleChange',
 			'handleDragStart',
 			'handleDrag',
 			'handleDragEnd'
 		);
+
+		this.track = null;
+		this.handles = [];
 	}
 
 	/**
 	 *
 	 */
-	handleRef(index) {
-		return `handle-${index}`;
+	referenceTrack(track) {
+		this.track = track;
+	}
+
+	/**
+	 *
+	 */
+	referenceHandle(index, handle) {
+		this.handles[index] = handle;
 	}
 
 	/**
@@ -100,8 +112,11 @@ class Slider extends Component {
 	 *
 	 */
 	distance(index, point) {
-		const handle = this.refs[this.handleRef(index)];
-		const rect = offset(findDOMNode(handle));
+		if (!(index in this.handles)) {
+			return Infinity;
+		}
+
+		const rect = offset(this.handles[index]);
 
 		return (this.props.orientation === 'horizontal')
 			? Math.abs(rect.left - point.pageX)
@@ -129,8 +144,12 @@ class Slider extends Component {
 	 *
 	 */
 	moveTowardsPoint(index, point) {
+		if (!this.track) {
+			return;
+		}
+
 		const {orientation, min, max} = this.props;
-		const rect = offset(findDOMNode(this.refs.track));
+		const rect = offset(this.track);
 		const ratio = (orientation === 'horizontal')
 			? percentage(point.pageX - rect.left, rect.width)
 			: percentage(point.pageY - rect.top, rect.height);
@@ -219,14 +238,13 @@ class Slider extends Component {
 		return (
 			<div className={className}>
 				<div
-					ref="track"
 					className="rea11y-Slider-track"
 					onClick={this.handleClick}
+					ref={this.referenceTrack}
 				>
 					{values.map((value, index) => (
 						<SliderHandle
 							{...props}
-							ref={this.handleRef(index)}
 							key={index}
 							index={index}
 							value={value}
@@ -234,6 +252,9 @@ class Slider extends Component {
 							upperBound={this.upperBound(index)}
 							onChange={this.handleChange}
 							onDragStart={this.handleDragStart}
+							ref={(element) => {
+								this.referenceHandle(index, findDOMNode(element));
+							}}
 						/>
 					))}
 				</div>
