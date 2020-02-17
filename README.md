@@ -28,5 +28,4 @@ Documentation
 * [ProgressBar](./docs/ProgressBar.md)
 * [RangeSlider](./docs/RangeSlider.md)
 * [Slider](./docs/Slider.md)
-* [Tabs](./docs/Tabs.md)
 * [ToggleButton](./docs/ToggleButton.md)

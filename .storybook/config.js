@@ -6,9 +6,6 @@ import '../css/NumberInput.css';
 import '../css/Modal.css';
 import '../css/ProgressBar.css';
 import '../css/Slider.css';
-import '../css/Tab.css';
-import '../css/TabPanel.css';
-import '../css/Tabs.css';
 
 
 

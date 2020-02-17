@@ -28,11 +28,3 @@ export {default as ProgressBar} from './ProgressBar';
  */
 export {default as Slider} from './Slider';
 export {default as StatefulSlider} from './StatefulSlider';
-
-/**
- *	Tabs.
- */
-export {default as TabPanel} from './TabPanel';
-export {default as Tab} from './Tab';
-export {default as Tabs} from './Tabs';
-export {default as StatefulTabs} from './StatefulTabs';
