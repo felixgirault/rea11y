@@ -14,18 +14,28 @@
 
 .rea11y-Slider--vertical {
 	width: 1.5em;
-	height: 6em;
+	height: 9em;
 }
 
 .rea11y-Slider-track {
 	position: absolute;
+	border: 1px solid #aaa;
+	border-radius: 0.375em;
+	background: #ddd;
+}
+
+.rea11y-Slider--horizontal .rea11y-Slider-track {
 	top: 0.375em;
 	right: 0.75em;
 	bottom: 0.375em;
 	left: 0.75em;
-	border: 1px solid #aaa;
-	border-radius: 0.375em;
-	background: #ddd;
+}
+
+.rea11y-Slider--vertical .rea11y-Slider-track {
+	top: 0.75em;
+	right: 0.375em;
+	bottom: 0.75em;
+	left: 0.375em;
 }
 
 .rea11y-Slider:not(.rea11y-Slider--1) .rea11y-Slider-track {
@@ -50,22 +60,13 @@
 	background: #fff;
 }
 
-.rea11y-Slider--horizontal .rea11y-SliderHandle {
-	bottom: 0;
-}
-
-.rea11y-Slider--vertical .rea11y-SliderHandle {
-	left: 0;
-}
-
 .rea11y-SliderHandle-control {
 	box-sizing: border-box;
-	position: relative;
-	top: -0.375em;
-	left: -0.75em;
-	height: 1.5em;
+	position: absolute;
 	border: 1px solid #aaa;
 	border-radius: 0.75em;
+	width: 1.5em;
+	height: 1.5em;
 	background: #ddd;
 	cursor: grab;
 }
@@ -85,17 +86,29 @@
 }
 
 .rea11y-Slider--horizontal .rea11y-SliderHandle-control {
-	width: 1.5em;
+	top: -0.375em;
+	left: -0.75em;
 }
 
 .rea11y-Slider--vertical .rea11y-SliderHandle-control {
-	height: 1.5em;
+	left: -0.375em;
+	bottom: -0.75em;
 }
 
 .rea11y-SliderHandle-text {
-	position: relative;
+	position: absolute;
+	overflow: visible;
+}
+
+.rea11y-Slider--horizontal .rea11y-SliderHandle-text {
+	top: 1.5em;
 	left: -1.5em;
 	width: 3em;
 	text-align: center;
-	overflow: visible;
+}
+
+.rea11y-Slider--vertical .rea11y-SliderHandle-text {
+	bottom: -0.75em;
+	left: 1.5em;
+	text-align: left;
 }

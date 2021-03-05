@@ -39,6 +39,24 @@ Keyboard interactions when the focus is on the handle:
 		}
 	)
 	.addWithInfo(
+		'Vertical',
+		`
+A slider can be presented vertically.
+		`,
+		() => (
+			<StatefulSlider
+				orientation="vertical"
+				defaultValues={[16]}
+				onChange={handleChange}
+			/>
+		),
+		{
+			inline: true,
+			source: false,
+			propTables: false
+		}
+	)
+	.addWithInfo(
 		'Range',
 		`
 A slider can accept any number of handles.

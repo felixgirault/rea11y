@@ -148,7 +148,7 @@ class Slider extends Component {
 		const rect = offset(this.track);
 		const ratio = (orientation === 'horizontal')
 			? percentage(point.pageX - rect.left, rect.width)
-			: percentage(point.pageY - rect.top, rect.height);
+			: percentage(rect.height - (point.pageY - rect.top), rect.height);
 
 		const value = min + (((max - min) / 100) * ratio);
 		const snapped = this.snapped(
@@ -242,6 +242,7 @@ class Slider extends Component {
 						<SliderHandle
 							{...props}
 							key={index}
+							orientation={orientation}
 							index={index}
 							value={value}
 							lowerBound={this.lowerBound(index)}
