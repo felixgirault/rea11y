@@ -24,6 +24,8 @@ class NumberInput extends Component {
 		step: PropTypes.number,
 		bigStep: PropTypes.number,
 		value: PropTypes.number,
+		name: PropTypes.string,
+		title: PropTypes.string,
 		onChange: PropTypes.func,
 		children: PropTypes.element
 	};
@@ -204,6 +206,8 @@ class NumberInput extends Component {
 				>
 					<input
 						id={this.id}
+						name={this.props.name}
+						title={this.props.title}
 						className="rea11y-NumberInput-value"
 						type="text"
 						role="spinbutton"
