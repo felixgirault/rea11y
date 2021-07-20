@@ -4,8 +4,8 @@ import {pure} from 'recompose';
 import classNames from 'classnames';
 import {ARROW, PAGE_UP, PAGE_DOWN, HOME, END} from 'offkey';
 import noop from './utils/noop';
-import uniqueId from 'uniqueid';
 import bound from './utils/bound';
+import uniqueId from './utils/uniqueId';
 import KeyHandler from './KeyHandler';
 
 
@@ -55,7 +55,7 @@ class NumberInput extends Component {
 		this.handleDecrement = this.handleDecrement.bind(this);
 		this.handleBigDecrement = this.handleBigDecrement.bind(this);
 
-		this.id = uniqueId('rea11y-');
+		this.id = uniqueId();
 		this.state = {
 			value: props.value
 		};
